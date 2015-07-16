@@ -10,7 +10,7 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
 
   window.textEncoder = textEncoder = new TextEncoder()
   window.textDecoder = textDecoder = new TextDecoder()
-  
+
   window.athlete_skey = athlete_skey = new Uint8Array([198, 131, 161, 40, 127, 182, 95, 120, 238, 21, 211, 246, 62, 165, 73, 88, 127, 193, 29, 193, 60, 198, 183, 255, 187, 234, 222, 180, 206, 115, 50, 11]) # crypto.getRandomValues( new Uint8Array(32) )
   window.athlete_pkey = athlete_pkey = nacl.box.generate_pubkey athlete_skey
 
@@ -47,7 +47,6 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
     channel  : '8e04b18a-f27f-430e-a772-6f91c5302ca'
     callback : (message) ->
       $rootScope.$broadcast message.action, message.data
-      console.log 'Server - PubNub: ', message
     connect  : ->
       $rootScope.$broadcast 'PubNubService : Connected'
   }
@@ -57,14 +56,13 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
     crypto.getRandomValues nonce
     _decryptor = nacl.box.formatWN.makeDecryptor ServerPublicKey, Athlete.secretKey, nacl.arrays.makeFactory()
     _encryptor = nacl.box.formatWN.makeEncryptor ServerPublicKey, Athlete.secretKey, nonce, 2, nacl.arrays.makeFactory()
-    
+
 
     PubNub.subscribe {
       channel  : Athlete.channel
       callback : (message) ->
         message = Decrypt message
         $rootScope.$broadcast message.action, message.data
-        console.log 'Athlete - PubNub: ', message
       connect  : ->
         $rootScope.$evalAsync -> $rootScope.$broadcast 'PubNubService : Athlete Connected'
     }
@@ -73,7 +71,6 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
       channel  : Athlete.channel + 'S'
       callback : (message) ->
         $rootScope.$broadcast 'Messages : Incoming Message', message
-        console.log 'Messages : Incoming Message', message
     }
 
   return (action, data) ->

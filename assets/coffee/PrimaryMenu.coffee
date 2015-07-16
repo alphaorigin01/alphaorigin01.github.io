@@ -9,7 +9,6 @@ app.controller 'PrimaryMenuController', [ '$scope', '$rootScope', 'Athlete', ($s
 
   $scope.switchContext = (context) -> $rootScope.$broadcast 'Context Switch', context if Athlete._id?
   $scope.$on 'Context Switch', (e, context) ->
-    console.log 'Context Switch: ', context
 ]
 
 

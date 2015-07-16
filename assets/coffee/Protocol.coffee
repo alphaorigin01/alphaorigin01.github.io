@@ -51,7 +51,7 @@ app.controller 'ProtocolController', [ '$rootScope', '$scope', '$http', '$elemen
   ]
   $scope.selected_day = 1
   $scope.set_selected_day = (day) -> $scope.selected_day = day
-  $scope.select_next_day = -> console.log $scope.selected_day += 1
+  $scope.select_next_day = -> $scope.selected_day += 1
   $scope.select_previous_day = -> $scope.selected_day -= 1 if $scope.selected_day > 1
   $scope.ordinal = (day) ->
     s = ["th", "st", "nd", "rd"]
@@ -106,9 +106,8 @@ app.controller 'RegimenController', ['$scope', '$element', '$timeout', 'Athlete'
     if $scope.regimen.duration > 1
       $scope.regimen.duration = $scope.regimen.duration - $scope.regimen.interval
 
-  $($element).find('.value').on 'all', (n) ->
-    console.log n
-    
+  $($element).find('.value').on 'all', (n) -> n
+
   $($element).find('.value').keydown (e) ->
     if e.keyCode is 13
       e.preventDefault()

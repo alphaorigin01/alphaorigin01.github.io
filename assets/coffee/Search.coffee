@@ -100,7 +100,6 @@ app.controller 'SearchController', [ '$scope', '$rootScope', '$timeout', 'Athlet
 
   $scope.$on 'ProtocolService : Search Results', (e, data) ->
     $scope.$evalAsync ->
-      console.log 'data.rows: ', data.rows
       searchResultsQueue.push( Protocol( result.id ) ) for result in data.rows
       $scope.searchResults = []
       do populate
