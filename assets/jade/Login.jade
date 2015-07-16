@@ -1,0 +1,8 @@
+#login(ng-show="visibleLogin")
+	.title Member Login
+	.username(ng-model="username" contenteditable="true" placeholder="USERNAME")
+	.password(ng-model="password" contenteditable="true" placeholder="PASSWORD")
+	.attemptLogin(ng-click="login()") Login
+	.security
+		strong Warning!
+		| Passwords can't be reset or recovered! For your security, your password is never sent to our servers. We have no way to recover your account if you lose your password. Please keep it safe!

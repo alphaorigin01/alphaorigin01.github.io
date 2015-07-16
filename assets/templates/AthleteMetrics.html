@@ -1,0 +1,37 @@
+
+<section id="athlete_metrics" ng-show="visibleAthleteMetrics">
+  <div class="height metric normal editable">
+    <div class="icon"></div>
+    <label>Height</label>
+    <div ng-model="athlete.height" contenteditable="true" placeholder="0.00" class="value"></div>
+    <mark>m</mark>
+  </div>
+  <div class="weight metric normal editable">
+    <div class="icon"></div>
+    <label>Weight</label>
+    <div ng-model="athlete.weight" contenteditable="true" placeholder="0.00" class="value"></div>
+    <mark>kg</mark>
+  </div>
+  <div class="bodyfat metric normal editable">
+    <div class="icon"></div>
+    <label>Body Fat</label>
+    <div ng-model="athlete.bodyFat" contenteditable="true" placeholder="0.00" class="value"></div>
+    <mark>%</mark>
+  </div>
+  <div class="offset metric normal editable">
+    <div class="icon"></div>
+    <label>FFMI Offset</label>
+    <div ng-model="athlete.ffmiOFfset" contenteditable="true" placeholder="0.00" class="value"></div>
+  </div>
+  <div class="lean_body_mass">
+    <input type="number" ng-value="athlete.lbm" data-linecap="round" data-thickness="0.15" data-bgColor="#3C3C3E" data-displayInput="false" data-readOnly="true" data-width="160" data-min="0" ng-attr-data-max="{{ athlete.weight }}" class="dial"/>
+    <div placeholder="00.0" class="value">{{ athlete.lbm | number : 1 }}</div>
+    <mark>kg</mark>
+    <label>Lean Body Mass</label>
+  </div>
+  <div class="fat_free_mass_index">
+    <input type="number" ng-value="athlete.ffmi" data-linecap="round" data-thickness="0.15" data-bgColor="#3C3C3E" data-displayInput="false" data-readOnly="true" data-width="160" data-min="0" data-max="27" data-fgColor="#66CC66" class="dial"/>
+    <div placeholder="00.00" class="value">{{ athlete.ffmi | number : 2 }}</div>
+    <label>Fat Free Mass Index</label>
+  </div>
+</section>

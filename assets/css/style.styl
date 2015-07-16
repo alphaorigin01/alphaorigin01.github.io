@@ -1,0 +1,2975 @@
+/* Colors
+-------------------------------------------------------------------------------*/
+black = rgb(27, 27, 29)
+
+charcoal_light = rgb(60, 60, 62)
+charcoal_dark = rgb(50, 50, 52)
+charcoal_modal = rgba(50, 50, 54, 0.7)
+
+charcoal_light_border = rgb(69, 69, 71) //rgb(65, 65, 67)
+charcoal_dark_border = charcoal_light //rgb(56, 56, 58)
+
+gray_light = rgb(179, 179, 179)
+gray_dark = rgb(128, 128, 128)
+
+white_border = rgb(225, 225, 225)
+tab_border = rgb(230, 230, 230)
+
+
+/* Utilities
+-------------------------------------------------------------------------------*/
+grid_width(size)
+	return 3 if size is 1
+	return 8 if size is 2
+	return 13 if size is 3
+	return 18 if size is 4
+	return 23 if size is 5
+	return 28 if size is 6
+	return 33 if size is 7
+	return 38 if size is 8
+	return 43 if size is 9
+	return 48 if size is 10
+	return 53 if size is 11
+	return 58 if size is 12
+	return 63 if size is 13
+	return 68 if size is 14
+	return 73 if size is 15
+	return 78 if size is 16
+	return 83 if size is 17
+	return 88 if size is 18
+	return 93 if size is 19
+	return 98 if size is 20
+
+
+
+/* Fonts
+-------------------------------------------------------------------------------
+100 = thin
+200 = extra-light
+300 = light
+400 = normal, book
+500 = medium
+600 = demi-bold
+700 = bold
+800 = heavy
+900 = black
+
+Caption: design size 8.0 points, for use from 1.0 to 8.4 points
+Body Text: design size 11.0 points, for use from 8.4 to 12.9 points
+Subhead: design size 18.0 points, for use from 12.9 to 25.9 points
+Display: design size 72.0 points, for use from 25.9 to 99.9 points
+
+*/
+// Heuristica
+@font-face
+	font-family: "Heuristica"
+	font-style: normal
+	src: url("../fonts/Heuristica-Regular.woff")
+
+@font-face
+	font-family: "Heuristica"
+	font-style: italic
+	src: url("../fonts/Heuristica-RegularItalic.woff")
+
+@font-face
+	font-family: "Heuristica"
+	font-style: normal
+	font-weight: bold
+	src: url("../fonts/Heuristica-Bold.woff")
+
+@font-face
+	font-family: "Heuristica"
+	font-style: italic
+	font-weight: bold
+	src: url("../fonts/Heuristica-BoldItalic.woff")
+
+// Gotham ScreenSmart
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: normal
+	font-weight: 300
+	src: url("../fonts/GothamScreenSmartLight.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: italic
+	font-weight: 300
+	src: url("../fonts/GothamScreenSmartLightItalic.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: normal
+	src: url("../fonts/GothamScreenSmartBook.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: italic
+	src: url("../fonts/GothamScreenSmartBookItalic.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: normal
+	font-weight: 500
+	src: url("../fonts/GothamScreenSmartMedium.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: italic
+	font-weight: 500
+	src: url("../fonts/GothamScreenSmartMediumItalic.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: normal
+	font-weight: 700
+	src: url("../fonts/GothamScreenSmartBold.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: italic
+	font-weight: 700
+	src: url("../fonts/GothamScreenSmartBoldItalic.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: normal
+	font-weight: 900
+	src: url("../fonts/GothamScreenSmartBlack.woff")
+
+@font-face
+	font-family: "Gotham ScreenSmart"
+	font-style: italic
+	font-weight: 900
+	src: url("../fonts/GothamScreenSmartBlackItalic.woff")
+
+
+// Gotham Narrow ScreenSmart
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: normal
+	font-weight: 300
+	src: url("../fonts/GothamNarrowScreenSmartLight.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: italic
+	font-weight: 300
+	src: url("../fonts/GothamNarrowScreenSmartLightItalic.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: normal
+	src: url("../fonts/GothamNarrowScreenSmartBook.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: italic
+	src: url("../fonts/GothamNarrowScreenSmartBookItalic.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: normal
+	font-weight: 500
+	src: url("../fonts/GothamNarrowScreenSmartMedium.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: italic
+	font-weight: 500
+	src: url("../fonts/GothamNarrowScreenSmartMediumItalic.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: normal
+	font-weight: 700
+	src: url("../fonts/GothamNarrowScreenSmartBold.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: italic
+	font-weight: 700
+	src: url("../fonts/GothamNarrowScreenSmartBoldItalic.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: normal
+	font-weight: 900
+	src: url("../fonts/GothamNarrowScreenSmartBlack.woff")
+
+@font-face
+	font-family: "Gotham Narrow ScreenSmart"
+	font-style: italic
+	font-weight: 900
+	src: url("../fonts/GothamNarrowScreenSmartBlackItalic.woff")
+
+
+
+/* Basics
+-------------------------------------------------------------------------------*/
+html
+	height: 100%
+	background: white
+	font-family: "Gotham Narrow ScreenSmart"
+	font-size: (10/16)*100%
+
+body
+	min-height: 100%
+	font-size: 1rem
+	line-height: 1.5rem
+	text-rendering: optimizeLegibility
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	color: charcoal_light
+	background: black
+
+
+/* Typography Styles
+-------------------------------------------------------------------------------*/
+sans(style, color)
+	font-family: "Gotham ScreenSmart"
+	font-size: 1.1rem
+	line-height: 2rem
+	text-transform: none
+
+	if style is short
+		font-size: 1rem
+		line-height: 1.6rem
+
+	if style is tall
+		font-size: 1rem
+		font-weight: 500
+		line-height: 1.6rem
+		text-transform: uppercase
+
+	if style is grande
+		font-size: 1.1rem
+		font-weight: 500
+		line-height: 1.6rem
+		text-transform: uppercase
+
+	if style is venti
+		font-size: 1.4rem
+		font-weight: 500
+		line-height: 2rem
+		text-transform: uppercase
+
+	if color is light
+		font-weight: 400
+
+serif(style, color, alt = false)
+	font-family: "Heuristica"
+	font-size: 1.2rem
+	font-weight: 300
+	line-height: 1.6rem
+
+	if style is short
+		font-size: 1rem
+		line-height: 1.5rem
+		font-style: italic
+
+	if style is tall
+		font-size: 1.3rem
+		line-height: 1.8rem
+		font-style: italic
+
+	if style is grande
+		font-size: 1.8rem
+		line-height: 2.1rem
+
+	if alt is true
+		font-style: italic
+
+value(style, color)
+	font-family: "Gotham Narrow ScreenSmart"
+
+	if style is normal
+		font-size: 1.8rem
+		line-height: 1.8rem
+		font-weight: 500
+
+		.fa-btc
+			font-size: 1.6rem
+			margin-right: 0.2rem
+
+
+	if style is short
+		font-size: 1.2rem
+		line-height: 1.2rem
+		font-weight: 400
+
+		.fa-btc
+			font-size: 1rem
+			margin-right: 0.15rem
+
+	if style is tiny
+		font-size: 1rem
+		line-height: 1rem
+		font-weight: 500
+
+	if style is tall
+		font-size: 2.4rem
+		line-height: 2.4rem
+		font-weight: 500
+
+		.fa-btc
+			font-size: 2.2rem
+			margin-right: 0.25rem
+
+	if style is grande
+		font-size: 3.6rem
+		line-height: 3.6rem
+		font-weight: 700
+
+		.fa-btc
+			font-size: 3.4rem
+			margin-right: 0.25rem
+
+	if style is venti
+		font-size: 4rem
+		line-height: 4rem
+		font-weight: 700
+		font-family: "Gotham ScreenSmart"
+
+inline()
+	display: inline
+	padding-right: 1rem
+
+a[title="JavaScript charts"]
+	display: none!important
+
+
+
+/* Layout Elements
+-------------------------------------------------------------------------------*/
+// Generators -------------------- //
+page_element()
+	display: block
+	width: 100%
+
+module(size = 2)
+	width: (grid_width(size)) rem
+	margin: 1rem
+	text-align: left
+	overflow: hidden
+	background: white
+	border-radius: 0.5rem
+	background: rgba(230, 230, 230, 0.25)
+
+unit(width, height, spacing = normal, horizontal = normal, vertical = normal)
+	height: (height)rem
+	width: (width)rem
+	vertical-align: top
+
+	space = 2 if spacing is small
+	space = 3 if spacing is normal
+
+	if horizontal is left
+		padding-left: (space)rem
+		padding-right: 0rem
+
+	if horizontal is normal
+		padding-left: 0rem
+		padding-right: 0rem
+
+	if horizontal is right
+		padding-left: 0rem
+		padding-right: (space)rem
+
+	if horizontal is full
+		padding-left: (space)rem
+		padding-right: (space)rem
+
+	if vertical is top
+		padding-top: (space)rem
+		padding-bottom: 0rem
+
+	if vertical is normal
+		padding-top: 0rem
+		padding-bottom: 0rem
+
+	if vertical is bottom
+		padding-top: 0rem
+		padding-bottom: (space)rem
+
+	if vertical is full
+		padding-top: (space)rem
+		padding-bottom: (space)rem
+
+button(size = normal, color = charcoal)
+	display: inline-block
+	cursor: pointer
+
+	if color is charcoal
+		color: gray_dark
+		background: charcoal_light
+
+		&:hover
+			background: gray_dark
+			color: black
+
+	if color is charcoal_line
+		color: gray_dark
+		background: charcoal_dark
+		border: 1px solid charcoal_light_border
+
+	if color is white
+		color: gray_dark
+		background: white
+		border: 1px solid white_border
+
+	if color is gray
+		background: gray_light
+		//border: 1px solid gray_dark
+
+	if color is blue
+		color: white
+		background: light_blue
+
+	if size is normal
+		margin: 3em
+		height: 4rem
+		padding: 1.25rem 3rem
+		sans(grande, light)
+
+	if size is big
+		margin: 3em
+		height: 5rem
+		padding: 1.75rem 3rem
+		sans(venti, dark)
+		line-height: 1.4rem
+		font-weight: 600
+
+	if size is small
+		margin: 2em
+		height: 3rem
+		padding: 1.25rem 3rem
+		sans(tall, dark)
+		line-height: 0.5rem
+
+	if size is tiny
+		margin: 0.5em
+		height: 2rem
+		padding: 0.20rem 2rem
+		sans(short, dark)
+		line-height: 1.55rem
+
+	border-radius: 10rem
+
+text_field(width, color = dark)
+	display: inline-block
+	width: (width)rem
+	height: 3rem
+	margin-top: 1.25rem
+	padding: 0.8rem 2rem
+	float: left
+	sans(grande, light)
+	text-align: center
+	color: white
+	resize: none
+	border-radius: .5rem
+	border: none
+	background: charcoal_light
+
+	&[placeholder]:empty:before
+		color: gray_dark
+
+checkbox(color = "dark")
+	width: 2rem
+	height: 2rem
+	margin-right: 1rem
+	sans(grande, light)
+	border-radius: .5rem
+	border: none
+	background: charcoal_light
+
+	if color = "light"
+		background: white_border
+
+dark_scroll()
+	&::-webkit-scrollbar
+		width: 0.75rem
+
+	&::-webkit-scrollbar-track
+		background: charcoal_dark_border
+
+	&::-webkit-scrollbar-thumb
+		background: charcoal_light_border
+		border-radius: 1rem
+
+no_select()
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+//Styles ------------------------ //
+main
+	display: block
+	width: 100rem
+	margin 0 auto
+	overflow: auto
+
+	*
+		&[placeholder]:empty:before
+			content: attr(placeholder)
+
+section
+aside
+	display: block
+	overflow: hidden
+	min-height: 20rem
+
+	*
+		vertical-align: top
+		display: inline-block
+		cursor: default
+
+		&[contenteditable = "true"]
+			cursor: text
+
+section
+	width: 70rem
+	float: right
+
+aside
+	width: 30rem
+	float: left
+
+header
+	unit(1, 8, normal, full, full)
+	width: 100%
+	text-align: center
+	sans(venti, light)
+
+.modal
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: charcoal_modal
+
+	message
+		position: fixed
+		top: 50%
+		left: 50%
+		width: 20rem
+		height: 20rem
+		transform: translate(-50%, -50%)
+		background: white
+		border-radius: 0.5rem
+
+.metric
+	position: relative
+	border-bottom: 1px solid charcoal_dark_border
+
+	.icon
+		float: left
+		opacity: 0.4
+
+	label
+		width: 55%
+		color: gray_light
+
+	.value
+		color: white
+
+	mark
+		color: gray_dark
+
+	&.normal
+		unit(28, 11, normal, full, full)
+		float: left
+		clear: left
+
+		.icon
+			width: 5rem
+			height: 5rem
+			margin-right: 2rem
+
+		label
+			width: 65%
+			serif(tall, dark, true)
+
+		.value
+			value(grande, dark)
+
+			&[placeholder]:empty:before
+				color: gray_dark
+
+		mark
+			margin: 1.6rem 0 0 0.25rem
+			value(normal, dark)
+
+	&.small
+		unit(14, 7, small, full, full)
+		float: left
+		border-right: 1px solid charcoal_dark_border
+
+		.icon
+			width: 3rem
+			height: 3rem
+			margin-right: 0.9rem
+
+		label
+			serif(short, dark, true)
+
+		.value
+			max-width: 4.7rem
+			value(normal, dark)
+
+			&[placeholder]:empty:before
+				color: gray_light
+
+		mark
+			margin: 0.5rem 0 0 -0.1rem
+			value(short, dark)
+			font-size: 1rem
+
+		&.editable
+			border-right: 1px solid white_border
+
+	&.editable
+		background: white
+		border-bottom: 1px solid white_border
+
+		.icon
+			opacity: 1
+
+		label
+			color: gray_dark
+
+		.value
+			color: charcoal_light
+
+		.mark
+			color: gray_light
+
+.choices
+	position: absolute
+	width: 80%
+	background: black
+	border-radius: 0.25rem
+	box-shadow: 0 0 2rem black
+
+	header
+	.choice
+		display: block
+		padding: 1rem 2rem
+
+	header
+		height: auto
+		background: charcoal_light
+		serif(tall, dark)
+		text-transform: none
+		color: gray_light
+		border-radius: 0.25rem 0.25rem 0 0
+
+	.choice
+		sans(tall, light)
+		color: gray_light
+		cursor: pointer
+		border-bottom: 1px solid charcoal_light
+
+		&:last-child
+			border: none
+
+		&:hover
+			background: gray_dark
+			color: white
+
+	&.active
+		display: block
+
+.height .icon
+	background: url("../images/icon-height.png")
+	background-size: cover
+
+.weight .icon
+	background: url("../images/icon-weight.png")
+	background-size: cover
+
+.bodyfat .icon
+	background: url("../images/icon-bodyfat.png")
+	background-size: cover
+
+.offset .icon
+	background: url("../images/icon-offset.png")
+	background-size: cover
+
+.lean_body_mass .icon
+	background: url("../images/icon-lean_mass.png")
+	background-size: cover
+
+.fat_free_mass_index .icon
+	background: url("../images/icon-fat_free_mass_index.png")
+	background-size: cover
+
+#zoomout
+	width: 0
+	height: 0
+
+.tooltip
+	position: absolute
+	left: -13%
+	unit(25, 10, small, full, full)
+	sans(short, light)
+	height: auto
+	background: charcoal_dark
+	color: gray_light
+	text-align: justify
+	z-index: 9999
+	border-radius: 0.5rem
+
+	&.top
+		bottom: 105%
+
+	&.ng-hide-add.ng-hide-add-active
+	&.ng-hide-remove.ng-hide-remove-active
+		-webkit-transform: translate3d(0,-10px,0)
+		transform: translate3d(0,-10px,0)
+		-webkit-transition: opacity 0.3s, -webkit-transform 0.3s
+		transition: opacity 0.3s, transform 0.3
+
+	&.ng-hide
+		opacity: 0
+
+	&::after
+		position: absolute
+		content: ''
+		top: 100%
+		left: 50%
+		border: solid transparent
+		border-color: transparent
+		border-top-color: charcoal_dark
+		border-width: 1rem
+		margin-left: -1rem
+
+	strong
+		color: white
+		padding-right: 0.5rem
+
+//Elements ------------------------ //
+.protocol
+	module(14)
+	float: right
+	background: charcoal_dark
+
+	nav
+		unit(68, 5)
+		display: table
+		background: black
+
+		.tab
+			unit(17, 5, small, full, normal)
+			display: table-cell
+			width: auto
+			sans(grande, light)
+			line-height: 5rem
+			color: white
+			text-align: center
+			cursor: pointer
+
+			&.active
+			&:hover
+				background: charcoal_dark
+				border-radius: 0.5rem 0.5rem 0 0
+
+			&:nth-child(1)
+				width: 21rem
+
+				&.active
+					background: charcoal_light
+
+			&:nth-child(2)
+				&.active
+					background: charcoal_light
+
+	&.no_nav
+		nav
+			display: none
+
+	.panel
+		unit(68, 31)
+
+	.primary
+		.summary
+			unit(21, 31)
+			float: left
+			text-align: center
+			background: charcoal_light
+
+			.level
+				position: relative
+				width: 100%
+				margin-top: 4rem
+				serif(normal, light, true)
+				color: gray_light
+				cursor: pointer
+
+				.choices
+					z-index: 100
+					left: 2rem
+
+			.goal
+				position: relative
+				width: 100%
+				sans(venti, light)
+				color: white
+				cursor: pointer
+
+				&:hover
+					text-decoration: underline
+
+				.choices
+					left: 2rem
+
+			.rating
+				unit(21, 2)
+				margin-top: 1.5rem
+
+				.star
+					unit(2, 2)
+					background: url("../images/icon-star.png")
+					background-size: cover
+					cursor: pointer
+
+					&.active
+						background: url("../images/icon-star_active.png")
+						background-size: cover
+
+					&.hover
+						background: url("../images/icon-star_selected.png")
+						background-size: cover
+
+					&.selected
+						background: url("../images/icon-star_selected.png")
+						background-size: cover
+
+			.popularity
+				unit(21, 2)
+				padding-top: 0.5rem
+				sans(tall, dark)
+				color: gray_dark
+				display: none
+
+				.rank
+				.total
+					float: none
+					color: gray_light
+
+
+			.buy
+				unit(21, 14, small, full, full)
+				border-top: 1px solid charcoal_light_border
+				margin-top: 4rem
+				.price
+					width: 100%
+					text-align: center
+
+					.usd
+						width: 100%
+						serif(short, dark)
+						color: gray_light
+
+					.btc
+						width: 100%
+						value(tall, dark)
+						color: white
+
+				.add
+					button(normal, custom)
+					display: inline-block
+					margin: 1.5rem 0
+					font-weight: 500
+					color: white
+					border: 1px solid gray_light
+
+					&:hover
+						background: gray_dark
+						border: 1px solid gray_dark
+
+		.dna
+			unit(47, 15)
+			float: right
+			background: gray_light
+
+		.attributes
+			unit(47, 16, normal, full, full)
+			float: right
+			background: white
+
+			.id
+				sans(short, dark)
+				width: 10rem
+				-webkit-user-select: text
+				-moz-user-select: text
+				-ms-user-select: text
+				user-select: text
+
+			title
+				width: 38rem
+				overflow: hidden
+				white-space: nowrap
+				value(normal, dark)
+
+				&[placeholder]:empty:before
+					color: gray_light
+
+			.favorite
+			.delete
+				unit(2, 2)
+				margin-bottom: -2rem
+				float: right
+				text-align: right
+				color: gray_light
+				font-size: 1.5rem
+				cursor: pointer
+
+			.favorite
+				background: url("../images/icon-heart.png")
+				background-size: cover
+
+				&.active
+					background: url("../images/icon-heart-active.png")
+					background-size: cover
+
+			.delete:hover
+				color: gray_dark
+
+			.description
+				width: 100%
+				max-height: 5.9rem
+				margin-top: 1rem
+				serif(short, dark)
+				font-style: normal
+				text-align: justify
+				color: gray_light
+				overflow: hidden
+
+	.formulations
+		.profile
+			unit(35.1, 31)
+			background: charcoal_light
+			border-radius: 0 0 0.5rem 0
+
+			.mode
+				unit(3, 3)
+				float: left
+				margin: 3rem 0 0 3rem
+
+				&.inject
+					background: url("../images/icon-syringe.png")
+					background-size: cover
+
+				&.capsule
+					background: url("../images/icon-capsule.png")
+					background-size: cover
+
+			.dilution
+				width: 14rem
+				float: left
+				padding: 2.8rem 0 0 2rem
+				serif(short, light)
+				color: gray_light
+
+			.id
+				float: left
+				padding: 0 0 0 2rem
+				value(normal, light)
+				color: white
+
+			& > .quantity
+				float: right
+				width: 15rem
+				padding: 2.8rem 3rem 0 0
+				text-align: right
+
+				.value
+					value(grande, light)
+					color: white
+
+				mark
+					padding-top: 1.5rem
+					value(normal, light)
+					color: gray_dark
+
+			.compounds
+				unit(35.1, 17.7, normal, full, normal)
+				padding-top: 2rem
+
+				.compound
+					width: 100%
+					margin-bottom: -0.75rem
+
+					.icon
+						unit(4, 4)
+						float: left
+						border-radius: 10rem
+						background: gray_dark
+
+					.quantity
+						float: left
+						padding-left: 2rem
+						padding-top: 0.5rem
+						sans(short, dark)
+						color: gray_light
+
+					.density
+						float: left
+						padding-left: 2rem //0.5rem
+						padding-top: 0.5rem
+						sans(short, light)
+						color: gray_dark
+
+					.name
+						float: left
+						width: 25rem
+						margin-top: -0.1rem
+						padding-left: 2rem
+						serif(tall, dark)
+						color: gray_light
+
+
+			.description
+				unit(28, 7, normal, left, bottom)
+				padding-top: 1rem
+				float: left
+				sans(short, light)
+				text-align: justify
+				line-height: 1.1rem
+				color: gray_dark
+
+			.special
+				unit(3, 3)
+				margin: 1.2rem 3rem 0 0
+				float: right
+				background: url("../images/icon-done.png")
+				background-size: cover
+
+		.list
+			unit(32.9, 31)
+			float: right
+			overflow-x: hidden
+			overflow-y: auto
+			dark_scroll()
+
+			.formulation
+				unit(32.9, 6)
+				float: left
+				padding-top: 0.1rem
+				border-bottom: 1px solid charcoal_dark_border
+				cursor: pointer
+
+				*
+					cursor: pointer
+
+				.icon
+					unit(9, 4)
+					float: left
+					padding: 2rem 0 0 3rem
+
+					.circle
+						unit(2, 2)
+						margin-right: -1rem
+						border-radius: 10rem
+						background: gray_light
+
+				.id
+					float: left
+					padding: 2.2rem 0 0 2rem
+					sans(grande, light)
+					color: white
+
+				.mode
+					unit(2, 2)
+					float: right
+					margin: 2rem 1rem 0 0
+					serif(short, light)
+					color: gray_dark
+					background: charcoal_light
+
+					&.inject
+						background: url("../images/icon-syringe.png")
+						background-size: cover
+
+					&.capsule
+						background: url("../images/icon-capsule.png")
+						background-size: cover
+
+
+				& > .quantity
+					float: right
+					padding-top: 2.3rem
+					value(normal, light)
+					color: white
+
+				mark
+					float: right
+					padding: 2.7rem 3rem 0 0.25rem
+					sans(short, light)
+					color: gray_dark
+
+	.dose_schedule
+		.instructions
+			unit(25, 31)
+
+			.day
+				unit(22, 9, normal, normal, full)
+				padding-left: 2rem
+				background: gray_dark
+				border-radius: 0.5rem 0.5rem 0 0
+
+				.previous
+				.next
+					unit(1.8, 1.8)
+					margin-top: 1rem
+					value(normal, light)
+					font-weight: 300
+					line-height: 1.6rem
+					color: gray_light
+					text-align: center
+					border: 1px solid gray_light
+					border-radius: 10rem
+					cursor: pointer
+
+				.value
+					width: 13.4rem
+					value(grande, dark)
+					color: white
+					text-align: center
+
+				mark
+					width: 1rem
+					margin: 0.75rem 0 0 -0.5rem
+					serif(short, light)
+					line-height: 1rem
+					color: gray_light
+
+			.doses
+				unit(22, 22)
+				border-right: 1px solid charcoal_dark_border
+				dark_scroll()
+				overflow-x: hidden
+				overflow-y: auto
+
+				.dose
+					unit(22, 7.35)
+					float: left
+					padding-top: 0.1rem
+					background: charcoal_light
+					border-bottom: 1px solid charcoal_light_border
+
+					.icon
+						unit(11, 4)
+						float: left
+						padding: 2rem 0 0 2rem
+
+						.circle
+							unit(2,2)
+							margin-right: -0.5rem
+							border-radius: 10rem
+							background: gray_light
+							sans(short, light)
+
+					.id
+						float: left
+						padding: 0.3rem 0 0 2rem
+						sans(tall, light)
+						color: gray_light
+
+					.mode
+						unit(2.5, 2.5)
+						float: right
+						//clear: left
+						margin: 2.25rem 1rem 0 0
+						serif(short, light)
+						color: gray_dark
+						background: charcoal_light
+
+						&.injection
+							background: url("../images/icon-syringe.png")
+							background-size: cover
+
+						&.capsule
+							background: url("../images/icon-capsule.png")
+							background-size: cover
+
+
+					.quantity
+						float: right
+						padding-top: 2.5rem
+						value(tall, light)
+						color: white
+
+					mark
+						float: right
+						padding: 3.5rem 2rem 0 0.25rem
+						value(short, light)
+						color: gray_dark
+
+		.calendar
+			unit(43, 31, normal, normal, full)
+			padding-right: 1rem
+			float: right
+
+			.week
+				width: 21rem
+				float: left
+
+				&:nth-child(even)
+					float: right
+
+				.day
+					unit(2.5, 2.7)
+					serif(normal, light)
+					text-align: center
+					color: charcoal_light_border
+					cursor: pointer
+
+					&.active
+						color: gray_light
+
+					&:hover
+						color: white
+
+	.pharmacodynamics
+		.graph
+			unit(68, 22)
+			background: gray_light
+
+		.key
+			unit(68, 10)
+			padding: 0.25rem 2rem 2rem 2rem
+			background: white
+
+			.item
+				float: left
+				unit(32, 2.5)
+				padding-top: 1rem
+
+				& > .icon
+					unit(1.6, 1.6)
+					margin-right: 1rem
+					border-radius: 10rem
+
+
+					&.red
+						background: rgba(255, 67, 81, 1)
+
+					&.blue
+						background: rgba(27, 154, 247, 1)
+
+					&.orange
+						background: rgba(250, 136, 41, 1)
+
+					&.yellow
+						background: rgba(254, 211, 62, 1)
+
+					&.green
+						background: rgba(81, 230, 80, 1)
+
+				.label
+					sans(tall, dark)
+					padding-top: 0.15rem
+
+.regimen
+	module(14)
+	float: right
+	height: 43rem
+	background: charcoal_dark
+	cursor: pointer
+	overflow: visible
+
+	*
+		cursor: pointer
+
+	& > .icon
+		width: 8rem
+		height: 100%
+		float: left
+
+	.ident
+		position: relative
+		unit(60, 11)
+
+		.id
+			padding: 3rem 0 0 3rem
+			sans(tall, light)
+			color: gray_light
+
+		.mode
+			padding: 3rem 0 0 1rem
+			sans(tall, light)
+			color: gray_dark
+
+		.density
+			unit(10, 11)
+			padding: 3.5rem 0
+			float: right
+			text-align: center
+			border-left: 1px solid charcoal_dark_border
+
+			.value
+				value(tall, light)
+				color: gray_light
+
+			mark
+				sans(short, light)
+				color: gray_dark
+
+		.name
+			width: 49rem
+			padding: 0 0 0 3rem
+			value(tall, light)
+			color: white
+
+		.alias
+			width: 49rem
+			padding: 0 0 0 3rem
+			serif(normal, light, true)
+			color: gray_dark
+
+		.remove
+			display: none
+			unit(10, 11)
+			position: absolute
+			right: 0
+			top: 0
+			color: gray_light
+			sans(venti, dark)
+			line-height: 10rem
+			font-size: 3rem
+			font-weight: 200
+			text-align: center
+			background: charcoal_dark
+			border-left: 1px solid charcoal_dark_border
+			cursor: pointer
+
+			&:hover
+				color: white
+
+		&:hover
+			.remove
+				display: inline-block
+
+
+	.metrics
+		width: 60rem
+		height: 16rem
+		float: left
+		background: white
+
+		& > *
+			unit(20, 8, small, full, full)
+			position: relative
+			float: left
+			border-right: 1px solid white_border
+			border-bottom: 1px solid white_border
+
+			.icon
+				unit(4, 4)
+				float: left
+				margin-right: 1rem
+				background: gray_dark
+
+			label
+				width: 10.9rem
+				padding-top: 0.1rem
+				serif(normal, dark, true)
+				color: gray_dark
+
+			.value
+				value(tall, dark)
+
+			mark
+				sans(normal, dark)
+				padding-top: 1.1rem
+				padding-left: 0.2rem
+				line-height: 1.1rem
+				color: gray_dark
+
+			.adjust
+				unit(1, 4)
+				position: absolute
+				top: 2rem
+				right: 2rem
+
+				.up
+				.down
+					unit(0, 0)
+					position: absolute
+					border-left: 0.75rem solid transparent
+					border-right: 0.75rem solid transparent
+					cursor: pointer
+
+				.up
+					border-bottom: 0.75rem solid white_border
+
+				.down
+					bottom: 0
+					border-top: 0.75rem solid white_border
+
+
+
+		.active
+			.icon
+				background: url("../images/icon-plasma.png")
+				background-size: cover
+
+		.variance
+			.icon
+				background: url("../images/icon-variance.png")
+				background-size: cover
+
+			mark
+				padding-top: 0
+
+		.biolipid_density
+			.icon
+				background: url("../images/icon-density.png")
+				background-size: cover
+
+		.frequency
+			.icon
+				background: url("../images/icon-prescription.png")
+				background-size: cover
+
+		.start
+			.icon
+				background: url("../images/icon-calendar.png")
+				background-size: cover
+
+		.duration
+			.icon
+				background: url("../images/icon-calendar2.png")
+				background-size: cover
+
+	.graph
+		width: 60rem
+		height: 16rem
+		background: gray_light
+		float: left
+
+.add_button
+	module(14)
+	float: right
+	height: 8rem
+	background: gray_dark
+	cursor: pointer
+
+	.icon
+		unit(8, 8)
+		sans(venti, dark)
+		line-height: 8rem
+		font-size: 5rem
+		text-align: center
+		color: gray_light
+		background: charcoal_dark
+		cursor: pointer
+
+	label
+		unit(57, 8, normal, full, full)
+		sans(venti, light)
+		color: white
+		cursor: pointer
+
+	&:hover
+		background: gray_light
+
+		.icon
+			color: white
+			background: charcoal_light
+
+.compound_chooser
+	module(14)
+	float: right
+	height: 43rem
+	background: charcoal_dark
+	cursor: pointer
+
+	header
+		padding: 0
+
+		.search
+			text_field(30)
+			margin: 2.5rem 3rem
+			text-align: left
+
+		.icon
+			unit(11, 8)
+			float: right
+			sans(venti, dark)
+			line-height: 8rem
+			font-size: 3rem
+			font-weight: 200
+			text-align: center
+			color: gray_light
+			background: charcoal_dark
+			cursor: pointer
+
+			&:hover
+				color: white
+
+	.list
+		unit(68, 35)
+		dark_scroll()
+		overflow-x: hidden
+		overflow-y: scroll
+
+	.compound
+		position: relative
+		unit(68, 9)
+		border-top: 1px solid charcoal_dark_border
+		cursor: pointer
+
+		*
+			cursor: pointer
+			no_select()
+
+		.icon
+			unit(8, 9)
+			float: left
+
+		.id
+			padding: 2rem 0 0 3rem
+			sans(tall, light)
+			color: gray_light
+
+		.mode
+			padding: 2rem 0 0 1rem
+			sans(tall, light)
+			color: gray_dark
+
+		.density
+			unit(10, 9)
+			//margin-right: 1rem
+			padding: 2.5rem 0
+			float: right
+			text-align: center
+			border-left: 1px solid charcoal_dark_border
+
+			.value
+				value(tall, light)
+				color: gray_light
+
+			mark
+				sans(short, light)
+				color: gray_dark
+
+		.name
+			width: 49rem
+			padding: 0 0 0 3rem
+			value(tall, light)
+			color: white
+
+		.alias
+			width: 49rem
+			padding: 0 0 0 3rem
+			serif(normal, light, true)
+			color: gray_dark
+
+		&:hover
+			background: charcoal_light
+
+			.density
+				border-left: 1px solid charcoal_light_border
+
+.order
+	module(14)
+	float: right
+	background: charcoal_dark
+
+	header
+		unit(68, 8, normal, full, full)
+		border-bottom: 1px solid charcoal_dark_border
+
+		.id
+			float: left
+			sans(venti, light)
+			color: gray_light
+
+		.timestamp
+			float: right
+			serif(tall, light)
+			color: gray_light
+			text-align: right
+			text-transform: none
+
+	.cart
+		unit(28, 45)
+		float: left
+		margin: 0
+
+		.protocols
+			unit(28, 27)
+			margin-bottom: 3rem
+			padding-top: 2rem
+			padding-bottom: 3rem
+			border-bottom: 1px solid charcoal_dark_border
+			background: charcoal_dark
+			overflow-y: auto
+			dark_scroll()
+
+			.protocol
+				width: 24rem
+				padding-bottom: 3rem
+				margin-bottom: 2rem
+				border-bottom: 1px dashed charcoal_light_border
+
+				&:last-child
+					padding-bottom: 0
+					margin-bottom: 0
+					border: none
+
+				& > .id
+					width: 22rem
+					serif(short, light)
+					color: gray_dark !important
+
+				.name
+					width: 22rem
+					margin-bottom: 0.5rem
+					sans(grande, light)
+					color: white
+					overflow-x: hidden
+					white-space: nowrap
+
+			.formulation
+				unit(22, 3)
+				padding: 1rem 0 0 4rem
+
+				.icon
+					width: 5rem
+					float: left
+
+					.circle
+						width: 2rem
+						height: 2rem
+						float: left
+						margin-right: -0.8rem
+						background: gray_light
+						border-radius: 10rem
+
+						&:nth-child(1)
+							background: light_blue
+
+						&:nth-child(2)
+							background: red
+
+						&:nth-child(3)
+							background: yellow
+
+				.quantity
+					float: right
+					margin-top: 0.2rem
+					value(normal, dark)
+					color: gray_light
+
+				mark
+					float: right
+					margin-top: 0.5rem
+					//margin-right: 1.5rem
+					sans(short, dark)
+					color: gray_dark
+
+				.mode
+					width: 2rem
+					height: 2rem
+					float: left
+					//margin-left: 1rem
+					margin-right: 1rem
+					background: url("../images/icon-syringe.png")
+					background-size: cover
+
+				.id
+					float: left
+					margin-right: 1rem
+					value(normal, light)
+					line-height: 2rem
+					color: gray_light
+
+			.actions
+				unit(12, 10, normal, normal, top)
+				float: left
+
+			.subtotal
+				unit(10, 10, normal, normal, top)
+				float: left
+
+				.quantity
+					unit(10, 3.25)
+
+					.value
+						margin-top: 0.15rem
+						float: right
+						value(short, light)
+						color: gray_light
+
+					mark
+						margin-left: 1rem
+						sans(tall, light)
+						color: gray_dark
+
+				.price
+					unit(10, 4)
+
+					.value
+						width: 100%
+						text-align: right
+
+						&.usd
+							serif(tall, light)
+							color: gray_light
+
+						&.btc
+							value(tall, light)
+							color: white
+
+
+		.accessories
+			unit(28, 14, normal, full, normal)
+			background: charcoal_dark
+
+			.item
+				width: 100%
+
+
+				.name, .quantity
+					display: inline-block
+					float: left
+					sans(short, light)
+					color: gray_light
+
+				.quantity
+					float: right
+
+			.referral
+				text_field(14)
+
+			.subtotal
+				display: inline-block
+				float: right
+
+				&.usd
+					margin-top: 1rem
+					serif(normal, light, true)
+					color: gray_dark
+
+				&.btc
+					clear: right
+					value(normal, light)
+					color: gray_light
+
+		.total_price
+			margin-right: 3rem
+			float: right
+			text-align: right
+
+			&.btc
+				clear: right
+				value(tall, light)
+				color: white
+
+			&.usd
+				margin-top: 2rem
+				serif(tall, light)
+				color: gray_dark
+
+	.fulfillment
+		unit(40, 45)
+		float: right
+		padding: 0
+		border-left: 1px solid charcoal_dark_border
+
+		.status
+			unit(40, 45, normal, full, full)
+
+			&:last-child
+				border: none
+
+			& > .icon
+				unit(5, 5)
+				float: left
+				margin-right: 2rem
+				background: charcoal_dark_border
+
+			& > .title
+				width: 26rem
+				margin-top: 0.8rem
+				sans(venti, light)
+				color: white
+
+			.action
+				width: 26rem
+				height: 1.5rem
+				serif(short, light)
+				color: gray_dark
+
+			&.active
+				display: inline-block
+
+			&.payment
+				.icon
+					background: url("../images/icon-payment.png")
+					background-size: cover
+
+				.subtotal
+				.credit
+				.total
+					color: gray_dark
+
+					label
+						sans(tall, light)
+						margin-left: 14rem
+						float: left
+
+					.value
+						value(short, light)
+						float: right
+
+				.subtotal
+					unit(34, 3, small, normal, top)
+
+				.credit
+					unit(34, 3)
+					padding-top: 0.5rem
+					border-bottom: 1px solid charcoal_light
+
+				.total
+					unit(34, 4)
+					padding-top: 1rem
+					color: white
+
+					label
+						margin-top: 0.5rem
+						sans(venti, light)
+
+					.value
+						value(tall, light)
+
+				.pay
+					float: left
+					button(small, gray)
+					margin: 2rem 2rem 0 0
+					color: charcoal_dark
+					text-decoration: none
+					cursor: pointer
+
+					&:hover
+						color: black
+						background: white
+
+				.address
+					text_field(23.7)
+					float: right
+					margin-top: 2rem
+					padding: 0
+					value(short, light)
+					font-size: 1rem
+					line-height: 3rem
+					color: gray_light
+					font-style: normal
+					text-align: center
+					text-transform: none
+					cursor: text
+					-webkit-user-select: text
+					-moz-user-select: text
+					-ms-user-select: text
+					user-select: text
+
+				.instructions
+					unit(34, 10, normal, normal, top)
+					serif(short, light)
+					font-style: normal
+					text-align: justify
+					color: gray_dark
+
+					strong
+						sans(tall, light)
+						color: gray_light
+
+					a
+						color: gray_light
+						text-decoration: none
+
+				.service
+					unit(16, 9)
+					padding: 1.5rem 1rem 0
+					border-radius: 0.5rem
+					sans(short, dark)
+					text-transform: uppercase
+					text-align: center
+					line-height: 1.2rem
+
+					.logo
+						unit(12, 3)
+						margin-bottom: 0.75rem
+
+					&.coinbase
+						float: left
+						padding-top: 2rem
+						font-weight: 400
+						color: white
+						background: rgb(43, 113, 177)
+
+						.logo
+							background: url("../images/logo-coinbase.png")
+							background-repeat: no-repeat
+							background-position: center
+							background-size: contain
+
+					&.circle
+						float: right
+						font-weight: 400
+						color: charcoal_dark
+						background: white
+
+						.logo
+							background: url("../images/logo-circle.png")
+							background-repeat: no-repeat
+							background-position: center
+							background-size: contain
+
+			&.formulating
+				& > .icon
+					background: url("../images/icon-formulating.png")
+					background-size: cover
+
+				.step
+					unit(40, 6, normal, normal, top)
+
+					.icon
+						unit(4, 4)
+						float: left
+						margin-right: 1rem
+						opacity: 0.5
+						background: url("../images/icon-todo.png")
+						background-size: cover
+
+					.title
+						margin-top: 0.5rem
+						sans(tall, light)
+						color: gray_light
+
+					.description
+						width: 29rem
+						serif(short, light)
+						color: gray_dark
+
+					.error
+						margin-top: 1.15rem
+						color: red
+						display: none
+
+					&:nth-child(4)
+						margin-top: 3rem
+
+					&.done
+						.icon
+							background: url("../images/icon-done.png")
+							background-size: cover
+
+			&.shipment
+				& > .icon
+					background: url("../images/icon-shipping.png")
+					background-size: cover
+
+				.delivery_day
+					unit(34, 8.5, normal, normal, full)
+					padding-bottom: 2rem
+
+					label
+						width: 34rem
+						margin-bottom: 0.25rem
+						serif(tall, light)
+						color: gray_light
+
+					.value
+						value(normal, light)
+						color: white
+
+				.infographic
+					unit(34, 2)
+					margin-bottom: 3rem
+					background: charcoal_light
+					border-radius: 10rem
+
+					.bar
+						width: 70%
+						height: 2rem
+						background: gray_light
+						border-radius: 10rem
+
+				.log
+					unit(34, 20.5)
+					overflow-x: none
+					overflow-y: auto
+					dark_scroll()
+
+					.entry
+						padding: 0.25rem 0
+
+						.timestamp
+							width: 15rem
+							serif(short, light)
+							color: gray_dark
+
+						.value
+							sans(short, light)
+							color: gray_light
+
+// Singletons -------------------- //
+status-bar
+	page_element()
+	height: 3rem
+	background: darker
+
+	main
+		.status
+			margin: 0 1rem
+			sans(tall, dark)
+			line-height: 3rem
+			color: gray_dark
+
+			.value
+				margin-right: 2rem
+				sans(tall, light)
+				color: white
+				cursor: pointer
+
+				&:last-child
+					margin-right: 0
+
+		.store_status
+			float: left
+
+		.account_status
+			float: right
+
+primary-menu
+	page_element()
+	height: 8rem
+	background: white
+
+	main
+		text-align: justify
+		text-justify: distribute
+
+
+		*
+			display: inline-block
+			margin: 0 3.6rem
+			vertical-align: top
+
+		.logo
+			font-size: 2.5rem
+			font-family: "Gotham ScreenSmart" //"Surveyor ScreenSmart"
+			font-weight: 900
+			line-height: 8rem
+
+			.icon
+				unit(5, 5)
+				margin: 1.25rem 2.5rem 0 0
+				background: url("../images/icon-logo.png")
+				background-size: cover
+
+		.option
+			sans(grande, dark)
+			line-height: 8rem
+			cursor: pointer
+
+masthead
+	page_element()
+	height: 1rem //24rem
+	margin-bottom: 2rem
+	background: gray_dark
+	background-size: cover
+	background-position: 0 -220px
+
+	#masthead
+		unit(100, 24)
+		margin: 0 auto
+		background-size: cover
+
+#login
+	module(6)
+	float: left
+	clear: left
+	background: charcoal_dark
+
+	.title
+		unit(28, 8, normal, full, full)
+		sans(venti, light)
+		text-align: center
+		color: white
+		border-bottom: 1px solid charcoal_dark_border
+
+	.username
+	.password
+		text_field(22)
+		margin: 3rem 3rem 0
+		text-align: center
+		text-transform: none
+		cursor: text
+
+	.password
+		margin-top: 2rem
+
+	.attemptLogin
+		button(normal, gray)
+		width: 15rem
+		margin: 2.5rem 6rem
+		text-align: center
+		font-weight: 500
+
+		&:hover
+			background: white
+
+	.security
+		unit(28, 13, normal, full, bottom)
+		serif(normal, light)
+		color: gray_dark
+		text-align: justify
+
+		strong
+			width: 22rem
+			sans(venti, light)
+			text-align: center
+			color: gray_light
+
+#protocolByID
+	module(6)
+	float: left
+	clear: left
+	background: charcoal_dark
+
+	.protocolID
+		text_field(13)
+		margin: 3rem 0 0 2.75rem
+		text-align: center
+		text-transform: none
+		cursor: text
+
+	.search
+		button(small, gray)
+		width: 8rem
+		padding: 1.25rem
+		margin: 3rem 1.5rem
+		text-align: center
+		font-weight: 500
+
+		&:hover
+			background: white
+
+#athlete_metrics_aside
+	module(6)
+	float: left
+	clear: left
+	background: charcoal_dark
+
+section#newMember
+	module(14)
+	float: right
+	background: charcoal_dark
+
+	.title
+		unit(68, 8, normal, full, full)
+		sans(venti, light)
+		text-align: center
+		color: white
+		border-bottom: 1px solid charcoal_dark_border
+
+	.credentials
+		unit(40, 33)
+
+		.welcome
+			unit(40, 8)
+			padding: 3rem 3rem 0
+			serif(short, light)
+			color: gray_dark
+			text-align: justify
+
+		.icon
+			unit(3, 3)
+			margin: 2rem 5.5rem 0 2rem
+			background: url("../images/icon-todo.png")
+			background-size: cover
+			opacity: 0.4
+
+			&.ok
+				background: url("../images/icon-done.png")
+				background-size: cover
+
+			&.fail
+				background: url("../images/icon-fail.png")
+				background-size: cover
+
+			&#username
+				margin-top: 6rem
+
+		.username
+		.password
+		.invitation
+			text_field(22)
+			margin: 2rem 0 0 6.5rem
+			text-align: center
+			text-transform: none
+			cursor: text
+
+		.username
+			margin-top: 6rem
+
+		.submit
+			button(normal, gray)
+			display: block
+			width: 25rem
+			margin: 4.5rem auto
+			text-align: center
+			font-weight: 500
+
+			&:hover
+				background: white
+
+section#athlete_metrics
+	module(14)
+	float: right
+	background: charcoal_dark
+
+	.offset
+		border-bottom: none
+
+	.lean_body_mass
+	.fat_free_mass_index
+		unit(40, 22, normal, full, full)
+		padding-left: 5rem
+
+		div:first-child
+			margin-right: 3rem
+			float: left
+
+		.icon
+			unit(16, 16)
+			border: 0.5rem solid charcoal_dark_border
+			border-radius: 20rem
+			background-image: none
+
+		label
+			serif(tall, light)
+			color: gray_light
+
+		.value
+			margin-top: 5rem
+			margin-right: 0.5rem
+			value(grande, light)
+			color: white
+
+		mark
+			margin-top: 6.6rem
+			value(normal, light)
+			color: gray_dark
+
+	.lean_body_mass
+		border-bottom: 1px solid charcoal_dark_border
+
+#shopping_cart
+	module(6)
+	float: left
+	clear: left
+	background: charcoal_dark
+
+	header
+		unit(28, 8, normal, full, full)
+		sans(venti, light)
+		color: white
+		text-align: center
+		border-bottom: 1px solid charcoal_dark_border
+
+	.protocols
+		unit(28, 0)
+		height: auto
+		margin-bottom: 3rem
+		padding-top: 2rem
+		padding-bottom: 3rem
+		border-bottom: 1px solid charcoal_dark_border
+		background: charcoal_dark
+
+		.protocol
+			width: 24rem
+			padding-bottom: 3rem
+			margin-bottom: 2rem
+			border-bottom: 1px dashed charcoal_light_border
+
+			&:last-child
+				padding-bottom: 0
+				margin-bottom: 0
+				border: none
+
+			& > .id
+				width: 22rem
+				serif(short, light)
+				color: gray_dark !important
+
+			.name
+				width: 22rem
+				margin-bottom: 0.5rem
+				sans(grande, light)
+				color: white
+				overflow-x: hidden
+				white-space: nowrap
+
+		.formulation
+			unit(22, 3)
+			padding: 1rem 0 0 4rem
+
+			.icon
+				width: 5rem
+				float: left
+
+				.circle
+					width: 2rem
+					height: 2rem
+					float: left
+					margin-right: -0.8rem
+					background: gray_light
+					border-radius: 10rem
+
+					&:nth-child(1)
+						background: light_blue
+
+					&:nth-child(2)
+						background: red
+
+					&:nth-child(3)
+						background: yellow
+
+			.quantity
+				float: right
+				margin-top: 0.2rem
+				value(normal, dark)
+				color: gray_light
+
+			mark
+				float: right
+				margin-top: 0.5rem
+				//margin-right: 1.5rem
+				sans(short, dark)
+				color: gray_dark
+
+			.mode
+				width: 2rem
+				height: 2rem
+				float: left
+				//margin-left: 1rem
+				margin-right: 1rem
+				background: url("../images/icon-syringe.png")
+				background-size: cover
+
+			.id
+				float: left
+				margin-right: 1rem
+				value(normal, light)
+				line-height: 2rem
+				color: gray_light
+
+		.actions
+			unit(12, 10, normal, normal, top)
+			float: left
+
+			.quantity
+			.edit
+			.delete
+				button(tiny, charcoal_line)
+				width: 8rem
+				margin: 0.25rem 0
+				text-align: center
+
+			.quantity
+				margin-top: 0
+				padding-left: 0
+				padding-right: 0
+
+				.up
+				.down
+					height: 1.9rem
+					margin-top: -0.25rem
+					width: 2rem
+					sans(venti, light)
+					line-height: 2.1rem
+					background: charcoal_light_border
+					cursor: pointer
+
+				.up
+					padding-left: 0.25rem
+					float: left
+					border-top-left-radius: 10rem
+					border-bottom-left-radius: 10rem
+
+				.down
+					padding-right: 0.25rem
+					float: right
+					border-top-right-radius: 10rem
+					border-bottom-right-radius: 10rem
+
+		.subtotal
+			unit(10, 10, normal, normal, top)
+			float: left
+
+			.quantity
+				unit(10, 3.25)
+
+				.value
+					margin-top: 0.15rem
+					float: right
+					value(short, light)
+					color: gray_light
+
+				mark
+					margin-left: 1rem
+					sans(tall, light)
+					color: gray_dark
+
+			.price
+				unit(10, 4)
+
+				.value
+					width: 100%
+					text-align: right
+
+					&.usd
+						serif(tall, light)
+						color: gray_light
+
+					&.btc
+						value(tall, light)
+						color: white
+
+
+	.accessories
+		unit(28, 14, normal, full, normal)
+		background: charcoal_dark
+		border-bottom: 1px solid charcoal_dark_border
+
+		.item
+			width: 100%
+
+
+			.name, .quantity
+				display: inline-block
+				float: left
+				sans(short, light)
+				color: gray_light
+
+			.quantity
+				float: right
+
+		.referral
+			text_field(14)
+
+		.subtotal
+			display: inline-block
+			float: right
+
+			&.usd
+				margin-top: 1rem
+				serif(normal, light, true)
+				color: gray_dark
+
+			&.btc
+				clear: right
+				value(normal, light)
+				color: gray_light
+
+	.total_price
+		margin-right: 3rem
+		float: right
+		text-align: right
+
+		&.btc
+			clear: right
+			value(tall, light)
+			color: white
+
+		&.usd
+			margin-top: 2rem
+			serif(tall, light)
+			color: gray_dark
+
+	.buy
+		width: 14rem
+		height: 4rem
+		float: left
+		margin: 2rem 0 0 3rem
+		sans(venti, dark)
+		line-height: 4rem
+		text-align: center
+		//color: white
+		background: white//light_blue
+		border-radius: 10rem
+
+	.checkout
+		.shipping
+			unit(28, 29, normal, full, normal)
+			border-bottom: 1px solid charcoal_dark_border
+
+			label
+				width: 22rem
+				margin: 3rem 0 0
+				sans(grande, light)
+				color: gray_light
+
+			.name
+				text_field(22)
+				text-align: left
+
+			.address
+				text_field(22)
+				text-align: left
+				font-style: normal
+
+			.city
+				text_field(22)
+				text-align: left
+
+			.state
+				text_field(8)
+				margin-right: 1rem
+
+			.zip
+				text_field(13)
+
+		.payment
+			unit(28, 19, normal, full, full)
+
+			label
+				width: 22rem
+				margin-bottom: 1rem
+				sans(grande, light)
+				color: gray_light
+
+			.total
+				width: 22rem
+				text-align: center
+
+				&.usd
+					margin-bottom: 0.5rem
+					serif(tall, light)
+					color: gray_light
+
+				&.btc
+					value(grande, light)
+					color: white
+
+			.submit
+				button(big, gray)
+				width: 20rem
+				margin: 2rem 1rem 1rem
+				text-align: center
+
+				&.active:hover
+					background: white
+
+				&.disabled
+					padding-top: 2rem
+					font-size: 1rem
+					background: gray_dark
+
+#search_criteria
+	module(14)
+	float: right
+	background: charcoal_dark
+
+	nav
+		unit(13, 15)
+		float: left
+
+		.tab
+			unit(13, 5, small, full, full)
+			sans(tall, light)
+			line-height: 1rem
+			color: gray_dark
+			border-bottom: 1px solid charcoal_light_border
+			background: charcoal_light
+			cursor: pointer
+
+			&.favorites .icon
+				unit(1.5, 1.4)
+				margin: -0.25rem 0.75rem 0 0
+				background: url("../images/icon-heart.png")
+				background-size: cover
+
+
+			&.active
+				color: white
+				background: charcoal_dark
+				//border-right: 1px solid charcoal_dark_border
+
+			&:hover
+				color: gray_light
+				background: charcoal_dark
+
+			&:nth-child(3)
+				border: none
+
+	.filters
+		unit(54.9, 15)
+		float: right
+
+		.compounds
+			unit(36, 8.5)
+			float: left
+			padding: 3rem 0 2rem 3rem
+
+			.compound
+				unit(1, 3.5)
+				width: 50%
+				float: left
+				cursor: pointer
+
+				*
+					cursor: pointer
+
+				.icon
+					unit(3.5, 3.5)
+					padding-top: 0.6rem
+					color: charcoal_dark
+					text-align: center
+					font-size: 2rem
+					line-height: 2rem
+					border: 2px solid gray_dark
+					border-radius: 10rem
+
+				label
+					unit(10, 3)
+					margin: 0.4rem 0 0 1rem
+					sans(tall, light)
+					color: gray_dark
+					overflow-x: hidden
+					overflow-y: hidden
+
+				&:nth-child(2)
+					//border-left: 1px solid charcoal_dark_border
+
+				&.active
+					label
+						color: gray_light
+
+					.icon
+						border: none
+
+					&:hover
+						.icon
+							color: charcoal_light
+
+		.length
+			unit(19, 3)
+			margin: 0.5rem 0 3rem 3rem
+			float: left
+			clear: left
+
+			.min
+			.max
+				text_field(7)
+				margin: 0
+				float: left
+
+			.max
+				float: right
+
+			.endash
+			mark
+				unit(5, 2)
+				text-align: center
+				color: gray_dark
+
+			.endash
+				margin-top: -1rem
+				value(grande, light)
+				font-weight: 400
+
+			mark
+				sans(tall, light)
+
+		.level
+			position: relative
+			text_field(13.5)
+			margin: 0.5rem 0 3rem 2rem
+			float: right
+			//border: 1px solid gray_dark
+
+			.choices
+				width: 90%
+				z-index: 100
+				top: -6rem
+				left: 0.75rem
+
+		.goals
+			unit(17, 15)
+			float: right
+			padding: 3rem 3rem 3rem 2rem
+			//border-left: 1px solid charcoal_dark_border
+
+			.goal
+				unit(13, 2.5)
+
+				.checkbox
+					unit(1.6, 1.6)
+					sans(venti, dark)
+					font-size: 1.4rem
+					font-weight: 600
+					color: charcoal_light
+					text-align: center
+					line-height: 1.8rem
+					background: charcoal_light
+					border-radius: .25rem
+					cursor: pointer
+
+					&:hover
+						background: charcoal_light_border
+
+					&.active
+						color: charcoal_light
+						background: gray_light
+
+						&:hover
+							background: gray_light
+
+				label
+					padding-left: 0.5rem
+					sans(tall, light)
+					line-height: 1.8rem
+					color: gray_light
+
+#search_compounds
+	module(14)
+	float: right
+	height: 23rem
+	background: charcoal_dark
+	cursor: pointer
+
+#account
+	module(6)
+	float: left
+	clear: left
+	background: charcoal_dark
+
+	.username
+		unit(28, 8, normal, full, full)
+		sans(venti, light)
+		text-align: center
+		color: white
+		border-bottom: 1px solid charcoal_dark_border
+
+	.balance
+		unit(28, 11, normal, full, full)
+		color: gray_light
+		border-bottom: 1px solid charcoal_dark_border
+
+		.icon
+			unit(5, 5)
+			float: left
+			margin-right: 2rem
+			background: url("../images/icon-wallet.png")
+
+		label
+			width: 22rem
+			height: 2rem
+			serif(tall, light)
+
+
+		.value
+			&.btc
+				value(grande, light)
+				color: white
+
+			&.usd
+				sans(tall, light)
+				color: gray_dark
+
+	.referal
+		unit(28, 18, normal, full, full)
+		border-bottom: 1px solid charcoal_dark_border
+
+		title
+			sans(grande, light)
+			color: gray_light
+
+		.description
+			width: 21rem
+			serif(short, light)
+			color: gray_dark
+			text-align: justify
+
+		.code
+			text_field(13, light)
+			padding-top: 1.25rem
+			height: 4rem
+			margin: 2rem 4.5rem 0
+			value(normal, light)
+			color: gray_light
+			cursor: text
+			-webkit-user-select: text
+			-moz-user-select: text
+			-ms-user-select: text
+			user-select: text
+
+	.invitations
+		unit(28, 21, normal, full, full)
+		border-bottom: 1px solid charcoal_dark_border
+
+		title
+			sans(grande, light)
+			color: gray_light
+
+		.disclaimer
+			width: 21rem
+			serif(short, light)
+			color: gray_dark
+			text-align: justify
+
+		.code
+			text_field(13, light)
+			padding-top: 1.25rem
+			height: 4rem
+			margin: 2rem 4.5rem 0
+			value(normal, light)
+			color: gray_light
+			cursor: text
+			-webkit-user-select: text
+			-moz-user-select: text
+			-ms-user-select: text
+			user-select: text
+
+		.generate
+			button(small, charcoal)
+			width: 19rem
+			margin: 1rem 1.5rem 0
+			text-align: center
+
+	.password
+		text_field(22)
+		margin: 3rem 3rem 0
+		text-align: center
+		text-transform: none
+		cursor: text
+
+	.changePassword
+		button(normal, charcoal)
+		margin: 2rem 4.7rem 2rem
+
+	.security
+		unit(28, 13, normal, full, bottom)
+		serif(normal, light)
+		color: gray_dark
+		text-align: justify
+
+		strong
+			width: 22rem
+			sans(venti, light)
+			text-align: center
+			color: gray_light
+
+#messages
+	module(6)
+	height: 52rem
+	float: left
+	clear: left
+	background: charcoal_dark
+
+	header
+		unit(28, 8, normal, full, full)
+		sans(venti, light)
+		text-align: center
+		color: white
+		border-bottom: 1px solid charcoal_dark_border
+
+	.history
+		unit(28, 26, normal, full, full)
+		padding-bottom: 1rem
+		serif(normal, light)
+		overflow-x: hidden
+		overflow-y: auto
+		border-bottom: 1px solid charcoal_dark_border
+		dark_scroll()
+
+		.message
+			width: 22rem
+			margin-bottom: 2rem
+			text-align: left
+
+			.sender
+				width: 19rem
+				margin-bottom: 0.5rem
+				serif(short, light)
+				color: gray_dark
+
+			.text
+				width: 20rem
+				padding: 1rem
+				sans(short, light)
+				color: gray_light
+				text-align: justify
+				background: charcoal_light
+				border-radius: .5rem
+
+				&:after
+					width: 1rem
+					height: 1rem
+					background: charcoal_light
+
+			&.user
+				text-align: right
+
+				text
+					background: charcoal_light_border
+
+	.compose
+		unit(28, 18, normal, full, full)
+
+		.textarea
+			text_field(22)
+			padding: 0.5rem 1rem
+			height: 8rem
+			margin-top: 0
+			sans(short, light)
+			text-align: left
+			color: gray_light
+
+			&[placeholder]:empty:before
+				color: gray_dark
+
+		.send
+			button(small, charcoal)
+			margin-top: 1rem
+			margin-left: 13rem
+
+/* Footer
+-------------------------------------------------------------------------------*/
+#footer_gap
+	width: 100%
+	height: 200px
+
+footer
+	page_element()
+	margin-top: 20rem
+	background: charcoal_light
+
+	main
+		height: 400px
+
+
+
+
+/* Media queries
+-------------------------------------------------------------------------------*/
+//@media screen and (max-width: 480px)
+
+
+
+
+/* Print styles
+-------------------------------------------------------------------------------*/
+//@media print

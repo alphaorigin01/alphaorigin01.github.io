@@ -1,0 +1,20 @@
+#account(ng-show="visibleAccount" ng-animate="{show: 'fadeIn', hide:'fadeOut'}")
+	.username {{ athlete._id.split('_')[1] }}
+	.balance
+		.icon
+		.value.usd {{ balanceInUSD() | currency:"USD $":0 }}
+		.value.btc #[i.fa.fa-btc]{{ athlete.accountBalance | number:3 }}
+	.referal
+		title Earn Account Credit
+		.description Give members your referal code to earn 5% of their purchase. They will receive a discount on accessories and shipping.
+		.code{{ athlete.referralCode }}
+	.invitations
+		title Invite a Friend
+		.disclaimer Please use discression with whom you invite. You may be held responsible if they misbhave.
+		.code{{ invitationCode }}
+		.generate(ng-click="generateInvitation()") Request Code
+	.password(ng-model="newPassword" contenteditable="true" placeholder="Enter New Password")
+	.changePassword(ng-click='savePassword()') Change Password
+	.security
+		strong Warning!
+		| Passwords can't be reset or recovered! For your security, your password is never sent to our servers. We have no way to recover your account if you lose your password. Please keep it safe!

@@ -1,0 +1,5033 @@
+/* Colors
+-------------------------------------------------------------------------------*/
+/* Utilities
+-------------------------------------------------------------------------------*/
+/* Fonts
+-------------------------------------------------------------------------------
+100 = thin
+200 = extra-light
+300 = light
+400 = normal, book
+500 = medium
+600 = demi-bold
+700 = bold
+800 = heavy
+900 = black
+
+Caption: design size 8.0 points, for use from 1.0 to 8.4 points
+Body Text: design size 11.0 points, for use from 8.4 to 12.9 points
+Subhead: design size 18.0 points, for use from 12.9 to 25.9 points
+Display: design size 72.0 points, for use from 25.9 to 99.9 points
+
+*/
+@font-face {
+  font-family: "Heuristica";
+  font-style: normal;
+  src: url("../fonts/Heuristica-Regular.woff");
+}
+@font-face {
+  font-family: "Heuristica";
+  font-style: italic;
+  src: url("../fonts/Heuristica-RegularItalic.woff");
+}
+@font-face {
+  font-family: "Heuristica";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/Heuristica-Bold.woff");
+}
+@font-face {
+  font-family: "Heuristica";
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/Heuristica-BoldItalic.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/GothamScreenSmartLight.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/GothamScreenSmartLightItalic.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: normal;
+  src: url("../fonts/GothamScreenSmartBook.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: italic;
+  src: url("../fonts/GothamScreenSmartBookItalic.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/GothamScreenSmartMedium.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/GothamScreenSmartMediumItalic.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/GothamScreenSmartBold.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/GothamScreenSmartBoldItalic.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/GothamScreenSmartBlack.woff");
+}
+@font-face {
+  font-family: "Gotham ScreenSmart";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/GothamScreenSmartBlackItalic.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/GothamNarrowScreenSmartLight.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/GothamNarrowScreenSmartLightItalic.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: normal;
+  src: url("../fonts/GothamNarrowScreenSmartBook.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: italic;
+  src: url("../fonts/GothamNarrowScreenSmartBookItalic.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/GothamNarrowScreenSmartMedium.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/GothamNarrowScreenSmartMediumItalic.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/GothamNarrowScreenSmartBold.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/GothamNarrowScreenSmartBoldItalic.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/GothamNarrowScreenSmartBlack.woff");
+}
+@font-face {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/GothamNarrowScreenSmartBlackItalic.woff");
+}
+/* Basics
+-------------------------------------------------------------------------------*/
+html {
+  height: 100%;
+  background: #fff;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 62.5%;
+}
+body {
+  min-height: 100%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #3c3c3e;
+  background: #1b1b1d;
+}
+/* Typography Styles
+-------------------------------------------------------------------------------*/
+a[title="JavaScript charts"] {
+  display: none !important;
+}
+/* Layout Elements
+-------------------------------------------------------------------------------*/
+main {
+  display: block;
+  width: 100rem;
+  margin: 0 auto;
+  overflow: auto;
+}
+main *[placeholder]:empty:before {
+  content: attr(placeholder);
+}
+section,
+aside {
+  display: block;
+  overflow: hidden;
+  min-height: 20rem;
+}
+section *,
+aside * {
+  vertical-align: top;
+  display: inline-block;
+  cursor: default;
+}
+section *[contenteditable = "true"],
+aside *[contenteditable = "true"] {
+  cursor: text;
+}
+section {
+  width: 70rem;
+  float: right;
+}
+aside {
+  width: 30rem;
+  float: left;
+}
+header {
+  height: 8rem;
+  width: 1rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  text-align: center;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50,50,54,0.7);
+}
+.modal message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 0.5rem;
+}
+.metric {
+  position: relative;
+  border-bottom: 1px solid #3c3c3e;
+}
+.metric .icon {
+  float: left;
+  opacity: 0.4;
+}
+.metric label {
+  width: 55%;
+  color: #b3b3b3;
+}
+.metric .value {
+  color: #fff;
+}
+.metric mark {
+  color: #808080;
+}
+.metric.normal {
+  height: 11rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  float: left;
+  clear: left;
+}
+.metric.normal .icon {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+.metric.normal label {
+  width: 65%;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  font-style: italic;
+}
+.metric.normal .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+}
+.metric.normal .value .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+.metric.normal .value[placeholder]:empty:before {
+  color: #808080;
+}
+.metric.normal mark {
+  margin: 1.6rem 0 0 0.25rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+}
+.metric.normal mark .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.metric.small {
+  height: 7rem;
+  width: 14rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  float: left;
+  border-right: 1px solid #3c3c3e;
+}
+.metric.small .icon {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.9rem;
+}
+.metric.small label {
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  font-style: italic;
+}
+.metric.small .value {
+  max-width: 4.7rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+}
+.metric.small .value .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.metric.small .value[placeholder]:empty:before {
+  color: #b3b3b3;
+}
+.metric.small mark {
+  margin: 0.5rem 0 0 -0.1rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.metric.small mark .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+.metric.small.editable {
+  border-right: 1px solid #e1e1e1;
+}
+.metric.editable {
+  background: #fff;
+  border-bottom: 1px solid #e1e1e1;
+}
+.metric.editable .icon {
+  opacity: 1;
+}
+.metric.editable label {
+  color: #808080;
+}
+.metric.editable .value {
+  color: #3c3c3e;
+}
+.metric.editable .mark {
+  color: #b3b3b3;
+}
+.choices {
+  position: absolute;
+  width: 80%;
+  background: #1b1b1d;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 2rem #1b1b1d;
+}
+.choices header,
+.choices .choice {
+  display: block;
+  padding: 1rem 2rem;
+}
+.choices header {
+  height: auto;
+  background: #3c3c3e;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  text-transform: none;
+  color: #b3b3b3;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.choices .choice {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+  cursor: pointer;
+  border-bottom: 1px solid #3c3c3e;
+}
+.choices .choice:last-child {
+  border: none;
+}
+.choices .choice:hover {
+  background: #808080;
+  color: #fff;
+}
+.choices.active {
+  display: block;
+}
+.height .icon {
+  background: url("../images/icon-height.png");
+  background-size: cover;
+}
+.weight .icon {
+  background: url("../images/icon-weight.png");
+  background-size: cover;
+}
+.bodyfat .icon {
+  background: url("../images/icon-bodyfat.png");
+  background-size: cover;
+}
+.offset .icon {
+  background: url("../images/icon-offset.png");
+  background-size: cover;
+}
+.lean_body_mass .icon {
+  background: url("../images/icon-lean_mass.png");
+  background-size: cover;
+}
+.fat_free_mass_index .icon {
+  background: url("../images/icon-fat_free_mass_index.png");
+  background-size: cover;
+}
+#zoomout {
+  width: 0;
+  height: 0;
+}
+.tooltip {
+  position: absolute;
+  left: -13%;
+  height: 10rem;
+  width: 25rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  height: auto;
+  background: #323234;
+  color: #b3b3b3;
+  text-align: justify;
+  z-index: 9999;
+  border-radius: 0.5rem;
+}
+.tooltip.top {
+  bottom: 105%;
+}
+.tooltip.ng-hide-add.ng-hide-add-active,
+.tooltip.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3;
+}
+.tooltip.ng-hide {
+  opacity: 0;
+}
+.tooltip::after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  border-color: transparent;
+  border-top-color: #323234;
+  border-width: 1rem;
+  margin-left: -1rem;
+}
+.tooltip strong {
+  color: #fff;
+  padding-right: 0.5rem;
+}
+.protocol {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  background: #323234;
+}
+.protocol nav {
+  height: 5rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  display: table;
+  background: #1b1b1d;
+}
+.protocol nav .tab {
+  height: 5rem;
+  width: 17rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  display: table-cell;
+  width: auto;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 5rem;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.protocol nav .tab.active,
+.protocol nav .tab:hover {
+  background: #323234;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.protocol nav .tab:nth-child(1) {
+  width: 21rem;
+}
+.protocol nav .tab:nth-child(1).active {
+  background: #3c3c3e;
+}
+.protocol nav .tab:nth-child(2).active {
+  background: #3c3c3e;
+}
+.protocol.no_nav nav {
+  display: none;
+}
+.protocol .panel {
+  height: 31rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+.protocol .primary .summary {
+  height: 31rem;
+  width: 21rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  text-align: center;
+  background: #3c3c3e;
+}
+.protocol .primary .summary .level {
+  position: relative;
+  width: 100%;
+  margin-top: 4rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #b3b3b3;
+  cursor: pointer;
+}
+.protocol .primary .summary .level .choices {
+  z-index: 100;
+  left: 2rem;
+}
+.protocol .primary .summary .goal {
+  position: relative;
+  width: 100%;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+.protocol .primary .summary .goal:hover {
+  text-decoration: underline;
+}
+.protocol .primary .summary .goal .choices {
+  left: 2rem;
+}
+.protocol .primary .summary .rating {
+  height: 2rem;
+  width: 21rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-top: 1.5rem;
+}
+.protocol .primary .summary .rating .star {
+  height: 2rem;
+  width: 2rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background: url("../images/icon-star.png");
+  background-size: cover;
+  cursor: pointer;
+}
+.protocol .primary .summary .rating .star.active {
+  background: url("../images/icon-star_active.png");
+  background-size: cover;
+}
+.protocol .primary .summary .rating .star.hover {
+  background: url("../images/icon-star_selected.png");
+  background-size: cover;
+}
+.protocol .primary .summary .rating .star.selected {
+  background: url("../images/icon-star_selected.png");
+  background-size: cover;
+}
+.protocol .primary .summary .popularity {
+  height: 2rem;
+  width: 21rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  color: #808080;
+  display: none;
+}
+.protocol .primary .summary .popularity .rank,
+.protocol .primary .summary .popularity .total {
+  float: none;
+  color: #b3b3b3;
+}
+.protocol .primary .summary .buy {
+  height: 14rem;
+  width: 21rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #454547;
+  margin-top: 4rem;
+}
+.protocol .primary .summary .buy .price {
+  width: 100%;
+  text-align: center;
+}
+.protocol .primary .summary .buy .price .usd {
+  width: 100%;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+.protocol .primary .summary .buy .price .btc {
+  width: 100%;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.protocol .primary .summary .buy .price .btc .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.protocol .primary .summary .buy .add {
+  display: inline-block;
+  cursor: pointer;
+  margin: 3em;
+  height: 4rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 10rem;
+  display: inline-block;
+  margin: 1.5rem 0;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid #b3b3b3;
+}
+.protocol .primary .summary .buy .add:hover {
+  background: #808080;
+  border: 1px solid #808080;
+}
+.protocol .primary .dna {
+  height: 15rem;
+  width: 47rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  background: #b3b3b3;
+}
+.protocol .primary .attributes {
+  height: 16rem;
+  width: 47rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  float: right;
+  background: #fff;
+}
+.protocol .primary .attributes .id {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  width: 10rem;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.protocol .primary .attributes title {
+  width: 38rem;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+}
+.protocol .primary .attributes title .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.protocol .primary .attributes title[placeholder]:empty:before {
+  color: #b3b3b3;
+}
+.protocol .primary .attributes .favorite,
+.protocol .primary .attributes .delete {
+  height: 2rem;
+  width: 2rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-bottom: -2rem;
+  float: right;
+  text-align: right;
+  color: #b3b3b3;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.protocol .primary .attributes .favorite {
+  background: url("../images/icon-heart.png");
+  background-size: cover;
+}
+.protocol .primary .attributes .favorite.active {
+  background: url("../images/icon-heart-active.png");
+  background-size: cover;
+}
+.protocol .primary .attributes .delete:hover {
+  color: #808080;
+}
+.protocol .primary .attributes .description {
+  width: 100%;
+  max-height: 5.9rem;
+  margin-top: 1rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  font-style: normal;
+  text-align: justify;
+  color: #b3b3b3;
+  overflow: hidden;
+}
+.protocol .formulations .profile {
+  height: 31rem;
+  width: 35.1rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background: #3c3c3e;
+  border-radius: 0 0 0.5rem 0;
+}
+.protocol .formulations .profile .mode {
+  height: 3rem;
+  width: 3rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin: 3rem 0 0 3rem;
+}
+.protocol .formulations .profile .mode.inject {
+  background: url("../images/icon-syringe.png");
+  background-size: cover;
+}
+.protocol .formulations .profile .mode.capsule {
+  background: url("../images/icon-capsule.png");
+  background-size: cover;
+}
+.protocol .formulations .profile .dilution {
+  width: 14rem;
+  float: left;
+  padding: 2.8rem 0 0 2rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+.protocol .formulations .profile .id {
+  float: left;
+  padding: 0 0 0 2rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+.protocol .formulations .profile .id .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.protocol .formulations .profile > .quantity {
+  float: right;
+  width: 15rem;
+  padding: 2.8rem 3rem 0 0;
+  text-align: right;
+}
+.protocol .formulations .profile > .quantity .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+.protocol .formulations .profile > .quantity .value .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+.protocol .formulations .profile > .quantity mark {
+  padding-top: 1.5rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #808080;
+}
+.protocol .formulations .profile > .quantity mark .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.protocol .formulations .profile .compounds {
+  height: 17.7rem;
+  width: 35.1rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 2rem;
+}
+.protocol .formulations .profile .compounds .compound {
+  width: 100%;
+  margin-bottom: -0.75rem;
+}
+.protocol .formulations .profile .compounds .compound .icon {
+  height: 4rem;
+  width: 4rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  border-radius: 10rem;
+  background: #808080;
+}
+.protocol .formulations .profile .compounds .compound .quantity {
+  float: left;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #b3b3b3;
+}
+.protocol .formulations .profile .compounds .compound .density {
+  float: left;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #808080;
+}
+.protocol .formulations .profile .compounds .compound .name {
+  float: left;
+  width: 25rem;
+  margin-top: -0.1rem;
+  padding-left: 2rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+.protocol .formulations .profile .description {
+  height: 7rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  text-align: justify;
+  line-height: 1.1rem;
+  color: #808080;
+}
+.protocol .formulations .profile .special {
+  height: 3rem;
+  width: 3rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 1.2rem 3rem 0 0;
+  float: right;
+  background: url("../images/icon-done.png");
+  background-size: cover;
+}
+.protocol .formulations .list {
+  height: 31rem;
+  width: 32.9rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.protocol .formulations .list::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.protocol .formulations .list::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+.protocol .formulations .list::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+.protocol .formulations .list .formulation {
+  height: 6rem;
+  width: 32.9rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  padding-top: 0.1rem;
+  border-bottom: 1px solid #3c3c3e;
+  cursor: pointer;
+}
+.protocol .formulations .list .formulation * {
+  cursor: pointer;
+}
+.protocol .formulations .list .formulation .icon {
+  height: 4rem;
+  width: 9rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  padding: 2rem 0 0 3rem;
+}
+.protocol .formulations .list .formulation .icon .circle {
+  height: 2rem;
+  width: 2rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-right: -1rem;
+  border-radius: 10rem;
+  background: #b3b3b3;
+}
+.protocol .formulations .list .formulation .id {
+  float: left;
+  padding: 2.2rem 0 0 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+}
+.protocol .formulations .list .formulation .mode {
+  height: 2rem;
+  width: 2rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  margin: 2rem 1rem 0 0;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+  background: #3c3c3e;
+}
+.protocol .formulations .list .formulation .mode.inject {
+  background: url("../images/icon-syringe.png");
+  background-size: cover;
+}
+.protocol .formulations .list .formulation .mode.capsule {
+  background: url("../images/icon-capsule.png");
+  background-size: cover;
+}
+.protocol .formulations .list .formulation > .quantity {
+  float: right;
+  padding-top: 2.3rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+.protocol .formulations .list .formulation > .quantity .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.protocol .formulations .list .formulation mark {
+  float: right;
+  padding: 2.7rem 3rem 0 0.25rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #808080;
+}
+.protocol .dose_schedule .instructions {
+  height: 31rem;
+  width: 25rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+.protocol .dose_schedule .instructions .day {
+  height: 9rem;
+  width: 22rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  background: #808080;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.protocol .dose_schedule .instructions .day .previous,
+.protocol .dose_schedule .instructions .day .next {
+  height: 1.8rem;
+  width: 1.8rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-top: 1rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  font-weight: 300;
+  line-height: 1.6rem;
+  color: #b3b3b3;
+  text-align: center;
+  border: 1px solid #b3b3b3;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+.protocol .dose_schedule .instructions .day .previous .fa-btc,
+.protocol .dose_schedule .instructions .day .next .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.protocol .dose_schedule .instructions .day .value {
+  width: 13.4rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+.protocol .dose_schedule .instructions .day .value .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+.protocol .dose_schedule .instructions .day mark {
+  width: 1rem;
+  margin: 0.75rem 0 0 -0.5rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  line-height: 1rem;
+  color: #b3b3b3;
+}
+.protocol .dose_schedule .instructions .doses {
+  height: 22rem;
+  width: 22rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-right: 1px solid #3c3c3e;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.protocol .dose_schedule .instructions .doses::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.protocol .dose_schedule .instructions .doses::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+.protocol .dose_schedule .instructions .doses::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+.protocol .dose_schedule .instructions .doses .dose {
+  height: 7.35rem;
+  width: 22rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  padding-top: 0.1rem;
+  background: #3c3c3e;
+  border-bottom: 1px solid #454547;
+}
+.protocol .dose_schedule .instructions .doses .dose .icon {
+  height: 4rem;
+  width: 11rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  padding: 2rem 0 0 2rem;
+}
+.protocol .dose_schedule .instructions .doses .dose .icon .circle {
+  height: 2rem;
+  width: 2rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-right: -0.5rem;
+  border-radius: 10rem;
+  background: #b3b3b3;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+}
+.protocol .dose_schedule .instructions .doses .dose .id {
+  float: left;
+  padding: 0.3rem 0 0 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.protocol .dose_schedule .instructions .doses .dose .mode {
+  height: 2.5rem;
+  width: 2.5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  margin: 2.25rem 1rem 0 0;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+  background: #3c3c3e;
+}
+.protocol .dose_schedule .instructions .doses .dose .mode.injection {
+  background: url("../images/icon-syringe.png");
+  background-size: cover;
+}
+.protocol .dose_schedule .instructions .doses .dose .mode.capsule {
+  background: url("../images/icon-capsule.png");
+  background-size: cover;
+}
+.protocol .dose_schedule .instructions .doses .dose .quantity {
+  float: right;
+  padding-top: 2.5rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.protocol .dose_schedule .instructions .doses .dose .quantity .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.protocol .dose_schedule .instructions .doses .dose mark {
+  float: right;
+  padding: 3.5rem 2rem 0 0.25rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: #808080;
+}
+.protocol .dose_schedule .instructions .doses .dose mark .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+.protocol .dose_schedule .calendar {
+  height: 31rem;
+  width: 43rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 1rem;
+  float: right;
+}
+.protocol .dose_schedule .calendar .week {
+  width: 21rem;
+  float: left;
+}
+.protocol .dose_schedule .calendar .week:nth-child(even) {
+  float: right;
+}
+.protocol .dose_schedule .calendar .week .day {
+  height: 2.7rem;
+  width: 2.5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  text-align: center;
+  color: #454547;
+  cursor: pointer;
+}
+.protocol .dose_schedule .calendar .week .day.active {
+  color: #b3b3b3;
+}
+.protocol .dose_schedule .calendar .week .day:hover {
+  color: #fff;
+}
+.protocol .pharmacodynamics .graph {
+  height: 22rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background: #b3b3b3;
+}
+.protocol .pharmacodynamics .key {
+  height: 10rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 0.25rem 2rem 2rem 2rem;
+  background: #fff;
+}
+.protocol .pharmacodynamics .key .item {
+  float: left;
+  height: 2.5rem;
+  width: 32rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 1rem;
+}
+.protocol .pharmacodynamics .key .item > .icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-right: 1rem;
+  border-radius: 10rem;
+}
+.protocol .pharmacodynamics .key .item > .icon.red {
+  background: #ff4351;
+}
+.protocol .pharmacodynamics .key .item > .icon.blue {
+  background: #1b9af7;
+}
+.protocol .pharmacodynamics .key .item > .icon.orange {
+  background: #fa8829;
+}
+.protocol .pharmacodynamics .key .item > .icon.yellow {
+  background: #fed33e;
+}
+.protocol .pharmacodynamics .key .item > .icon.green {
+  background: #51e650;
+}
+.protocol .pharmacodynamics .key .item .label {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+.regimen {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  height: 43rem;
+  background: #323234;
+  cursor: pointer;
+  overflow: visible;
+}
+.regimen * {
+  cursor: pointer;
+}
+.regimen > .icon {
+  width: 8rem;
+  height: 100%;
+  float: left;
+}
+.regimen .ident {
+  position: relative;
+  height: 11rem;
+  width: 60rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+.regimen .ident .id {
+  padding: 3rem 0 0 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.regimen .ident .mode {
+  padding: 3rem 0 0 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+}
+.regimen .ident .density {
+  height: 11rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 3.5rem 0;
+  float: right;
+  text-align: center;
+  border-left: 1px solid #3c3c3e;
+}
+.regimen .ident .density .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+.regimen .ident .density .value .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.regimen .ident .density mark {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #808080;
+}
+.regimen .ident .name {
+  width: 49rem;
+  padding: 0 0 0 3rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.regimen .ident .name .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.regimen .ident .alias {
+  width: 49rem;
+  padding: 0 0 0 3rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #808080;
+}
+.regimen .ident .remove {
+  display: none;
+  height: 11rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #b3b3b3;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 10rem;
+  font-size: 3rem;
+  font-weight: 200;
+  text-align: center;
+  background: #323234;
+  border-left: 1px solid #3c3c3e;
+  cursor: pointer;
+}
+.regimen .ident .remove:hover {
+  color: #fff;
+}
+.regimen .ident:hover .remove {
+  display: inline-block;
+}
+.regimen .metrics {
+  width: 60rem;
+  height: 16rem;
+  float: left;
+  background: #fff;
+}
+.regimen .metrics > * {
+  height: 8rem;
+  width: 20rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  float: left;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+.regimen .metrics > * .icon {
+  height: 4rem;
+  width: 4rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin-right: 1rem;
+  background: #808080;
+}
+.regimen .metrics > * label {
+  width: 10.9rem;
+  padding-top: 0.1rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #808080;
+}
+.regimen .metrics > * .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+.regimen .metrics > * .value .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.regimen .metrics > * mark {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  padding-top: 1.1rem;
+  padding-left: 0.2rem;
+  line-height: 1.1rem;
+  color: #808080;
+}
+.regimen .metrics > * .adjust {
+  height: 4rem;
+  width: 1rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+.regimen .metrics > * .adjust .up,
+.regimen .metrics > * .adjust .down {
+  height: 0rem;
+  width: 0rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  position: absolute;
+  border-left: 0.75rem solid transparent;
+  border-right: 0.75rem solid transparent;
+  cursor: pointer;
+}
+.regimen .metrics > * .adjust .up {
+  border-bottom: 0.75rem solid #e1e1e1;
+}
+.regimen .metrics > * .adjust .down {
+  bottom: 0;
+  border-top: 0.75rem solid #e1e1e1;
+}
+.regimen .metrics .active .icon {
+  background: url("../images/icon-plasma.png");
+  background-size: cover;
+}
+.regimen .metrics .variance .icon {
+  background: url("../images/icon-variance.png");
+  background-size: cover;
+}
+.regimen .metrics .variance mark {
+  padding-top: 0;
+}
+.regimen .metrics .biolipid_density .icon {
+  background: url("../images/icon-density.png");
+  background-size: cover;
+}
+.regimen .metrics .frequency .icon {
+  background: url("../images/icon-prescription.png");
+  background-size: cover;
+}
+.regimen .metrics .start .icon {
+  background: url("../images/icon-calendar.png");
+  background-size: cover;
+}
+.regimen .metrics .duration .icon {
+  background: url("../images/icon-calendar2.png");
+  background-size: cover;
+}
+.regimen .graph {
+  width: 60rem;
+  height: 16rem;
+  background: #b3b3b3;
+  float: left;
+}
+.add_button {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  height: 8rem;
+  background: #808080;
+  cursor: pointer;
+}
+.add_button .icon {
+  height: 8rem;
+  width: 8rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 8rem;
+  font-size: 5rem;
+  text-align: center;
+  color: #b3b3b3;
+  background: #323234;
+  cursor: pointer;
+}
+.add_button label {
+  height: 8rem;
+  width: 57rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+.add_button:hover {
+  background: #b3b3b3;
+}
+.add_button:hover .icon {
+  color: #fff;
+  background: #3c3c3e;
+}
+.compound_chooser {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  height: 43rem;
+  background: #323234;
+  cursor: pointer;
+}
+.compound_chooser header {
+  padding: 0;
+}
+.compound_chooser header .search {
+  display: inline-block;
+  width: 30rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 2.5rem 3rem;
+  text-align: left;
+}
+.compound_chooser header .search[placeholder]:empty:before {
+  color: #808080;
+}
+.compound_chooser header .icon {
+  height: 8rem;
+  width: 11rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 8rem;
+  font-size: 3rem;
+  font-weight: 200;
+  text-align: center;
+  color: #b3b3b3;
+  background: #323234;
+  cursor: pointer;
+}
+.compound_chooser header .icon:hover {
+  color: #fff;
+}
+.compound_chooser .list {
+  height: 35rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.compound_chooser .list::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.compound_chooser .list::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+.compound_chooser .list::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+.compound_chooser .compound {
+  position: relative;
+  height: 9rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-top: 1px solid #3c3c3e;
+  cursor: pointer;
+}
+.compound_chooser .compound * {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.compound_chooser .compound .icon {
+  height: 9rem;
+  width: 8rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+.compound_chooser .compound .id {
+  padding: 2rem 0 0 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.compound_chooser .compound .mode {
+  padding: 2rem 0 0 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+}
+.compound_chooser .compound .density {
+  height: 9rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 2.5rem 0;
+  float: right;
+  text-align: center;
+  border-left: 1px solid #3c3c3e;
+}
+.compound_chooser .compound .density .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+.compound_chooser .compound .density .value .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.compound_chooser .compound .density mark {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #808080;
+}
+.compound_chooser .compound .name {
+  width: 49rem;
+  padding: 0 0 0 3rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.compound_chooser .compound .name .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.compound_chooser .compound .alias {
+  width: 49rem;
+  padding: 0 0 0 3rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #808080;
+}
+.compound_chooser .compound:hover {
+  background: #3c3c3e;
+}
+.compound_chooser .compound:hover .density {
+  border-left: 1px solid #454547;
+}
+.order {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  background: #323234;
+}
+.order header {
+  height: 8rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #3c3c3e;
+}
+.order header .id {
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.order header .timestamp {
+  float: right;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+  text-align: right;
+  text-transform: none;
+}
+.order .cart {
+  height: 45rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin: 0;
+}
+.order .cart .protocols {
+  height: 27rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #3c3c3e;
+  background: #323234;
+  overflow-y: auto;
+}
+.order .cart .protocols::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.order .cart .protocols::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+.order .cart .protocols::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+.order .cart .protocols .protocol {
+  width: 24rem;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed #454547;
+}
+.order .cart .protocols .protocol:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+.order .cart .protocols .protocol > .id {
+  width: 22rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080 !important;
+}
+.order .cart .protocols .protocol .name {
+  width: 22rem;
+  margin-bottom: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.order .cart .protocols .formulation {
+  height: 3rem;
+  width: 22rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 1rem 0 0 4rem;
+}
+.order .cart .protocols .formulation .icon {
+  width: 5rem;
+  float: left;
+}
+.order .cart .protocols .formulation .icon .circle {
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  margin-right: -0.8rem;
+  background: #b3b3b3;
+  border-radius: 10rem;
+}
+.order .cart .protocols .formulation .icon .circle:nth-child(1) {
+  background: light_blue;
+}
+.order .cart .protocols .formulation .icon .circle:nth-child(2) {
+  background: #f00;
+}
+.order .cart .protocols .formulation .icon .circle:nth-child(3) {
+  background: #ff0;
+}
+.order .cart .protocols .formulation .quantity {
+  float: right;
+  margin-top: 0.2rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+.order .cart .protocols .formulation .quantity .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.order .cart .protocols .formulation mark {
+  float: right;
+  margin-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #808080;
+}
+.order .cart .protocols .formulation .mode {
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  margin-right: 1rem;
+  background: url("../images/icon-syringe.png");
+  background-size: cover;
+}
+.order .cart .protocols .formulation .id {
+  float: left;
+  margin-right: 1rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  line-height: 2rem;
+  color: #b3b3b3;
+}
+.order .cart .protocols .formulation .id .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.order .cart .protocols .actions {
+  height: 10rem;
+  width: 12rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+.order .cart .protocols .subtotal {
+  height: 10rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+.order .cart .protocols .subtotal .quantity {
+  height: 3.25rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+.order .cart .protocols .subtotal .quantity .value {
+  margin-top: 0.15rem;
+  float: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.order .cart .protocols .subtotal .quantity .value .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+.order .cart .protocols .subtotal .quantity mark {
+  margin-left: 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+}
+.order .cart .protocols .subtotal .price {
+  height: 4rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+.order .cart .protocols .subtotal .price .value {
+  width: 100%;
+  text-align: right;
+}
+.order .cart .protocols .subtotal .price .value.usd {
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+.order .cart .protocols .subtotal .price .value.btc {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.order .cart .protocols .subtotal .price .value.btc .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.order .cart .accessories {
+  height: 14rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background: #323234;
+}
+.order .cart .accessories .item {
+  width: 100%;
+}
+.order .cart .accessories .item .name,
+.order .cart .accessories .item .quantity {
+  display: inline-block;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.order .cart .accessories .item .quantity {
+  float: right;
+}
+.order .cart .accessories .referral {
+  display: inline-block;
+  width: 14rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+}
+.order .cart .accessories .referral[placeholder]:empty:before {
+  color: #808080;
+}
+.order .cart .accessories .subtotal {
+  display: inline-block;
+  float: right;
+}
+.order .cart .accessories .subtotal.usd {
+  margin-top: 1rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #808080;
+}
+.order .cart .accessories .subtotal.btc {
+  clear: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+.order .cart .accessories .subtotal.btc .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.order .cart .total_price {
+  margin-right: 3rem;
+  float: right;
+  text-align: right;
+}
+.order .cart .total_price.btc {
+  clear: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+.order .cart .total_price.btc .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.order .cart .total_price.usd {
+  margin-top: 2rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #808080;
+}
+.order .fulfillment {
+  height: 45rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  padding: 0;
+  border-left: 1px solid #3c3c3e;
+}
+.order .fulfillment .status {
+  height: 45rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.order .fulfillment .status:last-child {
+  border: none;
+}
+.order .fulfillment .status > .icon {
+  height: 5rem;
+  width: 5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin-right: 2rem;
+  background: #3c3c3e;
+}
+.order .fulfillment .status > .title {
+  width: 26rem;
+  margin-top: 0.8rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+}
+.order .fulfillment .status .action {
+  width: 26rem;
+  height: 1.5rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+}
+.order .fulfillment .status.active {
+  display: inline-block;
+}
+.order .fulfillment .status.payment .icon {
+  background: url("../images/icon-payment.png");
+  background-size: cover;
+}
+.order .fulfillment .status.payment .subtotal,
+.order .fulfillment .status.payment .credit,
+.order .fulfillment .status.payment .total {
+  color: #808080;
+}
+.order .fulfillment .status.payment .subtotal label,
+.order .fulfillment .status.payment .credit label,
+.order .fulfillment .status.payment .total label {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-left: 14rem;
+  float: left;
+}
+.order .fulfillment .status.payment .subtotal .value,
+.order .fulfillment .status.payment .credit .value,
+.order .fulfillment .status.payment .total .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  float: right;
+}
+.order .fulfillment .status.payment .subtotal .value .fa-btc,
+.order .fulfillment .status.payment .credit .value .fa-btc,
+.order .fulfillment .status.payment .total .value .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+.order .fulfillment .status.payment .subtotal {
+  height: 3rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+.order .fulfillment .status.payment .credit {
+  height: 3rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 0.5rem;
+  border-bottom: 1px solid #3c3c3e;
+}
+.order .fulfillment .status.payment .total {
+  height: 4rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 1rem;
+  color: #fff;
+}
+.order .fulfillment .status.payment .total label {
+  margin-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.order .fulfillment .status.payment .total .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+.order .fulfillment .status.payment .total .value .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+.order .fulfillment .status.payment .pay {
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+  background: #b3b3b3;
+  margin: 2em;
+  height: 3rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 0.5rem;
+  border-radius: 10rem;
+  margin: 2rem 2rem 0 0;
+  color: #323234;
+  text-decoration: none;
+  cursor: pointer;
+}
+.order .fulfillment .status.payment .pay:hover {
+  color: #1b1b1d;
+  background: #fff;
+}
+.order .fulfillment .status.payment .address {
+  display: inline-block;
+  width: 23.7rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  float: right;
+  margin-top: 2rem;
+  padding: 0;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 3rem;
+  color: #b3b3b3;
+  font-style: normal;
+  text-align: center;
+  text-transform: none;
+  cursor: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.order .fulfillment .status.payment .address[placeholder]:empty:before {
+  color: #808080;
+}
+.order .fulfillment .status.payment .address .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+.order .fulfillment .status.payment .instructions {
+  height: 10rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  font-style: normal;
+  text-align: justify;
+  color: #808080;
+}
+.order .fulfillment .status.payment .instructions strong {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.order .fulfillment .status.payment .instructions a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+.order .fulfillment .status.payment .service {
+  height: 9rem;
+  width: 16rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 1.5rem 1rem 0;
+  border-radius: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2rem;
+}
+.order .fulfillment .status.payment .service .logo {
+  height: 3rem;
+  width: 12rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0.75rem;
+}
+.order .fulfillment .status.payment .service.coinbase {
+  float: left;
+  padding-top: 2rem;
+  font-weight: 400;
+  color: #fff;
+  background: #2b71b1;
+}
+.order .fulfillment .status.payment .service.coinbase .logo {
+  background: url("../images/logo-coinbase.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.order .fulfillment .status.payment .service.circle {
+  float: right;
+  font-weight: 400;
+  color: #323234;
+  background: #fff;
+}
+.order .fulfillment .status.payment .service.circle .logo {
+  background: url("../images/logo-circle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.order .fulfillment .status.formulating > .icon {
+  background: url("../images/icon-formulating.png");
+  background-size: cover;
+}
+.order .fulfillment .status.formulating .step {
+  height: 6rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+}
+.order .fulfillment .status.formulating .step .icon {
+  height: 4rem;
+  width: 4rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin-right: 1rem;
+  opacity: 0.5;
+  background: url("../images/icon-todo.png");
+  background-size: cover;
+}
+.order .fulfillment .status.formulating .step .title {
+  margin-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.order .fulfillment .status.formulating .step .description {
+  width: 29rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+}
+.order .fulfillment .status.formulating .step .error {
+  margin-top: 1.15rem;
+  color: #f00;
+  display: none;
+}
+.order .fulfillment .status.formulating .step:nth-child(4) {
+  margin-top: 3rem;
+}
+.order .fulfillment .status.formulating .step.done .icon {
+  background: url("../images/icon-done.png");
+  background-size: cover;
+}
+.order .fulfillment .status.shipment > .icon {
+  background: url("../images/icon-shipping.png");
+  background-size: cover;
+}
+.order .fulfillment .status.shipment .delivery_day {
+  height: 8.5rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+.order .fulfillment .status.shipment .delivery_day label {
+  width: 34rem;
+  margin-bottom: 0.25rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+.order .fulfillment .status.shipment .delivery_day .value {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+.order .fulfillment .status.shipment .delivery_day .value .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+.order .fulfillment .status.shipment .infographic {
+  height: 2rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-bottom: 3rem;
+  background: #3c3c3e;
+  border-radius: 10rem;
+}
+.order .fulfillment .status.shipment .infographic .bar {
+  width: 70%;
+  height: 2rem;
+  background: #b3b3b3;
+  border-radius: 10rem;
+}
+.order .fulfillment .status.shipment .log {
+  height: 20.5rem;
+  width: 34rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  overflow-x: none;
+  overflow-y: auto;
+}
+.order .fulfillment .status.shipment .log::-webkit-scrollbar {
+  width: 0.75rem;
+}
+.order .fulfillment .status.shipment .log::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+.order .fulfillment .status.shipment .log::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+.order .fulfillment .status.shipment .log .entry {
+  padding: 0.25rem 0;
+}
+.order .fulfillment .status.shipment .log .entry .timestamp {
+  width: 15rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+}
+.order .fulfillment .status.shipment .log .entry .value {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+status-bar {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  background: darker;
+}
+status-bar main .status {
+  margin: 0 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 3rem;
+  color: #808080;
+}
+status-bar main .status .value {
+  margin-right: 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+status-bar main .status .value:last-child {
+  margin-right: 0;
+}
+status-bar main .store_status {
+  float: left;
+}
+status-bar main .account_status {
+  float: right;
+}
+primary-menu {
+  display: block;
+  width: 100%;
+  height: 8rem;
+  background: #fff;
+}
+primary-menu main {
+  text-align: justify;
+  text-justify: distribute;
+}
+primary-menu main * {
+  display: inline-block;
+  margin: 0 3.6rem;
+  vertical-align: top;
+}
+primary-menu main .logo {
+  font-size: 2.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-weight: 900;
+  line-height: 8rem;
+}
+primary-menu main .logo .icon {
+  height: 5rem;
+  width: 5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 1.25rem 2.5rem 0 0;
+  background: url("../images/icon-logo.png");
+  background-size: cover;
+}
+primary-menu main .option {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 8rem;
+  cursor: pointer;
+}
+masthead {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 2rem;
+  background: #808080;
+  background-size: cover;
+  background-position: 0 -220px;
+}
+masthead #masthead {
+  height: 24rem;
+  width: 100rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 0 auto;
+  background-size: cover;
+}
+#login {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: left;
+  clear: left;
+  background: #323234;
+}
+#login .title {
+  height: 8rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  border-bottom: 1px solid #3c3c3e;
+}
+#login .username,
+#login .password {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 3rem 3rem 0;
+  text-align: center;
+  text-transform: none;
+  cursor: text;
+}
+#login .username[placeholder]:empty:before,
+#login .password[placeholder]:empty:before {
+  color: #808080;
+}
+#login .password {
+  margin-top: 2rem;
+}
+#login .attemptLogin {
+  display: inline-block;
+  cursor: pointer;
+  background: #b3b3b3;
+  margin: 3em;
+  height: 4rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 10rem;
+  width: 15rem;
+  margin: 2.5rem 6rem;
+  text-align: center;
+  font-weight: 500;
+}
+#login .attemptLogin:hover {
+  background: #fff;
+}
+#login .security {
+  height: 13rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 3rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  color: #808080;
+  text-align: justify;
+}
+#login .security strong {
+  width: 22rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #b3b3b3;
+}
+#protocolByID {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: left;
+  clear: left;
+  background: #323234;
+}
+#protocolByID .protocolID {
+  display: inline-block;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 3rem 0 0 2.75rem;
+  text-align: center;
+  text-transform: none;
+  cursor: text;
+}
+#protocolByID .protocolID[placeholder]:empty:before {
+  color: #808080;
+}
+#protocolByID .search {
+  display: inline-block;
+  cursor: pointer;
+  background: #b3b3b3;
+  margin: 2em;
+  height: 3rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 0.5rem;
+  border-radius: 10rem;
+  width: 8rem;
+  padding: 1.25rem;
+  margin: 3rem 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+#protocolByID .search:hover {
+  background: #fff;
+}
+#athlete_metrics_aside {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: left;
+  clear: left;
+  background: #323234;
+}
+section#newMember {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  background: #323234;
+}
+section#newMember .title {
+  height: 8rem;
+  width: 68rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  border-bottom: 1px solid #3c3c3e;
+}
+section#newMember .credentials {
+  height: 33rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+section#newMember .credentials .welcome {
+  height: 8rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 3rem 3rem 0;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+  text-align: justify;
+}
+section#newMember .credentials .icon {
+  height: 3rem;
+  width: 3rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 2rem 5.5rem 0 2rem;
+  background: url("../images/icon-todo.png");
+  background-size: cover;
+  opacity: 0.4;
+}
+section#newMember .credentials .icon.ok {
+  background: url("../images/icon-done.png");
+  background-size: cover;
+}
+section#newMember .credentials .icon.fail {
+  background: url("../images/icon-fail.png");
+  background-size: cover;
+}
+section#newMember .credentials .icon#username {
+  margin-top: 6rem;
+}
+section#newMember .credentials .username,
+section#newMember .credentials .password,
+section#newMember .credentials .invitation {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 2rem 0 0 6.5rem;
+  text-align: center;
+  text-transform: none;
+  cursor: text;
+}
+section#newMember .credentials .username[placeholder]:empty:before,
+section#newMember .credentials .password[placeholder]:empty:before,
+section#newMember .credentials .invitation[placeholder]:empty:before {
+  color: #808080;
+}
+section#newMember .credentials .username {
+  margin-top: 6rem;
+}
+section#newMember .credentials .submit {
+  display: inline-block;
+  cursor: pointer;
+  background: #b3b3b3;
+  margin: 3em;
+  height: 4rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 10rem;
+  display: block;
+  width: 25rem;
+  margin: 4.5rem auto;
+  text-align: center;
+  font-weight: 500;
+}
+section#newMember .credentials .submit:hover {
+  background: #fff;
+}
+section#athlete_metrics {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  background: #323234;
+}
+section#athlete_metrics .offset {
+  border-bottom: none;
+}
+section#athlete_metrics .lean_body_mass,
+section#athlete_metrics .fat_free_mass_index {
+  height: 22rem;
+  width: 40rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 5rem;
+}
+section#athlete_metrics .lean_body_mass div:first-child,
+section#athlete_metrics .fat_free_mass_index div:first-child {
+  margin-right: 3rem;
+  float: left;
+}
+section#athlete_metrics .lean_body_mass .icon,
+section#athlete_metrics .fat_free_mass_index .icon {
+  height: 16rem;
+  width: 16rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border: 0.5rem solid #3c3c3e;
+  border-radius: 20rem;
+  background-image: none;
+}
+section#athlete_metrics .lean_body_mass label,
+section#athlete_metrics .fat_free_mass_index label {
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+section#athlete_metrics .lean_body_mass .value,
+section#athlete_metrics .fat_free_mass_index .value {
+  margin-top: 5rem;
+  margin-right: 0.5rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+section#athlete_metrics .lean_body_mass .value .fa-btc,
+section#athlete_metrics .fat_free_mass_index .value .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+section#athlete_metrics .lean_body_mass mark,
+section#athlete_metrics .fat_free_mass_index mark {
+  margin-top: 6.6rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #808080;
+}
+section#athlete_metrics .lean_body_mass mark .fa-btc,
+section#athlete_metrics .fat_free_mass_index mark .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+section#athlete_metrics .lean_body_mass {
+  border-bottom: 1px solid #3c3c3e;
+}
+#shopping_cart {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: left;
+  clear: left;
+  background: #323234;
+}
+#shopping_cart header {
+  height: 8rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid #3c3c3e;
+}
+#shopping_cart .protocols {
+  height: 0rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  height: auto;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #3c3c3e;
+  background: #323234;
+}
+#shopping_cart .protocols .protocol {
+  width: 24rem;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed #454547;
+}
+#shopping_cart .protocols .protocol:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+#shopping_cart .protocols .protocol > .id {
+  width: 22rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080 !important;
+}
+#shopping_cart .protocols .protocol .name {
+  width: 22rem;
+  margin-bottom: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+#shopping_cart .protocols .formulation {
+  height: 3rem;
+  width: 22rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding: 1rem 0 0 4rem;
+}
+#shopping_cart .protocols .formulation .icon {
+  width: 5rem;
+  float: left;
+}
+#shopping_cart .protocols .formulation .icon .circle {
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  margin-right: -0.8rem;
+  background: #b3b3b3;
+  border-radius: 10rem;
+}
+#shopping_cart .protocols .formulation .icon .circle:nth-child(1) {
+  background: light_blue;
+}
+#shopping_cart .protocols .formulation .icon .circle:nth-child(2) {
+  background: #f00;
+}
+#shopping_cart .protocols .formulation .icon .circle:nth-child(3) {
+  background: #ff0;
+}
+#shopping_cart .protocols .formulation .quantity {
+  float: right;
+  margin-top: 0.2rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+#shopping_cart .protocols .formulation .quantity .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+#shopping_cart .protocols .formulation mark {
+  float: right;
+  margin-top: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #808080;
+}
+#shopping_cart .protocols .formulation .mode {
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  margin-right: 1rem;
+  background: url("../images/icon-syringe.png");
+  background-size: cover;
+}
+#shopping_cart .protocols .formulation .id {
+  float: left;
+  margin-right: 1rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  line-height: 2rem;
+  color: #b3b3b3;
+}
+#shopping_cart .protocols .formulation .id .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+#shopping_cart .protocols .actions {
+  height: 10rem;
+  width: 12rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+#shopping_cart .protocols .actions .quantity,
+#shopping_cart .protocols .actions .edit,
+#shopping_cart .protocols .actions .delete {
+  display: inline-block;
+  cursor: pointer;
+  color: #808080;
+  background: #323234;
+  border: 1px solid #454547;
+  margin: 0.5em;
+  height: 2rem;
+  padding: 0.2rem 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  line-height: 1.55rem;
+  border-radius: 10rem;
+  width: 8rem;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+#shopping_cart .protocols .actions .quantity {
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+#shopping_cart .protocols .actions .quantity .up,
+#shopping_cart .protocols .actions .quantity .down {
+  height: 1.9rem;
+  margin-top: -0.25rem;
+  width: 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 2.1rem;
+  background: #454547;
+  cursor: pointer;
+}
+#shopping_cart .protocols .actions .quantity .up {
+  padding-left: 0.25rem;
+  float: left;
+  border-top-left-radius: 10rem;
+  border-bottom-left-radius: 10rem;
+}
+#shopping_cart .protocols .actions .quantity .down {
+  padding-right: 0.25rem;
+  float: right;
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+}
+#shopping_cart .protocols .subtotal {
+  height: 10rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+#shopping_cart .protocols .subtotal .quantity {
+  height: 3.25rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+#shopping_cart .protocols .subtotal .quantity .value {
+  margin-top: 0.15rem;
+  float: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#shopping_cart .protocols .subtotal .quantity .value .fa-btc {
+  font-size: 1rem;
+  margin-right: 0.15rem;
+}
+#shopping_cart .protocols .subtotal .quantity mark {
+  margin-left: 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+}
+#shopping_cart .protocols .subtotal .price {
+  height: 4rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+#shopping_cart .protocols .subtotal .price .value {
+  width: 100%;
+  text-align: right;
+}
+#shopping_cart .protocols .subtotal .price .value.usd {
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+#shopping_cart .protocols .subtotal .price .value.btc {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+#shopping_cart .protocols .subtotal .price .value.btc .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+#shopping_cart .accessories {
+  height: 14rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background: #323234;
+  border-bottom: 1px solid #3c3c3e;
+}
+#shopping_cart .accessories .item {
+  width: 100%;
+}
+#shopping_cart .accessories .item .name,
+#shopping_cart .accessories .item .quantity {
+  display: inline-block;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#shopping_cart .accessories .item .quantity {
+  float: right;
+}
+#shopping_cart .accessories .referral {
+  display: inline-block;
+  width: 14rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+}
+#shopping_cart .accessories .referral[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .accessories .subtotal {
+  display: inline-block;
+  float: right;
+}
+#shopping_cart .accessories .subtotal.usd {
+  margin-top: 1rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-style: italic;
+  color: #808080;
+}
+#shopping_cart .accessories .subtotal.btc {
+  clear: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+#shopping_cart .accessories .subtotal.btc .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+#shopping_cart .total_price {
+  margin-right: 3rem;
+  float: right;
+  text-align: right;
+}
+#shopping_cart .total_price.btc {
+  clear: right;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+#shopping_cart .total_price.btc .fa-btc {
+  font-size: 2.2rem;
+  margin-right: 0.25rem;
+}
+#shopping_cart .total_price.usd {
+  margin-top: 2rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #808080;
+}
+#shopping_cart .buy {
+  width: 14rem;
+  height: 4rem;
+  float: left;
+  margin: 2rem 0 0 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 4rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 10rem;
+}
+#shopping_cart .checkout .shipping {
+  height: 29rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  border-bottom: 1px solid #3c3c3e;
+}
+#shopping_cart .checkout .shipping label {
+  width: 22rem;
+  margin: 3rem 0 0;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#shopping_cart .checkout .shipping .name {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  text-align: left;
+}
+#shopping_cart .checkout .shipping .name[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .checkout .shipping .address {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  text-align: left;
+  font-style: normal;
+}
+#shopping_cart .checkout .shipping .address[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .checkout .shipping .city {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  text-align: left;
+}
+#shopping_cart .checkout .shipping .city[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .checkout .shipping .state {
+  display: inline-block;
+  width: 8rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin-right: 1rem;
+}
+#shopping_cart .checkout .shipping .state[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .checkout .shipping .zip {
+  display: inline-block;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+}
+#shopping_cart .checkout .shipping .zip[placeholder]:empty:before {
+  color: #808080;
+}
+#shopping_cart .checkout .payment {
+  height: 19rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+#shopping_cart .checkout .payment label {
+  width: 22rem;
+  margin-bottom: 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#shopping_cart .checkout .payment .total {
+  width: 22rem;
+  text-align: center;
+}
+#shopping_cart .checkout .payment .total.usd {
+  margin-bottom: 0.5rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  color: #b3b3b3;
+}
+#shopping_cart .checkout .payment .total.btc {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+#shopping_cart .checkout .payment .total.btc .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+#shopping_cart .checkout .payment .submit {
+  display: inline-block;
+  cursor: pointer;
+  background: #b3b3b3;
+  margin: 3em;
+  height: 5rem;
+  padding: 1.75rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 1.4rem;
+  font-weight: 600;
+  border-radius: 10rem;
+  width: 20rem;
+  margin: 2rem 1rem 1rem;
+  text-align: center;
+}
+#shopping_cart .checkout .payment .submit.active:hover {
+  background: #fff;
+}
+#shopping_cart .checkout .payment .submit.disabled {
+  padding-top: 2rem;
+  font-size: 1rem;
+  background: #808080;
+}
+#search_criteria {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  background: #323234;
+}
+#search_criteria nav {
+  height: 15rem;
+  width: 13rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+}
+#search_criteria nav .tab {
+  height: 5rem;
+  width: 13rem;
+  vertical-align: top;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #808080;
+  border-bottom: 1px solid #454547;
+  background: #3c3c3e;
+  cursor: pointer;
+}
+#search_criteria nav .tab.favorites .icon {
+  height: 1.4rem;
+  width: 1.5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: -0.25rem 0.75rem 0 0;
+  background: url("../images/icon-heart.png");
+  background-size: cover;
+}
+#search_criteria nav .tab.active {
+  color: #fff;
+  background: #323234;
+}
+#search_criteria nav .tab:hover {
+  color: #b3b3b3;
+  background: #323234;
+}
+#search_criteria nav .tab:nth-child(3) {
+  border: none;
+}
+#search_criteria .filters {
+  height: 15rem;
+  width: 54.9rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+}
+#search_criteria .filters .compounds {
+  height: 8.5rem;
+  width: 36rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  padding: 3rem 0 2rem 3rem;
+}
+#search_criteria .filters .compounds .compound {
+  height: 3.5rem;
+  width: 1rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  width: 50%;
+  float: left;
+  cursor: pointer;
+}
+#search_criteria .filters .compounds .compound * {
+  cursor: pointer;
+}
+#search_criteria .filters .compounds .compound .icon {
+  height: 3.5rem;
+  width: 3.5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 0.6rem;
+  color: #323234;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  border: 2px solid #808080;
+  border-radius: 10rem;
+}
+#search_criteria .filters .compounds .compound label {
+  height: 3rem;
+  width: 10rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 0.4rem 0 0 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#search_criteria .filters .compounds .compound.active label {
+  color: #b3b3b3;
+}
+#search_criteria .filters .compounds .compound.active .icon {
+  border: none;
+}
+#search_criteria .filters .compounds .compound.active:hover .icon {
+  color: #3c3c3e;
+}
+#search_criteria .filters .length {
+  height: 3rem;
+  width: 19rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 0.5rem 0 3rem 3rem;
+  float: left;
+  clear: left;
+}
+#search_criteria .filters .length .min,
+#search_criteria .filters .length .max {
+  display: inline-block;
+  width: 7rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 0;
+  float: left;
+}
+#search_criteria .filters .length .min[placeholder]:empty:before,
+#search_criteria .filters .length .max[placeholder]:empty:before {
+  color: #808080;
+}
+#search_criteria .filters .length .max {
+  float: right;
+}
+#search_criteria .filters .length .endash,
+#search_criteria .filters .length mark {
+  height: 2rem;
+  width: 5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  text-align: center;
+  color: #808080;
+}
+#search_criteria .filters .length .endash {
+  margin-top: -1rem;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  font-weight: 400;
+}
+#search_criteria .filters .length .endash .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+#search_criteria .filters .length mark {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+#search_criteria .filters .level {
+  position: relative;
+  display: inline-block;
+  width: 13.5rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 0.5rem 0 3rem 2rem;
+  float: right;
+}
+#search_criteria .filters .level[placeholder]:empty:before {
+  color: #808080;
+}
+#search_criteria .filters .level .choices {
+  width: 90%;
+  z-index: 100;
+  top: -6rem;
+  left: 0.75rem;
+}
+#search_criteria .filters .goals {
+  height: 15rem;
+  width: 17rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: right;
+  padding: 3rem 3rem 3rem 2rem;
+}
+#search_criteria .filters .goals .goal {
+  height: 2.5rem;
+  width: 13rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+#search_criteria .filters .goals .goal .checkbox {
+  height: 1.6rem;
+  width: 1.6rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3c3c3e;
+  text-align: center;
+  line-height: 1.8rem;
+  background: #3c3c3e;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+#search_criteria .filters .goals .goal .checkbox:hover {
+  background: #454547;
+}
+#search_criteria .filters .goals .goal .checkbox.active {
+  color: #3c3c3e;
+  background: #b3b3b3;
+}
+#search_criteria .filters .goals .goal .checkbox.active:hover {
+  background: #b3b3b3;
+}
+#search_criteria .filters .goals .goal label {
+  padding-left: 0.5rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: #b3b3b3;
+}
+#search_compounds {
+  width: 68rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: right;
+  height: 23rem;
+  background: #323234;
+  cursor: pointer;
+}
+#account {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  float: left;
+  clear: left;
+  background: #323234;
+}
+#account .username {
+  height: 8rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  border-bottom: 1px solid #3c3c3e;
+}
+#account .balance {
+  height: 11rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #b3b3b3;
+  border-bottom: 1px solid #3c3c3e;
+}
+#account .balance .icon {
+  height: 5rem;
+  width: 5rem;
+  vertical-align: top;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  float: left;
+  margin-right: 2rem;
+  background: url("../images/icon-wallet.png");
+}
+#account .balance label {
+  width: 22rem;
+  height: 2rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-style: italic;
+}
+#account .balance .value.btc {
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+#account .balance .value.btc .fa-btc {
+  font-size: 3.4rem;
+  margin-right: 0.25rem;
+}
+#account .balance .value.usd {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #808080;
+}
+#account .referal {
+  height: 18rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #3c3c3e;
+}
+#account .referal title {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#account .referal .description {
+  width: 21rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+  text-align: justify;
+}
+#account .referal .code {
+  display: inline-block;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  padding-top: 1.25rem;
+  height: 4rem;
+  margin: 2rem 4.5rem 0;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+  cursor: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+#account .referal .code .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+#account .invitations {
+  height: 21rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #3c3c3e;
+}
+#account .invitations title {
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+#account .invitations .disclaimer {
+  width: 21rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+  text-align: justify;
+}
+#account .invitations .code {
+  display: inline-block;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  padding-top: 1.25rem;
+  height: 4rem;
+  margin: 2rem 4.5rem 0;
+  font-family: "Gotham Narrow ScreenSmart";
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+  cursor: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+#account .invitations .code .fa-btc {
+  font-size: 1.6rem;
+  margin-right: 0.2rem;
+}
+#account .invitations .generate {
+  display: inline-block;
+  cursor: pointer;
+  color: #808080;
+  background: #3c3c3e;
+  margin: 2em;
+  height: 3rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 0.5rem;
+  border-radius: 10rem;
+  width: 19rem;
+  margin: 1rem 1.5rem 0;
+  text-align: center;
+}
+#account .invitations .generate:hover {
+  background: #808080;
+  color: #1b1b1d;
+}
+#account .password {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  margin: 3rem 3rem 0;
+  text-align: center;
+  text-transform: none;
+  cursor: text;
+}
+#account .password[placeholder]:empty:before {
+  color: #808080;
+}
+#account .changePassword {
+  display: inline-block;
+  cursor: pointer;
+  color: #808080;
+  background: #3c3c3e;
+  margin: 3em;
+  height: 4rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 10rem;
+  margin: 2rem 4.7rem 2rem;
+}
+#account .changePassword:hover {
+  background: #808080;
+  color: #1b1b1d;
+}
+#account .security {
+  height: 13rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 3rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  color: #808080;
+  text-align: justify;
+}
+#account .security strong {
+  width: 22rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #b3b3b3;
+}
+#messages {
+  width: 28rem;
+  margin: 1rem;
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+  background: rgba(230,230,230,0.25);
+  height: 52rem;
+  float: left;
+  clear: left;
+  background: #323234;
+}
+#messages header {
+  height: 8rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  border-bottom: 1px solid #3c3c3e;
+}
+#messages .history {
+  height: 26rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-bottom: 1rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-bottom: 1px solid #3c3c3e;
+}
+#messages .history::-webkit-scrollbar {
+  width: 0.75rem;
+}
+#messages .history::-webkit-scrollbar-track {
+  background: #3c3c3e;
+}
+#messages .history::-webkit-scrollbar-thumb {
+  background: #454547;
+  border-radius: 1rem;
+}
+#messages .history .message {
+  width: 22rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+#messages .history .message .sender {
+  width: 19rem;
+  margin-bottom: 0.5rem;
+  font-family: "Heuristica";
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-style: italic;
+  color: #808080;
+}
+#messages .history .message .text {
+  width: 20rem;
+  padding: 1rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  color: #b3b3b3;
+  text-align: justify;
+  background: #3c3c3e;
+  border-radius: 0.5rem;
+}
+#messages .history .message .text:after {
+  width: 1rem;
+  height: 1rem;
+  background: #3c3c3e;
+}
+#messages .history .message.user {
+  text-align: right;
+}
+#messages .history .message.user text {
+  background: #454547;
+}
+#messages .compose {
+  height: 18rem;
+  width: 28rem;
+  vertical-align: top;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+#messages .compose .textarea {
+  display: inline-block;
+  width: 22rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 2rem;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3c3c3e;
+  padding: 0.5rem 1rem;
+  height: 8rem;
+  margin-top: 0;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+  text-align: left;
+  color: #b3b3b3;
+}
+#messages .compose .textarea[placeholder]:empty:before {
+  color: #808080;
+}
+#messages .compose .textarea[placeholder]:empty:before {
+  color: #808080;
+}
+#messages .compose .send {
+  display: inline-block;
+  cursor: pointer;
+  color: #808080;
+  background: #3c3c3e;
+  margin: 2em;
+  height: 3rem;
+  padding: 1.25rem 3rem;
+  font-family: "Gotham ScreenSmart";
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  line-height: 0.5rem;
+  border-radius: 10rem;
+  margin-top: 1rem;
+  margin-left: 13rem;
+}
+#messages .compose .send:hover {
+  background: #808080;
+  color: #1b1b1d;
+}
+/* Footer
+-------------------------------------------------------------------------------*/
+#footer_gap {
+  width: 100%;
+  height: 200px;
+}
+footer {
+  display: block;
+  width: 100%;
+  margin-top: 20rem;
+  background: #3c3c3e;
+}
+footer main {
+  height: 400px;
+}
+/* Media queries
+-------------------------------------------------------------------------------*/
+/* Print styles
+-------------------------------------------------------------------------------*/

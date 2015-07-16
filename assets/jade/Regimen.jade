@@ -1,0 +1,72 @@
+.regimen(ng-attr-id=" {{ protocol.id + '-' + $index }} ")
+	.icon(ng-style=" { 'backgroundColor': regimen.compound.color } ")
+	.ident
+		.id {{ regimen.compound.id }}
+		.mode {{ regimen.compound.mode }}
+		.density
+			.value {{ regimen.compound.density }}
+			br
+			mark mg/ml
+		.name {{ regimen.compound.name }}
+		.alias {{ regimen.compound.alias }}
+		.remove(ng-click="protocol.removeComponent($index)") ×
+	.graph(graph)
+	.metrics
+		.active(ng-mouseenter="activeTooltip = true" ng-mouseleave="activeTooltip = false")
+			.icon
+			label Active Target
+			.value(ng-model="regimen.adjustedActiveTarget" contenteditable="true")
+			mark mg
+			.tooltip.top(ng-show="activeTooltip")
+				strong Active Target
+				| is the average amount of active compound in blood serum
+				i (not the amount injected)
+				|. It is adjusted automatically to the ideal level for your FFMI but you're free to adjust it as needed.
+		.variance(ng-mouseenter="variance_adjust_visible = true" ng-mouseleave="variance_adjust_visible = false")
+			.icon
+			label Variance
+			.value {{ regimen.variance | number:1 }}
+			mark ±#[br]%
+			.adjust(ng-show="variance_adjust_visible")
+				.up(ng-click="increase_interval()")
+				.down(ng-click="decrease_interval()")
+			.tooltip.top(ng-show="variance_adjust_visible")
+				strong Variance
+				| is how much active blood levels will fluctuate over time. Lower variance means more stable blood levels which improve results and reduce side effects.
+		.biolipid_density(ng-mouseenter="densityTooltip = true" ng-mouseleave="densityTooltip = false")
+			.icon
+			label BioFluid Density
+			.value(ng-model="regimen.density" contenteditable="true")
+			mark mg/ml
+			.tooltip.top(ng-show="densityTooltip")
+				strong Density
+				| is how concentrated the compound is in BioFluid. Higher concentrations allow for smaller doses but may cause inflamation in some athletes.
+		.frequency(ng-mouseenter="frequency_adjust_visible = true" ng-mouseleave="frequency_adjust_visible = false")
+			.icon
+			label Frequency
+			.value {{ regimen.interval }}
+			mark Days
+			.adjust(ng-show="frequency_adjust_visible")
+				.up(ng-click="increase_interval()")
+				.down(ng-click="decrease_interval()")
+			.tooltip.top(ng-show="frequency_adjust_visible")
+				strong Frequency
+				| defines how often you will take this compound. The default offers the lowest variance and best blood levels.
+		.start(ng-mouseenter="startDayTooltip = true" ng-mouseleave="startDayTooltip = false")
+			.icon
+			label Start Day
+			.value(ng-model="regimen.startDay" contenteditable="true")
+			.tooltip.top(ng-show="startDayTooltip")
+				strong Start Day
+				| is the day you will take your first dose of this compound. Usually a loading dose is automatically calculated for the lowest variance.
+		.duration(ng-mouseenter="duration_adjust_visible = true" ng-mouseleave="duration_adjust_visible = false")
+			.icon
+			label Duration
+			.value(ng-model="regimen.duration" contenteditable="true")
+			mark Days
+			.adjust(ng-show="duration_adjust_visible")
+				.up(ng-click="increase_duration()")
+				.down(ng-click="decrease_duration()")
+			.tooltip.top(ng-show="duration_adjust_visible")
+				strong Duration
+				| is the number of days you intend to take this compound.

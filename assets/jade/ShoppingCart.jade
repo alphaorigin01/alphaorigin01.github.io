@@ -1,0 +1,55 @@
+#shopping_cart(ng-show="visibleShoppingCart" ng-animate="{show: 'fadeIn', hide:'fadeOut'}")
+	header Shopping Cart
+	.protocols
+		.protocol(ng-repeat="(id, item) in order.cart")
+			.id X-{{ item.protocol._id.substring(9) }}
+			.name {{ item.protocol.title }}
+			.formulation(ng-repeat="formulation in item.protocol.formulations")
+				.id {{ formulation.id }}.
+				mark ml
+				.quantity {{ formulation.totalVolume | number:1 }}
+				.mode
+				.icon
+					.circle(ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}")
+			.actions
+				.quantity
+					.up(ng-click="increaseQty(id)") +
+					|Qty
+					.down(ng-click="decreaseQty(id)") -
+				.edit Edit
+				.delete(ng-click="deleteItem(id)") Delete
+			.subtotal
+				.quantity
+					mark Quantity:
+					.value x{{ item.qty }}
+				.price
+					.value.usd {{ item.protocol.priceUSD * item.qty | currency:"USD $":0 }}
+					.value.btc #[i.fa.fa-btc]{{ item.protocol.priceBTC * item.qty | number:3 }}
+	.accessories
+		.item
+			.name 3ml Syringe with 25G x 1" needle
+			.quantity {{ accessoryQty() }}
+		.item
+			.name Alcohol Prep Pad
+			.quantity {{ accessoryQty() * 2 }}
+		.item
+			.name One Quart Sharps Container
+			.quantity 1
+		.item
+			.name Expedited Shipping
+		.referral(ng-model="order.referral" contenteditable="true" placeholder="Enter Code")
+		.subtotal.usd {{ accessoryPriceUSD() | currency:"$":0 }} USD
+		.subtotal.btc #[i.fa.fa-btc]{{ accessoryPriceUSD() * BTCrate() | number:3 }}
+	.checkout
+		.shipping
+			label Shipping Address:
+			.name(ng-model="order.name" contenteditable="true" placeholder="Your Name")
+			.address(ng-model="order.address" contenteditable="true" placeholder="Street Address")
+			.address(ng-model="order.address2" contenteditable="true" placeholder="Apartment, Suite, etc.")
+			.city(ng-model="order.city" contenteditable="true" placeholder="City")
+			.state(ng-model="order.state" contenteditable="true" placeholder="State")
+			.zip(ng-model="order.zip" contenteditable="true" placeholder="00000-0000")
+		.payment
+			.total.usd {{ grandTotal() | currency:"$":0 }} USD
+			.total.btc #[i.fa.fa-btc]{{ grandTotal() * BTCrate() | number:3 }}
+			.submit(ng-class="orderReady()[0] ? 'active' : 'disabled' " ng-click="checkout()") {{ orderReady()[1] }}

@@ -1,0 +1,140 @@
+
+<div class="protocol">
+  <nav>
+    <div ng-click="selectTab(1)" ng-class="{ active:isSelected(1) }" class="tab">Protocol</div>
+    <div ng-click="selectTab(2)" ng-class="{ active:isSelected(2) }" class="tab">Formulations</div>
+    <div ng-click="selectTab(3)" ng-class="{ active:isSelected(3) }" class="tab">Dose Schedule</div>
+    <div ng-click="selectTab(4)" ng-class="{ active:isSelected(4) }" class="tab">Pharmacodynamics</div>
+  </nav>
+  <div ng-show="isSelected(1)" class="panel primary">
+    <div class="summary">
+      <div ng-click="toggle_experience_choices_visible()" class="level">{{ protocol.experience }}
+        <div ng-show="experience_choices_visible" class="choices">
+          <header>Select Experience Level:</header>
+          <div ng-click="protocol.experience = 'Beginner'" class="choice">Beginner<br/>FFMI less than 20</div>
+          <div ng-click="protocol.experience = 'Intermediate'" class="choice">Intermediate<br/>FFMI of 20 to 25</div>
+          <div ng-click="protocol.experience = 'Advanced'" class="choice">Advanced<br/>FFMI over 25</div>
+        </div>
+      </div>
+      <div ng-click="toggle_goal_choices_visible()" class="goal">{{ protocol.goal }}
+        <div ng-show="goal_choices_visible" class="choices">
+          <header>Select a goal:</header>
+          <div ng-click="protocol.goal = 'Strength'" class="choice">Strength</div>
+          <div ng-click="protocol.goal = 'Hypertrophy'" class="choice">Hypertrophy</div>
+          <div ng-click="protocol.goal = 'Recomposition'" class="choice">Recomposition</div>
+          <div ng-click="protocol.goal = 'Performance'" class="choice">Performance</div>
+        </div>
+      </div>
+      <div class="rating">
+        <div ng-class="{active: active_stars &gt; 0, selected: selected_stars &gt; 0, hover: hover_stars &gt; 0}" ng-mouseover="hover_stars = 1" ng-mouseleave="hover_stars = 0" ng-click="set_stars(1)" class="star"></div>
+        <div ng-class="{active: active_stars &gt; 1, selected: selected_stars &gt; 1, hover: hover_stars &gt; 1}" ng-mouseover="hover_stars = 2" ng-mouseleave="hover_stars = 0" ng-click="set_stars(2)" class="star"></div>
+        <div ng-class="{active: active_stars &gt; 2, selected: selected_stars &gt; 2, hover: hover_stars &gt; 2}" ng-mouseover="hover_stars = 3" ng-mouseleave="hover_stars = 0" ng-click="set_stars(3)" class="star"></div>
+        <div ng-class="{active: active_stars &gt; 3, selected: selected_stars &gt; 3, hover: hover_stars &gt; 3}" ng-mouseover="hover_stars = 4" ng-mouseleave="hover_stars = 0" ng-click="set_stars(4)" class="star"></div>
+        <div ng-class="{active: active_stars &gt; 4, selected: selected_stars &gt; 4, hover: hover_stars &gt; 4}" ng-mouseover="hover_stars = 5" ng-mouseleave="hover_stars = 0" ng-click="set_stars(5)" class="star"></div>
+      </div>
+      <!--.popularity
+      .rank 54
+      |&nbsp;out of  
+      .total 967
+      -->
+      <div class="buy">
+        <div class="price">
+          <div class="value usd">{{ protocol.priceUSD | currency:"USD $":0 }}</div>
+          <div class="value btc"><i class="fa fa-btc"></i>{{ protocol.priceBTC | number:3 }}</div>
+        </div>
+        <div ng-click="add_to_cart()" class="add">{{ add_to_cart_text() }}</div>
+      </div>
+    </div>
+    <div dna="dna" class="dna"></div>
+    <div class="attributes">
+      <div ng-if="Athlete._id != protocol.owner" ng-click="favorite()" ng-class="{ 'active' : isFavorite() }" class="favorite"></div>
+      <div ng-click="destroy()" ng-if="Athlete._id == protocol.owner" class="delete">×</div>
+      <div class="id">X-{{ protocol._id.split('_')[1] }}</div>
+      <title ng-model="protocol.title" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Type Here To Name This Protocol"></title>
+      <div ng-model="protocol.description" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Describe the intended purpose of this protocol here. You can suggest training and diet methods as well. Protocols with a title and description will be included in member search results." class="description"></div>
+    </div>
+  </div>
+  <div ng-show="isSelected(2)" class="panel formulations">
+    <div ng-repeat="formulation in protocol.formulations" ng-show="formulation_isSelected($index + 1)" class="profile">
+      <div class="mode inject"></div>
+      <div class="quantity">
+        <div class="value">{{ formulation.totalVolume | number:1 }}</div>
+        <mark>ml</mark>
+      </div>
+      <div class="dilution">+ {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLipid™</div>
+      <div class="id">Formula {{ formulation.id }}</div>
+      <div class="compounds">
+        <div ng-repeat="(key, value) in formulation.compounds" class="compound">
+          <div ng-style="{'background-color': Compounds(key).color}" class="icon"></div>
+          <div class="density">{{ ( formulation.compounds[key] * Compounds(key).density ) / formulation.totalVolume | number:1 }} mg/ml</div>
+          <div class="name">{{ Compounds(key).name }}</div>
+        </div>
+      </div>
+      <div class="description">Protocols are formulated so doses are within 0.1ml for easy measuring with a standard 3ml syringe. Please measure your dose carefully.</div>
+      <div class="special"></div>
+    </div>
+    <div class="list">
+      <div ng-repeat="formulation in protocol.formulations" ng-click="formulation_selectTab($index + 1)" ng-class="{ active:formulation_isSelected($index) }" class="formulation">
+        <mark>ml</mark>
+        <div class="quantity">{{ formulation.totalVolume | number:1 }}</div>
+        <div class="mode inject"></div>
+        <div class="icon">
+          <div ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}" class="circle"></div>
+        </div>
+        <div class="id">Formula {{ formulation.id }}</div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="isSelected(3)" class="panel dose_schedule">
+    <div class="instructions">
+      <div class="day">
+        <div ng-click="select_previous_day()" class="previous">&lsaquo;</div>
+        <div class="value">{{ selected_day }}
+          <mark>{{ ordinal( selected_day ) }} Day</mark>
+        </div>
+        <div ng-click="select_next_day()" class="next">&rsaquo;</div>
+      </div>
+      <div class="doses">
+        <div ng-repeat="id in protocol.schedule[selected_day]" ng-if="protocol.schedule[selected_day]" class="dose">
+          <mark>ml</mark>
+          <div class="quantity">{{ dose_for_selected_day( id ) | number: 1 }}</div>
+          <div class="mode injection"></div>
+          <div class="icon">
+            <div ng-repeat="(key, value) in protocol.formulations[ id ].compounds" ng-style="{'background-color': Compounds(key).color}" class="circle"></div>
+          </div>
+          <div class="id">Formula {{ id }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="calendar">
+      <div ng-repeat="week in calendar" class="week">
+        <div ng-repeat="day in week" ng-class="{ active : day_has_dose( day ) }" ng-click="set_selected_day(day)" class="day">{{ day }}</div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="isSelected(4)" class="panel pharmacodynamics">
+    <div pharmacodynamics="pharmacodynamics" class="graph"></div>
+    <div class="key">
+      <div class="item">
+        <div class="icon red"></div>
+        <div class="label">Androgen Receptor Activity</div>
+      </div>
+      <div class="item">
+        <div class="icon blue"></div>
+        <div class="label">Progesterone Receptor Activity</div>
+      </div>
+      <div class="item">
+        <div class="icon orange"></div>
+        <div class="label">Estrogen α Receptor Activity</div>
+      </div>
+      <div class="item">
+        <div class="icon yellow"></div>
+        <div class="label">Estrogen β Receptor Activity</div>
+      </div>
+      <div class="item">
+        <div class="icon green"></div>
+        <div class="label">Gucocorticoid Receptor Activity</div>
+      </div>
+    </div>
+  </div>
+</div>

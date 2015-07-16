@@ -1,0 +1,26 @@
+section#editor(ng-show="visibleEditor")
+	div(ng-if="!!protocol")
+		protocol
+
+		.add_button(ng-click="choose_compound = true")
+			.icon +
+			label Add A Compound
+
+		.compound_chooser(ng-show="choose_compound")
+			header
+				.search(ng-model="compound_search" placeholder="Search" contenteditable="true")
+				.icon(ng-click="choose_compound = false") ×
+			.list(ng-click="choose_compound = false")
+				.compound(ng-repeat="compound in Compounds('list') | filter : compound_search" ng-click="protocol.addComponent(compound.id)")
+					.icon(ng-style=" { 'backgroundColor': compound.color } ")
+					.id {{ compound.id }}
+					.mode {{ compound.mode }}
+					.density
+						.value {{ compound.density }}
+						br
+						mark mg/ml
+					.name {{ compound.name }}
+					.alias {{ compound.alias }}
+			
+		components
+			regimen(ng-repeat="regimen in protocol.components")

@@ -1,0 +1,9 @@
+#messages(ng-show="visibleMessages" ng-animate="{show: 'fadeIn', hide:'fadeOut'}")
+	header Customer Support
+	.history
+		.message(ng-repeat="message in history track by $index" ng-class="{ user : message.sender == athlete._id }")
+			.sender {{ message.sender.substring(8) }}:
+			.text {{ message.text }}
+	.compose
+		.textarea(ng-model="message_text" contenteditable="true" placeholder="Type your message here.") 
+		.send(ng-click="send_message()") Send

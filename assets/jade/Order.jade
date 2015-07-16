@@ -1,0 +1,102 @@
+section#orders(ng-show="visibleOrders")
+	.order(ng-repeat="order in orders")
+		header
+			.id Order: {{ order._id.split('_')[3]}}
+			.timestamp {{ order.date | date : format : longDate }}
+		.cart
+			.protocols
+				.protocol(ng-repeat="(id, item) in order.cart")
+					.id X-{{ item.protocol._id.split('_')[1] }}
+					.name {{ item.protocol.title }}
+					.formulation(ng-repeat="formulation in item.protocol.formulations")
+						.id {{ formulation.id }}.
+						mark ml
+						.quantity {{ formulation.totalVolume }}
+						.mode
+						.icon
+							.circle(ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}")
+					.actions
+					.subtotal
+						.quantity
+							mark Quantity:
+							.value x{{ item.qty }}
+						.price
+							.value.usd {{ item.protocol.priceUSD * item.qty | currency:"USD $":0 }}
+							.value.btc #[i.fa.fa-btc]{{ item.protocol.priceUSD * item.qty * BTCrate() | number:3 }}
+			.accessories
+				.item
+					.name 3ml Syringe with 25G x 1" needle
+					.quantity {{ order.accessoryQty }}
+				.item
+					.name Alcohol Prep Pad
+					.quantity {{ order.accessoryQty * 2 }}
+				.item
+					.name One Quart Sharps Container
+					.quantity 1
+				.item
+					.name Expedited Shipping
+				.referral {{ order.referral }}
+				.subtotal.usd {{ order.accessoryPriceUSD | currency:"$":0 }} USD
+				.subtotal.btc #[i.fa.fa-btc]{{ order.accessoryPriceUSD * BTCrate() | number:3 }}
+		.fulfillment
+			.status.payment(ng-show="statusIsPayment($index)")
+				.icon
+				.title Payment
+				.action Please add bitcoins to your account to complete this order.
+				.subtotal
+					label Subtotal:
+					.value #[i.fa.fa-btc]{{ order.grandTotal * BTCrate() | number:3 }}
+				.credit
+					label Account Credit:
+					.value #[i.fa.fa-btc]{{ athlete.accountBalance | number:3 }}
+				.total
+					label Total:
+					.value #[i.fa.fa-btc]{{ (order.grandTotal * BTCrate()) - athlete.accountBalance | number:3 }}
+				a.pay(ng-href="bitcoin:{{ athlete.BTCAddress }}?amount={{ (order.grandTotal * BTCrate()) - athlete.accountBalance | number:3 }}") Pay
+				.address {{ athlete.BTCAddress }}
+				.instructions
+					strong How do I get bitcoins?&nbsp;&nbsp;
+					| If you're new to bitcoin, we reccomend you use one of the services below. They provide an easy way to setup a bitcoin wallet and buy bitcoins with a US bank account or credit card. More information about bitcoin can be found at
+					a(href="http://www.bitcoin.org") Bitcoin.org
+					|.
+				.service.coinbase
+					.logo
+					|Bank Account
+				.service.circle
+					.logo
+					|Bank Account + Credit Card
+			.status.formulating(ng-show="statusIsFormulating($index)")
+				.icon
+				.title Formulation
+				.action Order formulation and preparation for shipment
+				.step.done
+					.icon
+					.title Order Recieved
+					.description Your order has been received and is in queue for formulation.
+				.step(ng-class="{ 'done': order.fulfillment.preparedMaterials }")
+					.icon
+					.title Preparing Materials
+					.description We are preparing inventory to formulate your order.
+				.step(ng-class="{ 'done': order.fulfillment.formulatedProtocols }")
+					.icon
+					.title Formulating Protocols
+					.description We are now formulating protcols for your order.
+				.step
+					.icon
+					.title Preparing To Ship
+					.description Your order is now being packaged and prepared for shipment.
+			.status.shipment(ng-show="statusIsShipped($index)")
+				.icon
+				.title Shipping
+				.action Order shipment, tracking, and delivery.
+				.delivery_day
+					label Estimated Delivery Day
+					.value {{ order.trackingInfo.deliveryDay | date:'fullDate' }}
+				.infographic
+					.bar(ng-style="{ width: shippingBarLength($index) }")
+				.log
+					.entry(ng-repeat="log in order.trackingInfo.history")
+						.timestamp {{ log.date | date:'fullDate' }}
+						.value {{ log.status }}
+
+

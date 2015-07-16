@@ -1,0 +1,64 @@
+section#search(ng-show="visibleSearch")
+	.add_button(ng-click="createNewProtocol()")
+		.icon +
+		label Create A New Protocol
+		
+	#search_criteria
+		nav
+			.tab(ng-click="selectTab(1)" ng-class="{ active:isSelected(1) }") Everything
+			.tab.favorites(ng-click="selectTab(2)" ng-class="{ active:isSelected(2) }")
+				.icon
+				| Favorites
+			.tab(ng-click="selectTab(3)" ng-class="{ active:isSelected(3) }") My Protocols
+
+		.filters
+			.goals
+				.goal
+					.checkbox#strength(ng-click="strength = !strength; search()" ng-class="{ active:strength }") +
+					label Strength
+				.goal
+					.checkbox#hypertrophy(ng-click="hypertrophy = !hypertrophy; search()" ng-class="{ active:hypertrophy }") +
+					label Hypertrophy
+				.goal
+					.checkbox#recomposition(ng-click="recomposition = !recomposition; search()" ng-class="{ active:recomposition }") +
+					label Recomposition
+				.goal
+					.checkbox#performance(ng-click="performance = !performance; search()" ng-class="{ active:performance }") +
+					label Performance
+			.compounds
+				.compound(ng-class="{ active : searchCompounds[0] }" ng-click="toggleSearchCompound(0)")
+					.icon(ng-style=" { 'backgroundColor': searchCompoundColor(0), 'color': searchCompoundColor(0), } ") ×
+					label {{ searchCompoundName(0) }}
+				.compound(ng-class="{ active : searchCompounds[1] }" ng-click="toggleSearchCompound(1)")
+					.icon(ng-style=" { 'backgroundColor': searchCompoundColor(1), 'color': searchCompoundColor(1) } ") ×
+					label {{ searchCompoundName(1) }}
+			.length
+				.min(ng-model="minDays" contenteditable="true" ng-blur="search()")
+				.max(ng-model="maxDays" contenteditable="true" ng-blur="search()")
+				.endash –
+				mark Days
+			.level(ng-click="search_experience_choices_visible = !search_experience_choices_visible") {{ experience }}
+				.choices(ng-show="search_experience_choices_visible")
+					.choice(ng-click="experience = 'Beginner'; search()") Beginner
+					.choice(ng-click="experience = 'Intermediate'; search()") Intermediate
+					.choice(ng-click="experience = 'Advanced'; search()") Advanced
+
+	.compound_chooser(ng-show="choose_compound")
+		header
+			.search(ng-model="compound_search" placeholder="Search" contenteditable="true")
+			.icon(ng-click="choose_compound = false") ×
+		.list(ng-click="choose_compound = false")
+			.compound(ng-repeat="compound in Compounds('list') | filter : compound_search" ng-click="chooseCompound(compound.id)")
+				.icon(ng-style=" { 'backgroundColor': compound.color } ")
+				.id {{ compound.id }}
+				.mode {{ compound.mode }}
+				.density
+					.value {{ compound.density }}
+					br
+					mark mg/ml
+				.name {{ compound.name }}
+				.alias {{ compound.alias }}
+			
+	#search_results
+		protocol(ng-repeat="protocol in searchResults track by protocol._id")
+			

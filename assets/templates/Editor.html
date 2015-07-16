@@ -1,0 +1,32 @@
+
+<section id="editor" ng-show="visibleEditor">
+  <div ng-if="!!protocol">
+    <protocol></protocol>
+    <div ng-click="choose_compound = true" class="add_button">
+      <div class="icon">+</div>
+      <label>Add A Compound</label>
+    </div>
+    <div ng-show="choose_compound" class="compound_chooser">
+      <header>
+        <div ng-model="compound_search" placeholder="Search" contenteditable="true" class="search"></div>
+        <div ng-click="choose_compound = false" class="icon">×</div>
+      </header>
+      <div ng-click="choose_compound = false" class="list">
+        <div ng-repeat="compound in Compounds('list') | filter : compound_search" ng-click="protocol.addComponent(compound.id)" class="compound">
+          <div ng-style=" { 'backgroundColor': compound.color } " class="icon"></div>
+          <div class="id">{{ compound.id }}</div>
+          <div class="mode">{{ compound.mode }}</div>
+          <div class="density">
+            <div class="value">{{ compound.density }}</div><br/>
+            <mark>mg/ml</mark>
+          </div>
+          <div class="name">{{ compound.name }}</div>
+          <div class="alias">{{ compound.alias }}</div>
+        </div>
+      </div>
+    </div>
+    <components>
+      <regimen ng-repeat="regimen in protocol.components"></regimen>
+    </components>
+  </div>
+</section>

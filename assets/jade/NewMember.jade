@@ -1,0 +1,25 @@
+section#newMember(ng-show="visibleNewMember")
+	.title New Member Registration
+	.height.metric.normal.editable
+		.icon
+		label Height
+		.value(ng-model="athlete.height" contenteditable="true" placeholder="0.00")
+		mark m
+	.weight.metric.normal.editable
+		.icon
+		label Weight
+		.value(ng-model="athlete.weight" contenteditable="true" placeholder="0.00")
+		mark kg
+	.bodyfat.metric.normal.editable
+		.icon
+		label Body Fat
+		.value(ng-model="athlete.bodyFat" contenteditable="true" placeholder="0.00")
+		mark %
+	.credentials
+		.username(ng-model="username" contenteditable="true" placeholder="USERNAME")
+		.icon#username(ng-class="{ ok : usernameValid, fail : usernameInvalid }")
+		.password(ng-model="password" contenteditable="true" placeholder="PASSWORD")
+		.icon#password(ng-class="{ ok : passwordValid }")
+		.invitation(ng-model="invitation" contenteditable="true" placeholder="INVITATION CODE")
+		.icon#invitation(ng-class="{ ok : invitationValid, fail : invitationInvalid }")
+		.submit.active(ng-click="requestMembership()") Request Membership

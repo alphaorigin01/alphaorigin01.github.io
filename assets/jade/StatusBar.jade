@@ -1,0 +1,8 @@
+main
+	.store_status.status.
+		Lab Status :&nbsp;&nbsp;#[span#store_status.value {{ status }}] 
+		Avg. Processing Time :&nbsp;&nbsp;#[span#processing_time.value {{ processingTime }}]
+
+	.account_status.status.
+		Hello&nbsp;&nbsp;#[span#account_name.value {{ athlete._id.split('_')[1] }}] 
+		Order Status:&nbsp;&nbsp;#[span#account_name.value {{ orderStatus }}]

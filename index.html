@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lab" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=1050">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Alpha</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="//raw.githubusercontent.com/daneden/animate.css/master/animate.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.0/angular.min.js"></script>
+    <script src="https://live.amcharts.com/vendor/amcharts/amcharts.js"></script>
+    <script src="https://live.amcharts.com/vendor/amcharts/serial.js"></script>
+    <script src="https://cdn.rawgit.com/lodash/lodash/3.8.0/lodash.min.js"></script>
+    <script src="https://cdn.rawgit.com/aterrien/jQuery-Knob/master/dist/jquery.knob.min.js"></script>
+    <script src="https://cdn.rawgit.com/3nsoft/ecma-nacl/master/dist/lib-browser/ecma-nacl.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/PubNubService.js"></script>
+    <script src="assets/js/BTCService.js"></script>
+    <script src="assets/js/AthleteService.js"></script>
+    <script src="assets/js/CompoundService.js"></script>
+    <script src="assets/js/ProtocolService.js"></script>
+    <script src="assets/js/OrderService.js"></script>
+    <script src="assets/js/Protocol.js"></script>
+    <script src="assets/js/Order.js"></script>
+    <script src="assets/js/StatusBar.js"></script>
+    <script src="assets/js/PrimaryMenu.js"></script>
+    <script src="assets/js/Masthead.js"></script>
+    <script src="assets/js/Login.js"></script>
+    <script src="assets/js/NewMember.js"></script>
+    <script src="assets/js/Athlete.js"></script>
+    <script src="assets/js/Messages.js"></script>
+    <script src="assets/js/Search.js"></script>
+    <script src="assets/js/ProtocolByID.js"></script>
+    <script src="assets/js/Editor.js"></script>
+    <script src="assets/js/ShoppingCart.js"></script>
+  </head>
+  <body>
+    <status-bar></status-bar>
+    <primary-menu></primary-menu>
+    <masthead></masthead>
+    <main>
+      <aside>
+        <login></login>
+        <athlete-metrics-aside></athlete-metrics-aside>
+        <protocol-by-id></protocol-by-id>
+        <shopping-cart></shopping-cart>
+        <account></account>
+        <messages></messages>
+      </aside>
+      <new-member-section></new-member-section>
+      <search-section></search-section>
+      <editor-section></editor-section>
+      <athlete-metrics-section></athlete-metrics-section>
+      <orders-section></orders-section>
+    </main>
+    <footer>
+      <main></main>
+    </footer>
+  </body>
+</html>
