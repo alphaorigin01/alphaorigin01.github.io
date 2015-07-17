@@ -55,7 +55,7 @@
 			.quantity
 				.value {{ formulation.totalVolume | number:1 }}
 				mark ml
-			.dilution + {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLipid™
+			.dilution + {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLiquid™
 			.id Formula {{ formulation.id }}
 			.compounds
 				.compound(ng-repeat="(key, value) in formulation.compounds" )
@@ -111,4 +111,3 @@
 			.item
 				.icon.green
 				.label Gucocorticoid Receptor Activity
-

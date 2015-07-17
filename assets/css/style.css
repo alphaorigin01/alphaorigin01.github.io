@@ -536,9 +536,8 @@ header {
   background: #1b1b1d;
 }
 .protocol nav .tab {
-  width: 130px;
   height: 10px;
-  padding: 20px;
+  padding: 10px;
   display: table-cell;
   width: auto;
   font-family: "Gotham ScreenSmart";
@@ -561,7 +560,7 @@ header {
   border-radius: 5px 5px 0 0;
 }
 .protocol nav .tab:nth-child(1) {
-  width: 210px;
+  width: 190px;
 }
 .protocol nav .tab:nth-child(1).active {
   background: #3c3c3e;
@@ -667,7 +666,7 @@ header {
 .protocol .primary .summary .buy {
   width: 170px;
   height: 100px;
-  padding: 20px;
+  padding: 30px 20px 20px;
   border-top: 1px solid #454547;
   margin-top: 40px;
 }
@@ -713,7 +712,7 @@ header {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10px;
+  border-radius: 100px;
   display: inline-block;
   margin: 15px 0;
   font-weight: 500;
@@ -805,7 +804,7 @@ header {
   overflow: hidden;
 }
 .protocol .formulations .profile {
-  width: 351px;
+  width: 349.5px;
   height: 310px;
   background: #3c3c3e;
   border-radius: 0 0 5px 0;
@@ -825,7 +824,7 @@ header {
   background-size: cover;
 }
 .protocol .formulations .profile .dilution {
-  width: 140px;
+  width: 120px;
   float: left;
   padding: 28px 0 0 20px;
   font-family: "Heuristica";
@@ -852,7 +851,7 @@ header {
 }
 .protocol .formulations .profile > .quantity {
   float: right;
-  width: 150px;
+  width: 115px;
   padding: 28px 30px 0 0;
   text-align: right;
 }
@@ -881,20 +880,18 @@ header {
 }
 .protocol .formulations .profile .compounds {
   width: 291px;
-  height: 177px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 20px;
+  height: 157px;
+  padding: 20px 30px 0;
 }
 .protocol .formulations .profile .compounds .compound {
   width: 100%;
-  margin-bottom: -0.75px;
+  margin-bottom: -7.5px;
 }
 .protocol .formulations .profile .compounds .compound .icon {
   width: 40px;
   height: 40px;
   float: left;
-  border-radius: 10px;
+  border-radius: 100px;
   background: #808080;
 }
 .protocol .formulations .profile .compounds .compound .quantity {
@@ -924,7 +921,7 @@ header {
 }
 .protocol .formulations .profile .compounds .compound .name {
   float: left;
-  width: 250px;
+  width: 230px;
   margin-top: -1px;
   padding-left: 20px;
   font-family: "Heuristica";
@@ -991,8 +988,8 @@ header {
   cursor: pointer;
 }
 .protocol .formulations .list .formulation .icon {
-  width: 90px;
-  height: 40px;
+  width: 60px;
+  height: 20px;
   float: left;
   padding: 20px 0 0 30px;
 }
@@ -1000,7 +997,7 @@ header {
   width: 20px;
   height: 20px;
   margin-right: -10px;
-  border-radius: 10px;
+  border-radius: 100px;
   background: #b3b3b3;
 }
 .protocol .formulations .list .formulation .id {
@@ -1070,8 +1067,8 @@ header {
   height: 310px;
 }
 .protocol .dose_schedule .instructions .day {
-  width: 220px;
-  height: 50px;
+  width: 200px;
+  height: 40px;
   padding: 20px 0 20px 20px;
   background: #808080;
   border-radius: 5px 5px 0 0;
@@ -1090,7 +1087,7 @@ header {
   color: #b3b3b3;
   text-align: center;
   border: 1px solid #b3b3b3;
-  border-radius: 10px;
+  border-radius: 100px;
   cursor: pointer;
 }
 .protocol .dose_schedule .instructions .day .previous .fa-btc,
@@ -1159,7 +1156,7 @@ header {
   width: 20px;
   height: 20px;
   margin-right: -5px;
-  border-radius: 10px;
+  border-radius: 100px;
   background: #b3b3b3;
   font-family: "Gotham ScreenSmart";
   font-size: 11px;
@@ -1284,7 +1281,7 @@ header {
   width: 16px;
   height: 16px;
   margin-right: 10px;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 .protocol .pharmacodynamics .key .item > .icon.red {
   background: #ff4351;
@@ -1531,7 +1528,7 @@ header {
 .regimen .metrics .variance mark {
   padding-top: 0;
 }
-.regimen .metrics .biolipid_density .icon {
+.regimen .metrics .bioliquid_density .icon {
   background: url("../images/icon-density.png");
   background-size: cover;
 }
@@ -1638,6 +1635,7 @@ header {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -1916,7 +1914,7 @@ header {
   float: left;
   margin-right: -8px;
   background: #b3b3b3;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 .order .cart .protocols .formulation .icon .circle:nth-child(1) {
   background: light_blue;
@@ -2084,13 +2082,14 @@ header {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 100px;
+  width: 80px;
 }
 .order .cart .accessories .referral[placeholder]:empty:before {
   color: #808080;
@@ -2294,7 +2293,7 @@ header {
   line-height: 16px;
   text-transform: uppercase;
   line-height: 5px;
-  border-radius: 10px;
+  border-radius: 100px;
   margin: 20px 20px 0 0;
   color: #323234;
   text-decoration: none;
@@ -2497,13 +2496,13 @@ header {
   height: 20px;
   margin-bottom: 30px;
   background: #3c3c3e;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 .order .fulfillment .status.shipment .infographic .bar {
   width: 70%;
   height: 20px;
   background: #b3b3b3;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 .order .fulfillment .status.shipment .log {
   width: 340px;
@@ -2688,6 +2687,7 @@ masthead #masthead {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -2723,7 +2723,7 @@ masthead #masthead {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10px;
+  border-radius: 100px;
   width: 160px;
   margin: 25px 30px;
   text-align: center;
@@ -2784,14 +2784,15 @@ masthead #masthead {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 90px;
-  margin: 30px 0 0 2.75px;
+  width: 85px;
+  margin: 30px 0 30px 30px;
   text-align: center;
   text-transform: none;
   cursor: text;
@@ -2815,10 +2816,10 @@ masthead #masthead {
   line-height: 16px;
   text-transform: uppercase;
   line-height: 5px;
-  border-radius: 10px;
-  width: 80px;
+  border-radius: 100px;
+  width: 60px;
   padding: 12px;
-  margin: 30px 15px;
+  margin: 33px 15px 0;
   text-align: center;
   font-weight: 500;
 }
@@ -2919,6 +2920,7 @@ section#newMember .credentials .invitation {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -2955,7 +2957,7 @@ section#newMember .credentials .submit {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10px;
+  border-radius: 100px;
   display: block;
   width: 210px;
   margin: 45px auto;
@@ -3072,7 +3074,7 @@ section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #shopping_cart .protocols {
-  width: 28px;
+  width: 280px;
   height: auto;
   margin-bottom: 30px;
   padding-top: 20px;
@@ -3133,7 +3135,7 @@ section#athlete_metrics .lean_body_mass {
   float: left;
   margin-right: -8px;
   background: #b3b3b3;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 #shopping_cart .protocols .formulation .icon .circle:nth-child(1) {
   background: light_blue;
@@ -3214,7 +3216,7 @@ section#athlete_metrics .lean_body_mass {
   font-size: 10px;
   line-height: 16px;
   line-height: 15px;
-  border-radius: 10px;
+  border-radius: 100px;
   width: 80px;
   margin: 0.25px 0;
   text-align: center;
@@ -3360,13 +3362,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 140px;
+  width: 80px;
 }
 #shopping_cart .accessories .referral[placeholder]:empty:before {
   color: #808080;
@@ -3440,11 +3443,11 @@ section#athlete_metrics .lean_body_mass {
   line-height: 40px;
   text-align: center;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 #shopping_cart .checkout .shipping {
   width: 220px;
-  height: 290px;
+  height: 310px;
   padding: 0 30px;
   border-bottom: 1px solid #3c3c3e;
 }
@@ -3477,13 +3480,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 220px;
+  width: 180px;
   text-align: left;
 }
 #shopping_cart .checkout .shipping .name[placeholder]:empty:before {
@@ -3504,13 +3508,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 220px;
+  width: 180px;
   text-align: left;
   font-style: normal;
 }
@@ -3532,13 +3537,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 220px;
+  width: 180px;
   text-align: left;
 }
 #shopping_cart .checkout .shipping .city[placeholder]:empty:before {
@@ -3559,13 +3565,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 80px;
+  width: 40px;
   margin-right: 10px;
 }
 #shopping_cart .checkout .shipping .state[placeholder]:empty:before {
@@ -3586,13 +3593,14 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 130px;
+  width: 90px;
 }
 #shopping_cart .checkout .shipping .zip[placeholder]:empty:before {
   color: #808080;
@@ -3647,7 +3655,7 @@ section#athlete_metrics .lean_body_mass {
   cursor: pointer;
   background: #b3b3b3;
   margin: 30px;
-  height: 50px;
+  height: 16px;
   padding: 17px 30px;
   font-family: "Gotham ScreenSmart";
   font-size: 11px;
@@ -3659,8 +3667,8 @@ section#athlete_metrics .lean_body_mass {
   text-transform: uppercase;
   line-height: 14px;
   font-weight: 600;
-  border-radius: 10px;
-  width: 20px;
+  border-radius: 100px;
+  width: 150px;
   margin: 20px 10px 10px;
   text-align: center;
 }
@@ -3805,6 +3813,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -3868,6 +3877,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -4076,6 +4086,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   resize: none;
   border-radius: 5px;
@@ -4145,6 +4156,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   resize: none;
   border-radius: 5px;
@@ -4186,7 +4198,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   line-height: 5px;
-  border-radius: 10px;
+  border-radius: 100px;
   width: 190px;
   margin: 10px 15px 0;
   text-align: center;
@@ -4210,6 +4222,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -4242,7 +4255,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10px;
+  border-radius: 100px;
   margin: 20px 47px 20px;
 }
 #account .changePassword:hover {
@@ -4389,6 +4402,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
+  line-height: 18px;
   text-align: center;
   color: #fff;
   resize: none;
@@ -4432,7 +4446,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 16px;
   text-transform: uppercase;
   line-height: 5px;
-  border-radius: 10px;
+  border-radius: 100px;
   margin-top: 10px;
   margin-left: 130px;
 }

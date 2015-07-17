@@ -408,7 +408,7 @@ button(size = normal, color = charcoal)
 
 	if size is big
 		margin: 30px
-		height: 50px
+		height: 16px
 		padding: 17px 30px
 		sans(venti, dark)
 		line-height: 14px
@@ -428,7 +428,7 @@ button(size = normal, color = charcoal)
 		sans(short, dark)
 		line-height: 15px
 
-	border-radius: 10px
+	border-radius: 100px
 
 text_field(color = dark)
 	display: inline-block
@@ -437,6 +437,7 @@ text_field(color = dark)
 	padding: 8px 20px
 	float: left
 	sans(grande, light)
+	line-height: 18px
 	text-align: center
 	color: white
 	resize: none
@@ -532,7 +533,7 @@ header
 		height: 20px
 		transform: translate(-50%, -50%)
 		background: white
-		border-radius: 05px
+		border-radius: 5px
 
 .metric
 	position: relative
@@ -743,9 +744,8 @@ header
 		background: black
 
 		.tab
-			width: 130px
 			height: 10px
-			padding: 20px
+			padding: 10px
 			display: table-cell
 			width: auto
 			sans(grande, light)
@@ -760,7 +760,7 @@ header
 				border-radius: 05px 05px 0 0
 
 			&:nth-child(1)
-				width: 210px
+				width: 190px
 
 				&.active
 					background: charcoal_light
@@ -851,7 +851,7 @@ header
 			.buy
 				width: 170px
 				height: 100px
-				padding: 20px
+				padding: 30px 20px 20px
 				border-top: 1px solid charcoal_light_border
 				margin-top: 40px
 				.price
@@ -944,10 +944,10 @@ header
 
 	.formulations
 		.profile
-			width: 351px
+			width: 349.5px
 			height: 310px
 			background: charcoal_light
-			border-radius: 0 0 05px 0
+			border-radius: 0 0 5px 0
 
 			.mode
 				width: 30px
@@ -964,7 +964,7 @@ header
 					background-size: cover
 
 			.dilution
-				width: 140px
+				width: 120px
 				float: left
 				padding: 28px 0 0 20px
 				serif(short, light)
@@ -978,7 +978,7 @@ header
 
 			& > .quantity
 				float: right
-				width: 150px
+				width: 115px
 				padding: 28px 30px 0 0
 				text-align: right
 
@@ -993,20 +993,18 @@ header
 
 			.compounds
 				width: 291px
-				height: 177px
-				padding-left: 30px
-				padding-right: 30px
-				padding-top: 20px
+				height: 157px
+				padding: 20px 30px 0
 
 				.compound
 					width: 100%
-					margin-bottom: -0.750px
+					margin-bottom: -7.5px
 
 					.icon
 						width: 40px
 						height: 40px
 						float: left
-						border-radius: 10px
+						border-radius: 100px
 						background: gray_dark
 
 					.quantity
@@ -1018,19 +1016,18 @@ header
 
 					.density
 						float: left
-						padding-left: 20px //05px
-						padding-top: 05px
+						padding-left: 20px //5px
+						padding-top: 5px
 						sans(short, light)
 						color: gray_dark
 
 					.name
 						float: left
-						width: 250px
+						width: 230px
 						margin-top: -01px
 						padding-left: 20px
 						serif(tall, dark)
 						color: gray_light
-
 
 			.description
 				width: 250px
@@ -1072,8 +1069,8 @@ header
 					cursor: pointer
 
 				.icon
-					width: 90px
-					height: 40px
+					width: 60px
+					height: 20px
 					float: left
 					padding: 20px 0 0 30px
 
@@ -1081,7 +1078,7 @@ header
 						width: 20px
 						height: 20px
 						margin-right: -10px
-						border-radius: 10px
+						border-radius: 100px
 						background: gray_light
 
 				.id
@@ -1126,11 +1123,11 @@ header
 			height: 310px
 
 			.day
-				width: 220px
-				height: 50px
+				width: 200px
+				height: 40px
 				padding: 20px 0 20px 20px
 				background: gray_dark
-				border-radius: 05px 05px 0 0
+				border-radius: 5px 5px 0 0
 
 				.previous
 				.next
@@ -1143,7 +1140,7 @@ header
 					color: gray_light
 					text-align: center
 					border: 1px solid gray_light
-					border-radius: 10px
+					border-radius: 100px
 					cursor: pointer
 
 				.value
@@ -1185,7 +1182,7 @@ header
 							width: 20px
 							height: 20px
 							margin-right: -05px
-							border-radius: 10px
+							border-radius: 100px
 							background: gray_light
 							sans(short, light)
 
@@ -1276,7 +1273,7 @@ header
 					width: 16px
 					height: 16px
 					margin-right: 10px
-					border-radius: 10px
+					border-radius: 100px
 
 
 					&.red
@@ -1456,7 +1453,7 @@ header
 			mark
 				padding-top: 0
 
-		.biolipid_density
+		.bioliquid_density
 			.icon
 				background: url("../images/icon-density.png")
 				background-size: cover
@@ -1694,7 +1691,7 @@ header
 						float: left
 						margin-right: -08px
 						background: gray_light
-						border-radius: 10px
+						border-radius: 100px
 
 						&:nth-child(1)
 							background: light_blue
@@ -1799,7 +1796,7 @@ header
 
 			.referral
 				text_field()
-				width: 100px
+				width: 80px
 
 			.subtotal
 				display: inline-block
@@ -1961,7 +1958,7 @@ header
 					width: 160px
 					height: 90px
 					padding: 15px 10px 0
-					border-radius: 05px
+					border-radius: 5px
 					sans(short, dark)
 					text-transform: uppercase
 					text-align: center
@@ -2065,13 +2062,13 @@ header
 					height: 20px
 					margin-bottom: 30px
 					background: charcoal_light
-					border-radius: 10px
+					border-radius: 100px
 
 					.bar
 						width: 70%
 						height: 20px
 						background: gray_light
-						border-radius: 10px
+						border-radius: 100px
 
 				.log
 					width: 340px
@@ -2227,17 +2224,17 @@ masthead
 
 	.protocolID
 		text_field()
-		width: 90px
-		margin: 30px 0 0 2.750px
+		width: 85px
+		margin: 30px 0 30px 30px
 		text-align: center
 		text-transform: none
 		cursor: text
 
 	.search
 		button(small, gray)
-		width: 80px
+		width: 60px
 		padding: 12px
-		margin: 30px 15px
+		margin: 33px 15px 0
 		text-align: center
 		font-weight: 500
 
@@ -2379,7 +2376,7 @@ section#athlete_metrics
 		border-bottom: 1px solid charcoal_dark_border
 
 	.protocols
-		width: 28px
+		width: 280px
 		height: auto
 		margin-bottom: 30px
 		padding-top: 20px
@@ -2426,7 +2423,7 @@ section#athlete_metrics
 					float: left
 					margin-right: -08px
 					background: gray_light
-					border-radius: 10px
+					border-radius: 100px
 
 					&:nth-child(1)
 						background: light_blue
@@ -2567,7 +2564,7 @@ section#athlete_metrics
 
 		.referral
 			text_field()
-			width: 140px
+			width: 80px
 
 		.subtotal
 			display: inline-block
@@ -2608,12 +2605,12 @@ section#athlete_metrics
 		text-align: center
 		//color: white
 		background: white//light_blue
-		border-radius: 10px
+		border-radius: 100px
 
 	.checkout
 		.shipping
 			width: 220px
-			height: 290px
+			height: 310px
 			padding: 0 30px
 			border-bottom: 1px solid charcoal_dark_border
 
@@ -2625,28 +2622,28 @@ section#athlete_metrics
 
 			.name
 				text_field()
-				width: 220px
+				width: 180px
 				text-align: left
 
 			.address
 				text_field()
-				width: 220px
+				width: 180px
 				text-align: left
 				font-style: normal
 
 			.city
 				text_field()
-				width: 220px
+				width: 180px
 				text-align: left
 
 			.state
 				text_field()
-				width: 80px
+				width: 40px
 				margin-right: 10px
 
 			.zip
 				text_field()
-				width: 130px
+				width: 90px
 
 		.payment
 			width: 220px
@@ -2674,7 +2671,7 @@ section#athlete_metrics
 
 			.submit
 				button(big, gray)
-				width: 20px
+				width: 150px
 				margin: 20px 10px 10px
 				text-align: center
 

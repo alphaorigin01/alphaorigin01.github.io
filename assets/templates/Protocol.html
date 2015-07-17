@@ -61,7 +61,7 @@
         <div class="value">{{ formulation.totalVolume | number:1 }}</div>
         <mark>ml</mark>
       </div>
-      <div class="dilution">+ {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLipid™</div>
+      <div class="dilution">+ {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLiquid™</div>
       <div class="id">Formula {{ formulation.id }}</div>
       <div class="compounds">
         <div ng-repeat="(key, value) in formulation.compounds" class="compound">

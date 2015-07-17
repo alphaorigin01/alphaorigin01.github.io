@@ -33,14 +33,14 @@
 			.tooltip.top(ng-show="variance_adjust_visible")
 				strong Variance
 				| is how much active blood levels will fluctuate over time. Lower variance means more stable blood levels which improve results and reduce side effects.
-		.biolipid_density(ng-mouseenter="densityTooltip = true" ng-mouseleave="densityTooltip = false")
+		.bioliquid_density(ng-mouseenter="densityTooltip = true" ng-mouseleave="densityTooltip = false")
 			.icon
-			label BioFluid Density
+			label BioLiquid Density
 			.value(ng-model="regimen.density" contenteditable="true")
 			mark mg/ml
 			.tooltip.top(ng-show="densityTooltip")
 				strong Density
-				| is how concentrated the compound is in BioFluid. Higher concentrations allow for smaller doses but may cause inflamation in some athletes.
+				| is how concentrated the compound is in BioLiquid. Higher concentrations allow for smaller doses but may cause inflamation in some athletes.
 		.frequency(ng-mouseenter="frequency_adjust_visible = true" ng-mouseleave="frequency_adjust_visible = false")
 			.icon
 			label Frequency
