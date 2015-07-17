@@ -218,28 +218,6 @@
                 })
               });
             });
-          case 'AthleteService : Check Invitation':
-            return AlphaDB.head('invitation_' + message.data, function(e, data) {
-              console.log('e: ', e);
-              console.log('data: ', data);
-              if (e != null) {
-                return PubNub.publish({
-                  channel: athlete.channel,
-                  message: Encrypt({
-                    action: 'AthleteService : Invitation Is Invalid',
-                    data: message.data
-                  })
-                });
-              } else {
-                return PubNub.publish({
-                  channel: athlete.channel,
-                  message: Encrypt({
-                    action: 'AthleteService : Invitation Is Valid',
-                    data: message.data
-                  })
-                });
-              }
-            });
           case 'ProtocolService : New Protocol':
             message.data._id = 'protocol_' + Date.now().toString(36).toUpperCase();
             return PubNub.publish({
@@ -279,16 +257,6 @@
                 channel: athlete.channel,
                 message: Encrypt({
                   action: 'ProtocolService : Delete Protocol Complete',
-                  data: data
-                })
-              });
-            });
-          case 'ProtocolService : Search':
-            return AlphaDB.search('alpha_indexes', 'protocols', message.data, function(e, data) {
-              return PubNub.publish({
-                channel: athlete.channel,
-                message: Encrypt({
-                  action: 'ProtocolService : Search Results',
                   data: data
                 })
               });
@@ -496,6 +464,28 @@
               });
             }
           });
+        case 'AthleteService : Check Invitation':
+          return AlphaDB.head('invitation_' + message.data, function(e, data) {
+            console.log('e: ', e);
+            console.log('data: ', data);
+            if (e != null) {
+              return PubNub.publish({
+                channel: '8e04b18a-f27f-430e-a772-6f91c5302ca',
+                message: {
+                  action: 'AthleteService : Invitation Is Invalid',
+                  data: message.data
+                }
+              });
+            } else {
+              return PubNub.publish({
+                channel: '8e04b18a-f27f-430e-a772-6f91c5302ca',
+                message: {
+                  action: 'AthleteService : Invitation Is Valid',
+                  data: message.data
+                }
+              });
+            }
+          });
         case 'AthleteService : New Athlete':
           newAthlete = message.data;
           return AlphaDB.head(newAthlete._id, function(e, data) {
@@ -556,6 +546,16 @@
               action: 'OrderService : Update Processing Time',
               data: '7 Days'
             }
+          });
+        case 'ProtocolService : Search':
+          return AlphaDB.search('alpha_indexes', 'protocols', message.data, function(e, data) {
+            return PubNub.publish({
+              channel: '8e04b18a-f27f-430e-a772-6f91c5302ca',
+              message: {
+                action: 'ProtocolService : Search Results',
+                data: data
+              }
+            });
           });
       }
     },

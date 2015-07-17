@@ -98,7 +98,7 @@ setInterval UpdateCoinBaseData, 300000
 Cloudant = require('nano')('https://timothyjoelwright.cloudant.com')
 AlphaDB = null
 
-do UpdateCloudant = -> 
+do UpdateCloudant = ->
   Cloudant.auth 'timothyjoelwright', 'BfIQ6JX3CAfBmCx', (err, response, headers) ->
     try cookie = headers['set-cookie']
     console.log 'cookie: ', cookie
@@ -161,7 +161,7 @@ Login = (athlete) ->
             official.favorites = message.data.favorites
             official.stars = message.data.stars
             official.secretKey = message.data.secretKey
-            
+
             AlphaDB.insert official, official._id, (e, data) ->
               PubNub.publish {
                 channel : athlete.channel
@@ -184,28 +184,6 @@ Login = (athlete) ->
                 data   : message.data
               }
             }
-
-        #------------------------------------------
-        when 'AthleteService : Check Invitation'
-          AlphaDB.head 'invitation_' + message.data, (e, data) ->
-            console.log 'e: ', e
-            console.log 'data: ', data
-            if e?
-              PubNub.publish {
-                channel : athlete.channel
-                message : Encrypt {
-                  action : 'AthleteService : Invitation Is Invalid'
-                  data   : message.data
-                }
-              }
-            else
-              PubNub.publish {
-                channel : athlete.channel
-                message : Encrypt {
-                  action : 'AthleteService : Invitation Is Valid'
-                  data   : message.data
-                }
-              }
 
         #------------------------------------------
         when 'ProtocolService : New Protocol'
@@ -250,17 +228,6 @@ Login = (athlete) ->
               channel : athlete.channel
               message : Encrypt {
                 action : 'ProtocolService : Delete Protocol Complete'
-                data   : data
-              }
-            }
-
-        #------------------------------------------
-        when 'ProtocolService : Search'
-          AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
-            PubNub.publish {
-              channel : athlete.channel
-              message : Encrypt {
-                action : 'ProtocolService : Search Results'
                 data   : data
               }
             }
@@ -318,7 +285,7 @@ Login = (athlete) ->
                   data   : message.data
                 }
               }
-            
+
         #------------------------------------------
         when 'OrderService : Place Order'
           AlphaDB.insert message.data, message.data._id, (e, data) ->
@@ -400,7 +367,7 @@ PubNub.subscribe {
   callback : (message) ->
     hangouts.sendchatmessage 'UgxWbu3GrCCYsLSgQ_N4AaABAQ', [[0, 'Message from ' + message.sender + ': ' + message.text ]]
 }
-      
+
 
 PubNub.subscribe {
   channel  : '8e04b18a-f27f-430e-a772-6f91c5302ca'
@@ -452,6 +419,27 @@ PubNub.subscribe {
               channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
               message : {
                 action : 'AthleteService : Athlete ID Unavailable'
+                data   : message.data
+              }
+            }
+      #------------------------------------------
+      when 'AthleteService : Check Invitation'
+        AlphaDB.head 'invitation_' + message.data, (e, data) ->
+          console.log 'e: ', e
+          console.log 'data: ', data
+          if e?
+            PubNub.publish {
+              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              message : {
+                action : 'AthleteService : Invitation Is Invalid'
+                data   : message.data
+              }
+            }
+          else
+            PubNub.publish {
+              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              message : {
+                action : 'AthleteService : Invitation Is Valid'
                 data   : message.data
               }
             }
@@ -513,6 +501,17 @@ PubNub.subscribe {
             data   : '7 Days'
           }
         }
+
+      #------------------------------------------
+      when 'ProtocolService : Search'
+        AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
+          PubNub.publish {
+            channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+            message : {
+              action : 'ProtocolService : Search Results'
+              data   : data
+            }
+          }
   connect  : ->
     PubNub.publish {
       channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'

@@ -1,1 +1,881 @@
-(function(){"use strict";var e;e=angular.module("ProtocolService",["CompoundService","AthleteService","BTCService","PubNubService"]),e.factory("Protocol",["Compounds","Athlete","BTCrate","PubNub","$http","$rootScope","$timeout",function(e,t,o,r,n,i,a){var u,l,c,s;return i.$on("UpdateAthlete",function(e,o){return t=o}),l=function(){function o(o,r){var n,a,u,l,c,s,d,h,p,m,f,g,v,y,b,A;y=this,g=function(){return r._save()},b=function(){var e,t;if(null!=y.compound)return t=new Worker("assets/js/Worker_CalculateLevels.js"),t.onmessage=function(e){return y.levels=e.data.levels,y.dose=Math.ceil(e.data.dose),y.loadingDose=Math.ceil(e.data.loadingDose),y.variance=100*(1-y.adjustedActiveTarget/e.data.max),i.$evalAsync(function(){var e,t;return t=24*(y.startDay-1),e=function(e,r,n){var i;return i={hour:t+r},i[o]=Math.round(e),i},y.graphDataProvider=_.map(y.levels,e),null!=y.graph?(y.graph.dataProvider=y.graphDataProvider,setTimeout(function(){return y.graph.validateData()}),y.graph.zoomToIndexes(1,y.graph.dataProvider.length-2)):void 0}),y.protocol._update()},e=y.adjustedActiveTarget,t.postMessage({halfLife:y.compound.halfLife,bioavailability:y.compound.bioavailability,duration:y.duration,interval:y.interval,density:y.density,activeTarget:e})},b=_.debounce(b,250),d=null,Object.defineProperty(this,"$$hashkey",{enumerable:!1}),f=r,Object.defineProperty(this,"protocol",{get:function(){return f},set:function(){}}),a=e(o),Object.defineProperty(this,"compound",{enumerable:!0,get:function(){return a},set:function(){}}),n=a.ffmiStandard,Object.defineProperty(this,"activeTarget",{enumerable:!0,get:function(){return n},set:function(e){return n!==e?(n=e,g(),b()):void 0}}),u=a.density/2,Object.defineProperty(this,"density",{enumerable:!0,get:function(){return u},set:function(e){return e>a.density?u=a.density:u!==e?(u=5*Math.round(e/5),g(),b()):void 0}}),h=a.ffmiInterval,Object.defineProperty(this,"interval",{enumerable:!0,get:function(){return h},set:function(e){return h!==e?(h=Math.round(e),g(),b()):void 0}}),v=1,Object.defineProperty(this,"startDay",{enumerable:!0,get:function(){return v},set:function(e){return v!==e?(v=Math.round(e),g(),b()):void 0}}),c=a.ffmiInterval,Object.defineProperty(this,"duration",{enumerable:!0,get:function(){return c},set:function(e){return c!==e?(e>140&&(e=Math.floor(140/this.interval)*this.interval),c=Math.round(e/this.interval)*this.interval,g(),b()):void 0}}),Object.defineProperty(this,"graphDataProvider",{enumerable:!1,writable:!0}),s=null,Object.defineProperty(this,"graph",{get:function(){return s},set:function(e){return s=AmCharts.makeChart(e[0],{type:"serial",theme:"none",pathToImages:"http://cdn.amcharts.com/lib/3/images/",categoryField:"hour",autoMargins:!1,marginBottom:0,marginLeft:0,marginRight:0,marginTop:0,borderAlpha:0,chartCursor:{selectWithoutZooming:!0,zoomable:!1,zooming:!1},zoomOutButtonImage:"",zoomOutText:"",graphs:[{fillAlphas:1,fillColors:this.compound.color,id:"AmGraph-1",lineAlpha:0,title:"Rate of Compound Release",type:"line",valueField:this.compound.id,balloonFunction:function(e,t){var o,r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"mg<br>Day: "+o+" Hour: "+r}}],valueAxes:[{id:"ValueAxis-1",title:"Axis title",axisAlpha:0,gridAlpha:0}],categoryAxis:{axisAlpha:0,gridAlpha:0,minorGridAlpha:0},dataProvider:[]}),y=this,i.$evalAsync(function(){return y.graph.dataProvider=y.graphDataProvider,setTimeout(function(){return y.graph.validateData()}),y.graph.zoomToIndexes(1,y.graph.dataProvider.length-2)})}}),p=null,Object.defineProperty(this,"levels",{get:function(){return p&&0!==p.length||b(),p},set:function(e){return p=e}}),A=0,Object.defineProperty(this,"variance",{get:function(){return A},set:function(e){return A=e}}),l=0,Object.defineProperty(this,"dose",{get:function(){return l},set:function(e){return l=e}}),Object.defineProperty(this,"doseVolume",{get:function(){return this.dose/u},set:function(e){}}),m=0,Object.defineProperty(this,"loadingDose",{get:function(){return m},set:function(e){return m=e}}),Object.defineProperty(this,"loadingVolume",{get:function(){return this.loadingDose/u},set:function(e){}}),Object.defineProperty(this,"totalVolume",{get:function(){return this.doseVolume*(this.duration/this.interval)+this.loadingVolume},set:function(e){}}),Object.defineProperty(this,"adjustedActiveTarget",{get:function(){return Math.round(this.activeTarget*(t.ffmi/25))},set:function(e){return this.activeTarget=Math.round(parseFloat(e)*(25/t.ffmi))}}),b(),g()}return o}(),u=function(){function n(){var n,u,c,s,d,h,p,m,f,g,v,y,b,A,P,D;A=this,y=function(){return A.owner===t._id&&A.components.length>0?r("ProtocolService : Set Protocol",A):void 0},this._save=y=_.debounce(y,5e3),D=function(){var t,o,r,n,u,l,c,s,d,h,p,m,f,g,v,y,b;A.priceUSD=0,n={},g=_.groupBy(A.components,function(e){return e.startDay+":"+e.interval+":"+e.duration+":"+e.compound.mode+":"+e.dilution}),f=_.groupBy(_.values(g),function(e){var t,o,r,n;for(t="",o=0,r=e.length;r>o;o++)n=e[o],t+=n.compound.id+"["+n.activeTarget+"]";return t}),_.each(_.values(f),function(e,t){var o,r,i,a,u,l,c,s,d,h,p,m;for(u={id:String.fromCharCode(65+t),schedules:[],compounds:{},filler:0,totalVolume:0},l=0,s=e.length;s>l;l++){for(p=e[l],m={startDay:p[0].startDay,interval:p[0].interval,duration:p[0].duration,doses:p[0].duration/p[0].interval,loadingVolume:0,doseVolume:0,totalVolume:0},c=0,d=p.length;d>c;c++)h=p[c],m.doseVolume+=h.doseVolume,m.loadingVolume+=h.loadingVolume,null==u.compounds[h.compoundId]&&(u.compounds[h.compound.id]=0),u.compounds[h.compound.id]+=h.totalVolume*(h.density/h.compound.density),u.filler+=h.totalVolume*(1-h.density/h.compound.density),A.priceUSD+=h.totalVolume*h.compound.density*h.compound.price*(h.density/h.compound.density);o=Math.ceil(10*m.doseVolume)/10,r=o/m.doseVolume,i=o-m.doseVolume,a=i/m.doseVolume,m.doseVolume=o,m.loadingVolume=Math.ceil(m.loadingVolume*r*10)/10,m.totalVolume=m.loadingVolume+m.doseVolume*m.doses,u.totalVolume+=m.totalVolume,u.filler+=m.totalVolume*a,u.schedules.push(m)}return A.priceUSD+=.025*u.filler,A.priceUSD+=2*Math.ceil(u.totalVolume/30),n[u.id]=u}),A.formulations=n,y=[],b=[];for(u in A.formulations)for(r=A.formulations[u],d=r.schedules,l=0,s=d.length;s>l;l++)for(v=d[l],o=c=h=v.startDay,p=v.duration,m=v.interval;m>0?p>=c:c>=p;o=c+=m)null==y[o]&&(y[o]=[]),y[o].push(r.id),y[o]=_.uniq(y[o]),b[o]=v.doseVolume;return A.schedule=y,t=0,_.each(b,function(e){return null!=e?t+=Math.ceil(e/3):void 0}),A.accessoriesQty=t,A.accessoriesPriceUSD=.2*t,A.accessoriesPriceUSD+=5,A.accessoriesPriceUSD+=2,A.priceUSD+=2*A.accessoriesPriceUSD,i.$evalAsync(function(){var t,r,n,i,u,l,c,s,d,h,p,m,f,g,v,y,b,P,D,C,O,j,M;if(null!=A.graph){for(A.graph.graphs=[],i=[],C=A.components,d=0,h=C.length;h>d;d++)M=C[d],i.push(M.compound.id);for(O=_.uniq(i),v=0,p=O.length;p>v;v++)c=O[v],l=new AmCharts.AmGraph,l.fillAlphas=1,l.fillColors=e(c).color,l.lineAlpha=0,l.title="Rate of Compound Release",l.valueField=c,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"mg - Day: "+o+" Hour: "+r},A.graph.addGraph(l);for(u=Array.apply(null,Array(6240)).map(Object),j=A.components,b=0,m=j.length;m>b;b++)M=j[b],_.each(M.levels,function(e,t,o){return _.isNumber(u[24*(M.startDay-1)+t][M.compoundId])||(u[24*(M.startDay-1)+t][M.compound.id]=0),u[24*(M.startDay-1)+t][M.compound.id]+=Math.round(e)});if(g=Array.apply(null,Array(6240)).map(Object),_.each(u,function(e,t,o){return e.hour=t,g[t]=e}),_.remove(g,function(e){return 1===Object.keys(e).length}),A.graph.dataProvider=g,A.graph.validateData(),a(function(){return 0===A.graph.chartData.length?A._update():void 0}),null!=A.pharmacodynamics){for(A.pharmacodynamics.graphs=[],l=new AmCharts.AmGraph,l.fillColors=l.lineColor="rgba(255, 67, 81, 1)",l.title="Androgen Receptor Activity",l.valueField="androgen",l.type="smoothedLine",l.lineThickness=1,l.fillAlphas=1,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"x - Day: "+o+" Hour: "+r},A.pharmacodynamics.addGraph(l),l=new AmCharts.AmGraph,l.fillColors=l.lineColor="rgba(27, 154, 247, 1)",l.title="Progesterone Receptor Activity",l.valueField="progesterone",l.type="smoothedLine",l.lineThickness=1,l.fillAlphas=1,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"x - Day: "+o+" Hour: "+r},A.pharmacodynamics.addGraph(l),l=new AmCharts.AmGraph,l.fillColors=l.lineColor="rgba(250, 136, 41, 1)",l.title="Estrogen α Receptor Activity",l.valueField="estrogenAlpha",l.type="smoothedLine",l.lineThickness=1,l.fillAlphas=1,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"x - Day: "+o+" Hour: "+r},A.pharmacodynamics.addGraph(l),l=new AmCharts.AmGraph,l.fillColors=l.lineColor="rgba(254, 211, 62, 1)",l.title="Estrogen β Receptor Activity",l.valueField="estrogenBeta",l.type="smoothedLine",l.lineThickness=1,l.fillAlphas=1,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"x - Day: "+o+" Hour: "+r},A.pharmacodynamics.addGraph(l),l=new AmCharts.AmGraph,l.lineColor="rgba(81, 230, 80, 1)",l.title="Gucocorticoid Receptor Activity",l.valueField="glucocorticoid",l.type="smoothedLine",l.lineThickness=1,l.fillAlphas=1,l.balloonFunction=function(e,t){var r;return o=Math.floor(parseInt(e.category)/24)+1,r=Math.floor((parseInt(e.category)/24-o+1)/(1/24)),e.values.value+"x - Day: "+o+" Hour: "+r},A.pharmacodynamics.addGraph(l),A.pharmacodynamics.dataProvider=D=[],P=0,f=g.length;f>P;P++){s=g[P],t={hour:s.hour,androgen:0,progesterone:0,estrogenAlpha:0,estrogenBeta:0,glucocorticoid:0};for(n in s)y=s[n],n.startsWith("C-")&&(r=e(n),t.androgen+=y*r.androgenReceptor,t.progesterone+=y*r.progesteroneReceptor,t.estrogenAlpha+=y*r.estrogenAlphaReceptor,t.estrogenBeta+=y*r.estrogenBetaReceptor,t.glucocorticoid+=y*r.glucocorticoidReceptor);t.androgen=Math.round(t.androgen),t.progesterone=Math.round(t.progesterone),t.estrogenAlpha=Math.round(t.estrogenAlpha),t.estrogenBeta=Math.round(t.estrogenBeta),t.glucocorticoid=Math.round(t.glucocorticoid),D.push(t)}return A.pharmacodynamics.validateData(),a(function(){return 0===A.pharmacodynamics.chartData.length?A._update():void 0})}}})},this._update=D=_.debounce(D,250),p=null,Object.defineProperty(this,"$$hashkey",{enumerable:!1}),m="",Object.defineProperty(this,"owner",{enumerable:!0,get:function(){return m},set:function(e){return m!==e?(m=e,y()):void 0}}),P="",Object.defineProperty(this,"title",{enumerable:!0,get:function(){return P},set:function(e){return P!==e?(P=e,y()):void 0}}),u="",Object.defineProperty(this,"description",{enumerable:!0,get:function(){return u},set:function(e){return u!==e?(u=e,y()):void 0}}),t.ffmi<=20&&(c="Beginner"),25>(v=t.ffmi)&&v>20&&(c="Intermediate"),t.ffmi>25&&(c="Advanced"),Object.defineProperty(this,"experience",{enumerable:!0,get:function(){return c},set:function(e){return c!==e?(c=e,y()):void 0}}),d="Hypertrophy",Object.defineProperty(this,"goal",{enumerable:!0,get:function(){return d},set:function(e){return d!==e?(d=e,y()):void 0}}),n=[],Object.defineProperty(this,"components",{enumerable:!0,get:function(){return n},set:function(e){return n!==e?(n=e,y()):void 0}}),h=null,Object.defineProperty(this,"graph",{get:function(){return h},set:function(e){return h=AmCharts.makeChart(e[0],{type:"serial",pathToImages:"http://cdn.amcharts.com/lib/3/images/",categoryField:"hour",autoMargins:!1,marginBottom:0,marginLeft:0,marginRight:0,marginTop:0,borderAlpha:0,chartCursor:{selectWithoutZooming:!0,zoomable:!1,zooming:!1},zoomOutButtonImage:"",zoomOutText:"",graphs:[],valueAxes:[{id:"ValueAxis-1",stackType:"regular",title:"Axis title",axisAlpha:0,gridAlpha:0}],categoryAxis:{axisAlpha:0,gridAlpha:0,minorGridAlpha:0},dataProvider:[]}),A._update()}}),f=null,Object.defineProperty(this,"pharmacodynamics",{get:function(){return f},set:function(e){return f=AmCharts.makeChart(e[0],{type:"serial",pathToImages:"http://cdn.amcharts.com/lib/3/images/",categoryField:"hour",autoMargins:!1,marginBottom:0,marginLeft:0,marginRight:0,marginTop:0,borderAlpha:0,chartCursor:{selectWithoutZooming:!0,zoomable:!1,zooming:!1},zoomOutButtonImage:"",zoomOutText:"",graphs:[],valueAxes:[{id:"ValueAxis-1",title:"Axis title",axisAlpha:0,gridAlpha:0}],categoryAxis:{axisAlpha:0,gridAlpha:0,minorGridAlpha:0},dataProvider:[]}),A._update()}}),g=0,Object.defineProperty(this,"priceUSD",{enumerable:!0,get:function(){return 0===this.components.length?0:g},set:function(e){return g!==e?g=e:void 0}}),Object.defineProperty(this,"priceBTC",{get:function(){return this.priceUSD*o()},set:function(){}}),s=[],Object.defineProperty(this,"formulations",{enumerable:!0,get:function(){return 0===this.components.length||s||A._update(),s},set:function(e){return s!==e?s=e:void 0}}),b=[],Object.defineProperty(this,"schedule",{get:function(){return 0===this.components.length||b||D(),b},set:function(e){return b!==e?b=e:void 0}}),Object.defineProperty(this,"length",{enumerable:!0,get:function(){return b.length-1},set:function(){return D()}}),i.$on("ProtocolService : Update Protocol",function(e,t){return t._id===A._id?i.$evalAsync(function(){return _.extend(A,t),A.components=[],_.each(t.components,function(e){var t;return t=new l(e.compound.id,A),_.extend(t,e),A.components.push(t)})}):void 0}),i.$on("ProtocolService : Set Protocol Complete",function(e,t){return t.id===A._id?A._rev=t.rev:void 0})}return n.prototype.addComponent=function(e){return this.components.unshift(new l(e,this)),this._update(),this._save()},n.prototype.removeComponent=function(e){return this.components.splice(e,1),this._update(),this._save()},n}(),window.ProtocolService=c={},s=null,i.$on("ProtocolService : New Protocol Complete",function(e,o){return i.$evalAsync(function(){return s._id=o._id,s.owner=t._id,c[o._id]=s})}),i.$on("ProtocolService : Search Results",function(e,t){}),function(e,t){return null==t&&(t=!1),null==e||null==c[e]||t?null==e?(s=new u,r("ProtocolService : New Protocol",s),s):t?t?(r("ProtocolService : Delete Protocol",c[e]),delete c[e]):void 0:(c[e]=new u,c[e]._id=e,r("ProtocolService : Get Protocol",c[e]),c[e]):c[e]}}])}).call(this);
+// Generated by CoffeeScript 1.9.2
+(function() {
+  'use strict';
+  var ProtocolService;
+
+  ProtocolService = angular.module('ProtocolService', ['CompoundService', 'AthleteService', 'BTCService', 'PubNubService']);
+
+
+  /*                        Service */
+
+  ProtocolService.factory('Protocol', [
+    'Compounds', 'Athlete', 'BTCrate', 'PubNub', '$http', '$rootScope', '$timeout', function(Compounds, Athlete, BTCrate, PubNub, $http, $rootScope, $timeout) {
+      var Protocol, Regimen, cache, newProtocol;
+      $rootScope.$on('UpdateAthlete', function(e, data) {
+        return Athlete = data;
+      });
+      Regimen = (function() {
+        function Regimen(_compoundId, _protocol) {
+          var activeTarget, compound, density, dose, duration, graph, hashkey, interval, levels, loadingDose, protocol, save, startDay, that, update, variance;
+          that = this;
+          save = function() {
+            return _protocol._save();
+          };
+          update = function() {
+            var adjustedActiveTarget, levelsMinion;
+            if (that.compound == null) {
+              return;
+            }
+            levelsMinion = new Worker('assets/js/Worker_CalculateLevels.js');
+            levelsMinion.onmessage = function(e) {
+              that.levels = e.data.levels;
+              that.dose = Math.ceil(e.data.dose);
+              that.loadingDose = Math.ceil(e.data.loadingDose);
+              that.variance = (1 - (that.adjustedActiveTarget / e.data.max)) * 100;
+              $rootScope.$evalAsync(function() {
+                var addData, hour;
+                hour = (that.startDay - 1) * 24;
+                addData = function(element, index, list) {
+                  var data;
+                  data = {
+                    hour: hour + index
+                  };
+                  data[_compoundId] = Math.round(element);
+                  return data;
+                };
+                that.graphDataProvider = _.map(that.levels, addData);
+                if (that.graph != null) {
+                  that.graph.dataProvider = that.graphDataProvider;
+                  setTimeout(function() {
+                    return that.graph.validateData();
+                  });
+                  return that.graph.zoomToIndexes(1, that.graph.dataProvider.length - 2);
+                }
+              });
+              return that.protocol._update();
+            };
+            adjustedActiveTarget = that.adjustedActiveTarget;
+            return levelsMinion.postMessage({
+              halfLife: that.compound.halfLife,
+              bioavailability: that.compound.bioavailability,
+              duration: that.duration,
+              interval: that.interval,
+              density: that.density,
+              activeTarget: adjustedActiveTarget
+            });
+          };
+          update = _.debounce(update, 250);
+          hashkey = null;
+          Object.defineProperty(this, '$$hashkey', {
+            enumerable: false
+          });
+          protocol = _protocol;
+          Object.defineProperty(this, 'protocol', {
+            get: function() {
+              return protocol;
+            },
+            set: function() {}
+          });
+          compound = Compounds(_compoundId);
+          Object.defineProperty(this, 'compound', {
+            enumerable: true,
+            get: function() {
+              return compound;
+            },
+            set: function() {}
+          });
+          activeTarget = compound.ffmiStandard;
+          Object.defineProperty(this, 'activeTarget', {
+            enumerable: true,
+            get: function() {
+              return activeTarget;
+            },
+            set: function(x) {
+              if (activeTarget !== x) {
+                activeTarget = x;
+                save();
+                return update();
+              }
+            }
+          });
+          density = compound.density / 2;
+          Object.defineProperty(this, 'density', {
+            enumerable: true,
+            get: function() {
+              return density;
+            },
+            set: function(x) {
+              if (x > compound.density) {
+                return density = compound.density;
+              }
+              if (density !== x) {
+                density = Math.round(x / 5) * 5;
+                save();
+                return update();
+              }
+            }
+          });
+          interval = compound.ffmiInterval;
+          Object.defineProperty(this, 'interval', {
+            enumerable: true,
+            get: function() {
+              return interval;
+            },
+            set: function(x) {
+              if (interval !== x) {
+                interval = Math.round(x);
+                save();
+                return update();
+              }
+            }
+          });
+          startDay = 1;
+          Object.defineProperty(this, 'startDay', {
+            enumerable: true,
+            get: function() {
+              return startDay;
+            },
+            set: function(x) {
+              if (startDay !== x) {
+                startDay = Math.round(x);
+                save();
+                return update();
+              }
+            }
+          });
+          duration = compound.ffmiInterval;
+          Object.defineProperty(this, 'duration', {
+            enumerable: true,
+            get: function() {
+              return duration;
+            },
+            set: function(x) {
+              if (duration !== x) {
+                if (x > 140) {
+                  x = Math.floor(140 / this.interval) * this.interval;
+                }
+                duration = Math.round(x / this.interval) * this.interval;
+                save();
+                return update();
+              }
+            }
+          });
+          Object.defineProperty(this, 'graphDataProvider', {
+            enumerable: false,
+            writable: true
+          });
+          graph = null;
+          Object.defineProperty(this, 'graph', {
+            get: function() {
+              return graph;
+            },
+            set: function(x) {
+              graph = AmCharts.makeChart(x[0], {
+                'type': 'serial',
+                'theme': 'none',
+                'pathToImages': 'http://cdn.amcharts.com/lib/3/images/',
+                'categoryField': 'hour',
+                'autoMargins': false,
+                'marginBottom': 0,
+                'marginLeft': 0,
+                'marginRight': 0,
+                'marginTop': 0,
+                'borderAlpha': 0,
+                'chartCursor': {
+                  'selectWithoutZooming': true,
+                  'zoomable': false,
+                  'zooming': false
+                },
+                'zoomOutButtonImage': '',
+                'zoomOutText': '',
+                'graphs': [
+                  {
+                    'fillAlphas': 1,
+                    'fillColors': this.compound.color,
+                    'id': 'AmGraph-1',
+                    'lineAlpha': 0,
+                    'title': 'Rate of Compound Release',
+                    'type': 'line',
+                    'valueField': this.compound.id,
+                    'balloonFunction': function(graphDataItem, graph) {
+                      var day, hour;
+                      day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                      hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                      return graphDataItem.values.value + 'mg<br>Day: ' + day + ' Hour: ' + hour;
+                    }
+                  }
+                ],
+                'valueAxes': [
+                  {
+                    'id': 'ValueAxis-1',
+                    'title': 'Axis title',
+                    'axisAlpha': 0,
+                    'gridAlpha': 0
+                  }
+                ],
+                'categoryAxis': {
+                  'axisAlpha': 0,
+                  'gridAlpha': 0,
+                  'minorGridAlpha': 0
+                },
+                'dataProvider': []
+              });
+              that = this;
+              return $rootScope.$evalAsync(function() {
+                that.graph.dataProvider = that.graphDataProvider;
+                setTimeout(function() {
+                  return that.graph.validateData();
+                });
+                return that.graph.zoomToIndexes(1, that.graph.dataProvider.length - 2);
+              });
+            }
+          });
+          levels = null;
+          Object.defineProperty(this, 'levels', {
+            get: function() {
+              if (!levels || levels.length === 0) {
+                update();
+              }
+              return levels;
+            },
+            set: function(x) {
+              return levels = x;
+            }
+          });
+          variance = 0;
+          Object.defineProperty(this, 'variance', {
+            get: function() {
+              return variance;
+            },
+            set: function(x) {
+              return variance = x;
+            }
+          });
+          dose = 0;
+          Object.defineProperty(this, 'dose', {
+            get: function() {
+              return dose;
+            },
+            set: function(x) {
+              return dose = x;
+            }
+          });
+          Object.defineProperty(this, 'doseVolume', {
+            get: function() {
+              return this.dose / density;
+            },
+            set: function(x) {}
+          });
+          loadingDose = 0;
+          Object.defineProperty(this, 'loadingDose', {
+            get: function() {
+              return loadingDose;
+            },
+            set: function(x) {
+              return loadingDose = x;
+            }
+          });
+          Object.defineProperty(this, 'loadingVolume', {
+            get: function() {
+              return this.loadingDose / density;
+            },
+            set: function(x) {}
+          });
+          Object.defineProperty(this, 'totalVolume', {
+            get: function() {
+              return (this.doseVolume * (this.duration / this.interval)) + this.loadingVolume;
+            },
+            set: function(x) {}
+          });
+          Object.defineProperty(this, 'adjustedActiveTarget', {
+            get: function() {
+              return Math.round(this.activeTarget * (Athlete.ffmi / 25));
+            },
+            set: function(x) {
+              return this.activeTarget = Math.round(parseFloat(x) * (25 / Athlete.ffmi));
+            }
+          });
+          update();
+          save();
+        }
+
+        return Regimen;
+
+      })();
+      Protocol = (function() {
+        function Protocol() {
+          var components, description, experience, formulations, goal, graph, hashkey, owner, pharmacodynamics, priceUSD, ref, save, schedule, that, title, update;
+          that = this;
+          save = function() {
+            if (that.owner === Athlete._id && that.components.length > 0) {
+              return PubNub('ProtocolService : Set Protocol', that);
+            }
+          };
+          this._save = save = _.debounce(save, 5000);
+          update = function() {
+            var accessoriesQty, day, formulation, formulations, i, j, k, len, ref, ref1, ref2, ref3, regimensByDose, regimensByTime, s, schedule, volume;
+            that.priceUSD = 0;
+            formulations = {};
+            regimensByTime = _.groupBy(that.components, function(e) {
+              return e.startDay + ":" + e.interval + ":" + e.duration + ":" + e.compound.mode + ":" + e.dilution;
+            });
+            regimensByDose = _.groupBy(_.values(regimensByTime), function(e) {
+              var id, j, len, r;
+              id = '';
+              for (j = 0, len = e.length; j < len; j++) {
+                r = e[j];
+                id += r.compound.id + '[' + r.activeTarget + ']';
+              }
+              return id;
+            });
+            _.each(_.values(regimensByDose), function(e, i) {
+              var adjustedDoseVolume, adjustmentMultiplier, fillerPerDose, fillerPerVolume, formulation, j, k, len, len1, regimen, s, schedule;
+              formulation = {
+                id: String.fromCharCode(65 + i),
+                schedules: [],
+                compounds: {},
+                filler: 0,
+                totalVolume: 0
+              };
+              for (j = 0, len = e.length; j < len; j++) {
+                s = e[j];
+                schedule = {
+                  startDay: s[0].startDay,
+                  interval: s[0].interval,
+                  duration: s[0].duration,
+                  doses: s[0].duration / s[0].interval,
+                  loadingVolume: 0,
+                  doseVolume: 0,
+                  totalVolume: 0
+                };
+                for (k = 0, len1 = s.length; k < len1; k++) {
+                  regimen = s[k];
+                  schedule.doseVolume += regimen.doseVolume;
+                  schedule.loadingVolume += regimen.loadingVolume;
+                  if (formulation.compounds[regimen.compoundId] == null) {
+                    formulation.compounds[regimen.compound.id] = 0;
+                  }
+                  formulation.compounds[regimen.compound.id] += regimen.totalVolume * (regimen.density / regimen.compound.density);
+                  formulation.filler += regimen.totalVolume * (1 - (regimen.density / regimen.compound.density));
+                  that.priceUSD += regimen.totalVolume * regimen.compound.density * regimen.compound.price * (regimen.density / regimen.compound.density);
+                }
+                adjustedDoseVolume = Math.ceil(schedule.doseVolume * 10) / 10;
+                adjustmentMultiplier = adjustedDoseVolume / schedule.doseVolume;
+                fillerPerDose = adjustedDoseVolume - schedule.doseVolume;
+                fillerPerVolume = fillerPerDose / schedule.doseVolume;
+                schedule.doseVolume = adjustedDoseVolume;
+                schedule.loadingVolume = Math.ceil(schedule.loadingVolume * adjustmentMultiplier * 10) / 10;
+                schedule.totalVolume = schedule.loadingVolume + (schedule.doseVolume * schedule.doses);
+                formulation.totalVolume += schedule.totalVolume;
+                formulation.filler += schedule.totalVolume * fillerPerVolume;
+                formulation.schedules.push(schedule);
+              }
+              that.priceUSD += formulation.filler * 0.025;
+              that.priceUSD += Math.ceil(formulation.totalVolume / 30) * 2;
+              return formulations[formulation.id] = formulation;
+            });
+            that.formulations = formulations;
+            schedule = [];
+            volume = [];
+            for (i in that.formulations) {
+              formulation = that.formulations[i];
+              ref = formulation.schedules;
+              for (j = 0, len = ref.length; j < len; j++) {
+                s = ref[j];
+                for (day = k = ref1 = s.startDay, ref2 = s.duration, ref3 = s.interval; ref3 > 0 ? k <= ref2 : k >= ref2; day = k += ref3) {
+                  if (schedule[day] == null) {
+                    schedule[day] = [];
+                  }
+                  schedule[day].push(formulation.id);
+                  schedule[day] = _.uniq(schedule[day]);
+                  volume[day] = s.doseVolume;
+                }
+              }
+            }
+            that.schedule = schedule;
+            accessoriesQty = 0;
+            _.each(volume, function(v) {
+              if (v == null) {
+                return;
+              }
+              return accessoriesQty += Math.ceil(v / 3);
+            });
+            that.accessoriesQty = accessoriesQty;
+            that.accessoriesPriceUSD = accessoriesQty * 0.2;
+            that.accessoriesPriceUSD += 5;
+            that.accessoriesPriceUSD += 2;
+            that.priceUSD += that.accessoriesPriceUSD * 2;
+            return $rootScope.$evalAsync(function() {
+              var a, c, compound, compoundIds, data, g, id, item, l, len1, len2, len3, len4, levels, m, mg, o, p, receptorLevels, ref4, ref5, ref6, regimen;
+              if (that.graph != null) {
+                that.graph.graphs = [];
+                compoundIds = [];
+                ref4 = that.components;
+                for (l = 0, len1 = ref4.length; l < len1; l++) {
+                  regimen = ref4[l];
+                  compoundIds.push(regimen.compound.id);
+                }
+                ref5 = _.uniq(compoundIds);
+                for (m = 0, len2 = ref5.length; m < len2; m++) {
+                  id = ref5[m];
+                  g = new AmCharts.AmGraph();
+                  g.fillAlphas = 1;
+                  g.fillColors = Compounds(id).color;
+                  g.lineAlpha = 0;
+                  g.title = 'Rate of Compound Release';
+                  g.valueField = id;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'mg - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.graph.addGraph(g);
+                }
+                data = Array.apply(null, Array(260 * 24)).map(Object);
+                ref6 = that.components;
+                for (o = 0, len3 = ref6.length; o < len3; o++) {
+                  regimen = ref6[o];
+                  _.each(regimen.levels, function(element, index, list) {
+                    if (!_.isNumber(data[((regimen.startDay - 1) * 24) + index][regimen.compoundId])) {
+                      data[((regimen.startDay - 1) * 24) + index][regimen.compound.id] = 0;
+                    }
+                    return data[((regimen.startDay - 1) * 24) + index][regimen.compound.id] += Math.round(element);
+                  });
+                }
+                levels = Array.apply(null, Array(260 * 24)).map(Object);
+                _.each(data, function(element, index, list) {
+                  element.hour = index;
+                  return levels[index] = element;
+                });
+                _.remove(levels, function(n) {
+                  return Object.keys(n).length === 1;
+                });
+                that.graph.dataProvider = levels;
+                that.graph.validateData();
+                $timeout(function() {
+                  if (that.graph.chartData.length === 0) {
+                    return that._update();
+                  }
+                });
+                if (that.pharmacodynamics != null) {
+                  that.pharmacodynamics.graphs = [];
+                  g = new AmCharts.AmGraph();
+                  g.fillColors = g.lineColor = 'rgba(255, 67, 81, 1)';
+                  g.title = 'Androgen Receptor Activity';
+                  g.valueField = 'androgen';
+                  g.type = 'smoothedLine';
+                  g.lineThickness = 1;
+                  g.fillAlphas = 1;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'x - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.pharmacodynamics.addGraph(g);
+                  g = new AmCharts.AmGraph();
+                  g.fillColors = g.lineColor = 'rgba(27, 154, 247, 1)';
+                  g.title = 'Progesterone Receptor Activity';
+                  g.valueField = 'progesterone';
+                  g.type = 'smoothedLine';
+                  g.lineThickness = 1;
+                  g.fillAlphas = 1;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'x - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.pharmacodynamics.addGraph(g);
+                  g = new AmCharts.AmGraph();
+                  g.fillColors = g.lineColor = 'rgba(250, 136, 41, 1)';
+                  g.title = 'Estrogen α Receptor Activity';
+                  g.valueField = 'estrogenAlpha';
+                  g.type = 'smoothedLine';
+                  g.lineThickness = 1;
+                  g.fillAlphas = 1;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'x - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.pharmacodynamics.addGraph(g);
+                  g = new AmCharts.AmGraph();
+                  g.fillColors = g.lineColor = 'rgba(254, 211, 62, 1)';
+                  g.title = 'Estrogen β Receptor Activity';
+                  g.valueField = 'estrogenBeta';
+                  g.type = 'smoothedLine';
+                  g.lineThickness = 1;
+                  g.fillAlphas = 1;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'x - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.pharmacodynamics.addGraph(g);
+                  g = new AmCharts.AmGraph();
+                  g.lineColor = 'rgba(81, 230, 80, 1)';
+                  g.title = 'Gucocorticoid Receptor Activity';
+                  g.valueField = 'glucocorticoid';
+                  g.type = 'smoothedLine';
+                  g.lineThickness = 1;
+                  g.fillAlphas = 1;
+                  g.balloonFunction = function(graphDataItem, graph) {
+                    var hour;
+                    day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
+                    hour = Math.floor((parseInt(graphDataItem.category) / 24 - day + 1) / (1 / 24));
+                    return graphDataItem.values.value + 'x - Day: ' + day + ' Hour: ' + hour;
+                  };
+                  that.pharmacodynamics.addGraph(g);
+                  that.pharmacodynamics.dataProvider = receptorLevels = [];
+                  for (p = 0, len4 = levels.length; p < len4; p++) {
+                    item = levels[p];
+                    a = {
+                      hour: item.hour,
+                      androgen: 0,
+                      progesterone: 0,
+                      estrogenAlpha: 0,
+                      estrogenBeta: 0,
+                      glucocorticoid: 0
+                    };
+                    for (compound in item) {
+                      mg = item[compound];
+                      if (compound.startsWith('C-')) {
+                        c = Compounds(compound);
+                        a.androgen += mg * c.androgenReceptor;
+                        a.progesterone += mg * c.progesteroneReceptor;
+                        a.estrogenAlpha += mg * c.estrogenAlphaReceptor;
+                        a.estrogenBeta += mg * c.estrogenBetaReceptor;
+                        a.glucocorticoid += mg * c.glucocorticoidReceptor;
+                      }
+                    }
+                    a.androgen = Math.round(a.androgen);
+                    a.progesterone = Math.round(a.progesterone);
+                    a.estrogenAlpha = Math.round(a.estrogenAlpha);
+                    a.estrogenBeta = Math.round(a.estrogenBeta);
+                    a.glucocorticoid = Math.round(a.glucocorticoid);
+                    receptorLevels.push(a);
+                  }
+                  that.pharmacodynamics.validateData();
+                  return $timeout(function() {
+                    if (that.pharmacodynamics.chartData.length === 0) {
+                      return that._update();
+                    }
+                  });
+                }
+              }
+            });
+          };
+          this._update = update = _.debounce(update, 250);
+          hashkey = null;
+          Object.defineProperty(this, '$$hashkey', {
+            enumerable: false
+          });
+          owner = '';
+          Object.defineProperty(this, 'owner', {
+            enumerable: true,
+            get: function() {
+              return owner;
+            },
+            set: function(x) {
+              if (owner !== x) {
+                owner = x;
+                return save();
+              }
+            }
+          });
+          title = '';
+          Object.defineProperty(this, 'title', {
+            enumerable: true,
+            get: function() {
+              return title;
+            },
+            set: function(x) {
+              if (title !== x) {
+                title = x;
+                return save();
+              }
+            }
+          });
+          description = '';
+          Object.defineProperty(this, 'description', {
+            enumerable: true,
+            get: function() {
+              return description;
+            },
+            set: function(x) {
+              if (description !== x) {
+                description = x;
+                return save();
+              }
+            }
+          });
+          if (Athlete.ffmi <= 20) {
+            experience = 'Beginner';
+          }
+          if ((25 > (ref = Athlete.ffmi) && ref > 20)) {
+            experience = 'Intermediate';
+          }
+          if (Athlete.ffmi > 25) {
+            experience = 'Advanced';
+          }
+          Object.defineProperty(this, 'experience', {
+            enumerable: true,
+            get: function() {
+              return experience;
+            },
+            set: function(x) {
+              if (experience !== x) {
+                experience = x;
+                return save();
+              }
+            }
+          });
+          goal = 'Hypertrophy';
+          Object.defineProperty(this, 'goal', {
+            enumerable: true,
+            get: function() {
+              return goal;
+            },
+            set: function(x) {
+              if (goal !== x) {
+                goal = x;
+                return save();
+              }
+            }
+          });
+          components = [];
+          Object.defineProperty(this, 'components', {
+            enumerable: true,
+            get: function() {
+              return components;
+            },
+            set: function(x) {
+              if (components !== x) {
+                components = x;
+                return save();
+              }
+            }
+          });
+          graph = null;
+          Object.defineProperty(this, 'graph', {
+            get: function() {
+              return graph;
+            },
+            set: function(x) {
+              graph = AmCharts.makeChart(x[0], {
+                'type': 'serial',
+                'pathToImages': 'http://cdn.amcharts.com/lib/3/images/',
+                'categoryField': 'hour',
+                'autoMargins': false,
+                'marginBottom': 0,
+                'marginLeft': 0,
+                'marginRight': 0,
+                'marginTop': 0,
+                'borderAlpha': 0,
+                'chartCursor': {
+                  'selectWithoutZooming': true,
+                  'zoomable': false,
+                  'zooming': false
+                },
+                'zoomOutButtonImage': '',
+                'zoomOutText': '',
+                'graphs': [],
+                'valueAxes': [
+                  {
+                    'id': 'ValueAxis-1',
+                    'stackType': 'regular',
+                    'title': 'Axis title',
+                    'axisAlpha': 0,
+                    'gridAlpha': 0
+                  }
+                ],
+                'categoryAxis': {
+                  'axisAlpha': 0,
+                  'gridAlpha': 0,
+                  'minorGridAlpha': 0
+                },
+                'dataProvider': []
+              });
+              return that._update();
+            }
+          });
+          pharmacodynamics = null;
+          Object.defineProperty(this, 'pharmacodynamics', {
+            get: function() {
+              return pharmacodynamics;
+            },
+            set: function(x) {
+              pharmacodynamics = AmCharts.makeChart(x[0], {
+                'type': 'serial',
+                'pathToImages': 'http://cdn.amcharts.com/lib/3/images/',
+                'categoryField': 'hour',
+                'autoMargins': false,
+                'marginBottom': 0,
+                'marginLeft': 0,
+                'marginRight': 0,
+                'marginTop': 0,
+                'borderAlpha': 0,
+                'chartCursor': {
+                  'selectWithoutZooming': true,
+                  'zoomable': false,
+                  'zooming': false
+                },
+                'zoomOutButtonImage': '',
+                'zoomOutText': '',
+                'graphs': [],
+                'valueAxes': [
+                  {
+                    'id': 'ValueAxis-1',
+                    'title': 'Axis title',
+                    'axisAlpha': 0,
+                    'gridAlpha': 0
+                  }
+                ],
+                'categoryAxis': {
+                  'axisAlpha': 0,
+                  'gridAlpha': 0,
+                  'minorGridAlpha': 0
+                },
+                'dataProvider': []
+              });
+              return that._update();
+            }
+          });
+          priceUSD = 0;
+          Object.defineProperty(this, 'priceUSD', {
+            enumerable: true,
+            get: function() {
+              if (this.components.length === 0) {
+                return 0;
+              } else {
+                return priceUSD;
+              }
+            },
+            set: function(x) {
+              if (priceUSD !== x) {
+                return priceUSD = x;
+              }
+            }
+          });
+          Object.defineProperty(this, 'priceBTC', {
+            get: function() {
+              return this.priceUSD * BTCrate();
+            },
+            set: function() {}
+          });
+          formulations = [];
+          Object.defineProperty(this, 'formulations', {
+            enumerable: true,
+            get: function() {
+              if (this.components.length !== 0 && !formulations) {
+                that._update();
+              }
+              return formulations;
+            },
+            set: function(x) {
+              if (formulations !== x) {
+                return formulations = x;
+              }
+            }
+          });
+          schedule = [];
+          Object.defineProperty(this, 'schedule', {
+            get: function() {
+              if (this.components.length !== 0 && !schedule) {
+                update();
+              }
+              return schedule;
+            },
+            set: function(x) {
+              if (schedule !== x) {
+                return schedule = x;
+              }
+            }
+          });
+          Object.defineProperty(this, 'length', {
+            enumerable: true,
+            get: function() {
+              return schedule.length - 1;
+            },
+            set: function() {
+              return update();
+            }
+          });
+          $rootScope.$on('ProtocolService : Update Protocol', function(e, data) {
+            if (data._id === that._id) {
+              return $rootScope.$evalAsync(function() {
+                _.extend(that, data);
+                that.components = [];
+                return _.each(data.components, function(component) {
+                  var c;
+                  c = new Regimen(component.compound.id, that);
+                  _.extend(c, component);
+                  return that.components.push(c);
+                });
+              });
+            }
+          });
+          $rootScope.$on('ProtocolService : Set Protocol Complete', function(e, data) {
+            if (data.id === that._id) {
+              return that._rev = data.rev;
+            }
+          });
+        }
+
+        Protocol.prototype.addComponent = function(cid) {
+          this.components.unshift(new Regimen(cid, this));
+          this._update();
+          return this._save();
+        };
+
+        Protocol.prototype.removeComponent = function(r) {
+          this.components.splice(r, 1);
+          this._update();
+          return this._save();
+        };
+
+        return Protocol;
+
+      })();
+      window.ProtocolService = cache = {};
+      newProtocol = null;
+      $rootScope.$on('ProtocolService : New Protocol Complete', function(e, data) {
+        return $rootScope.$evalAsync(function() {
+          newProtocol._id = data._id;
+          newProtocol.owner = Athlete._id;
+          return cache[data._id] = newProtocol;
+        });
+      });
+      $rootScope.$on('ProtocolService : Search Results', function(e, data) {});
+      return function(id, destroy) {
+        if (destroy == null) {
+          destroy = false;
+        }
+        if ((id != null) && (cache[id] != null) && !destroy) {
+          return cache[id];
+        }
+        if (id != null) {
+          if (!destroy) {
+            cache[id] = new Protocol;
+            cache[id]._id = id;
+            PubNub('ProtocolService : Get Protocol', cache[id]);
+            return cache[id];
+          }
+          if (destroy) {
+            PubNub('ProtocolService : Delete Protocol', cache[id]);
+            return delete cache[id];
+          }
+        } else {
+          newProtocol = new Protocol;
+          PubNub('ProtocolService : New Protocol', newProtocol);
+          return newProtocol;
+        }
+      };
+    }
+  ]);
+
+}).call(this);

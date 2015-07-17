@@ -8,11 +8,11 @@ AthleteService = angular.module 'AthleteService', ['PubNubService']
 AthleteService.factory 'Athlete', [ 'PubNub', '$rootScope', '$http', (PubNub, $rootScope, $http) ->
 
   window.rootScope = $rootScope
-  
+
   class Athlete
     constructor  : ->
       that = this
-      save = -> if that._id? then PubNub 'AthleteService : Set Athlete', that
+      save = -> if that._rev? then PubNub 'AthleteService : Set Athlete', that
       save = _.debounce save, 1000
 
       #------------------------------------------
@@ -69,7 +69,7 @@ AthleteService.factory 'Athlete', [ 'PubNub', '$rootScope', '$http', (PubNub, $r
         else
           @favorites.push x
           do save
-      
+
       #------------------------------------------
       height = null
       Object.defineProperty this, 'height', {
@@ -144,7 +144,6 @@ AthleteService.factory 'Athlete', [ 'PubNub', '$rootScope', '$http', (PubNub, $r
           if that.secretKey.length isnt 0
             _.extend that, data
             do updateAccountBalance
-            $rootScope.$broadcast 'Context Switch', 'Search'
             $rootScope.$broadcast 'PubNubService : Initialize Athlete'
 
 
@@ -161,4 +160,3 @@ AthleteService.factory 'Athlete', [ 'PubNub', '$rootScope', '$http', (PubNub, $r
 
   return athlete
 ]
-

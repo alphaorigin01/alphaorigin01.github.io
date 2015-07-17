@@ -11,7 +11,7 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
   window.textEncoder = textEncoder = new TextEncoder()
   window.textDecoder = textDecoder = new TextDecoder()
 
-  window.athlete_skey = athlete_skey = new Uint8Array([198, 131, 161, 40, 127, 182, 95, 120, 238, 21, 211, 246, 62, 165, 73, 88, 127, 193, 29, 193, 60, 198, 183, 255, 187, 234, 222, 180, 206, 115, 50, 11]) # crypto.getRandomValues( new Uint8Array(32) )
+  window.athlete_skey = athlete_skey = crypto.getRandomValues( new Uint8Array(32) )
   window.athlete_pkey = athlete_pkey = nacl.box.generate_pubkey athlete_skey
 
   _encryptor = null
@@ -46,6 +46,7 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
   PubNub.subscribe {
     channel  : '8e04b18a-f27f-430e-a772-6f91c5302ca'
     callback : (message) ->
+      console.log 'PubNub Service: ', message.action, ' : ', message.data
       $rootScope.$broadcast message.action, message.data
     connect  : ->
       $rootScope.$broadcast 'PubNubService : Connected'
@@ -56,12 +57,13 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
     crypto.getRandomValues nonce
     _decryptor = nacl.box.formatWN.makeDecryptor ServerPublicKey, Athlete.secretKey, nacl.arrays.makeFactory()
     _encryptor = nacl.box.formatWN.makeEncryptor ServerPublicKey, Athlete.secretKey, nonce, 2, nacl.arrays.makeFactory()
-
+    $rootScope.$broadcast 'Context Switch', 'Search'
 
     PubNub.subscribe {
       channel  : Athlete.channel
       callback : (message) ->
         message = Decrypt message
+        console.log 'PubNub Service: ', message.action, ' : ', message.data
         $rootScope.$broadcast message.action, message.data
       connect  : ->
         $rootScope.$evalAsync -> $rootScope.$broadcast 'PubNubService : Athlete Connected'
@@ -78,9 +80,11 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
       'Server : Status'
       'Server : Get BTCrate'
       'AthleteService : Check Athlete ID'
+      'AthleteService : Check Invitation'
       'AthleteService : New Athlete'
       'AthleteService : Get Athlete'
       'OrderService : Get Processing Time'
+      'ProtocolService : Search'
     ]
 
     if action.startsWith('Messages : ')
