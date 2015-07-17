@@ -160,16 +160,26 @@ Display: design size 72.0 points, for use from 25.9 to 99.9 points
 }
 /* Basics
 -------------------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  background: transparent;
+  vertical-align: top;
+}
 html {
   height: 100%;
   background: #fff;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 62.5%;
+  overflow-y: scroll;
 }
 body {
   min-height: 100%;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 10px;
+  line-height: 15px;
   text-rendering: optimizeLegibility;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -187,7 +197,7 @@ a[title="JavaScript charts"] {
 -------------------------------------------------------------------------------*/
 main {
   display: block;
-  width: 100rem;
+  width: 1000px;
   margin: 0 auto;
   overflow: auto;
 }
@@ -198,11 +208,10 @@ section,
 aside {
   display: block;
   overflow: hidden;
-  min-height: 20rem;
+  min-height: 20px;
 }
 section *,
 aside * {
-  vertical-align: top;
   display: inline-block;
   cursor: default;
 }
@@ -211,30 +220,25 @@ aside *[contenteditable = "true"] {
   cursor: text;
 }
 section {
-  width: 70rem;
+  width: 700px;
   float: right;
 }
 aside {
-  width: 30rem;
+  width: 300px;
   float: left;
 }
 header {
-  height: 8rem;
-  width: 1rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  height: 80px;
   width: 100%;
+  padding: 30px;
   text-align: center;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
 }
@@ -250,11 +254,11 @@ header {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 20rem;
-  height: 20rem;
+  width: 20px;
+  height: 20px;
   transform: translate(-50%, -50%);
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
 }
 .metric {
   position: relative;
@@ -275,107 +279,99 @@ header {
   color: #808080;
 }
 .metric.normal {
-  height: 11rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 50px;
+  padding: 30px;
   float: left;
   clear: left;
 }
 .metric.normal .icon {
-  width: 5rem;
-  height: 5rem;
-  margin-right: 2rem;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }
 .metric.normal label {
   width: 65%;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   font-style: italic;
 }
 .metric.normal .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
 }
 .metric.normal .value .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 .metric.normal .value[placeholder]:empty:before {
   color: #808080;
 }
 .metric.normal mark {
-  margin: 1.6rem 0 0 0.25rem;
+  margin: 16px 0 0 0.25px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
 }
 .metric.normal mark .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .metric.small {
-  height: 7rem;
-  width: 14rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 99px;
+  height: 30px;
+  padding: 20px;
   float: left;
   border-right: 1px solid #3c3c3e;
 }
 .metric.small .icon {
-  width: 3rem;
-  height: 3rem;
-  margin-right: 0.9rem;
+  width: 30px;
+  height: 30px;
+  margin-right: 9px;
 }
 .metric.small label {
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   font-style: italic;
 }
 .metric.small .value {
-  max-width: 4.7rem;
+  max-width: 47px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
 }
 .metric.small .value .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .metric.small .value[placeholder]:empty:before {
   color: #b3b3b3;
 }
 .metric.small mark {
-  margin: 0.5rem 0 0 -0.1rem;
+  margin: 5px 0 0 -1px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 10px;
 }
 .metric.small mark .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 .metric.small.editable {
   border-right: 1px solid #e1e1e1;
@@ -400,36 +396,36 @@ header {
   position: absolute;
   width: 80%;
   background: #1b1b1d;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 2rem #1b1b1d;
+  border-radius: 0.25px;
+  box-shadow: 0 0 20px #1b1b1d;
 }
 .choices header,
 .choices .choice {
   display: block;
-  padding: 1rem 2rem;
+  padding: 10px 20px;
 }
 .choices header {
   height: auto;
   background: #3c3c3e;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   text-transform: none;
   color: #b3b3b3;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0.25px 0.25px 0 0;
 }
 .choices .choice {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
@@ -477,26 +473,22 @@ header {
 .tooltip {
   position: absolute;
   left: -13%;
-  height: 10rem;
-  width: 25rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 210px;
+  height: 60px;
+  padding: 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   height: auto;
   background: #323234;
   color: #b3b3b3;
   text-align: justify;
   z-index: 9999;
-  border-radius: 0.5rem;
+  border-radius: 5px;
 }
 .tooltip.top {
   bottom: 105%;
@@ -519,55 +511,46 @@ header {
   border: solid transparent;
   border-color: transparent;
   border-top-color: #323234;
-  border-width: 1rem;
-  margin-left: -1rem;
+  border-width: 10px;
+  margin-left: -10px;
 }
 .tooltip strong {
   color: #fff;
-  padding-right: 0.5rem;
+  padding-right: 5px;
 }
 .protocol {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
   background: #323234;
 }
 .protocol nav {
-  height: 5rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 680px;
+  height: 50px;
   display: table;
   background: #1b1b1d;
 }
 .protocol nav .tab {
-  height: 5rem;
-  width: 17rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 130px;
+  height: 10px;
+  padding: 20px;
   display: table-cell;
   width: auto;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 5rem;
+  line-height: 50px;
   color: #fff;
   text-align: center;
   cursor: pointer;
@@ -575,10 +558,10 @@ header {
 .protocol nav .tab.active,
 .protocol nav .tab:hover {
   background: #323234;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 5px 5px 0 0;
 }
 .protocol nav .tab:nth-child(1) {
-  width: 21rem;
+  width: 210px;
 }
 .protocol nav .tab:nth-child(1).active {
   background: #3c3c3e;
@@ -590,22 +573,12 @@ header {
   display: none;
 }
 .protocol .panel {
-  height: 31rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 680px;
+  height: 310px;
 }
 .protocol .primary .summary {
-  height: 31rem;
-  width: 21rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 210px;
+  height: 310px;
   float: left;
   text-align: center;
   background: #3c3c3e;
@@ -613,29 +586,29 @@ header {
 .protocol .primary .summary .level {
   position: relative;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 40px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #b3b3b3;
   cursor: pointer;
 }
 .protocol .primary .summary .level .choices {
   z-index: 100;
-  left: 2rem;
+  left: 20px;
 }
 .protocol .primary .summary .goal {
   position: relative;
   width: 100%;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -645,26 +618,16 @@ header {
   text-decoration: underline;
 }
 .protocol .primary .summary .goal .choices {
-  left: 2rem;
+  left: 20px;
 }
 .protocol .primary .summary .rating {
-  height: 2rem;
-  width: 21rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-top: 1.5rem;
+  width: 210px;
+  height: 20px;
+  margin-top: 15px;
 }
 .protocol .primary .summary .rating .star {
-  height: 2rem;
-  width: 2rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 20px;
+  height: 20px;
   background: url("../images/icon-star.png");
   background-size: cover;
   cursor: pointer;
@@ -682,21 +645,16 @@ header {
   background-size: cover;
 }
 .protocol .primary .summary .popularity {
-  height: 2rem;
-  width: 21rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 0.5rem;
+  width: 210px;
+  height: 20px;
+  padding-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   color: #808080;
   display: none;
@@ -707,15 +665,11 @@ header {
   color: #b3b3b3;
 }
 .protocol .primary .summary .buy {
-  height: 14rem;
-  width: 21rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 170px;
+  height: 100px;
+  padding: 20px;
   border-top: 1px solid #454547;
-  margin-top: 4rem;
+  margin-top: 40px;
 }
 .protocol .primary .summary .buy .price {
   width: 100%;
@@ -724,44 +678,44 @@ header {
 .protocol .primary .summary .buy .price .usd {
   width: 100%;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #b3b3b3;
 }
 .protocol .primary .summary .buy .price .btc {
   width: 100%;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .protocol .primary .summary .buy .price .btc .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .protocol .primary .summary .buy .add {
   display: inline-block;
   cursor: pointer;
-  margin: 3em;
-  height: 4rem;
-  padding: 1.25rem 3rem;
+  margin: 30px;
+  height: 16px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10rem;
+  border-radius: 10px;
   display: inline-block;
-  margin: 1.5rem 0;
+  margin: 15px 0;
   font-weight: 500;
   color: #fff;
   border: 1px solid #b3b3b3;
@@ -771,70 +725,56 @@ header {
   border: 1px solid #808080;
 }
 .protocol .primary .dna {
-  height: 15rem;
-  width: 47rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 470px;
+  height: 150px;
   float: right;
   background: #b3b3b3;
 }
 .protocol .primary .attributes {
-  height: 16rem;
-  width: 47rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 410px;
+  height: 100px;
+  padding: 30px;
   float: right;
   background: #fff;
 }
 .protocol .primary .attributes .id {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
-  width: 10rem;
+  font-size: 10px;
+  line-height: 16px;
+  width: 10px;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
 }
 .protocol .primary .attributes title {
-  width: 38rem;
+  width: 380px;
   overflow: hidden;
   white-space: nowrap;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
 }
 .protocol .primary .attributes title .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .protocol .primary .attributes title[placeholder]:empty:before {
   color: #b3b3b3;
 }
 .protocol .primary .attributes .favorite,
 .protocol .primary .attributes .delete {
-  height: 2rem;
-  width: 2rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-bottom: -2rem;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -20px;
   float: right;
   text-align: right;
   color: #b3b3b3;
-  font-size: 1.5rem;
+  font-size: 15px;
   cursor: pointer;
 }
 .protocol .primary .attributes .favorite {
@@ -850,14 +790,14 @@ header {
 }
 .protocol .primary .attributes .description {
   width: 100%;
-  max-height: 5.9rem;
-  margin-top: 1rem;
+  max-height: 59px;
+  margin-top: 10px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   font-style: normal;
   text-align: justify;
@@ -865,26 +805,16 @@ header {
   overflow: hidden;
 }
 .protocol .formulations .profile {
-  height: 31rem;
-  width: 35.1rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 351px;
+  height: 310px;
   background: #3c3c3e;
-  border-radius: 0 0 0.5rem 0;
+  border-radius: 0 0 5px 0;
 }
 .protocol .formulations .profile .mode {
-  height: 3rem;
-  width: 3rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 30px;
+  height: 30px;
   float: left;
-  margin: 3rem 0 0 3rem;
+  margin: 30px 0 0 30px;
 }
 .protocol .formulations .profile .mode.inject {
   background: url("../images/icon-syringe.png");
@@ -895,191 +825,165 @@ header {
   background-size: cover;
 }
 .protocol .formulations .profile .dilution {
-  width: 14rem;
+  width: 140px;
   float: left;
-  padding: 2.8rem 0 0 2rem;
+  padding: 28px 0 0 20px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #b3b3b3;
 }
 .protocol .formulations .profile .id {
   float: left;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 20px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #fff;
 }
 .protocol .formulations .profile .id .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .protocol .formulations .profile > .quantity {
   float: right;
-  width: 15rem;
-  padding: 2.8rem 3rem 0 0;
+  width: 150px;
+  padding: 28px 30px 0 0;
   text-align: right;
 }
 .protocol .formulations .profile > .quantity .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   color: #fff;
 }
 .protocol .formulations .profile > .quantity .value .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 .protocol .formulations .profile > .quantity mark {
-  padding-top: 1.5rem;
+  padding-top: 15px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #808080;
 }
 .protocol .formulations .profile > .quantity mark .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .protocol .formulations .profile .compounds {
-  height: 17.7rem;
-  width: 35.1rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 2rem;
+  width: 291px;
+  height: 177px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
 }
 .protocol .formulations .profile .compounds .compound {
   width: 100%;
-  margin-bottom: -0.75rem;
+  margin-bottom: -0.75px;
 }
 .protocol .formulations .profile .compounds .compound .icon {
-  height: 4rem;
-  width: 4rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 40px;
+  height: 40px;
   float: left;
-  border-radius: 10rem;
+  border-radius: 10px;
   background: #808080;
 }
 .protocol .formulations .profile .compounds .compound .quantity {
   float: left;
-  padding-left: 2rem;
-  padding-top: 0.5rem;
+  padding-left: 20px;
+  padding-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   color: #b3b3b3;
 }
 .protocol .formulations .profile .compounds .compound .density {
   float: left;
-  padding-left: 2rem;
-  padding-top: 0.5rem;
+  padding-left: 20px;
+  padding-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #808080;
 }
 .protocol .formulations .profile .compounds .compound .name {
   float: left;
-  width: 25rem;
-  margin-top: -0.1rem;
-  padding-left: 2rem;
+  width: 250px;
+  margin-top: -1px;
+  padding-left: 20px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 .protocol .formulations .profile .description {
-  height: 7rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 3rem;
-  padding-top: 1rem;
+  width: 250px;
+  height: 40px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-top: 10px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   text-align: justify;
-  line-height: 1.1rem;
+  line-height: 11px;
   color: #808080;
 }
 .protocol .formulations .profile .special {
-  height: 3rem;
-  width: 3rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: 1.2rem 3rem 0 0;
+  width: 30px;
+  height: 30px;
+  margin: 12px 30px 0 0;
   float: right;
   background: url("../images/icon-done.png");
   background-size: cover;
 }
 .protocol .formulations .list {
-  height: 31rem;
-  width: 32.9rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 329px;
+  height: 310px;
   float: right;
   overflow-x: hidden;
   overflow-y: auto;
 }
 .protocol .formulations .list::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 .protocol .formulations .list::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 .protocol .formulations .list::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 .protocol .formulations .list .formulation {
-  height: 6rem;
-  width: 32.9rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 329px;
+  height: 60px;
   float: left;
-  padding-top: 0.1rem;
+  padding-top: 1px;
   border-bottom: 1px solid #3c3c3e;
   cursor: pointer;
 }
@@ -1087,58 +991,43 @@ header {
   cursor: pointer;
 }
 .protocol .formulations .list .formulation .icon {
-  height: 4rem;
-  width: 9rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 90px;
+  height: 40px;
   float: left;
-  padding: 2rem 0 0 3rem;
+  padding: 20px 0 0 30px;
 }
 .protocol .formulations .list .formulation .icon .circle {
-  height: 2rem;
-  width: 2rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-right: -1rem;
-  border-radius: 10rem;
+  width: 20px;
+  height: 20px;
+  margin-right: -10px;
+  border-radius: 10px;
   background: #b3b3b3;
 }
 .protocol .formulations .list .formulation .id {
   float: left;
-  padding: 2.2rem 0 0 2rem;
+  padding: 22px 0 0 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
 }
 .protocol .formulations .list .formulation .mode {
-  height: 2rem;
-  width: 2rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 20px;
+  height: 20px;
   float: right;
-  margin: 2rem 1rem 0 0;
+  margin: 20px 10px 0 0;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
   background: #3c3c3e;
@@ -1153,198 +1042,158 @@ header {
 }
 .protocol .formulations .list .formulation > .quantity {
   float: right;
-  padding-top: 2.3rem;
+  padding-top: 23px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #fff;
 }
 .protocol .formulations .list .formulation > .quantity .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .protocol .formulations .list .formulation mark {
   float: right;
-  padding: 2.7rem 3rem 0 0.25rem;
+  padding: 27px 30px 0 0.25px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #808080;
 }
 .protocol .dose_schedule .instructions {
-  height: 31rem;
-  width: 25rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 250px;
+  height: 310px;
 }
 .protocol .dose_schedule .instructions .day {
-  height: 9rem;
-  width: 22rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  padding-left: 2rem;
+  width: 220px;
+  height: 50px;
+  padding: 20px 0 20px 20px;
   background: #808080;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 5px 5px 0 0;
 }
 .protocol .dose_schedule .instructions .day .previous,
 .protocol .dose_schedule .instructions .day .next {
-  height: 1.8rem;
-  width: 1.8rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-top: 1rem;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   color: #b3b3b3;
   text-align: center;
   border: 1px solid #b3b3b3;
-  border-radius: 10rem;
+  border-radius: 10px;
   cursor: pointer;
 }
 .protocol .dose_schedule .instructions .day .previous .fa-btc,
 .protocol .dose_schedule .instructions .day .next .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .protocol .dose_schedule .instructions .day .value {
-  width: 13.4rem;
+  width: 134px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   color: #fff;
   text-align: center;
 }
 .protocol .dose_schedule .instructions .day .value .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 .protocol .dose_schedule .instructions .day mark {
-  width: 1rem;
-  margin: 0.75rem 0 0 -0.5rem;
+  width: 10px;
+  margin: 0.75px 0 0 -5px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
-  line-height: 1rem;
+  line-height: 10px;
   color: #b3b3b3;
 }
 .protocol .dose_schedule .instructions .doses {
-  height: 22rem;
-  width: 22rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 220px;
+  height: 220px;
   border-right: 1px solid #3c3c3e;
   overflow-x: hidden;
   overflow-y: auto;
 }
 .protocol .dose_schedule .instructions .doses::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 .protocol .dose_schedule .instructions .doses::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 .protocol .dose_schedule .instructions .doses::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 .protocol .dose_schedule .instructions .doses .dose {
-  height: 7.35rem;
-  width: 22rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 22px;
+  height: 73px;
   float: left;
-  padding-top: 0.1rem;
+  padding-top: 1px;
   background: #3c3c3e;
   border-bottom: 1px solid #454547;
 }
 .protocol .dose_schedule .instructions .doses .dose .icon {
-  height: 4rem;
-  width: 11rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 110px;
+  height: 40px;
   float: left;
-  padding: 2rem 0 0 2rem;
+  padding: 20px 0 0 20px;
 }
 .protocol .dose_schedule .instructions .doses .dose .icon .circle {
-  height: 2rem;
-  width: 2rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-right: -0.5rem;
-  border-radius: 10rem;
+  width: 20px;
+  height: 20px;
+  margin-right: -5px;
+  border-radius: 10px;
   background: #b3b3b3;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
 }
 .protocol .dose_schedule .instructions .doses .dose .id {
   float: left;
-  padding: 0.3rem 0 0 2rem;
+  padding: 3px 0 0 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 .protocol .dose_schedule .instructions .doses .dose .mode {
-  height: 2.5rem;
-  width: 2.5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 25px;
+  height: 25px;
   float: right;
-  margin: 2.25rem 1rem 0 0;
+  margin: 2.25px 10px 0 0;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
   background: #3c3c3e;
@@ -1359,60 +1208,51 @@ header {
 }
 .protocol .dose_schedule .instructions .doses .dose .quantity {
   float: right;
-  padding-top: 2.5rem;
+  padding-top: 25px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .protocol .dose_schedule .instructions .doses .dose .quantity .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .protocol .dose_schedule .instructions .doses .dose mark {
   float: right;
-  padding: 3.5rem 2rem 0 0.25rem;
+  padding: 35px 20px 0 0.25px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
   color: #808080;
 }
 .protocol .dose_schedule .instructions .doses .dose mark .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 .protocol .dose_schedule .calendar {
-  height: 31rem;
-  width: 43rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  padding-right: 1rem;
+  width: 430px;
+  height: 250px;
+  padding: 30px 0;
+  padding-right: 10px;
   float: right;
 }
 .protocol .dose_schedule .calendar .week {
-  width: 21rem;
+  width: 210px;
   float: left;
 }
 .protocol .dose_schedule .calendar .week:nth-child(even) {
   float: right;
 }
 .protocol .dose_schedule .calendar .week .day {
-  height: 2.7rem;
-  width: 2.5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 25px;
+  height: 27px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-align: center;
   color: #454547;
   cursor: pointer;
@@ -1424,47 +1264,27 @@ header {
   color: #fff;
 }
 .protocol .pharmacodynamics .graph {
-  height: 22rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 680px;
+  height: 220px;
   background: #b3b3b3;
 }
 .protocol .pharmacodynamics .key {
-  height: 10rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 0.25rem 2rem 2rem 2rem;
+  width: 680px;
+  height: 100px;
+  padding: 2.5px 20px 20px 20px;
   background: #fff;
 }
 .protocol .pharmacodynamics .key .item {
   float: left;
-  height: 2.5rem;
-  width: 32rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 1rem;
+  width: 320px;
+  height: 25px;
+  padding-top: 10px;
 }
 .protocol .pharmacodynamics .key .item > .icon {
-  height: 1.6rem;
-  width: 1.6rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-right: 1rem;
-  border-radius: 10rem;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 .protocol .pharmacodynamics .key .item > .icon.red {
   background: #ff4351;
@@ -1483,25 +1303,25 @@ header {
 }
 .protocol .pharmacodynamics .key .item .label {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  padding-top: 0.15rem;
+  padding-top: 0.15px;
 }
 .regimen {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
-  height: 43rem;
+  height: 430px;
   background: #323234;
   cursor: pointer;
   overflow: visible;
@@ -1510,126 +1330,111 @@ header {
   cursor: pointer;
 }
 .regimen > .icon {
-  width: 8rem;
+  width: 80px;
   height: 100%;
   float: left;
 }
 .regimen .ident {
   position: relative;
-  height: 11rem;
-  width: 60rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 600px;
+  height: 110px;
 }
 .regimen .ident .id {
-  padding: 3rem 0 0 3rem;
+  padding: 30px 0 0 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 .regimen .ident .mode {
-  padding: 3rem 0 0 1rem;
+  padding: 30px 0 0 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
 }
 .regimen .ident .density {
-  height: 11rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 3.5rem 0;
+  width: 100px;
+  height: 110px;
+  padding: 35px 0;
   float: right;
   text-align: center;
   border-left: 1px solid #3c3c3e;
 }
 .regimen .ident .density .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #b3b3b3;
 }
 .regimen .ident .density .value .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .regimen .ident .density mark {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #808080;
 }
 .regimen .ident .name {
-  width: 49rem;
-  padding: 0 0 0 3rem;
+  width: 490px;
+  padding: 0 0 0 30px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .regimen .ident .name .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .regimen .ident .alias {
-  width: 49rem;
-  padding: 0 0 0 3rem;
+  width: 490px;
+  padding: 0 0 0 30px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #808080;
 }
 .regimen .ident .remove {
   display: none;
-  height: 11rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 110px;
   position: absolute;
   right: 0;
   top: 0;
   color: #b3b3b3;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  line-height: 10rem;
-  font-size: 3rem;
+  line-height: 10px;
+  font-size: 30px;
   font-weight: 200;
   text-align: center;
   background: #323234;
@@ -1643,98 +1448,77 @@ header {
   display: inline-block;
 }
 .regimen .metrics {
-  width: 60rem;
-  height: 16rem;
+  width: 60px;
+  height: 160px;
   float: left;
   background: #fff;
 }
 .regimen .metrics > * {
-  height: 8rem;
-  width: 20rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 160px;
+  height: 40px;
+  padding: 20px;
   position: relative;
   float: left;
   border-right: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
 }
 .regimen .metrics > * .icon {
-  height: 4rem;
-  width: 4rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 40px;
+  height: 40px;
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   background: #808080;
 }
 .regimen .metrics > * label {
-  width: 10.9rem;
-  padding-top: 0.1rem;
+  width: 109px;
+  padding-top: 1px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #808080;
 }
 .regimen .metrics > * .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
 }
 .regimen .metrics > * .value .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .regimen .metrics > * mark {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  padding-top: 1.1rem;
-  padding-left: 0.2rem;
-  line-height: 1.1rem;
+  padding-top: 11px;
+  padding-left: 2px;
+  line-height: 11px;
   color: #808080;
 }
 .regimen .metrics > * .adjust {
-  height: 4rem;
-  width: 1rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 10px;
+  height: 40px;
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 20px;
+  right: 20px;
 }
 .regimen .metrics > * .adjust .up,
 .regimen .metrics > * .adjust .down {
-  height: 0rem;
-  width: 0rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
   position: absolute;
-  border-left: 0.75rem solid transparent;
-  border-right: 0.75rem solid transparent;
+  border-left: 0.75px solid transparent;
+  border-right: 0.75px solid transparent;
   cursor: pointer;
 }
 .regimen .metrics > * .adjust .up {
-  border-bottom: 0.75rem solid #e1e1e1;
+  border-bottom: 0.75px solid #e1e1e1;
 }
 .regimen .metrics > * .adjust .down {
   bottom: 0;
-  border-top: 0.75rem solid #e1e1e1;
+  border-top: 0.75px solid #e1e1e1;
 }
 .regimen .metrics .active .icon {
   background: url("../images/icon-plasma.png");
@@ -1764,62 +1548,53 @@ header {
   background-size: cover;
 }
 .regimen .graph {
-  width: 60rem;
-  height: 16rem;
+  width: 60px;
+  height: 160px;
   background: #b3b3b3;
   float: left;
 }
 .add_button {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
-  height: 8rem;
+  height: 80px;
   background: #808080;
   cursor: pointer;
 }
 .add_button .icon {
-  height: 8rem;
-  width: 8rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 80px;
+  height: 80px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  line-height: 8rem;
-  font-size: 5rem;
+  line-height: 80px;
+  font-size: 50px;
   text-align: center;
   color: #b3b3b3;
   background: #323234;
   cursor: pointer;
 }
 .add_button label {
-  height: 8rem;
-  width: 57rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 510px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -1833,15 +1608,15 @@ header {
   background: #3c3c3e;
 }
 .compound_chooser {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
-  height: 43rem;
+  height: 430px;
   background: #323234;
   cursor: pointer;
 }
@@ -1850,51 +1625,46 @@ header {
 }
 .compound_chooser header .search {
   display: inline-block;
-  width: 30rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 2.5rem 3rem;
+  width: 260px;
+  margin: 25px 30px;
   text-align: left;
 }
 .compound_chooser header .search[placeholder]:empty:before {
   color: #808080;
 }
 .compound_chooser header .icon {
-  height: 8rem;
-  width: 11rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 110px;
+  height: 80px;
   float: right;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  line-height: 8rem;
-  font-size: 3rem;
+  line-height: 80px;
+  font-size: 30px;
   font-weight: 200;
   text-align: center;
   color: #b3b3b3;
@@ -1905,35 +1675,25 @@ header {
   color: #fff;
 }
 .compound_chooser .list {
-  height: 35rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 680px;
+  height: 350px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 .compound_chooser .list::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 .compound_chooser .list::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 .compound_chooser .list::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 .compound_chooser .compound {
   position: relative;
-  height: 9rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 680px;
+  height: 90px;
   border-top: 1px solid #3c3c3e;
   cursor: pointer;
 }
@@ -1946,95 +1706,85 @@ header {
   user-select: none;
 }
 .compound_chooser .compound .icon {
-  height: 9rem;
-  width: 8rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 80px;
+  height: 90px;
   float: left;
 }
 .compound_chooser .compound .id {
-  padding: 2rem 0 0 3rem;
+  padding: 20px 0 0 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 .compound_chooser .compound .mode {
-  padding: 2rem 0 0 1rem;
+  padding: 20px 0 0 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
 }
 .compound_chooser .compound .density {
-  height: 9rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 2.5rem 0;
+  width: 100px;
+  height: 90px;
+  padding: 25px 0;
   float: right;
   text-align: center;
   border-left: 1px solid #3c3c3e;
 }
 .compound_chooser .compound .density .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #b3b3b3;
 }
 .compound_chooser .compound .density .value .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .compound_chooser .compound .density mark {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #808080;
 }
 .compound_chooser .compound .name {
-  width: 49rem;
-  padding: 0 0 0 3rem;
+  width: 490px;
+  padding: 0 0 0 30px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .compound_chooser .compound .name .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .compound_chooser .compound .alias {
-  width: 49rem;
-  padding: 0 0 0 3rem;
+  width: 490px;
+  padding: 0 0 0 30px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #808080;
 }
@@ -2045,35 +1795,31 @@ header {
   border-left: 1px solid #454547;
 }
 .order {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
   background: #323234;
 }
 .order header {
-  height: 8rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 620px;
+  height: 20px;
+  padding: 30px;
   border-bottom: 1px solid #3c3c3e;
 }
 .order header .id {
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
@@ -2081,56 +1827,46 @@ header {
 .order header .timestamp {
   float: right;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
   text-align: right;
   text-transform: none;
 }
 .order .cart {
-  height: 45rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 280px;
+  height: 450px;
   float: left;
   margin: 0;
 }
 .order .cart .protocols {
-  height: 27rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-bottom: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  width: 280px;
+  height: 270px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   border-bottom: 1px solid #3c3c3e;
   background: #323234;
   overflow-y: auto;
 }
 .order .cart .protocols::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 .order .cart .protocols::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 .order .cart .protocols::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 .order .cart .protocols .protocol {
-  width: 24rem;
-  padding-bottom: 3rem;
-  margin-bottom: 2rem;
+  width: 240px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
   border-bottom: 1px dashed #454547;
 }
 .order .cart .protocols .protocol:last-child {
@@ -2139,26 +1875,26 @@ header {
   border: none;
 }
 .order .cart .protocols .protocol > .id {
-  width: 22rem;
+  width: 220px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080 !important;
 }
 .order .cart .protocols .protocol .name {
-  width: 22rem;
-  margin-bottom: 0.5rem;
+  width: 220px;
+  margin-bottom: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -2166,26 +1902,21 @@ header {
   white-space: nowrap;
 }
 .order .cart .protocols .formulation {
-  height: 3rem;
-  width: 22rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 1rem 0 0 4rem;
+  width: 220px;
+  height: 30px;
+  padding: 10px 0 0 40px;
 }
 .order .cart .protocols .formulation .icon {
-  width: 5rem;
+  width: 50px;
   float: left;
 }
 .order .cart .protocols .formulation .icon .circle {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   float: left;
-  margin-right: -0.8rem;
+  margin-right: -8px;
   background: #b3b3b3;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 .order .cart .protocols .formulation .icon .circle:nth-child(1) {
   background: light_blue;
@@ -2198,113 +1929,95 @@ header {
 }
 .order .cart .protocols .formulation .quantity {
   float: right;
-  margin-top: 0.2rem;
+  margin-top: 2px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
 }
 .order .cart .protocols .formulation .quantity .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .order .cart .protocols .formulation mark {
   float: right;
-  margin-top: 0.5rem;
+  margin-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   color: #808080;
 }
 .order .cart .protocols .formulation .mode {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   background: url("../images/icon-syringe.png");
   background-size: cover;
 }
 .order .cart .protocols .formulation .id {
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   color: #b3b3b3;
 }
 .order .cart .protocols .formulation .id .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .order .cart .protocols .actions {
-  height: 10rem;
-  width: 12rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 120px;
+  height: 70px;
+  padding-top: 30px;
   float: left;
 }
 .order .cart .protocols .subtotal {
-  height: 10rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 70px;
+  padding-top: 30px;
   float: left;
 }
 .order .cart .protocols .subtotal .quantity {
-  height: 3.25rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 32px;
 }
 .order .cart .protocols .subtotal .quantity .value {
-  margin-top: 0.15rem;
+  margin-top: 0.15px;
   float: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
   color: #b3b3b3;
 }
 .order .cart .protocols .subtotal .quantity .value .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 .order .cart .protocols .subtotal .quantity mark {
-  margin-left: 1rem;
+  margin-left: 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
 }
 .order .cart .protocols .subtotal .price {
-  height: 4rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 40px;
 }
 .order .cart .protocols .subtotal .price .value {
   width: 100%;
@@ -2312,33 +2025,29 @@ header {
 }
 .order .cart .protocols .subtotal .price .value.usd {
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 .order .cart .protocols .subtotal .price .value.btc {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .order .cart .protocols .subtotal .price .value.btc .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .order .cart .accessories {
-  height: 14rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 220px;
+  height: 140px;
+  padding: 30px 0;
   background: #323234;
 }
 .order .cart .accessories .item {
@@ -2349,11 +2058,11 @@ header {
   display: inline-block;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #b3b3b3;
 }
@@ -2362,26 +2071,26 @@ header {
 }
 .order .cart .accessories .referral {
   display: inline-block;
-  width: 14rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 100px;
 }
 .order .cart .accessories .referral[placeholder]:empty:before {
   color: #808080;
@@ -2391,113 +2100,99 @@ header {
   float: right;
 }
 .order .cart .accessories .subtotal.usd {
-  margin-top: 1rem;
+  margin-top: 10px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #808080;
 }
 .order .cart .accessories .subtotal.btc {
   clear: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
 }
 .order .cart .accessories .subtotal.btc .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .order .cart .total_price {
-  margin-right: 3rem;
+  margin-right: 30px;
   float: right;
   text-align: right;
 }
 .order .cart .total_price.btc {
   clear: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 .order .cart .total_price.btc .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .order .cart .total_price.usd {
-  margin-top: 2rem;
+  margin-top: 20px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #808080;
 }
 .order .fulfillment {
-  height: 45rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 400px;
+  height: 450px;
   float: right;
   padding: 0;
   border-left: 1px solid #3c3c3e;
 }
 .order .fulfillment .status {
-  height: 45rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 340px;
+  height: 390px;
+  padding: 30px;
 }
 .order .fulfillment .status:last-child {
   border: none;
 }
 .order .fulfillment .status > .icon {
-  height: 5rem;
-  width: 5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 50px;
+  height: 50px;
   float: left;
-  margin-right: 2rem;
+  margin-right: 20px;
   background: #3c3c3e;
 }
 .order .fulfillment .status > .title {
-  width: 26rem;
-  margin-top: 0.8rem;
+  width: 260px;
+  margin-top: 8px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
 }
 .order .fulfillment .status .action {
-  width: 26rem;
-  height: 1.5rem;
+  width: 260px;
+  height: 15px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
 }
@@ -2517,84 +2212,70 @@ header {
 .order .fulfillment .status.payment .credit label,
 .order .fulfillment .status.payment .total label {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  margin-left: 14rem;
+  margin-left: 140px;
   float: left;
 }
 .order .fulfillment .status.payment .subtotal .value,
 .order .fulfillment .status.payment .credit .value,
 .order .fulfillment .status.payment .total .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
   float: right;
 }
 .order .fulfillment .status.payment .subtotal .value .fa-btc,
 .order .fulfillment .status.payment .credit .value .fa-btc,
 .order .fulfillment .status.payment .total .value .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 .order .fulfillment .status.payment .subtotal {
-  height: 3rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 2rem;
-  padding-bottom: 0rem;
+  width: 340px;
+  height: 10px;
+  padding-top: 20px;
 }
 .order .fulfillment .status.payment .credit {
-  height: 3rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 0.5rem;
+  width: 340px;
+  height: 30px;
+  padding-top: 5px;
   border-bottom: 1px solid #3c3c3e;
 }
 .order .fulfillment .status.payment .total {
-  height: 4rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 1rem;
+  width: 340px;
+  height: 40px;
+  padding-top: 10px;
   color: #fff;
 }
 .order .fulfillment .status.payment .total label {
-  margin-top: 0.5rem;
+  margin-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
 }
 .order .fulfillment .status.payment .total .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
 }
 .order .fulfillment .status.payment .total .value .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 .order .fulfillment .status.payment .pay {
   float: left;
@@ -2602,19 +2283,19 @@ header {
   cursor: pointer;
   background: #b3b3b3;
   margin: 2em;
-  height: 3rem;
-  padding: 1.25rem 3rem;
+  height: 4px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 0.5rem;
-  border-radius: 10rem;
-  margin: 2rem 2rem 0 0;
+  line-height: 5px;
+  border-radius: 10px;
+  margin: 20px 20px 0 0;
   color: #323234;
   text-decoration: none;
   cursor: pointer;
@@ -2624,36 +2305,16 @@ header {
   background: #fff;
 }
 .order .fulfillment .status.payment .address {
-  display: inline-block;
-  width: 23.7rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
-  text-transform: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.6rem;
-  text-transform: uppercase;
-  font-weight: 400;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 0.5rem;
-  border: none;
-  background: #3c3c3e;
+  width: 237px;
   float: right;
-  margin-top: 2rem;
+  margin-top: 20px;
   padding: 0;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 3rem;
+  font-size: 10px;
+  line-height: 30px;
   color: #b3b3b3;
   font-style: normal;
   text-align: center;
@@ -2664,27 +2325,20 @@ header {
   -ms-user-select: text;
   user-select: text;
 }
-.order .fulfillment .status.payment .address[placeholder]:empty:before {
-  color: #808080;
-}
 .order .fulfillment .status.payment .address .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 .order .fulfillment .status.payment .instructions {
-  height: 10rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 340px;
+  height: 70px;
+  padding-top: 30px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   font-style: normal;
   text-align: justify;
@@ -2692,12 +2346,12 @@ header {
 }
 .order .fulfillment .status.payment .instructions strong {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
@@ -2707,38 +2361,28 @@ header {
   text-decoration: none;
 }
 .order .fulfillment .status.payment .service {
-  height: 9rem;
-  width: 16rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 1.5rem 1rem 0;
-  border-radius: 0.5rem;
+  width: 160px;
+  height: 90px;
+  padding: 15px 10px 0;
+  border-radius: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   text-transform: uppercase;
   text-align: center;
-  line-height: 1.2rem;
+  line-height: 12px;
 }
 .order .fulfillment .status.payment .service .logo {
-  height: 3rem;
-  width: 12rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-bottom: 0.75rem;
+  width: 120px;
+  height: 30px;
+  margin-bottom: 0.75px;
 }
 .order .fulfillment .status.payment .service.coinbase {
   float: left;
-  padding-top: 2rem;
+  padding-top: 20px;
   font-weight: 400;
   color: #fff;
   background: #2b71b1;
@@ -2766,59 +2410,50 @@ header {
   background-size: cover;
 }
 .order .fulfillment .status.formulating .step {
-  height: 6rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 400px;
+  height: 30px;
+  padding-top: 30px;
 }
 .order .fulfillment .status.formulating .step .icon {
-  height: 4rem;
-  width: 4rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 40px;
+  height: 40px;
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   opacity: 0.5;
   background: url("../images/icon-todo.png");
   background-size: cover;
 }
 .order .fulfillment .status.formulating .step .title {
-  margin-top: 0.5rem;
+  margin-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 .order .fulfillment .status.formulating .step .description {
-  width: 29rem;
+  width: 290px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
 }
 .order .fulfillment .status.formulating .step .error {
-  margin-top: 1.15rem;
+  margin-top: 11px;
   color: #f00;
   display: none;
 }
 .order .fulfillment .status.formulating .step:nth-child(4) {
-  margin-top: 3rem;
+  margin-top: 30px;
 }
 .order .fulfillment .status.formulating .step.done .icon {
   background: url("../images/icon-done.png");
@@ -2829,129 +2464,117 @@ header {
   background-size: cover;
 }
 .order .fulfillment .status.shipment .delivery_day {
-  height: 8.5rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  padding-bottom: 2rem;
+  width: 340px;
+  height: 25px;
+  padding: 30px 0;
+  padding-bottom: 20px;
 }
 .order .fulfillment .status.shipment .delivery_day label {
-  width: 34rem;
-  margin-bottom: 0.25rem;
+  width: 340px;
+  margin-bottom: 0.25px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 .order .fulfillment .status.shipment .delivery_day .value {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #fff;
 }
 .order .fulfillment .status.shipment .delivery_day .value .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 .order .fulfillment .status.shipment .infographic {
-  height: 2rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-bottom: 3rem;
+  width: 340px;
+  height: 20px;
+  margin-bottom: 30px;
   background: #3c3c3e;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 .order .fulfillment .status.shipment .infographic .bar {
   width: 70%;
-  height: 2rem;
+  height: 20px;
   background: #b3b3b3;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 .order .fulfillment .status.shipment .log {
-  height: 20.5rem;
-  width: 34rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 340px;
+  height: 205px;
   overflow-x: none;
   overflow-y: auto;
 }
 .order .fulfillment .status.shipment .log::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 .order .fulfillment .status.shipment .log::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 .order .fulfillment .status.shipment .log::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 .order .fulfillment .status.shipment .log .entry {
-  padding: 0.25rem 0;
+  padding: 0.25px 0;
 }
 .order .fulfillment .status.shipment .log .entry .timestamp {
-  width: 15rem;
+  width: 150px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
 }
 .order .fulfillment .status.shipment .log .entry .value {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #b3b3b3;
 }
 status-bar {
   display: block;
   width: 100%;
-  height: 3rem;
+  height: 30px;
   background: darker;
 }
 status-bar main .status {
-  margin: 0 1rem;
+  margin: 0 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 3rem;
+  line-height: 30px;
   color: #808080;
 }
 status-bar main .status .value {
-  margin-right: 2rem;
+  display: inline-block;
+  padding-top: 7px;
+  margin-right: 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -2969,7 +2592,7 @@ status-bar main .account_status {
 primary-menu {
   display: block;
   width: 100%;
-  height: 8rem;
+  height: 80px;
   background: #fff;
 }
 primary-menu main {
@@ -2978,86 +2601,71 @@ primary-menu main {
 }
 primary-menu main * {
   display: inline-block;
-  margin: 0 3.6rem;
-  vertical-align: top;
+  margin: 0 36px;
 }
 primary-menu main .logo {
-  font-size: 2.5rem;
+  font-size: 25px;
   font-family: "Gotham ScreenSmart";
   font-weight: 900;
-  line-height: 8rem;
+  line-height: 80px;
 }
 primary-menu main .logo .icon {
-  height: 5rem;
-  width: 5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: 1.25rem 2.5rem 0 0;
+  width: 50px;
+  height: 50px;
+  margin: 12px 25px 0 0;
   background: url("../images/icon-logo.png");
   background-size: cover;
 }
 primary-menu main .option {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 8rem;
+  line-height: 80px;
   cursor: pointer;
 }
 masthead {
   display: block;
   width: 100%;
-  height: 1rem;
-  margin-bottom: 2rem;
+  height: 10px;
+  margin-bottom: 20px;
   background: #808080;
   background-size: cover;
   background-position: 0 -220px;
 }
 masthead #masthead {
-  height: 24rem;
-  width: 100rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 240px;
   margin: 0 auto;
   background-size: cover;
 }
 #login {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: left;
   clear: left;
   background: #323234;
 }
 #login .title {
-  height: 8rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
@@ -3067,27 +2675,27 @@ masthead #masthead {
 #login .username,
 #login .password {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 3rem 3rem 0;
+  width: 180px;
+  margin: 30px 30px 0;
   text-align: center;
   text-transform: none;
   cursor: text;
@@ -3097,27 +2705,27 @@ masthead #masthead {
   color: #808080;
 }
 #login .password {
-  margin-top: 2rem;
+  margin-top: 20px;
 }
 #login .attemptLogin {
   display: inline-block;
   cursor: pointer;
   background: #b3b3b3;
-  margin: 3em;
-  height: 4rem;
-  padding: 1.25rem 3rem;
+  margin: 30px;
+  height: 16px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10rem;
-  width: 15rem;
-  margin: 2.5rem 6rem;
+  border-radius: 10px;
+  width: 160px;
+  margin: 25px 30px;
   text-align: center;
   font-weight: 500;
 }
@@ -3125,41 +2733,37 @@ masthead #masthead {
   background: #fff;
 }
 #login .security {
-  height: 13rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 100px;
+  padding: 0 30px 30px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   color: #808080;
   text-align: justify;
 }
 #login .security strong {
-  width: 22rem;
+  width: 220px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #b3b3b3;
 }
 #protocolByID {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: left;
   clear: left;
@@ -3167,27 +2771,27 @@ masthead #masthead {
 }
 #protocolByID .protocolID {
   display: inline-block;
-  width: 13rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 3rem 0 0 2.75rem;
+  width: 90px;
+  margin: 30px 0 0 2.75px;
   text-align: center;
   text-transform: none;
   cursor: text;
@@ -3200,21 +2804,21 @@ masthead #masthead {
   cursor: pointer;
   background: #b3b3b3;
   margin: 2em;
-  height: 3rem;
-  padding: 1.25rem 3rem;
+  height: 4px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 0.5rem;
-  border-radius: 10rem;
-  width: 8rem;
-  padding: 1.25rem;
-  margin: 3rem 1.5rem;
+  line-height: 5px;
+  border-radius: 10px;
+  width: 80px;
+  padding: 12px;
+  margin: 30px 15px;
   text-align: center;
   font-weight: 500;
 }
@@ -3222,43 +2826,39 @@ masthead #masthead {
   background: #fff;
 }
 #athlete_metrics_aside {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: left;
   clear: left;
   background: #323234;
 }
 section#newMember {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
   background: #323234;
 }
 section#newMember .title {
-  height: 8rem;
-  width: 68rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 620px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
@@ -3266,42 +2866,27 @@ section#newMember .title {
   border-bottom: 1px solid #3c3c3e;
 }
 section#newMember .credentials {
-  height: 33rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 400px;
+  height: 330px;
 }
 section#newMember .credentials .welcome {
-  height: 8rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 3rem 3rem 0;
+  width: 400px;
+  height: 80px;
+  padding: 30px 30px 0;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
   text-align: justify;
 }
 section#newMember .credentials .icon {
-  height: 3rem;
-  width: 3rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: 2rem 5.5rem 0 2rem;
+  width: 30px;
+  height: 30px;
+  margin: 20px 55px 0 20px;
   background: url("../images/icon-todo.png");
   background-size: cover;
   opacity: 0.4;
@@ -3315,33 +2900,33 @@ section#newMember .credentials .icon.fail {
   background-size: cover;
 }
 section#newMember .credentials .icon#username {
-  margin-top: 6rem;
+  margin-top: 60px;
 }
 section#newMember .credentials .username,
 section#newMember .credentials .password,
 section#newMember .credentials .invitation {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 2rem 0 0 6.5rem;
+  width: 190px;
+  margin: 20px 0 0 65px;
   text-align: center;
   text-transform: none;
   cursor: text;
@@ -3352,28 +2937,28 @@ section#newMember .credentials .invitation[placeholder]:empty:before {
   color: #808080;
 }
 section#newMember .credentials .username {
-  margin-top: 6rem;
+  margin-top: 60px;
 }
 section#newMember .credentials .submit {
   display: inline-block;
   cursor: pointer;
   background: #b3b3b3;
-  margin: 3em;
-  height: 4rem;
-  padding: 1.25rem 3rem;
+  margin: 30px;
+  height: 16px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10rem;
+  border-radius: 10px;
   display: block;
-  width: 25rem;
-  margin: 4.5rem auto;
+  width: 210px;
+  margin: 45px auto;
   text-align: center;
   font-weight: 500;
 }
@@ -3381,12 +2966,12 @@ section#newMember .credentials .submit:hover {
   background: #fff;
 }
 section#athlete_metrics {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
   background: #323234;
@@ -3396,103 +2981,90 @@ section#athlete_metrics .offset {
 }
 section#athlete_metrics .lean_body_mass,
 section#athlete_metrics .fat_free_mass_index {
-  height: 22rem;
-  width: 40rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  padding-left: 5rem;
+  width: 340px;
+  height: 160px;
+  padding: 30px;
+  padding-left: 50px;
 }
 section#athlete_metrics .lean_body_mass div:first-child,
 section#athlete_metrics .fat_free_mass_index div:first-child {
-  margin-right: 3rem;
+  margin-right: 30px;
   float: left;
 }
 section#athlete_metrics .lean_body_mass .icon,
 section#athlete_metrics .fat_free_mass_index .icon {
-  height: 16rem;
-  width: 16rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  border: 0.5rem solid #3c3c3e;
-  border-radius: 20rem;
+  width: 160px;
+  height: 160px;
+  border: 5px solid #3c3c3e;
+  border-radius: 20px;
   background-image: none;
 }
 section#athlete_metrics .lean_body_mass label,
 section#athlete_metrics .fat_free_mass_index label {
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 section#athlete_metrics .lean_body_mass .value,
 section#athlete_metrics .fat_free_mass_index .value {
-  margin-top: 5rem;
-  margin-right: 0.5rem;
+  margin-top: 50px;
+  margin-right: 5px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   color: #fff;
 }
 section#athlete_metrics .lean_body_mass .value .fa-btc,
 section#athlete_metrics .fat_free_mass_index .value .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 section#athlete_metrics .lean_body_mass mark,
 section#athlete_metrics .fat_free_mass_index mark {
-  margin-top: 6.6rem;
+  margin-top: 66px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #808080;
 }
 section#athlete_metrics .lean_body_mass mark .fa-btc,
 section#athlete_metrics .fat_free_mass_index mark .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #shopping_cart {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: left;
   clear: left;
   background: #323234;
 }
 #shopping_cart header {
-  height: 8rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -3500,24 +3072,18 @@ section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #shopping_cart .protocols {
-  height: 0rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 28px;
   height: auto;
-  margin-bottom: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   border-bottom: 1px solid #3c3c3e;
   background: #323234;
 }
 #shopping_cart .protocols .protocol {
-  width: 24rem;
-  padding-bottom: 3rem;
-  margin-bottom: 2rem;
+  width: 240px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
   border-bottom: 1px dashed #454547;
 }
 #shopping_cart .protocols .protocol:last-child {
@@ -3526,26 +3092,26 @@ section#athlete_metrics .lean_body_mass {
   border: none;
 }
 #shopping_cart .protocols .protocol > .id {
-  width: 22rem;
+  width: 220px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080 !important;
 }
 #shopping_cart .protocols .protocol .name {
-  width: 22rem;
-  margin-bottom: 0.5rem;
+  width: 220px;
+  margin-bottom: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -3553,26 +3119,21 @@ section#athlete_metrics .lean_body_mass {
   white-space: nowrap;
 }
 #shopping_cart .protocols .formulation {
-  height: 3rem;
-  width: 22rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding: 1rem 0 0 4rem;
+  width: 220px;
+  height: 30px;
+  padding: 10px 0 0 40px;
 }
 #shopping_cart .protocols .formulation .icon {
-  width: 5rem;
+  width: 50px;
   float: left;
 }
 #shopping_cart .protocols .formulation .icon .circle {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   float: left;
-  margin-right: -0.8rem;
+  margin-right: -8px;
   background: #b3b3b3;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 #shopping_cart .protocols .formulation .icon .circle:nth-child(1) {
   background: light_blue;
@@ -3585,58 +3146,54 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .protocols .formulation .quantity {
   float: right;
-  margin-top: 0.2rem;
+  margin-top: 2px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
 }
 #shopping_cart .protocols .formulation .quantity .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 #shopping_cart .protocols .formulation mark {
   float: right;
-  margin-top: 0.5rem;
+  margin-top: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   color: #808080;
 }
 #shopping_cart .protocols .formulation .mode {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   background: url("../images/icon-syringe.png");
   background-size: cover;
 }
 #shopping_cart .protocols .formulation .id {
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   color: #b3b3b3;
 }
 #shopping_cart .protocols .formulation .id .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 #shopping_cart .protocols .actions {
-  height: 10rem;
-  width: 12rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 120px;
+  height: 70px;
+  padding-top: 30px;
   float: left;
 }
 #shopping_cart .protocols .actions .quantity,
@@ -3648,18 +3205,18 @@ section#athlete_metrics .lean_body_mass {
   background: #323234;
   border: 1px solid #454547;
   margin: 0.5em;
-  height: 2rem;
-  padding: 0.2rem 2rem;
+  height: 5px;
+  padding: 20px 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
-  line-height: 1.55rem;
-  border-radius: 10rem;
-  width: 8rem;
-  margin: 0.25rem 0;
+  font-size: 10px;
+  line-height: 16px;
+  line-height: 15px;
+  border-radius: 10px;
+  width: 80px;
+  margin: 0.25px 0;
   text-align: center;
 }
 #shopping_cart .protocols .actions .quantity {
@@ -3669,87 +3226,73 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .protocols .actions .quantity .up,
 #shopping_cart .protocols .actions .quantity .down {
-  height: 1.9rem;
-  margin-top: -0.25rem;
-  width: 2rem;
+  height: 19px;
+  margin-top: -0.25px;
+  width: 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 2.1rem;
+  line-height: 21px;
   background: #454547;
   cursor: pointer;
 }
 #shopping_cart .protocols .actions .quantity .up {
-  padding-left: 0.25rem;
+  padding-left: 0.25px;
   float: left;
-  border-top-left-radius: 10rem;
-  border-bottom-left-radius: 10rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 #shopping_cart .protocols .actions .quantity .down {
-  padding-right: 0.25rem;
+  padding-right: 0.25px;
   float: right;
-  border-top-right-radius: 10rem;
-  border-bottom-right-radius: 10rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 #shopping_cart .protocols .subtotal {
-  height: 10rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 3rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 70px;
+  padding: 30px;
   float: left;
 }
 #shopping_cart .protocols .subtotal .quantity {
-  height: 3.25rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 32px;
 }
 #shopping_cart .protocols .subtotal .quantity .value {
-  margin-top: 0.15rem;
+  margin-top: 0.15px;
   float: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: 400;
   color: #b3b3b3;
 }
 #shopping_cart .protocols .subtotal .quantity .value .fa-btc {
-  font-size: 1rem;
-  margin-right: 0.15rem;
+  font-size: 10px;
+  margin-right: 0.15px;
 }
 #shopping_cart .protocols .subtotal .quantity mark {
-  margin-left: 1rem;
+  margin-left: 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
 }
 #shopping_cart .protocols .subtotal .price {
-  height: 4rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 100px;
+  height: 40px;
 }
 #shopping_cart .protocols .subtotal .price .value {
   width: 100%;
@@ -3757,33 +3300,29 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .protocols .subtotal .price .value.usd {
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 #shopping_cart .protocols .subtotal .price .value.btc {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 #shopping_cart .protocols .subtotal .price .value.btc .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 #shopping_cart .accessories {
-  height: 14rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 220px;
+  height: 140px;
+  padding: 0 30px;
   background: #323234;
   border-bottom: 1px solid #3c3c3e;
 }
@@ -3795,11 +3334,11 @@ section#athlete_metrics .lean_body_mass {
   display: inline-block;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #b3b3b3;
 }
@@ -3808,26 +3347,26 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .accessories .referral {
   display: inline-block;
-  width: 14rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 140px;
 }
 #shopping_cart .accessories .referral[placeholder]:empty:before {
   color: #808080;
@@ -3837,118 +3376,114 @@ section#athlete_metrics .lean_body_mass {
   float: right;
 }
 #shopping_cart .accessories .subtotal.usd {
-  margin-top: 1rem;
+  margin-top: 10px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   font-style: italic;
   color: #808080;
 }
 #shopping_cart .accessories .subtotal.btc {
   clear: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
 }
 #shopping_cart .accessories .subtotal.btc .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 #shopping_cart .total_price {
-  margin-right: 3rem;
+  margin-right: 30px;
   float: right;
   text-align: right;
 }
 #shopping_cart .total_price.btc {
   clear: right;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 2.4rem;
-  line-height: 2.4rem;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 500;
   color: #fff;
 }
 #shopping_cart .total_price.btc .fa-btc {
-  font-size: 2.2rem;
-  margin-right: 0.25rem;
+  font-size: 22px;
+  margin-right: 0.25px;
 }
 #shopping_cart .total_price.usd {
-  margin-top: 2rem;
+  margin-top: 20px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #808080;
 }
 #shopping_cart .buy {
-  width: 14rem;
-  height: 4rem;
+  width: 140px;
+  height: 40px;
   float: left;
-  margin: 2rem 0 0 3rem;
+  margin: 20px 0 0 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  line-height: 4rem;
+  line-height: 40px;
   text-align: center;
   background: #fff;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 #shopping_cart .checkout .shipping {
-  height: 29rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 220px;
+  height: 290px;
+  padding: 0 30px;
   border-bottom: 1px solid #3c3c3e;
 }
 #shopping_cart .checkout .shipping label {
-  width: 22rem;
-  margin: 3rem 0 0;
+  width: 220px;
+  margin: 30px 0 0;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 #shopping_cart .checkout .shipping .name {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 220px;
   text-align: left;
 }
 #shopping_cart .checkout .shipping .name[placeholder]:empty:before {
@@ -3956,26 +3491,26 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .checkout .shipping .address {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 220px;
   text-align: left;
   font-style: normal;
 }
@@ -3984,26 +3519,26 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .checkout .shipping .city {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 220px;
   text-align: left;
 }
 #shopping_cart .checkout .shipping .city[placeholder]:empty:before {
@@ -4011,189 +3546,171 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .checkout .shipping .state {
   display: inline-block;
-  width: 8rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin-right: 1rem;
+  width: 80px;
+  margin-right: 10px;
 }
 #shopping_cart .checkout .shipping .state[placeholder]:empty:before {
   color: #808080;
 }
 #shopping_cart .checkout .shipping .zip {
   display: inline-block;
-  width: 13rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 130px;
 }
 #shopping_cart .checkout .shipping .zip[placeholder]:empty:before {
   color: #808080;
 }
 #shopping_cart .checkout .payment {
-  height: 19rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 130px;
+  padding: 30px;
 }
 #shopping_cart .checkout .payment label {
-  width: 22rem;
-  margin-bottom: 1rem;
+  width: 220px;
+  margin-bottom: 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 #shopping_cart .checkout .payment .total {
-  width: 22rem;
+  width: 220px;
   text-align: center;
 }
 #shopping_cart .checkout .payment .total.usd {
-  margin-bottom: 0.5rem;
+  margin-bottom: 5px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
   color: #b3b3b3;
 }
 #shopping_cart .checkout .payment .total.btc {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   color: #fff;
 }
 #shopping_cart .checkout .payment .total.btc .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 #shopping_cart .checkout .payment .submit {
   display: inline-block;
   cursor: pointer;
   background: #b3b3b3;
-  margin: 3em;
-  height: 5rem;
-  padding: 1.75rem 3rem;
+  margin: 30px;
+  height: 50px;
+  padding: 17px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  line-height: 1.4rem;
+  line-height: 14px;
   font-weight: 600;
-  border-radius: 10rem;
-  width: 20rem;
-  margin: 2rem 1rem 1rem;
+  border-radius: 10px;
+  width: 20px;
+  margin: 20px 10px 10px;
   text-align: center;
 }
 #shopping_cart .checkout .payment .submit.active:hover {
   background: #fff;
 }
 #shopping_cart .checkout .payment .submit.disabled {
-  padding-top: 2rem;
-  font-size: 1rem;
+  padding-top: 20px;
+  font-size: 10px;
   background: #808080;
 }
 #search_criteria {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
   background: #323234;
 }
 #search_criteria nav {
-  height: 15rem;
-  width: 13rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 130px;
+  height: 150px;
   float: left;
 }
 #search_criteria nav .tab {
-  height: 5rem;
-  width: 13rem;
-  vertical-align: top;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 90px;
+  height: 10px;
+  padding: 20px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 1rem;
+  line-height: 10px;
   color: #808080;
   border-bottom: 1px solid #454547;
   background: #3c3c3e;
   cursor: pointer;
 }
 #search_criteria nav .tab.favorites .icon {
-  height: 1.4rem;
-  width: 1.5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: -0.25rem 0.75rem 0 0;
+  width: 15px;
+  height: 14px;
+  margin: -2.5px 7.5px 0 0;
   background: url("../images/icon-heart.png");
   background-size: cover;
 }
@@ -4209,34 +3726,18 @@ section#athlete_metrics .lean_body_mass {
   border: none;
 }
 #search_criteria .filters {
-  height: 15rem;
-  width: 54.9rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 549px;
+  height: 150px;
   float: right;
 }
 #search_criteria .filters .compounds {
-  height: 8.5rem;
-  width: 36rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 360px;
+  height: 85px;
   float: left;
-  padding: 3rem 0 2rem 3rem;
+  padding: 30px 0 20px 30px;
 }
 #search_criteria .filters .compounds .compound {
-  height: 3.5rem;
-  width: 1rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  height: 35px;
   width: 50%;
   float: left;
   cursor: pointer;
@@ -4245,37 +3746,27 @@ section#athlete_metrics .lean_body_mass {
   cursor: pointer;
 }
 #search_criteria .filters .compounds .compound .icon {
-  height: 3.5rem;
-  width: 3.5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-top: 0.6rem;
+  width: 35px;
+  height: 35px;
+  padding-top: 6px;
   color: #323234;
   text-align: center;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: 20px;
+  line-height: 20px;
   border: 2px solid #808080;
-  border-radius: 10rem;
+  border-radius: 10px;
 }
 #search_criteria .filters .compounds .compound label {
-  height: 3rem;
-  width: 10rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: 0.4rem 0 0 1rem;
+  width: 100px;
+  height: 30px;
+  margin: 4px 0 0 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
@@ -4292,40 +3783,35 @@ section#athlete_metrics .lean_body_mass {
   color: #3c3c3e;
 }
 #search_criteria .filters .length {
-  height: 3rem;
-  width: 19rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin: 0.5rem 0 3rem 3rem;
+  width: 190px;
+  height: 30px;
+  margin: 5px 0 30px 30px;
   float: left;
   clear: left;
 }
 #search_criteria .filters .length .min,
 #search_criteria .filters .length .max {
   display: inline-block;
-  width: 7rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
+  width: 70px;
   margin: 0;
   float: left;
 }
@@ -4338,63 +3824,58 @@ section#athlete_metrics .lean_body_mass {
 }
 #search_criteria .filters .length .endash,
 #search_criteria .filters .length mark {
-  height: 2rem;
-  width: 5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 50px;
+  height: 20px;
   text-align: center;
   color: #808080;
 }
 #search_criteria .filters .length .endash {
-  margin-top: -1rem;
+  margin-top: -10px;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   font-weight: 400;
 }
 #search_criteria .filters .length .endash .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 #search_criteria .filters .length mark {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
 }
 #search_criteria .filters .level {
   position: relative;
   display: inline-block;
-  width: 13.5rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 0.5rem 0 3rem 2rem;
+  width: 135px;
+  margin: 5px 0 30px 20px;
   float: right;
 }
 #search_criteria .filters .level[placeholder]:empty:before {
@@ -4403,52 +3884,37 @@ section#athlete_metrics .lean_body_mass {
 #search_criteria .filters .level .choices {
   width: 90%;
   z-index: 100;
-  top: -6rem;
-  left: 0.75rem;
+  top: -60px;
+  left: 0.75px;
 }
 #search_criteria .filters .goals {
-  height: 15rem;
-  width: 17rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 170px;
+  height: 150px;
   float: right;
-  padding: 3rem 3rem 3rem 2rem;
+  padding: 30px 30px 30px 20px;
 }
 #search_criteria .filters .goals .goal {
-  height: 2.5rem;
-  width: 13rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 130px;
+  height: 25px;
 }
 #search_criteria .filters .goals .goal .checkbox {
-  height: 1.6rem;
-  width: 1.6rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 16px;
+  height: 16px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 600;
   color: #3c3c3e;
   text-align: center;
-  line-height: 1.8rem;
+  line-height: 18px;
   background: #3c3c3e;
-  border-radius: 0.25rem;
+  border-radius: 0.25px;
   cursor: pointer;
 }
 #search_criteria .filters .goals .goal .checkbox:hover {
@@ -4462,59 +3928,55 @@ section#athlete_metrics .lean_body_mass {
   background: #b3b3b3;
 }
 #search_criteria .filters .goals .goal label {
-  padding-left: 0.5rem;
+  padding-left: 5px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 1.8rem;
+  line-height: 18px;
   color: #b3b3b3;
 }
 #search_compounds {
-  width: 68rem;
-  margin: 1rem;
+  width: 680px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: right;
-  height: 23rem;
+  height: 230px;
   background: #323234;
   cursor: pointer;
 }
 #account {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
   float: left;
   clear: left;
   background: #323234;
 }
 #account .username {
-  height: 8rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
@@ -4522,123 +3984,110 @@ section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #account .balance {
-  height: 11rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 50px;
+  padding: 30px;
   color: #b3b3b3;
   border-bottom: 1px solid #3c3c3e;
 }
 #account .balance .icon {
-  height: 5rem;
-  width: 5rem;
-  vertical-align: top;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  width: 50px;
+  height: 50px;
   float: left;
-  margin-right: 2rem;
+  margin-right: 20px;
   background: url("../images/icon-wallet.png");
 }
 #account .balance label {
-  width: 22rem;
-  height: 2rem;
+  width: 220px;
+  height: 20px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
+  line-height: 16px;
+  font-size: 13px;
+  line-height: 18px;
   font-style: italic;
 }
 #account .balance .value.btc {
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 36px;
+  line-height: 36px;
   font-weight: 700;
   color: #fff;
 }
 #account .balance .value.btc .fa-btc {
-  font-size: 3.4rem;
-  margin-right: 0.25rem;
+  font-size: 34px;
+  margin-right: 0.25px;
 }
 #account .balance .value.usd {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #808080;
 }
 #account .referal {
-  height: 18rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 120px;
+  padding: 30px;
   border-bottom: 1px solid #3c3c3e;
 }
 #account .referal title {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 #account .referal .description {
-  width: 21rem;
+  width: 210px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
   text-align: justify;
 }
 #account .referal .code {
   display: inline-block;
-  width: 13rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  padding-top: 1.25rem;
-  height: 4rem;
-  margin: 2rem 4.5rem 0;
+  width: 130px;
+  padding-top: 12px;
+  height: 40px;
+  margin: 20px 45px 0;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
   cursor: text;
@@ -4648,70 +4097,66 @@ section#athlete_metrics .lean_body_mass {
   user-select: text;
 }
 #account .referal .code .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 #account .invitations {
-  height: 21rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 150px;
+  padding: 30px;
   border-bottom: 1px solid #3c3c3e;
 }
 #account .invitations title {
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   color: #b3b3b3;
 }
 #account .invitations .disclaimer {
-  width: 21rem;
+  width: 210px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
   text-align: justify;
 }
 #account .invitations .code {
   display: inline-block;
-  width: 13rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  padding-top: 1.25rem;
-  height: 4rem;
-  margin: 2rem 4.5rem 0;
+  width: 130px;
+  padding-top: 12px;
+  height: 40px;
+  margin: 20px 45px 0;
   font-family: "Gotham Narrow ScreenSmart";
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 500;
   color: #b3b3b3;
   cursor: text;
@@ -4721,8 +4166,8 @@ section#athlete_metrics .lean_body_mass {
   user-select: text;
 }
 #account .invitations .code .fa-btc {
-  font-size: 1.6rem;
-  margin-right: 0.2rem;
+  font-size: 16px;
+  margin-right: 2px;
 }
 #account .invitations .generate {
   display: inline-block;
@@ -4730,20 +4175,20 @@ section#athlete_metrics .lean_body_mass {
   color: #808080;
   background: #3c3c3e;
   margin: 2em;
-  height: 3rem;
-  padding: 1.25rem 3rem;
+  height: 4px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 0.5rem;
-  border-radius: 10rem;
-  width: 19rem;
-  margin: 1rem 1.5rem 0;
+  line-height: 5px;
+  border-radius: 10px;
+  width: 190px;
+  margin: 10px 15px 0;
   text-align: center;
 }
 #account .invitations .generate:hover {
@@ -4752,27 +4197,27 @@ section#athlete_metrics .lean_body_mass {
 }
 #account .password {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  margin: 3rem 3rem 0;
+  width: 200px;
+  margin: 30px 30px 0;
   text-align: center;
   text-transform: none;
   cursor: text;
@@ -4785,82 +4230,74 @@ section#athlete_metrics .lean_body_mass {
   cursor: pointer;
   color: #808080;
   background: #3c3c3e;
-  margin: 3em;
-  height: 4rem;
-  padding: 1.25rem 3rem;
+  margin: 30px;
+  height: 16px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-  border-radius: 10rem;
-  margin: 2rem 4.7rem 2rem;
+  border-radius: 10px;
+  margin: 20px 47px 20px;
 }
 #account .changePassword:hover {
   background: #808080;
   color: #1b1b1d;
 }
 #account .security {
-  height: 13rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0rem;
-  padding-bottom: 3rem;
+  width: 280px;
+  height: 130px;
+  padding: 0 30px 30px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   color: #808080;
   text-align: justify;
 }
 #account .security strong {
-  width: 22rem;
+  width: 220px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #b3b3b3;
 }
 #messages {
-  width: 28rem;
-  margin: 1rem;
+  width: 280px;
+  margin: 10px;
   text-align: left;
   overflow: hidden;
   background: #fff;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background: rgba(230,230,230,0.25);
-  height: 52rem;
+  height: 520px;
   float: left;
   clear: left;
   background: #323234;
 }
 #messages header {
-  height: 8rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 20px;
+  padding: 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2rem;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
@@ -4868,67 +4305,62 @@ section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #messages .history {
-  height: 26rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  padding-bottom: 1rem;
+  width: 220px;
+  height: 200px;
+  padding: 30px 30px 10px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
+  line-height: 16px;
   overflow-x: hidden;
   overflow-y: auto;
   border-bottom: 1px solid #3c3c3e;
 }
 #messages .history::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.75px;
 }
 #messages .history::-webkit-scrollbar-track {
   background: #3c3c3e;
 }
 #messages .history::-webkit-scrollbar-thumb {
   background: #454547;
-  border-radius: 1rem;
+  border-radius: 10px;
 }
 #messages .history .message {
-  width: 22rem;
-  margin-bottom: 2rem;
+  width: 220px;
+  margin-bottom: 20px;
   text-align: left;
 }
 #messages .history .message .sender {
-  width: 19rem;
-  margin-bottom: 0.5rem;
+  width: 190px;
+  margin-bottom: 5px;
   font-family: "Heuristica";
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 16px;
+  font-size: 10px;
+  line-height: 15px;
   font-style: italic;
   color: #808080;
 }
 #messages .history .message .text {
-  width: 20rem;
-  padding: 1rem;
+  width: 20px;
+  padding: 10px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   color: #b3b3b3;
   text-align: justify;
   background: #3c3c3e;
-  border-radius: 0.5rem;
+  border-radius: 5px;
 }
 #messages .history .message .text:after {
-  width: 1rem;
-  height: 1rem;
+  width: 10px;
+  height: 10px;
   background: #3c3c3e;
 }
 #messages .history .message.user {
@@ -4938,45 +4370,41 @@ section#athlete_metrics .lean_body_mass {
   background: #454547;
 }
 #messages .compose {
-  height: 18rem;
-  width: 28rem;
-  vertical-align: top;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  width: 220px;
+  height: 120px;
+  padding: 30px;
 }
 #messages .compose .textarea {
   display: inline-block;
-  width: 22rem;
-  height: 3rem;
-  margin-top: 1.25rem;
-  padding: 0.8rem 2rem;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
   float: left;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1.1rem;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   color: #fff;
   resize: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  padding: 0.5rem 1rem;
-  height: 8rem;
+  width: 220px;
+  padding: 5px 10px;
+  height: 80px;
   margin-top: 0;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 10px;
+  line-height: 16px;
   font-weight: 400;
   text-align: left;
   color: #b3b3b3;
@@ -4993,20 +4421,20 @@ section#athlete_metrics .lean_body_mass {
   color: #808080;
   background: #3c3c3e;
   margin: 2em;
-  height: 3rem;
-  padding: 1.25rem 3rem;
+  height: 4px;
+  padding: 12px 30px;
   font-family: "Gotham ScreenSmart";
-  font-size: 1.1rem;
-  line-height: 2rem;
+  font-size: 11px;
+  line-height: 20px;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 16px;
   text-transform: uppercase;
-  line-height: 0.5rem;
-  border-radius: 10rem;
-  margin-top: 1rem;
-  margin-left: 13rem;
+  line-height: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 130px;
 }
 #messages .compose .send:hover {
   background: #808080;
@@ -5016,16 +4444,16 @@ section#athlete_metrics .lean_body_mass {
 -------------------------------------------------------------------------------*/
 #footer_gap {
   width: 100%;
-  height: 200px;
+  height: 20px;
 }
 footer {
   display: block;
   width: 100%;
-  margin-top: 20rem;
+  margin-top: 20px;
   background: #3c3c3e;
 }
 footer main {
-  height: 400px;
+  height: 40px;
 }
 /* Media queries
 -------------------------------------------------------------------------------*/
