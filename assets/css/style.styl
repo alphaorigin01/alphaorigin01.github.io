@@ -462,7 +462,7 @@ checkbox(color = "dark")
 
 dark_scroll()
 	&::-webkit-scrollbar
-		width: 0.750px
+		width: 7.5px
 
 	&::-webkit-scrollbar-track
 		background: charcoal_dark_border
@@ -1001,7 +1001,7 @@ header
 					margin-bottom: -7.5px
 
 					.icon
-						width: 40px
+						width: 50px
 						height: 40px
 						float: left
 						border-radius: 100px
@@ -1549,10 +1549,9 @@ header
 		height: 350px
 		dark_scroll()
 		overflow-x: hidden
-		overflow-y: scroll
+		overflow-y: auto
 
 	.compound
-		position: relative
 		width: 680px
 		height: 90px
 		border-top: 1px solid charcoal_dark_border
@@ -1595,13 +1594,13 @@ header
 				color: gray_dark
 
 		.name
-			width: 490px
+			width: 460px
 			padding: 0 0 0 30px
 			value(tall, light)
 			color: white
 
 		.alias
-			width: 490px
+			width: 460px
 			padding: 0 0 0 30px
 			serif(normal, light, true)
 			color: gray_dark
@@ -2730,8 +2729,8 @@ section#athlete_metrics
 		float: right
 
 		.compounds
-			width: 360px
-			height: 85px
+			width: 359px
+			height: 35px
 			float: left
 			padding: 30px 0 20px 30px
 
@@ -2746,14 +2745,14 @@ section#athlete_metrics
 
 				.icon
 					width: 35px
-					height: 35px
-					padding-top: 06px
+					height: 29px
+					padding-top: 6px
 					color: charcoal_dark
 					text-align: center
 					font-size: 20px
 					line-height: 20px
 					border: 2px solid gray_dark
-					border-radius: 10px
+					border-radius: 100px
 
 				label
 					width: 100px
@@ -2779,16 +2778,16 @@ section#athlete_metrics
 							color: charcoal_light
 
 		.length
-			width: 190px
+			width: 180px
 			height: 30px
-			margin: 05px 0 30px 30px
+			margin: 5px 0 30px 30px
 			float: left
 			clear: left
 
 			.min
 			.max
 				text_field()
-				width: 70px
+				width: 25px
 				margin: 0
 				float: left
 
@@ -2813,8 +2812,8 @@ section#athlete_metrics
 		.level
 			position: relative
 			text_field()
-			width: 135px
-			margin: 05px 0 30px 20px
+			width: 110px
+			margin: 5px 0 30px 20px
 			float: right
 			//border: 1px solid gray_dark
 
@@ -2825,8 +2824,8 @@ section#athlete_metrics
 				left: 0.750px
 
 		.goals
-			width: 170px
-			height: 150px
+			width: 110px
+			height: 90px
 			float: right
 			padding: 30px 30px 30px 20px
 			//border-left: 1px solid charcoal_dark_border

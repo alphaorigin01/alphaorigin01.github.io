@@ -8,9 +8,10 @@ app = angular.module 'NewMember', ['AthleteService', "PubNubService"]
 app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Athlete', 'PubNub', ($scope, $rootScope, $timeout, Athlete, PubNub) ->
   window.NewMember = $scope
   $scope.athlete = Athlete
+
   $scope.$on 'Server : Online', ->
     $scope.$evalAsync -> $scope.visibleNewMember = true
-    
+
   $scope.$on 'Context Switch', -> $scope.visibleNewMember = false
 
   $scope.$watch 'username', ->
@@ -54,8 +55,19 @@ app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Ath
         $scope.invitationValid = false
         $scope.invitationInvalid = true
 
+  $scope.buttonStatus = ->
+    return 'Select A Username' if not $scope.username? or $scope.username is ''
+    return 'Username Already Taken' if $scope.usernameInvalid
+    return 'Enter a valid password' if not $scope.passwordValid
+    return 'Enter your invitation code' if not $scope.invitation? or $scope.invitation is ''
+    return 'Invitation code is invalid' if $scope.invitationInvalid
+    return 'Enter your height' if not Athlete.height? or Athlete.height is 0
+    return 'Enter your weight' if not Athlete.weight? or Athlete.weight is 0
+    return 'Enter your bodyfat' if not Athlete.bodyFat? or Athlete.bodyFat is 0
+    return 'Request Membership'
+
   $scope.requestMembership = ->
-    if Athlete.height? and Athlete.height > 0 and Athlete.weight? and Athlete.weight > 0 and Athlete.bodyFat? and Athlete.bodyFat > 0 and $scope.usernameValid and $scope.passwordValid and $scope.invitationValid
+    if ($scope.buttonStatus()) is 'Request Membership'
       Athlete._id = 'athlete_' + $scope.username
       Athlete.invitation = $scope.invitation
       PubNub 'AthleteService : New Athlete', Athlete

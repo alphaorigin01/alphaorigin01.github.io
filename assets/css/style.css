@@ -888,7 +888,7 @@ header {
   margin-bottom: -7.5px;
 }
 .protocol .formulations .profile .compounds .compound .icon {
-  width: 40px;
+  width: 50px;
   height: 40px;
   float: left;
   border-radius: 100px;
@@ -967,7 +967,7 @@ header {
   overflow-y: auto;
 }
 .protocol .formulations .list::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 .protocol .formulations .list::-webkit-scrollbar-track {
   background: #3c3c3e;
@@ -1129,7 +1129,7 @@ header {
   overflow-y: auto;
 }
 .protocol .dose_schedule .instructions .doses::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 .protocol .dose_schedule .instructions .doses::-webkit-scrollbar-track {
   background: #3c3c3e;
@@ -1676,10 +1676,10 @@ header {
   width: 680px;
   height: 350px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .compound_chooser .list::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 .compound_chooser .list::-webkit-scrollbar-track {
   background: #3c3c3e;
@@ -1689,7 +1689,6 @@ header {
   border-radius: 10px;
 }
 .compound_chooser .compound {
-  position: relative;
   width: 680px;
   height: 90px;
   border-top: 1px solid #3c3c3e;
@@ -1764,7 +1763,7 @@ header {
   color: #808080;
 }
 .compound_chooser .compound .name {
-  width: 490px;
+  width: 460px;
   padding: 0 0 0 30px;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 24px;
@@ -1777,7 +1776,7 @@ header {
   margin-right: 0.25px;
 }
 .compound_chooser .compound .alias {
-  width: 490px;
+  width: 460px;
   padding: 0 0 0 30px;
   font-family: "Heuristica";
   font-size: 12px;
@@ -1852,7 +1851,7 @@ header {
   overflow-y: auto;
 }
 .order .cart .protocols::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 .order .cart .protocols::-webkit-scrollbar-track {
   background: #3c3c3e;
@@ -2511,7 +2510,7 @@ header {
   overflow-y: auto;
 }
 .order .fulfillment .status.shipment .log::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 .order .fulfillment .status.shipment .log::-webkit-scrollbar-track {
   background: #3c3c3e;
@@ -3739,8 +3738,8 @@ section#athlete_metrics .lean_body_mass {
   float: right;
 }
 #search_criteria .filters .compounds {
-  width: 360px;
-  height: 85px;
+  width: 359px;
+  height: 35px;
   float: left;
   padding: 30px 0 20px 30px;
 }
@@ -3755,14 +3754,14 @@ section#athlete_metrics .lean_body_mass {
 }
 #search_criteria .filters .compounds .compound .icon {
   width: 35px;
-  height: 35px;
+  height: 29px;
   padding-top: 6px;
   color: #323234;
   text-align: center;
   font-size: 20px;
   line-height: 20px;
   border: 2px solid #808080;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 #search_criteria .filters .compounds .compound label {
   width: 100px;
@@ -3791,7 +3790,7 @@ section#athlete_metrics .lean_body_mass {
   color: #3c3c3e;
 }
 #search_criteria .filters .length {
-  width: 190px;
+  width: 180px;
   height: 30px;
   margin: 5px 0 30px 30px;
   float: left;
@@ -3820,7 +3819,7 @@ section#athlete_metrics .lean_body_mass {
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 70px;
+  width: 25px;
   margin: 0;
   float: left;
 }
@@ -3884,7 +3883,7 @@ section#athlete_metrics .lean_body_mass {
   border-radius: 5px;
   border: none;
   background: #3c3c3e;
-  width: 135px;
+  width: 110px;
   margin: 5px 0 30px 20px;
   float: right;
 }
@@ -3898,8 +3897,8 @@ section#athlete_metrics .lean_body_mass {
   left: 0.75px;
 }
 #search_criteria .filters .goals {
-  width: 170px;
-  height: 150px;
+  width: 110px;
+  height: 90px;
   float: right;
   padding: 30px 30px 30px 20px;
 }
@@ -4330,7 +4329,7 @@ section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
 }
 #messages .history::-webkit-scrollbar {
-  width: 0.75px;
+  width: 7.5px;
 }
 #messages .history::-webkit-scrollbar-track {
   background: #3c3c3e;

@@ -505,6 +505,7 @@ PubNub.subscribe {
       #------------------------------------------
       when 'ProtocolService : Search'
         AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
+          console.log 'Search: ', e, data
           PubNub.publish {
             channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
             message : {

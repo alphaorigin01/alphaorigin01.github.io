@@ -22,4 +22,4 @@ section#newMember(ng-show="visibleNewMember")
 		.icon#password(ng-class="{ ok : passwordValid }")
 		.invitation(ng-model="invitation" contenteditable="true" placeholder="INVITATION CODE")
 		.icon#invitation(ng-class="{ ok : invitationValid, fail : invitationInvalid }")
-		.submit.active(ng-click="requestMembership()") Request Membership
+		.submit.active(ng-click="requestMembership()") {{ buttonStatus() }}

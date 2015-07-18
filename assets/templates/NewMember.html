@@ -26,6 +26,6 @@
     <div id="password" ng-class="{ ok : passwordValid }" class="icon"></div>
     <div ng-model="invitation" contenteditable="true" placeholder="INVITATION CODE" class="invitation"></div>
     <div id="invitation" ng-class="{ ok : invitationValid, fail : invitationInvalid }" class="icon"></div>
-    <div ng-click="requestMembership()" class="submit active">Request Membership</div>
+    <div ng-click="requestMembership()" class="submit active">{{ buttonStatus() }}</div>
   </div>
 </section>

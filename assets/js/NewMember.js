@@ -71,8 +71,35 @@
           });
         }
       });
+      $scope.buttonStatus = function() {
+        if (($scope.username == null) || $scope.username === '') {
+          return 'Select A Username';
+        }
+        if ($scope.usernameInvalid) {
+          return 'Username Already Taken';
+        }
+        if (!$scope.passwordValid) {
+          return 'Enter a valid password';
+        }
+        if (($scope.invitation == null) || $scope.invitation === '') {
+          return 'Enter your invitation code';
+        }
+        if ($scope.invitationInvalid) {
+          return 'Invitation code is invalid';
+        }
+        if ((Athlete.height == null) || Athlete.height === 0) {
+          return 'Enter your height';
+        }
+        if ((Athlete.weight == null) || Athlete.weight === 0) {
+          return 'Enter your weight';
+        }
+        if ((Athlete.bodyFat == null) || Athlete.bodyFat === 0) {
+          return 'Enter your bodyfat';
+        }
+        return 'Request Membership';
+      };
       return $scope.requestMembership = function() {
-        if ((Athlete.height != null) && Athlete.height > 0 && (Athlete.weight != null) && Athlete.weight > 0 && (Athlete.bodyFat != null) && Athlete.bodyFat > 0 && $scope.usernameValid && $scope.passwordValid && $scope.invitationValid) {
+        if (($scope.buttonStatus()) === 'Request Membership') {
           Athlete._id = 'athlete_' + $scope.username;
           Athlete.invitation = $scope.invitation;
           return PubNub('AthleteService : New Athlete', Athlete);
