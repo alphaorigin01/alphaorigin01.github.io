@@ -13,7 +13,7 @@
 		.disclaimer Please use discression with whom you invite. You may be held responsible if they misbhave.
 		.code{{ invitationCode }}
 		.generate(ng-click="generateInvitation()") Request Code
-	.password(ng-model="newPassword" contenteditable="true" placeholder="Enter New Password")
+	input.password(ng-model="newPassword" type="text" placeholder="Enter New Password")
 	.changePassword(ng-click='savePassword()') Change Password
 	.security
 		strong Warning!

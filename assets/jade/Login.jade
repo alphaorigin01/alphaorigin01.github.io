@@ -1,7 +1,7 @@
 #login(ng-show="visibleLogin")
 	.title Member Login
-	.username(ng-model="username" contenteditable="true" placeholder="USERNAME")
-	.password(ng-model="password" contenteditable="true" placeholder="PASSWORD")
+	input.username(ng-model="username" type="text" placeholder="USERNAME")
+	input.password(ng-model="password" type="text" placeholder="PASSWORD")
 	.attemptLogin(ng-click="login()") Login
 	.security
 		strong Warning!

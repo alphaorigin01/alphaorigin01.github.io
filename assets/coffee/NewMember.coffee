@@ -10,7 +10,7 @@ app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Ath
   $scope.athlete = Athlete
 
   $scope.$on 'Server : Online', ->
-    $scope.$evalAsync -> $scope.visibleNewMember = true
+    $scope.$evalAsync -> $scope.visibleNewMember = true if not Athlete._rev?
 
   $scope.$on 'Context Switch', -> $scope.visibleNewMember = false
 

@@ -1,8 +1,8 @@
 
 <div id="login" ng-show="visibleLogin">
   <div class="title">Member Login</div>
-  <div ng-model="username" contenteditable="true" placeholder="USERNAME" class="username"></div>
-  <div ng-model="password" contenteditable="true" placeholder="PASSWORD" class="password"></div>
+  <input ng-model="username" type="text" placeholder="USERNAME" class="username"/>
+  <input ng-model="password" type="text" placeholder="PASSWORD" class="password"/>
   <div ng-click="login()" class="attemptLogin">Login</div>
   <div class="security"><strong>Warning!</strong>Passwords can't be reset or recovered! For your security, your password is never sent to our servers. We have no way to recover your account if you lose your password. Please keep it safe!</div>
 </div>

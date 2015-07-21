@@ -2,28 +2,28 @@ section#athlete_metrics(ng-show="visibleAthleteMetrics")
 	.height.metric.normal.editable
 		.icon
 		label Height
-		.value(ng-model="athlete.height" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.height" type="number" placeholder="0.00")
 		mark m
 	.weight.metric.normal.editable
 		.icon
 		label Weight
-		.value(ng-model="athlete.weight" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.weight" type="number" placeholder="0.00")
 		mark kg
 	.bodyfat.metric.normal.editable
 		.icon
 		label Body Fat
-		.value(ng-model="athlete.bodyFat" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.bodyFat" type="number" placeholder="0.00")
 		mark %
 	.offset.metric.normal.editable
 		.icon
 		label FFMI Offset
-		.value(ng-model="athlete.ffmiOFfset" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.ffmiOFfset" type="number" placeholder="0.00")
 	.lean_body_mass
 		input.dial(type="number" ng-value="athlete.lbm" data-linecap="round" data-thickness="0.15" data-bgColor="#3C3C3E" data-displayInput="false" data-readOnly="true" data-width="160" data-min="0" ng-attr-data-max="{{ athlete.weight }}")
-		.value(placeholder="00.0") {{ athlete.lbm | number : 1 }}
+		input.value(placeholder="00.0" value="{{ athlete.lbm | number : 1 }}")
 		mark kg
 		label Lean Body Mass
 	.fat_free_mass_index
 		input.dial(type="number" ng-value="athlete.ffmi" data-linecap="round" data-thickness="0.15" data-bgColor="#3C3C3E" data-displayInput="false" data-readOnly="true" data-width="160" data-min="0" data-max="27" data-fgColor="#66CC66")
-		.value(placeholder="00.00") {{ athlete.ffmi | number : 2 }}
+		input.value(placeholder="00.00" value="{{ athlete.ffmi | number : 2 }}")
 		label Fat Free Mass Index

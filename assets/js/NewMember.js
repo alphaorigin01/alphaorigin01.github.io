@@ -14,7 +14,9 @@
       $scope.athlete = Athlete;
       $scope.$on('Server : Online', function() {
         return $scope.$evalAsync(function() {
-          return $scope.visibleNewMember = true;
+          if (Athlete._rev == null) {
+            return $scope.visibleNewMember = true;
+          }
         });
       });
       $scope.$on('Context Switch', function() {

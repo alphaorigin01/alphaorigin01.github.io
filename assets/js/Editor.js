@@ -27,6 +27,9 @@
         return $(window).scrollTop(0);
       });
       $scope.$on('ProtocolService : Delete Protocol Complete', function(e, deleted) {
+        if (!$scope.visibleEditor) {
+          return;
+        }
         if ($scope.protocol._id === deleted.id) {
           return $scope.$evalAsync(function() {
             return $rootScope.$broadcast('Context Switch', 'Search');

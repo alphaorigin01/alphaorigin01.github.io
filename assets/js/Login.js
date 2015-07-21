@@ -12,7 +12,9 @@
     '$scope', '$rootScope', 'Athlete', function($scope, $rootScope, Athlete) {
       $scope.$on('Server : Online', function() {
         return $scope.$evalAsync(function() {
-          return $scope.visibleLogin = true;
+          if (Athlete._rev == null) {
+            return $scope.visibleLogin = true;
+          }
         });
       });
       $scope.login = function() {

@@ -20,6 +20,7 @@ app.controller 'EditorController', ['$scope', '$rootScope', 'Protocol', 'Compoun
     $(window).scrollTop 0
 
   $scope.$on 'ProtocolService : Delete Protocol Complete', (e, deleted) ->
+    return if not $scope.visibleEditor
     if $scope.protocol._id is deleted.id then $scope.$evalAsync -> $rootScope.$broadcast 'Context Switch', 'Search'
 
   protocolByID = null

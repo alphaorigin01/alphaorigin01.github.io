@@ -3,23 +3,23 @@ section#newMember(ng-show="visibleNewMember")
 	.height.metric.normal.editable
 		.icon
 		label Height
-		.value(ng-model="athlete.height" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.height" type="number" placeholder="0.00")
 		mark m
 	.weight.metric.normal.editable
 		.icon
 		label Weight
-		.value(ng-model="athlete.weight" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.weight" type="number" placeholder="0.00")
 		mark kg
 	.bodyfat.metric.normal.editable
 		.icon
 		label Body Fat
-		.value(ng-model="athlete.bodyFat" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.bodyFat" type="number" placeholder="0.00")
 		mark %
 	.credentials
-		.username(ng-model="username" contenteditable="true" placeholder="USERNAME")
+		input.username(ng-model="username" type="text" placeholder="USERNAME")
 		.icon#username(ng-class="{ ok : usernameValid, fail : usernameInvalid }")
-		.password(ng-model="password" contenteditable="true" placeholder="PASSWORD")
+		input.password(ng-model="password" type="text" placeholder="PASSWORD")
 		.icon#password(ng-class="{ ok : passwordValid }")
-		.invitation(ng-model="invitation" contenteditable="true" placeholder="INVITATION CODE")
+		input.invitation(ng-model="invitation" type="text" placeholder="INVITATION CODE")
 		.icon#invitation(ng-class="{ ok : invitationValid, fail : invitationInvalid }")
 		.submit.active(ng-click="requestMembership()") {{ buttonStatus() }}

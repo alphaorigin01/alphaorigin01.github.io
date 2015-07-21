@@ -195,6 +195,37 @@ a[title="JavaScript charts"] {
 }
 /* Layout Elements
 -------------------------------------------------------------------------------*/
+input {
+  display: inline-block;
+  height: 18px;
+  margin-top: 12px;
+  padding: 8px 20px;
+  float: left;
+  font-family: "Gotham ScreenSmart";
+  font-size: 11px;
+  line-height: 20px;
+  text-transform: none;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  resize: none;
+  border-radius: 5px;
+  border: none;
+  background: #3c3c3e;
+}
+input[placeholder]:empty:before {
+  color: #808080;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 main {
   display: block;
   width: 1000px;
@@ -273,7 +304,27 @@ header {
   color: #b3b3b3;
 }
 .metric .value {
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  float: none;
+  font-family: "Gotham ScreenSmart";
+  font-size: 11px;
+  line-height: 20px;
+  text-transform: none;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: left;
   color: #fff;
+  resize: none;
+  border-radius: 5px;
+  border: none;
+  background: none;
 }
 .metric mark {
   color: #808080;
@@ -306,6 +357,7 @@ header {
   font-size: 36px;
   line-height: 36px;
   font-weight: 700;
+  width: 100px;
 }
 .metric.normal .value .fa-btc {
   font-size: 34px;
@@ -743,7 +795,7 @@ header {
   text-transform: none;
   font-size: 10px;
   line-height: 16px;
-  width: 10px;
+  width: 100px;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
@@ -1364,7 +1416,7 @@ header {
 }
 .regimen .ident .density {
   width: 100px;
-  height: 110px;
+  height: 40px;
   padding: 35px 0;
   float: right;
   text-align: center;
@@ -1392,7 +1444,7 @@ header {
   color: #808080;
 }
 .regimen .ident .name {
-  width: 490px;
+  width: 460px;
   padding: 0 0 0 30px;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 24px;
@@ -1405,7 +1457,7 @@ header {
   margin-right: 0.25px;
 }
 .regimen .ident .alias {
-  width: 490px;
+  width: 460px;
   padding: 0 0 0 30px;
   font-family: "Heuristica";
   font-size: 12px;
@@ -1445,14 +1497,14 @@ header {
   display: inline-block;
 }
 .regimen .metrics {
-  width: 60px;
+  width: 600px;
   height: 160px;
   float: left;
   background: #fff;
 }
 .regimen .metrics > * {
-  width: 160px;
-  height: 40px;
+  width: 159px;
+  height: 39px;
   padding: 20px;
   position: relative;
   float: left;
@@ -1545,7 +1597,7 @@ header {
   background-size: cover;
 }
 .regimen .graph {
-  width: 60px;
+  width: 600px;
   height: 160px;
   background: #b3b3b3;
   float: left;
@@ -1621,33 +1673,9 @@ header {
   padding: 0;
 }
 .compound_chooser header .search {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 260px;
   margin: 25px 30px;
   text-align: left;
-}
-.compound_chooser header .search[placeholder]:empty:before {
-  color: #808080;
 }
 .compound_chooser header .icon {
   width: 110px;
@@ -2067,31 +2095,7 @@ header {
   float: right;
 }
 .order .cart .accessories .referral {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 80px;
-}
-.order .cart .accessories .referral[placeholder]:empty:before {
-  color: #808080;
 }
 .order .cart .accessories .subtotal {
   display: inline-block;
@@ -2672,36 +2676,11 @@ masthead #masthead {
 }
 #login .username,
 #login .password {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 180px;
   margin: 30px 30px 0;
   text-align: center;
   text-transform: none;
   cursor: text;
-}
-#login .username[placeholder]:empty:before,
-#login .password[placeholder]:empty:before {
-  color: #808080;
 }
 #login .password {
   margin-top: 20px;
@@ -2769,35 +2748,11 @@ masthead #masthead {
   background: #323234;
 }
 #protocolByID .protocolID {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 85px;
   margin: 30px 0 30px 30px;
   text-align: center;
   text-transform: none;
   cursor: text;
-}
-#protocolByID .protocolID[placeholder]:empty:before {
-  color: #808080;
 }
 #protocolByID .search {
   display: inline-block;
@@ -2905,37 +2860,11 @@ section#newMember .credentials .icon#username {
 section#newMember .credentials .username,
 section#newMember .credentials .password,
 section#newMember .credentials .invitation {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 190px;
   margin: 20px 0 0 65px;
   text-align: center;
   text-transform: none;
   cursor: text;
-}
-section#newMember .credentials .username[placeholder]:empty:before,
-section#newMember .credentials .password[placeholder]:empty:before,
-section#newMember .credentials .invitation[placeholder]:empty:before {
-  color: #808080;
 }
 section#newMember .credentials .username {
   margin-top: 60px;
@@ -3120,7 +3049,7 @@ section#athlete_metrics .lean_body_mass {
   white-space: nowrap;
 }
 #shopping_cart .protocols .formulation {
-  width: 220px;
+  width: 180px;
   height: 30px;
   padding: 10px 0 0 40px;
 }
@@ -3147,7 +3076,7 @@ section#athlete_metrics .lean_body_mass {
 }
 #shopping_cart .protocols .formulation .quantity {
   float: right;
-  margin-top: 2px;
+  margin-top: 0px;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 18px;
   line-height: 18px;
@@ -3192,9 +3121,9 @@ section#athlete_metrics .lean_body_mass {
   margin-right: 2px;
 }
 #shopping_cart .protocols .actions {
-  width: 120px;
+  width: 100px;
   height: 70px;
-  padding-top: 30px;
+  padding-top: 20px;
   float: left;
 }
 #shopping_cart .protocols .actions .quantity,
@@ -3206,18 +3135,17 @@ section#athlete_metrics .lean_body_mass {
   background: #323234;
   border: 1px solid #454547;
   margin: 0.5em;
-  height: 5px;
-  padding: 20px 20px;
+  height: 19px;
   font-family: "Gotham ScreenSmart";
   font-size: 11px;
   line-height: 20px;
   text-transform: none;
   font-size: 10px;
   line-height: 16px;
-  line-height: 15px;
+  line-height: 19px;
   border-radius: 100px;
   width: 80px;
-  margin: 0.25px 0;
+  margin: 2.5px 0;
   text-align: center;
 }
 #shopping_cart .protocols .actions .quantity {
@@ -3228,7 +3156,6 @@ section#athlete_metrics .lean_body_mass {
 #shopping_cart .protocols .actions .quantity .up,
 #shopping_cart .protocols .actions .quantity .down {
   height: 19px;
-  margin-top: -0.25px;
   width: 20px;
   font-family: "Gotham ScreenSmart";
   font-size: 11px;
@@ -3239,7 +3166,7 @@ section#athlete_metrics .lean_body_mass {
   line-height: 20px;
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 20px;
   background: #454547;
   cursor: pointer;
 }
@@ -3258,7 +3185,7 @@ section#athlete_metrics .lean_body_mass {
 #shopping_cart .protocols .subtotal {
   width: 100px;
   height: 70px;
-  padding: 30px;
+  padding: 20px;
   float: left;
 }
 #shopping_cart .protocols .subtotal .quantity {
@@ -3347,31 +3274,7 @@ section#athlete_metrics .lean_body_mass {
   float: right;
 }
 #shopping_cart .accessories .referral {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 80px;
-}
-#shopping_cart .accessories .referral[placeholder]:empty:before {
-  color: #808080;
 }
 #shopping_cart .accessories .subtotal {
   display: inline-block;
@@ -3465,144 +3368,24 @@ section#athlete_metrics .lean_body_mass {
   color: #b3b3b3;
 }
 #shopping_cart .checkout .shipping .name {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 180px;
   text-align: left;
 }
-#shopping_cart .checkout .shipping .name[placeholder]:empty:before {
-  color: #808080;
-}
 #shopping_cart .checkout .shipping .address {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 180px;
   text-align: left;
   font-style: normal;
 }
-#shopping_cart .checkout .shipping .address[placeholder]:empty:before {
-  color: #808080;
-}
 #shopping_cart .checkout .shipping .city {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 180px;
   text-align: left;
 }
-#shopping_cart .checkout .shipping .city[placeholder]:empty:before {
-  color: #808080;
-}
 #shopping_cart .checkout .shipping .state {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 40px;
   margin-right: 10px;
 }
-#shopping_cart .checkout .shipping .state[placeholder]:empty:before {
-  color: #808080;
-}
 #shopping_cart .checkout .shipping .zip {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 90px;
-}
-#shopping_cart .checkout .shipping .zip[placeholder]:empty:before {
-  color: #808080;
 }
 #shopping_cart .checkout .payment {
   width: 220px;
@@ -3798,34 +3581,9 @@ section#athlete_metrics .lean_body_mass {
 }
 #search_criteria .filters .length .min,
 #search_criteria .filters .length .max {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 25px;
   margin: 0;
   float: left;
-}
-#search_criteria .filters .length .min[placeholder]:empty:before,
-#search_criteria .filters .length .max[placeholder]:empty:before {
-  color: #808080;
 }
 #search_criteria .filters .length .max {
   float: right;
@@ -3862,33 +3620,9 @@ section#athlete_metrics .lean_body_mass {
 }
 #search_criteria .filters .level {
   position: relative;
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 110px;
   margin: 5px 0 30px 20px;
   float: right;
-}
-#search_criteria .filters .level[placeholder]:empty:before {
-  color: #808080;
 }
 #search_criteria .filters .level .choices {
   width: 90%;
@@ -4071,30 +3805,10 @@ section#athlete_metrics .lean_body_mass {
   text-align: justify;
 }
 #account .referal .code {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 130px;
   padding-top: 12px;
-  height: 40px;
-  margin: 20px 45px 0;
+  height: 20px;
+  margin: 20px 25px 0;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 18px;
   line-height: 18px;
@@ -4141,30 +3855,10 @@ section#athlete_metrics .lean_body_mass {
   text-align: justify;
 }
 #account .invitations .code {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 130px;
   padding-top: 12px;
-  height: 40px;
-  margin: 20px 45px 0;
+  height: 20px;
+  margin: 20px 25px 0;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 18px;
   line-height: 18px;
@@ -4198,8 +3892,8 @@ section#athlete_metrics .lean_body_mass {
   text-transform: uppercase;
   line-height: 5px;
   border-radius: 100px;
-  width: 190px;
-  margin: 10px 15px 0;
+  width: 130px;
+  margin: 15px 15px 0;
   text-align: center;
 }
 #account .invitations .generate:hover {
@@ -4207,35 +3901,11 @@ section#athlete_metrics .lean_body_mass {
   color: #1b1b1d;
 }
 #account .password {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
-  width: 200px;
+  width: 180px;
   margin: 30px 30px 0;
   text-align: center;
   text-transform: none;
   cursor: text;
-}
-#account .password[placeholder]:empty:before {
-  color: #808080;
 }
 #account .changePassword {
   display: inline-block;
@@ -4255,16 +3925,16 @@ section#athlete_metrics .lean_body_mass {
   text-transform: uppercase;
   font-weight: 400;
   border-radius: 100px;
-  margin: 20px 47px 20px;
+  margin: 15px 47px 20px;
 }
 #account .changePassword:hover {
   background: #808080;
   color: #1b1b1d;
 }
 #account .security {
-  width: 280px;
-  height: 130px;
-  padding: 0 30px 30px;
+  width: 220px;
+  height: 100px;
+  padding: 10px 30px 30px;
   font-family: "Heuristica";
   font-size: 12px;
   font-weight: 300;
@@ -4273,7 +3943,7 @@ section#athlete_metrics .lean_body_mass {
   text-align: justify;
 }
 #account .security strong {
-  width: 220px;
+  width: 230px;
   font-family: "Gotham ScreenSmart";
   font-size: 11px;
   line-height: 20px;
@@ -4387,27 +4057,6 @@ section#athlete_metrics .lean_body_mass {
   padding: 30px;
 }
 #messages .compose .textarea {
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  padding: 8px 20px;
-  float: left;
-  font-family: "Gotham ScreenSmart";
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: none;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  color: #fff;
-  resize: none;
-  border-radius: 5px;
-  border: none;
-  background: #3c3c3e;
   width: 220px;
   padding: 5px 10px;
   height: 80px;
@@ -4421,9 +4070,6 @@ section#athlete_metrics .lean_body_mass {
   font-weight: 400;
   text-align: left;
   color: #b3b3b3;
-}
-#messages .compose .textarea[placeholder]:empty:before {
-  color: #808080;
 }
 #messages .compose .textarea[placeholder]:empty:before {
   color: #808080;

@@ -4,27 +4,27 @@
   <div class="height metric normal editable">
     <div class="icon"></div>
     <label>Height</label>
-    <div ng-model="athlete.height" contenteditable="true" placeholder="0.00" class="value"></div>
+    <input ng-model="athlete.height" type="number" placeholder="0.00" class="value"/>
     <mark>m</mark>
   </div>
   <div class="weight metric normal editable">
     <div class="icon"></div>
     <label>Weight</label>
-    <div ng-model="athlete.weight" contenteditable="true" placeholder="0.00" class="value"></div>
+    <input ng-model="athlete.weight" type="number" placeholder="0.00" class="value"/>
     <mark>kg</mark>
   </div>
   <div class="bodyfat metric normal editable">
     <div class="icon"></div>
     <label>Body Fat</label>
-    <div ng-model="athlete.bodyFat" contenteditable="true" placeholder="0.00" class="value"></div>
+    <input ng-model="athlete.bodyFat" type="number" placeholder="0.00" class="value"/>
     <mark>%</mark>
   </div>
   <div class="credentials">
-    <div ng-model="username" contenteditable="true" placeholder="USERNAME" class="username"></div>
+    <input ng-model="username" type="text" placeholder="USERNAME" class="username"/>
     <div id="username" ng-class="{ ok : usernameValid, fail : usernameInvalid }" class="icon"></div>
-    <div ng-model="password" contenteditable="true" placeholder="PASSWORD" class="password"></div>
+    <input ng-model="password" type="text" placeholder="PASSWORD" class="password"/>
     <div id="password" ng-class="{ ok : passwordValid }" class="icon"></div>
-    <div ng-model="invitation" contenteditable="true" placeholder="INVITATION CODE" class="invitation"></div>
+    <input ng-model="invitation" type="text" placeholder="INVITATION CODE" class="invitation"/>
     <div id="invitation" ng-class="{ ok : invitationValid, fail : invitationInvalid }" class="icon"></div>
     <div ng-click="requestMembership()" class="submit active">{{ buttonStatus() }}</div>
   </div>

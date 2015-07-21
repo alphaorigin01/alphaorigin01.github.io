@@ -31,7 +31,7 @@ pubnubBroadcastConfig = {
   publish_key   : 'pub-c-0ad3b937-16a4-4563-819a-d9c108daf8a1'
   subscribe_key : 'sub-c-cf1ec346-a876-11e2-80da-12313f022c90'
   cipher_key    : 'sample'
-  uuid          : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+  uuid          : serverChannel
 }
 
 PubNub = require("pubnub") pubnubBroadcastConfig
@@ -52,7 +52,6 @@ Q      = require 'q'
 creds  = -> auth:Client.authStdin
 hangouts = new Client()
 hangouts.on 'chat_message', (msg) ->
-  console.log '======> Hangouts Message: ', msg#.chat_message.message_content.segment[0].text
   parse = msg.chat_message.message_content.segment[0].text.split(':: ')
   if parse.length is 2
     AlphaDB.get 'athlete_' + parse[0], (e, athlete) ->
@@ -147,12 +146,12 @@ Login = (athlete) ->
     channel  : athlete.channel
     callback : (message) ->
       message = Decrypt message
-      console.log 'Athlete Message: ', message
+      #console.log 'Athlete Message: ', message
 
       switch message.action
 
         #------------------------------------------
-        when 'AthleteService : Set Athlete'
+        when 'AthleteService : Set Athlete' then setTimeout ->
           AlphaDB.get message.data._id, (e, official) ->
             official.height = message.data.height
             official.weight = message.data.weight
@@ -172,7 +171,7 @@ Login = (athlete) ->
               }
 
         #------------------------------------------
-        when 'AthleteService : New Invitation'
+        when 'AthleteService : New Invitation' then setTimeout ->
           message.data._id = 'invitation_' + Date.now().toString(36).toUpperCase()
           message.data.uses = 1
           message.data.created = new Date()
@@ -186,7 +185,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'ProtocolService : New Protocol'
+        when 'ProtocolService : New Protocol' then setTimeout ->
           message.data._id = 'protocol_' + Date.now().toString(36).toUpperCase()
           PubNub.publish {
             channel : athlete.channel
@@ -197,7 +196,7 @@ Login = (athlete) ->
           }
 
         #------------------------------------------
-        when 'ProtocolService : Get Protocol'
+        when 'ProtocolService : Get Protocol' then setTimeout ->
           AlphaDB.get message.data._id, (e, data) ->
             PubNub.publish {
               channel : athlete.channel
@@ -208,7 +207,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'ProtocolService : Set Protocol'
+        when 'ProtocolService : Set Protocol' then setTimeout ->
           AlphaDB.insert message.data, message.data._id, (e, data) ->
             PubNub.publish {
               channel : athlete.channel
@@ -219,7 +218,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'ProtocolService : Delete Protocol'
+        when 'ProtocolService : Delete Protocol' then setTimeout ->
           return if not message.data?
           message.data.owner = 'deleted'
           AlphaDB.insert message.data, message.data._id, (e, data) ->
@@ -233,7 +232,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'ProtocolService : Get Stats'
+        when 'ProtocolService : Get Stats' then setTimeout ->
           AlphaDB.get 'stats_' + message.data._id, (e, data) ->
             if e? then data = {
               protocol : message.data._id
@@ -251,7 +250,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'ProtocolService : Set Stats'
+        when 'ProtocolService : Set Stats' then setTimeout ->
           AlphaDB.get 'stats_' + message.data._id, (e, data) ->
             if e? then data = {
               protocol : message.data._id
@@ -267,7 +266,7 @@ Login = (athlete) ->
             AlphaDB.insert data, 'stats_' + message.data._id, ->
 
         #------------------------------------------
-        when 'OrderService : Verify Referral Code'
+        when 'OrderService : Verify Referral Code' then setTimeout ->
           AlphaDB.view 'alpha_indexes', 'referralCodes', { keys: [ message.data ] } , (e, data) ->
             if data.rows.length is 0
               PubNub.publish {
@@ -287,7 +286,7 @@ Login = (athlete) ->
               }
 
         #------------------------------------------
-        when 'OrderService : Place Order'
+        when 'OrderService : Place Order' then setTimeout ->
           AlphaDB.insert message.data, message.data._id, (e, data) ->
             hangouts.sendchatmessage 'UgxWbu3GrCCYsLSgQ_N4AaABAQ', [[0, 'OrderService : Place Order : ' + message.data._id ]]
             PubNub.publish {
@@ -310,7 +309,7 @@ Login = (athlete) ->
                 AlphaDB.insert data, 'stats_' + id, ->
 
         #------------------------------------------
-        when 'OrderService : Get Order List'
+        when 'OrderService : Get Order List' then setTimeout ->
           AlphaDB.view 'alpha_indexes', 'ordersByAthlete', { keys: [ message.data._id ] } , (e, data) ->
             if data?
               PubNub.publish {
@@ -322,7 +321,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'OrderService : Get Order'
+        when 'OrderService : Get Order' then setTimeout ->
           AlphaDB.get message.data, (e, data) ->
             delete data.fulfillment.tracking
             PubNub.publish {
@@ -334,7 +333,7 @@ Login = (athlete) ->
             }
 
         #------------------------------------------
-        when 'OrderService : Get Tracking Info'
+        when 'OrderService : Get Tracking Info' then setTimeout ->
           AlphaDB.get message.data, (e, data) ->
             getTrackingInfo data, (info) ->
               PubNub.publish {
@@ -350,7 +349,7 @@ Login = (athlete) ->
     connect  : ->
       delete athlete.BTCPrivate
       PubNub.publish {
-        channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+        channel : serverChannel
         message : {
           action : 'AthleteService : Update Athlete'
           data   : athlete
@@ -362,29 +361,32 @@ Login = (athlete) ->
 ###########################################################
 ###                       Server                        ###
 ###########################################################
+
+serverChannel = '8e04b18a-f27f-430e-a772-6f91c5302ca'
+
 PubNub.subscribe {
-  channel  : '8e04b18a-f27f-430e-a772-6f91c5302caS'
+  channel  : '8e04b18a-f27f-430e-a772-6f91c5302ca' + 'S'
   callback : (message) ->
     hangouts.sendchatmessage 'UgxWbu3GrCCYsLSgQ_N4AaABAQ', [[0, 'Message from ' + message.sender + ': ' + message.text ]]
 }
 
 
 PubNub.subscribe {
-  channel  : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+  channel  : serverChannel
   callback : (message) ->
-    console.log 'Server Message: ', message
+    #console.log 'Server Message: ', message
     switch message.action
 
       #------------------------------------------
-      when 'AthleteService : Get Athlete'
+      when 'AthleteService : Get Athlete' then setTimeout ->
         AlphaDB.get message.data._id, (e, data) ->
           console.log 'Get Athlete error: ', e if e?
           Login data
 
       #------------------------------------------
-      when 'Server : Status'
+      when 'Server : Status' then setTimeout ->
         PubNub.publish {
-          channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+          channel : serverChannel
           message : {
             action : 'Server : Online'
             data   : JSON.parse(JSON.stringify(_.flatten( ServerPublicKey )))
@@ -392,9 +394,9 @@ PubNub.subscribe {
         }
 
       #------------------------------------------
-      when 'Server : Get BTCrate'
+      when 'Server : Get BTCrate' then setTimeout ->
         PubNub.publish {
-          channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+          channel : serverChannel
           message : {
             action : 'BTCService : Update BTCrate'
             data   : CoinBaseData
@@ -402,13 +404,11 @@ PubNub.subscribe {
         }
 
       #------------------------------------------
-      when 'AthleteService : Check Athlete ID'
+      when 'AthleteService : Check Athlete ID' then setTimeout ->
         AlphaDB.head 'athlete_' + message.data, (e, data) ->
-          console.log 'e: ', e
-          console.log 'data: ', data
           if e?
             PubNub.publish {
-              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              channel : serverChannel
               message : {
                 action : 'AthleteService : Athlete ID Available'
                 data   : message.data
@@ -416,20 +416,18 @@ PubNub.subscribe {
             }
           else
             PubNub.publish {
-              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              channel : serverChannel
               message : {
                 action : 'AthleteService : Athlete ID Unavailable'
                 data   : message.data
               }
             }
       #------------------------------------------
-      when 'AthleteService : Check Invitation'
+      when 'AthleteService : Check Invitation' then setTimeout ->
         AlphaDB.head 'invitation_' + message.data, (e, data) ->
-          console.log 'e: ', e
-          console.log 'data: ', data
           if e?
             PubNub.publish {
-              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              channel : serverChannel
               message : {
                 action : 'AthleteService : Invitation Is Invalid'
                 data   : message.data
@@ -437,7 +435,7 @@ PubNub.subscribe {
             }
           else
             PubNub.publish {
-              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              channel : serverChannel
               message : {
                 action : 'AthleteService : Invitation Is Valid'
                 data   : message.data
@@ -445,7 +443,7 @@ PubNub.subscribe {
             }
 
       #------------------------------------------
-      when 'AthleteService : New Athlete'
+      when 'AthleteService : New Athlete' then setTimeout ->
         newAthlete = message.data
         AlphaDB.head newAthlete._id, (e, data) ->
           if e?
@@ -469,7 +467,7 @@ PubNub.subscribe {
                       delete data.BTCPrivate
                       hangouts.sendchatmessage 'UgxWbu3GrCCYsLSgQ_N4AaABAQ', [[0, 'AthleteService : New Athlete : ' + newAthlete._id ]]
                       PubNub.publish {
-                        channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+                        channel : serverChannel
                         message : {
                           action : 'AthleteService : Update Athlete'
                           data   : data
@@ -477,7 +475,7 @@ PubNub.subscribe {
                       }
               else
                 PubNub.publish {
-                  channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+                  channel : serverChannel
                   message : {
                     action : 'AthleteService : Invitation Is Invalid'
                     data   : message.data
@@ -485,7 +483,7 @@ PubNub.subscribe {
                 }
           else
             PubNub.publish {
-              channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+              channel : serverChannel
               message : {
                 action : 'AthleteService : Athlete ID Unavailable'
                 data   : newAthlete._id.substring(8)
@@ -493,9 +491,9 @@ PubNub.subscribe {
             }
 
       #------------------------------------------
-      when 'OrderService : Get Processing Time'
+      when 'OrderService : Get Processing Time' then setTimeout ->
         PubNub.publish {
-          channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+          channel : serverChannel
           message : {
             action : 'OrderService : Update Processing Time'
             data   : '7 Days'
@@ -503,11 +501,10 @@ PubNub.subscribe {
         }
 
       #------------------------------------------
-      when 'ProtocolService : Search'
+      when 'ProtocolService : Search' then setTimeout ->
         AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
-          console.log 'Search: ', e, data
           PubNub.publish {
-            channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+            channel : serverChannel
             message : {
               action : 'ProtocolService : Search Results'
               data   : data
@@ -515,7 +512,7 @@ PubNub.subscribe {
           }
   connect  : ->
     PubNub.publish {
-      channel : '8e04b18a-f27f-430e-a772-6f91c5302ca'
+      channel : serverChannel
       message : {
         action : 'Server : Online'
         data   : JSON.parse(JSON.stringify(_.flatten( ServerPublicKey )))

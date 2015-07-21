@@ -11,31 +11,4 @@
 
   /*                      Directives */
 
-  app.directive('contenteditable', function() {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        elm.bind('blur', function() {
-          return scope.$evalAsync(function() {
-            return ctrl.$setViewValue(elm.html());
-          });
-        });
-        elm.bind('keydown', function(e) {
-          if (e.keyCode === 13) {
-            e.preventDefault();
-            return e.currentTarget.blur();
-          }
-        });
-        elm.bind('paste', function(e) {
-          e.preventDefault();
-          window.pastey = elm;
-          return elm[0].innerText = e.originalEvent.clipboardData.getData("text/plain");
-        });
-        return ctrl.$render = function() {
-          return elm.html(ctrl.$viewValue);
-        };
-      }
-    };
-  });
-
 }).call(this);

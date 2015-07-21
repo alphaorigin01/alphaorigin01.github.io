@@ -17,7 +17,7 @@
     <div class="code">{{ invitationCode }}</div>
     <div ng-click="generateInvitation()" class="generate">Request Code</div>
   </div>
-  <div ng-model="newPassword" contenteditable="true" placeholder="Enter New Password" class="password"></div>
+  <input ng-model="newPassword" type="text" placeholder="Enter New Password" class="password"/>
   <div ng-click="savePassword()" class="changePassword">Change Password</div>
   <div class="security"><strong>Warning!</strong>Passwords can't be reset or recovered! For your security, your password is never sent to our servers. We have no way to recover your account if you lose your password. Please keep it safe!</div>
 </div>

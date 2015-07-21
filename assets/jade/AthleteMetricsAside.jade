@@ -13,22 +13,22 @@
 	.height.metric.small.editable
 		.icon
 		label Height
-		.value(ng-model="athlete.height" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.height" type="number" placeholder="0.00")
 		mark m
 
 	.weight.metric.small.editable
 		.icon
 		label Weight
-		.value(ng-model="athlete.weight" contenteditable="true" placeholder="00.0")
+		input.value(ng-model="athlete.weight" type="number" placeholder="00.0")
 		mark kg
 
 	.bodyfat.metric.small.editable
 		.icon
 		label Body Fat
-		.value(ng-model="athlete.bodyFat" contenteditable="true" placeholder="00.0")
+		input.value(ng-model="athlete.bodyFat" type="number" placeholder="00.0")
 		mark &#37;
 
 	.offset.metric.small.editable
 		.icon
 		label FFMI Offset
-		.value(ng-model="athlete.ffmiOffset" type="number" contenteditable="true" placeholder="0.00")
+		input.value(ng-model="athlete.ffmiOffset" type="number" placeholder="0.00")

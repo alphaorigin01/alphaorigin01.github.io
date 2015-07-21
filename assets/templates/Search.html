@@ -42,8 +42,8 @@
         </div>
       </div>
       <div class="length">
-        <div ng-model="minDays" contenteditable="true" ng-blur="search()" class="min"></div>
-        <div ng-model="maxDays" contenteditable="true" ng-blur="search()" class="max"></div>
+        <input ng-model="minDays" type="text" ng-blur="search()" class="min"/>
+        <input ng-model="maxDays" type="text" ng-blur="search()" class="max"/>
         <div class="endash">–</div>
         <mark>Days</mark>
       </div>
@@ -58,7 +58,7 @@
   </div>
   <div ng-show="choose_compound" class="compound_chooser">
     <header>
-      <div ng-model="compound_search" placeholder="Search" contenteditable="true" class="search"></div>
+      <input ng-model="compound_search" placeholder="Search" type="text" class="search"/>
       <div ng-click="choose_compound = false" class="icon">×</div>
     </header>
     <div ng-click="choose_compound = false" class="list">

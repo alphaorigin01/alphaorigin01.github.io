@@ -369,7 +369,6 @@ module(size = 2)
 	border-radius: 5px
 	background: rgba(230, 230, 230, 0.25)
 
-
 button(size = normal, color = charcoal)
 	display: inline-block
 	cursor: pointer
@@ -423,14 +422,13 @@ button(size = normal, color = charcoal)
 
 	if size is tiny
 		margin: 0.5em
-		height: 5px
-		padding: 20px 20px
+		height: 19px
 		sans(short, dark)
-		line-height: 15px
+		line-height: 19px
 
 	border-radius: 100px
 
-text_field(color = dark)
+input
 	display: inline-block
 	height: 18px
 	margin-top: 12px
@@ -447,6 +445,11 @@ text_field(color = dark)
 
 	&[placeholder]:empty:before
 		color: gray_dark
+
+	&[type=number]::-webkit-inner-spin-button
+	&[type=number]::-webkit-outer-spin-button
+		  -webkit-appearance: none
+		  margin: 0
 
 checkbox(color = "dark")
 	width: 20px
@@ -548,7 +551,19 @@ header
 		color: gray_light
 
 	.value
+		display: inline-block
+		height: auto
+		width: auto
+		margin: 0
+		padding: 0
+		float: none
+		sans(grande, light)
+		text-align: left
 		color: white
+		resize: none
+		border-radius: 5px
+		border: none
+		background: none
 
 	mark
 		color: gray_dark
@@ -571,7 +586,7 @@ header
 
 		.value
 			value(grande, dark)
-
+			width: 100px
 			&[placeholder]:empty:before
 				color: gray_dark
 
@@ -895,7 +910,7 @@ header
 
 			.id
 				sans(short, dark)
-				width: 10px
+				width: 100px
 				-webkit-user-select: text
 				-moz-user-select: text
 				-ms-user-select: text
@@ -1328,7 +1343,7 @@ header
 
 		.density
 			width: 100px
-			height: 110px
+			height: 40px
 			padding: 35px 0
 			float: right
 			text-align: center
@@ -1343,13 +1358,13 @@ header
 				color: gray_dark
 
 		.name
-			width: 490px
+			width: 460px
 			padding: 0 0 0 30px
 			value(tall, light)
 			color: white
 
 		.alias
-			width: 490px
+			width: 460px
 			padding: 0 0 0 30px
 			serif(normal, light, true)
 			color: gray_dark
@@ -1380,14 +1395,14 @@ header
 
 
 	.metrics
-		width: 60px
+		width: 600px
 		height: 160px
 		float: left
 		background: white
 
 		& > *
-			width: 160px
-			height: 40px
+			width: 159px
+			height: 39px
 			padding: 20px
 			position: relative
 			float: left
@@ -1474,7 +1489,7 @@ header
 				background-size: cover
 
 	.graph
-		width: 60px
+		width: 600px
 		height: 160px
 		background: gray_light
 		float: left
@@ -1523,7 +1538,6 @@ header
 		padding: 0
 
 		.search
-			text_field()
 			width: 260px
 			margin: 25px 30px
 			text-align: left
@@ -1794,7 +1808,6 @@ header
 					float: right
 
 			.referral
-				text_field()
 				width: 80px
 
 			.subtotal
@@ -2181,7 +2194,6 @@ masthead
 
 	.username
 	.password
-		text_field()
 		width: 180px
 		margin: 30px 30px 0
 		text-align: center
@@ -2222,7 +2234,6 @@ masthead
 	background: charcoal_dark
 
 	.protocolID
-		text_field()
 		width: 85px
 		margin: 30px 0 30px 30px
 		text-align: center
@@ -2294,7 +2305,6 @@ section#newMember
 		.username
 		.password
 		.invitation
-			text_field()
 			width: 190px
 			margin: 20px 0 0 65px
 			text-align: center
@@ -2408,7 +2418,7 @@ section#athlete_metrics
 				white-space: nowrap
 
 		.formulation
-			width: 220px
+			width: 180px
 			height: 30px
 			padding: 10px 0 0 40px
 
@@ -2435,7 +2445,7 @@ section#athlete_metrics
 
 			.quantity
 				float: right
-				margin-top: 02px
+				margin-top: 0px
 				value(normal, dark)
 				color: gray_light
 
@@ -2463,9 +2473,9 @@ section#athlete_metrics
 				color: gray_light
 
 		.actions
-			width: 120px
+			width: 100px
 			height: 70px
-			padding-top:30px
+			padding-top:20px
 			float: left
 
 			.quantity
@@ -2473,7 +2483,7 @@ section#athlete_metrics
 			.delete
 				button(tiny, charcoal_line)
 				width: 80px
-				margin: 0.250px 0
+				margin: 2.5px 0
 				text-align: center
 
 			.quantity
@@ -2484,10 +2494,9 @@ section#athlete_metrics
 				.up
 				.down
 					height: 19px
-					margin-top: -0.250px
 					width: 20px
 					sans(venti, light)
-					line-height: 21px
+					line-height: 20px
 					background: charcoal_light_border
 					cursor: pointer
 
@@ -2506,7 +2515,7 @@ section#athlete_metrics
 		.subtotal
 			width: 100px
 			height: 70px
-			padding: 30px
+			padding: 20px
 			float: left
 
 			.quantity
@@ -2562,7 +2571,6 @@ section#athlete_metrics
 				float: right
 
 		.referral
-			text_field()
 			width: 80px
 
 		.subtotal
@@ -2620,28 +2628,23 @@ section#athlete_metrics
 				color: gray_light
 
 			.name
-				text_field()
 				width: 180px
 				text-align: left
 
 			.address
-				text_field()
 				width: 180px
 				text-align: left
 				font-style: normal
 
 			.city
-				text_field()
 				width: 180px
 				text-align: left
 
 			.state
-				text_field()
 				width: 40px
 				margin-right: 10px
 
 			.zip
-				text_field()
 				width: 90px
 
 		.payment
@@ -2786,7 +2789,6 @@ section#athlete_metrics
 
 			.min
 			.max
-				text_field()
 				width: 25px
 				margin: 0
 				float: left
@@ -2811,7 +2813,6 @@ section#athlete_metrics
 
 		.level
 			position: relative
-			text_field()
 			width: 110px
 			margin: 5px 0 30px 20px
 			float: right
@@ -2934,8 +2935,8 @@ section#athlete_metrics
 			text_field(light)
 			width: 130px
 			padding-top: 12px
-			height: 40px
-			margin: 20px 45px 0
+			height: 20px
+			margin: 20px 25px 0
 			value(normal, light)
 			color: gray_light
 			cursor: text
@@ -2964,8 +2965,8 @@ section#athlete_metrics
 			text_field(light)
 			width: 130px
 			padding-top: 12px
-			height: 40px
-			margin: 20px 45px 0
+			height: 20px
+			margin: 20px 25px 0
 			value(normal, light)
 			color: gray_light
 			cursor: text
@@ -2976,13 +2977,12 @@ section#athlete_metrics
 
 		.generate
 			button(small, charcoal)
-			width: 190px
-			margin: 10px 15px 0
+			width: 130px
+			margin: 15px 15px 0
 			text-align: center
 
 	.password
-		text_field()
-		width: 200px
+		width: 180px
 		margin: 30px 30px 0
 		text-align: center
 		text-transform: none
@@ -2990,18 +2990,18 @@ section#athlete_metrics
 
 	.changePassword
 		button(normal, charcoal)
-		margin: 20px 47px 20px
+		margin: 15px 47px 20px
 
 	.security
-		width: 280px
-		height: 130px
-		padding: 0 30px 30px
+		width: 220px
+		height: 100px
+		padding: 10px 30px 30px
 		serif(normal, light)
 		color: gray_dark
 		text-align: justify
 
 		strong
-			width: 220px
+			width: 230px
 			sans(venti, light)
 			text-align: center
 			color: gray_light
@@ -3069,7 +3069,6 @@ section#athlete_metrics
 		padding: 30px
 
 		.textarea
-			text_field()
 			width: 220px
 			padding: 05px 10px
 			height: 80px

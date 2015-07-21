@@ -33,8 +33,8 @@ section#search(ng-show="visibleSearch")
 					.icon(ng-style=" { 'backgroundColor': searchCompoundColor(1), 'color': searchCompoundColor(1) } ") ×
 					label {{ searchCompoundName(1) }}
 			.length
-				.min(ng-model="minDays" contenteditable="true" ng-blur="search()")
-				.max(ng-model="maxDays" contenteditable="true" ng-blur="search()")
+				input.min(ng-model="minDays" type="text" ng-blur="search()")
+				input.max(ng-model="maxDays" type="text" ng-blur="search()")
 				.endash –
 				mark Days
 			.level(ng-click="search_experience_choices_visible = !search_experience_choices_visible") {{ experience }}
@@ -45,7 +45,7 @@ section#search(ng-show="visibleSearch")
 
 	.compound_chooser(ng-show="choose_compound")
 		header
-			.search(ng-model="compound_search" placeholder="Search" contenteditable="true")
+			input.search(ng-model="compound_search" placeholder="Search" type="text")
 			.icon(ng-click="choose_compound = false") ×
 		.list(ng-click="choose_compound = false")
 			.compound(ng-repeat="compound in Compounds('list') | filter : compound_search" ng-click="chooseCompound(compound.id)")
