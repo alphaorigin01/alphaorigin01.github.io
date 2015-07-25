@@ -13,6 +13,7 @@
       var orders;
       $scope.orderStatus = 'None';
       orders = Order.get();
+      $scope.athlete = Athlete;
       $scope.$on('OrderService : Update Order', function() {
         var nike;
         nike = function() {

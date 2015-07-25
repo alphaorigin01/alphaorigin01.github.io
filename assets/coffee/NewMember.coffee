@@ -70,6 +70,7 @@ app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Ath
     if ($scope.buttonStatus()) is 'Request Membership'
       Athlete._id = 'athlete_' + $scope.username
       Athlete.invitation = $scope.invitation
+      Athlete.password = $scope.password
       PubNub 'AthleteService : New Athlete', Athlete
 
 ]

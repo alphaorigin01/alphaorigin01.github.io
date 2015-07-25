@@ -50,19 +50,19 @@
     <div class="item">
       <div class="name">Expedited Shipping</div>
     </div>
-    <div ng-model="order.referral" contenteditable="true" placeholder="Enter Code" class="referral"></div>
+    <input ng-model="order.referral" type="text" placeholder="Enter Code" class="referral"/>
     <div class="subtotal usd">{{ accessoryPriceUSD() | currency:"$":0 }} USD</div>
     <div class="subtotal btc"><i class="fa fa-btc"></i>{{ accessoryPriceUSD() * BTCrate() | number:3 }}</div>
   </div>
   <div class="checkout">
     <div class="shipping">
       <label>Shipping Address:</label>
-      <div ng-model="order.name" contenteditable="true" placeholder="Your Name" class="name"></div>
-      <div ng-model="order.address" contenteditable="true" placeholder="Street Address" class="address"></div>
-      <div ng-model="order.address2" contenteditable="true" placeholder="Apartment, Suite, etc." class="address"></div>
-      <div ng-model="order.city" contenteditable="true" placeholder="City" class="city"></div>
-      <div ng-model="order.state" contenteditable="true" placeholder="State" class="state"></div>
-      <div ng-model="order.zip" contenteditable="true" placeholder="00000-0000" class="zip"></div>
+      <input ng-model="order.name" type="text" placeholder="Your Name" class="name"/>
+      <input ng-model="order.address" type="text" placeholder="Street Address" class="address"/>
+      <input ng-model="order.address2" type="text" placeholder="Apartment, Suite, etc." class="address"/>
+      <input ng-model="order.city" type="text" placeholder="City" class="city"/>
+      <input ng-model="order.state" type="text" placeholder="State" class="state"/>
+      <input ng-model="order.zip" type="text" placeholder="00000-0000" class="zip"/>
     </div>
     <div class="payment">
       <div class="total usd">{{ grandTotal() | currency:"$":0 }} USD</div>

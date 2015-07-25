@@ -53,8 +53,9 @@ AthleteService.factory 'Athlete', [ 'PubNub', '$rootScope', '$http', (PubNub, $r
 
       #------------------------------------------
       publicKey = nacl.box.generate_pubkey secretKey
+      publicKey.toJSON = -> _.flatten(publicKey)
       Object.defineProperty this, 'publicKey', {
-        enumerable : false
+        enumerable : true
         get        : -> return publicKey
         set        : (x) -> publicKey = new Uint8Array(x)
       }

@@ -66,8 +66,11 @@
             }
           });
           publicKey = nacl.box.generate_pubkey(secretKey);
+          publicKey.toJSON = function() {
+            return _.flatten(publicKey);
+          };
           Object.defineProperty(this, 'publicKey', {
-            enumerable: false,
+            enumerable: true,
             get: function() {
               return publicKey;
             },

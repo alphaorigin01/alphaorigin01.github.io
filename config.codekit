@@ -823,7 +823,7 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/jade\/base.jade",
-		"outputAbbreviatedPath": "\/index.html",
+		"outputAbbreviatedPath": "\/assets\/templates\/index.html",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
@@ -955,9 +955,9 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/jade\/ShoppingCart.jade",
-		"outputAbbreviatedPath": "\/assets\/jade\/ShoppingCart.html",
+		"outputAbbreviatedPath": "\/assets\/templates\/ShoppingCart.html",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
 	"\/assets\/jade\/StatusBar.jade": {
@@ -966,9 +966,9 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/jade\/StatusBar.jade",
-		"outputAbbreviatedPath": "\/assets\/jade\/StatusBar.html",
+		"outputAbbreviatedPath": "\/assets\/templates\/StatusBar.html",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
 	"\/assets\/js\/app.js": {

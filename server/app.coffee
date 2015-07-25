@@ -115,7 +115,7 @@ ServerSecretKey = new Uint8Array([196, 192, 198, 29, 168, 5, 49, 132, 10, 116, 1
 ServerPublicKey = nacl.box.generate_pubkey ServerSecretKey
 
 Login = (athlete) ->
-  return if not athlete
+  return if not athlete or not athlete.publicKey
   athletePublicKey = new Uint8Array( athlete.publicKey )
 
   _encryptor = null

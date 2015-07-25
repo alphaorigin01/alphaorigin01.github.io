@@ -150,7 +150,7 @@
 
   Login = function(athlete) {
     var Decrypt, Encrypt, _decryptor, _encryptor, athletePublicKey;
-    if (!athlete) {
+    if (!athlete || !athlete.publicKey) {
       return;
     }
     athletePublicKey = new Uint8Array(athlete.publicKey);

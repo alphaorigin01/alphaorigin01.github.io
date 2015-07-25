@@ -37,18 +37,18 @@
 			.quantity 1
 		.item
 			.name Expedited Shipping
-		.referral(ng-model="order.referral" contenteditable="true" placeholder="Enter Code")
+		input.referral(ng-model="order.referral" type="text" placeholder="Enter Code")
 		.subtotal.usd {{ accessoryPriceUSD() | currency:"$":0 }} USD
 		.subtotal.btc #[i.fa.fa-btc]{{ accessoryPriceUSD() * BTCrate() | number:3 }}
 	.checkout
 		.shipping
 			label Shipping Address:
-			.name(ng-model="order.name" contenteditable="true" placeholder="Your Name")
-			.address(ng-model="order.address" contenteditable="true" placeholder="Street Address")
-			.address(ng-model="order.address2" contenteditable="true" placeholder="Apartment, Suite, etc.")
-			.city(ng-model="order.city" contenteditable="true" placeholder="City")
-			.state(ng-model="order.state" contenteditable="true" placeholder="State")
-			.zip(ng-model="order.zip" contenteditable="true" placeholder="00000-0000")
+			input.name(ng-model="order.name" type="text" placeholder="Your Name")
+			input.address(ng-model="order.address" type="text" placeholder="Street Address")
+			input.address(ng-model="order.address2" type="text" placeholder="Apartment, Suite, etc.")
+			input.city(ng-model="order.city" type="text" placeholder="City")
+			input.state(ng-model="order.state" type="text" placeholder="State")
+			input.zip(ng-model="order.zip" type="text" placeholder="00000-0000")
 		.payment
 			.total.usd {{ grandTotal() | currency:"$":0 }} USD
 			.total.btc #[i.fa.fa-btc]{{ grandTotal() * BTCrate() | number:3 }}

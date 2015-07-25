@@ -8,6 +8,7 @@ app = angular.module 'StatusBar', ['OrderService', 'PubNubService', 'AthleteServ
 app.controller 'StatusBarController', [ '$scope', '$timeout', 'Order', 'PubNub', 'Athlete', ($scope, $timeout, Order, PubNub, Athlete) ->
   $scope.orderStatus = 'None'
   orders = Order.get()
+  $scope.athlete = Athlete
   $scope.$on 'OrderService : Update Order', ->
 
     nike = ->

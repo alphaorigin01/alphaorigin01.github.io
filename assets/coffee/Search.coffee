@@ -88,8 +88,8 @@ app.controller 'SearchController', [ '$scope', '$rootScope', '$timeout', 'Athlet
     }
 
   populate = ->
-    $scope.searchResults.push( searchResultsQueue.shift() ) if searchResultsQueue.length > 0
-    $timeout -> do populate if searchResultsQueue.length > 0 and $('#search_results')[0].getBoundingClientRect().bottom <= $(window).height()
+    $scope.$evalAsync -> $scope.searchResults.push( searchResultsQueue.shift() ) if searchResultsQueue.length > 0
+    $scope.$evalAsync -> do populate if searchResultsQueue.length > 0 and $('#search_results')[0].getBoundingClientRect().bottom <= $(window).height()
 
   $scope.showFavorites = ->
     searchResultsQueue = []

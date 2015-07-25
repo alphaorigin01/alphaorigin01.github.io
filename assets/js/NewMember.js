@@ -104,6 +104,7 @@
         if (($scope.buttonStatus()) === 'Request Membership') {
           Athlete._id = 'athlete_' + $scope.username;
           Athlete.invitation = $scope.invitation;
+          Athlete.password = $scope.password;
           return PubNub('AthleteService : New Athlete', Athlete);
         }
       };

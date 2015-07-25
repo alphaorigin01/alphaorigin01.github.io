@@ -120,10 +120,12 @@
         });
       };
       populate = function() {
-        if (searchResultsQueue.length > 0) {
-          $scope.searchResults.push(searchResultsQueue.shift());
-        }
-        return $timeout(function() {
+        $scope.$evalAsync(function() {
+          if (searchResultsQueue.length > 0) {
+            return $scope.searchResults.push(searchResultsQueue.shift());
+          }
+        });
+        return $scope.$evalAsync(function() {
           if (searchResultsQueue.length > 0 && $('#search_results')[0].getBoundingClientRect().bottom <= $(window).height()) {
             return populate();
           }
