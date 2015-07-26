@@ -9,12 +9,12 @@
   <div class="referal">
     <title>Earn Account Credit</title>
     <div class="description">Give members your referal code to earn 5% of their purchase. They will receive a discount on accessories and shipping.</div>
-    <div class="code">{{ athlete.referralCode }}</div>
+    <input value="{{ athlete.referralCode }}" readonly="readonly" class="code"/>
   </div>
   <div class="invitations">
     <title>Invite a Friend</title>
     <div class="disclaimer">Please use discression with whom you invite. You may be held responsible if they misbhave.</div>
-    <div class="code">{{ invitationCode }}</div>
+    <input value="{{ invitationCode }}" readonly="readonly" class="code"/>
     <div ng-click="generateInvitation()" class="generate">Request Code</div>
   </div>
   <input ng-model="newPassword" type="text" placeholder="Enter New Password" class="password"/>

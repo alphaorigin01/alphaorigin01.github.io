@@ -7,11 +7,11 @@
 	.referal
 		title Earn Account Credit
 		.description Give members your referal code to earn 5% of their purchase. They will receive a discount on accessories and shipping.
-		.code{{ athlete.referralCode }}
+		input.code(value="{{ athlete.referralCode }}" readonly)
 	.invitations
 		title Invite a Friend
 		.disclaimer Please use discression with whom you invite. You may be held responsible if they misbhave.
-		.code{{ invitationCode }}
+		input.code(value="{{ invitationCode }}" readonly)
 		.generate(ng-click="generateInvitation()") Request Code
 	input.password(ng-model="newPassword" type="text" placeholder="Enter New Password")
 	.changePassword(ng-click='savePassword()') Change Password

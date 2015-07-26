@@ -2911,7 +2911,7 @@ section#athlete_metrics .offset {
 }
 section#athlete_metrics .lean_body_mass,
 section#athlete_metrics .fat_free_mass_index {
-  width: 340px;
+  width: 310px;
   height: 160px;
   padding: 30px;
   padding-left: 50px;
@@ -2942,6 +2942,9 @@ section#athlete_metrics .fat_free_mass_index label {
 }
 section#athlete_metrics .lean_body_mass .value,
 section#athlete_metrics .fat_free_mass_index .value {
+  width: 100px;
+  height: 32px;
+  padding: 0;
   margin-top: 50px;
   margin-right: 5px;
   font-family: "Gotham Narrow ScreenSmart";
@@ -2949,6 +2952,8 @@ section#athlete_metrics .fat_free_mass_index .value {
   line-height: 36px;
   font-weight: 700;
   color: #fff;
+  background: none;
+  border: 1px solid #f00;
 }
 section#athlete_metrics .lean_body_mass .value .fa-btc,
 section#athlete_metrics .fat_free_mass_index .value .fa-btc {
@@ -2971,6 +2976,9 @@ section#athlete_metrics .fat_free_mass_index mark .fa-btc {
 }
 section#athlete_metrics .lean_body_mass {
   border-bottom: 1px solid #3c3c3e;
+}
+section#athlete_metrics .lean_body_mass .value {
+  width: 92px;
 }
 #shopping_cart {
   width: 280px;
@@ -3824,7 +3832,6 @@ section#athlete_metrics .lean_body_mass {
 }
 #account .referal .code {
   width: 130px;
-  padding-top: 12px;
   height: 20px;
   margin: 20px 25px 0;
   font-family: "Gotham Narrow ScreenSmart";
@@ -3874,7 +3881,6 @@ section#athlete_metrics .lean_body_mass {
 }
 #account .invitations .code {
   width: 130px;
-  padding-top: 12px;
   height: 20px;
   margin: 20px 25px 0;
   font-family: "Gotham Narrow ScreenSmart";

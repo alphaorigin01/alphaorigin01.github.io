@@ -2335,7 +2335,7 @@ section#athlete_metrics
 
 	.lean_body_mass
 	.fat_free_mass_index
-		width: 340px
+		width: 310px
 		height: 160px
 		padding 30px
 		padding-left: 50px
@@ -2356,10 +2356,15 @@ section#athlete_metrics
 			color: gray_light
 
 		.value
+			width: 100px
+			height: 32px
+			padding: 0
 			margin-top: 50px
-			margin-right: 05px
+			margin-right: 5px
 			value(grande, light)
 			color: white
+			background: none
+			border: 1px solid red
 
 		mark
 			margin-top: 66px
@@ -2368,6 +2373,9 @@ section#athlete_metrics
 
 	.lean_body_mass
 		border-bottom: 1px solid charcoal_dark_border
+
+		.value
+			width: 92px
 
 #shopping_cart
 	module(6)
@@ -2943,7 +2951,6 @@ section#athlete_metrics
 		.code
 			text_field(light)
 			width: 130px
-			padding-top: 12px
 			height: 20px
 			margin: 20px 25px 0
 			value(normal, light)
@@ -2973,7 +2980,6 @@ section#athlete_metrics
 		.code
 			text_field(light)
 			width: 130px
-			padding-top: 12px
 			height: 20px
 			margin: 20px 25px 0
 			value(normal, light)
