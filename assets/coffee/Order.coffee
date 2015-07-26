@@ -9,6 +9,7 @@ app.controller 'OrderController', [ '$rootScope', '$scope', '$http', '$element',
   $scope.orders = Order.get()
   $scope.BTCrate = BTCrate
   $scope.Athlete = Athlete
+  $scope.Compounds = Compounds
 
   $scope.$on 'Context Switch', (e, context) ->
     $scope.visibleOrders = _.contains ['Athlete Profile'], context

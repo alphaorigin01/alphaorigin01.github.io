@@ -11,7 +11,7 @@ OrderService.factory 'Order', [ 'Protocol', 'Athlete', 'PubNub', 'BTCrate', '$ro
       @_id = 'order_' + Athlete._id + '_' +  Date.now().toString(36).toUpperCase()
       @date = new Date
 
-      @type = 'Order'
+      @athlete = Athlete._id
       @cart = {}
       @accessoryQty = 0
       @accessoryPriceUSD = 0
@@ -68,7 +68,7 @@ OrderService.factory 'Order', [ 'Protocol', 'Athlete', 'PubNub', 'BTCrate', '$ro
 
   $rootScope.$on 'OrderService : Order Placed', ->
     PubNub 'OrderService : Get Order List', Athlete
-    
+
   return {
     create : ->
       return new Order( Athlete._id )

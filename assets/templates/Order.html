@@ -13,7 +13,7 @@
           <div ng-repeat="formulation in item.protocol.formulations" class="formulation">
             <div class="id">{{ formulation.id }}.</div>
             <mark>ml</mark>
-            <div class="quantity">{{ formulation.totalVolume }}</div>
+            <div class="quantity">{{ formulation.totalVolume | number: 1 }}</div>
             <div class="mode"></div>
             <div class="icon">
               <div ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}" class="circle"></div>
@@ -48,7 +48,7 @@
         <div class="item">
           <div class="name">Expedited Shipping</div>
         </div>
-        <div class="referral">{{ order.referral }}</div>
+        <input value="{{ order.referral }}" redonly="redonly" class="referral"/>
         <div class="subtotal usd">{{ order.accessoryPriceUSD | currency:"$":0 }} USD</div>
         <div class="subtotal btc"><i class="fa fa-btc"></i>{{ order.accessoryPriceUSD * BTCrate() | number:3 }}</div>
       </div>

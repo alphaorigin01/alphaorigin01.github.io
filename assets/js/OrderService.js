@@ -16,7 +16,7 @@
           var that;
           this._id = 'order_' + Athlete._id + '_' + Date.now().toString(36).toUpperCase();
           this.date = new Date;
-          this.type = 'Order';
+          this.athlete = Athlete._id;
           this.cart = {};
           this.accessoryQty = 0;
           this.accessoryPriceUSD = 0;

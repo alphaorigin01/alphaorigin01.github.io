@@ -617,6 +617,9 @@ header {
 .protocol nav .tab:nth-child(1).active {
   background: #3c3c3e;
 }
+.protocol nav .tab:nth-child(2) {
+  width: 120px;
+}
 .protocol nav .tab:nth-child(2).active {
   background: #3c3c3e;
 }
@@ -856,7 +859,7 @@ header {
   overflow: hidden;
 }
 .protocol .formulations .profile {
-  width: 349.5px;
+  width: 350px;
   height: 310px;
   background: #3c3c3e;
   border-radius: 0 0 5px 0;
@@ -940,7 +943,7 @@ header {
   margin-bottom: -7.5px;
 }
 .protocol .formulations .profile .compounds .compound .icon {
-  width: 50px;
+  width: 40px;
   height: 40px;
   float: left;
   border-radius: 100px;
@@ -1870,7 +1873,7 @@ header {
 }
 .order .cart .protocols {
   width: 280px;
-  height: 270px;
+  height: 230px;
   margin-bottom: 30px;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -1927,7 +1930,7 @@ header {
   white-space: nowrap;
 }
 .order .cart .protocols .formulation {
-  width: 220px;
+  width: 180px;
   height: 30px;
   padding: 10px 0 0 40px;
 }
@@ -1954,7 +1957,7 @@ header {
 }
 .order .cart .protocols .formulation .quantity {
   float: right;
-  margin-top: 2px;
+  margin: 2px 2px 0 0;
   font-family: "Gotham Narrow ScreenSmart";
   font-size: 18px;
   line-height: 18px;
@@ -2071,8 +2074,8 @@ header {
 }
 .order .cart .accessories {
   width: 220px;
-  height: 140px;
-  padding: 30px 0;
+  height: 110px;
+  padding: 0 30px 30px;
   background: #323234;
 }
 .order .cart .accessories .item {
@@ -2151,7 +2154,7 @@ header {
   color: #808080;
 }
 .order .fulfillment {
-  width: 400px;
+  width: 399px;
   height: 450px;
   float: right;
   padding: 0;
@@ -2253,7 +2256,7 @@ header {
 }
 .order .fulfillment .status.payment .total {
   width: 340px;
-  height: 40px;
+  height: 30px;
   padding-top: 10px;
   color: #fff;
 }
@@ -2333,8 +2336,8 @@ header {
 }
 .order .fulfillment .status.payment .instructions {
   width: 340px;
-  height: 70px;
-  padding-top: 30px;
+  height: 80px;
+  padding-top: 20px;
   font-family: "Heuristica";
   font-size: 12px;
   font-weight: 300;
@@ -2363,8 +2366,8 @@ header {
   text-decoration: none;
 }
 .order .fulfillment .status.payment .service {
-  width: 160px;
-  height: 90px;
+  width: 140px;
+  height: 70px;
   padding: 15px 10px 0;
   border-radius: 5px;
   font-family: "Gotham ScreenSmart";
@@ -2383,6 +2386,7 @@ header {
   margin-bottom: 0.75px;
 }
 .order .fulfillment .status.payment .service.coinbase {
+  height: 65px;
   float: left;
   padding-top: 20px;
   font-weight: 400;
@@ -2944,6 +2948,7 @@ section#athlete_metrics .lean_body_mass .value,
 section#athlete_metrics .fat_free_mass_index .value {
   width: 100px;
   height: 32px;
+  text-align: left;
   padding: 0;
   margin-top: 50px;
   margin-right: 5px;
@@ -2953,7 +2958,6 @@ section#athlete_metrics .fat_free_mass_index .value {
   font-weight: 700;
   color: #fff;
   background: none;
-  border: 1px solid #f00;
 }
 section#athlete_metrics .lean_body_mass .value .fa-btc,
 section#athlete_metrics .fat_free_mass_index .value .fa-btc {

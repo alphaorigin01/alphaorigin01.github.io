@@ -13,6 +13,7 @@
       $scope.orders = Order.get();
       $scope.BTCrate = BTCrate;
       $scope.Athlete = Athlete;
+      $scope.Compounds = Compounds;
       $scope.$on('Context Switch', function(e, context) {
         return $scope.visibleOrders = _.contains(['Athlete Profile'], context);
       });

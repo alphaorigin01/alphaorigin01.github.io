@@ -11,7 +11,7 @@ section#orders(ng-show="visibleOrders")
 					.formulation(ng-repeat="formulation in item.protocol.formulations")
 						.id {{ formulation.id }}.
 						mark ml
-						.quantity {{ formulation.totalVolume }}
+						.quantity {{ formulation.totalVolume | number: 1 }}
 						.mode
 						.icon
 							.circle(ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}")
@@ -35,7 +35,7 @@ section#orders(ng-show="visibleOrders")
 					.quantity 1
 				.item
 					.name Expedited Shipping
-				.referral {{ order.referral }}
+				input.referral(value="{{ order.referral }}" redonly)
 				.subtotal.usd {{ order.accessoryPriceUSD | currency:"$":0 }} USD
 				.subtotal.btc #[i.fa.fa-btc]{{ order.accessoryPriceUSD * BTCrate() | number:3 }}
 		.fulfillment
@@ -98,5 +98,3 @@ section#orders(ng-show="visibleOrders")
 					.entry(ng-repeat="log in order.trackingInfo.history")
 						.timestamp {{ log.date | date:'fullDate' }}
 						.value {{ log.status }}
-
-
