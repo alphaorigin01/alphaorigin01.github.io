@@ -196,6 +196,16 @@ Login = (athlete) ->
           }
 
         #------------------------------------------
+        when 'ProtocolService : Search' then setTimeout ->
+          AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
+            PubNub.publish {
+              channel : athlete.channel
+              message : Encrypt {
+                action : 'ProtocolService : Search Results'
+                data   : data
+              }
+            }
+        #------------------------------------------
         when 'ProtocolService : Get Protocol' then setTimeout ->
           AlphaDB.get message.data._id, (e, data) ->
             PubNub.publish {
@@ -500,16 +510,6 @@ PubNub.subscribe {
           }
         }
 
-      #------------------------------------------
-      when 'ProtocolService : Search' then setTimeout ->
-        AlphaDB.search 'alpha_indexes', 'protocols', message.data, (e, data) ->
-          PubNub.publish {
-            channel : serverChannel
-            message : {
-              action : 'ProtocolService : Search Results'
-              data   : data
-            }
-          }
   connect  : ->
     PubNub.publish {
       channel : serverChannel

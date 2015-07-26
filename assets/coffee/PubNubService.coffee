@@ -84,7 +84,6 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
       'AthleteService : New Athlete'
       'AthleteService : Get Athlete'
       'OrderService : Get Processing Time'
-      'ProtocolService : Search'
     ]
 
     if action.startsWith('Messages : ')

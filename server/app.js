@@ -231,6 +231,18 @@
                 })
               });
             });
+          case 'ProtocolService : Search':
+            return setTimeout(function() {
+              return AlphaDB.search('alpha_indexes', 'protocols', message.data, function(e, data) {
+                return PubNub.publish({
+                  channel: athlete.channel,
+                  message: Encrypt({
+                    action: 'ProtocolService : Search Results',
+                    data: data
+                  })
+                });
+              });
+            });
           case 'ProtocolService : Get Protocol':
             return setTimeout(function() {
               return AlphaDB.get(message.data._id, function(e, data) {
@@ -580,18 +592,6 @@
                 action: 'OrderService : Update Processing Time',
                 data: '7 Days'
               }
-            });
-          });
-        case 'ProtocolService : Search':
-          return setTimeout(function() {
-            return AlphaDB.search('alpha_indexes', 'protocols', message.data, function(e, data) {
-              return PubNub.publish({
-                channel: serverChannel,
-                message: {
-                  action: 'ProtocolService : Search Results',
-                  data: data
-                }
-              });
             });
           });
       }

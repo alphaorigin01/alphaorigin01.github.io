@@ -51,7 +51,7 @@
             $scope.experience = 'Advanced';
           }
           $scope.showFavorites();
-          return $scope.selectTab(2);
+          return $scope.selectTab(1);
         });
       });
       $scope.Compounds = Compounds;

@@ -38,7 +38,7 @@ app.controller 'SearchController', [ '$scope', '$rootScope', '$timeout', 'Athlet
       $scope.experience = 'Intermediate' if 25 > Athlete.ffmi >= 20
       $scope.experience = 'Advanced' if Athlete.ffmi >= 25
       do $scope.showFavorites
-      $scope.selectTab 2
+      $scope.selectTab 1
 
   $scope.Compounds = Compounds
 

@@ -85,7 +85,7 @@
       });
       return function(action, data) {
         var lastRequest, message, server_direct;
-        server_direct = ['Server : Status', 'Server : Get BTCrate', 'AthleteService : Check Athlete ID', 'AthleteService : Check Invitation', 'AthleteService : New Athlete', 'AthleteService : Get Athlete', 'OrderService : Get Processing Time', 'ProtocolService : Search'];
+        server_direct = ['Server : Status', 'Server : Get BTCrate', 'AthleteService : Check Athlete ID', 'AthleteService : Check Invitation', 'AthleteService : New Athlete', 'AthleteService : Get Athlete', 'OrderService : Get Processing Time'];
         if (action.startsWith('Messages : ')) {
           switch (action) {
             case 'Messages : Get History':
