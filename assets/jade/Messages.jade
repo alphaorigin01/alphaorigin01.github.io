@@ -5,5 +5,5 @@
 			.sender {{ message.sender.substring(8) }}:
 			.text {{ message.text }}
 	.compose
-		.textarea(ng-model="message_text" contenteditable="true" placeholder="Type your message here.") 
+		textarea(ng-model="message_text" placeholder="Type your message here.") 
 		.send(ng-click="send_message()") Send
