@@ -1,14 +1,1 @@
-
-<div id="messages" ng-show="visibleMessages" ng-animate="{show: 'fadeIn', hide:'fadeOut'}">
-  <header>Customer Support</header>
-  <div class="history">
-    <div ng-repeat="message in history track by $index" ng-class="{ user : message.sender == athlete._id }" class="message">
-      <div class="sender">{{ message.sender.substring(8) }}:</div>
-      <div class="text">{{ message.text }}</div>
-    </div>
-  </div>
-  <div class="compose">
-    <div ng-model="message_text" contenteditable="true" placeholder="Type your message here." class="textarea"> </div>
-    <div ng-click="send_message()" class="send">Send</div>
-  </div>
-</div>
+<div id="messages" ng-show="visibleMessages" ng-animate="{show: 'fadeIn', hide:'fadeOut'}"><header>Customer Support</header><div class="history"><div ng-repeat="message in history track by $index" ng-class="{ user : message.sender == athlete._id }" class="message"><div class="sender">{{ message.sender.substring(8) }}:</div><div class="text">{{ message.text }}</div></div></div><div class="compose"><div ng-model="message_text" contenteditable="true" placeholder="Type your message here." class="textarea"> </div><div ng-click="send_message()" class="send">Send</div></div></div>

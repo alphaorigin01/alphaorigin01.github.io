@@ -1,113 +1,112 @@
 .protocol
-	nav
-		.tab(ng-click="selectTab(1)" ng-class="{ active:isSelected(1) }") Protocol
-		.tab(ng-click="selectTab(2)" ng-class="{ active:isSelected(2) }") Formulations
-		.tab(ng-click="selectTab(3)" ng-class="{ active:isSelected(3) }") Dose Schedule
-		.tab(ng-click="selectTab(4)" ng-class="{ active:isSelected(4) }") Pharmacodynamics
+  nav
+    .tab(ng-click="selectTab(1)" ng-class="{ active:isSelected(1) }") Protocol
+    .tab(ng-click="selectTab(2)" ng-class="{ active:isSelected(2) }") Formulations
+    .tab(ng-click="selectTab(3)" ng-class="{ active:isSelected(3) }") Dose Schedule
+    .tab(ng-click="selectTab(4)" ng-class="{ active:isSelected(4) }") Pharmacodynamics
 
-	.panel.primary(ng-show="isSelected(1)")
-		.summary
-			.level(ng-click="toggle_experience_choices_visible()") {{ protocol.experience }}
-				.choices(ng-show="experience_choices_visible")
-					header Select Experience Level:
-					.choice(ng-click="protocol.experience = 'Beginner'") Beginner
-						br
-						|FFMI less than 20
-					.choice(ng-click="protocol.experience = 'Intermediate'") Intermediate
-						br
-						|FFMI of 20 to 25
-					.choice(ng-click="protocol.experience = 'Advanced'") Advanced
-						br
-						|FFMI over 25
-			.goal(ng-click="toggle_goal_choices_visible()") {{ protocol.goal }}
-				.choices(ng-show="goal_choices_visible")
-					header Select a goal:
-					.choice(ng-click="protocol.goal = 'Strength'") Strength
-					.choice(ng-click="protocol.goal = 'Hypertrophy'") Hypertrophy
-					.choice(ng-click="protocol.goal = 'Recomposition'") Recomposition
-					.choice(ng-click="protocol.goal = 'Performance'") Performance
-			.rating
-				.star(ng-class="{active: active_stars > 0, selected: selected_stars > 0, hover: hover_stars > 0}" ng-mouseover="hover_stars = 1" ng-mouseleave="hover_stars = 0" ng-click="set_stars(1)")
-				.star(ng-class="{active: active_stars > 1, selected: selected_stars > 1, hover: hover_stars > 1}" ng-mouseover="hover_stars = 2" ng-mouseleave="hover_stars = 0" ng-click="set_stars(2)")
-				.star(ng-class="{active: active_stars > 2, selected: selected_stars > 2, hover: hover_stars > 2}" ng-mouseover="hover_stars = 3" ng-mouseleave="hover_stars = 0" ng-click="set_stars(3)")
-				.star(ng-class="{active: active_stars > 3, selected: selected_stars > 3, hover: hover_stars > 3}" ng-mouseover="hover_stars = 4" ng-mouseleave="hover_stars = 0" ng-click="set_stars(4)")
-				.star(ng-class="{active: active_stars > 4, selected: selected_stars > 4, hover: hover_stars > 4}" ng-mouseover="hover_stars = 5" ng-mouseleave="hover_stars = 0" ng-click="set_stars(5)")
-			//.popularity
-				.rank 54
-				|&nbsp;out of  
-				.total 967
-			.buy
-				.price
-					.value.usd {{ protocol.priceUSD | currency:"USD $":0 }}
-					.value.btc #[i.fa.fa-btc]{{ protocol.priceBTC | number:3 }}
-				.add(ng-click="add_to_cart()") {{ add_to_cart_text() }}
-		.dna(dna)
-		.attributes
-			.favorite(ng-if="Athlete._id != protocol.owner" ng-click="favorite()" ng-class="{ 'active' : isFavorite() }")
-			.delete(ng-click="destroy()" ng-if="Athlete._id == protocol.owner") ×
-			.id X-{{ protocol._id.split('_')[1] }}
-			title(ng-model="protocol.title" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Type Here To Name This Protocol")
-			.description(ng-model="protocol.description" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Describe the intended purpose of this protocol here. You can suggest training and diet methods as well. Protocols with a title and description will be included in member search results.")
+  .panel.primary(ng-show="isSelected(1)")
+    .summary
+      .level(ng-click="toggle_experience_choices_visible()") {{ protocol.experience }}
+        .choices(ng-show="experience_choices_visible")
+          header Select Experience Level:
+          .choice(ng-click="protocol.experience = 'Beginner'") Beginner
+            br
+            |FFMI less than 20
+          .choice(ng-click="protocol.experience = 'Intermediate'") Intermediate
+            br
+            |FFMI of 20 to 25
+          .choice(ng-click="protocol.experience = 'Advanced'") Advanced
+            br
+            |FFMI over 25
+      .goal(ng-click="toggle_goal_choices_visible()") {{ protocol.goal }}
+        .choices(ng-show="goal_choices_visible")
+          header Select a goal:
+          .choice(ng-click="protocol.goal = 'Strength'") Strength
+          .choice(ng-click="protocol.goal = 'Hypertrophy'") Hypertrophy
+          .choice(ng-click="protocol.goal = 'Recomposition'") Recomposition
+          .choice(ng-click="protocol.goal = 'Performance'") Performance
+      .rating
+        .star(ng-class="{active: active_stars > 0, selected: selected_stars > 0, hover: hover_stars > 0}" ng-mouseover="hover_stars = 1" ng-mouseleave="hover_stars = 0" ng-click="set_stars(1)")
+        .star(ng-class="{active: active_stars > 1, selected: selected_stars > 1, hover: hover_stars > 1}" ng-mouseover="hover_stars = 2" ng-mouseleave="hover_stars = 0" ng-click="set_stars(2)")
+        .star(ng-class="{active: active_stars > 2, selected: selected_stars > 2, hover: hover_stars > 2}" ng-mouseover="hover_stars = 3" ng-mouseleave="hover_stars = 0" ng-click="set_stars(3)")
+        .star(ng-class="{active: active_stars > 3, selected: selected_stars > 3, hover: hover_stars > 3}" ng-mouseover="hover_stars = 4" ng-mouseleave="hover_stars = 0" ng-click="set_stars(4)")
+        .star(ng-class="{active: active_stars > 4, selected: selected_stars > 4, hover: hover_stars > 4}" ng-mouseover="hover_stars = 5" ng-mouseleave="hover_stars = 0" ng-click="set_stars(5)")
+      //.popularity
+        .rank 54
+        |&nbsp;out of  
+        .total 967
+      .buy
+        .price
+          .value.usd {{ protocol.priceUSD | currency:"USD $":0 }}
+          .value.btc #[i.fa.fa-btc]{{ protocol.priceBTC | number:3 }}
+        .add(ng-click="add_to_cart()") {{ add_to_cart_text() }}
+    .dna(dna)
+    .attributes
+      .favorite(ng-if="Athlete._id != protocol.owner" ng-click="favorite()" ng-class="{ 'active' : isFavorite() }")
+      .delete(ng-click="destroy()" ng-if="Athlete._id == protocol.owner") ×
+      .id X-{{ protocol._id.split('_')[1] }}
+      title(ng-model="protocol.title" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Type Here To Name This Protocol")
+      .description(ng-model="protocol.description" contenteditable="{{ Athlete._id == protocol.owner }}" placeholder="Describe the intended purpose of this protocol here. You can suggest training and diet methods as well. Protocols with a title and description will be included in member search results.")
 
-	.panel.formulations(ng-show="isSelected(2)")
-		.profile(ng-repeat="formulation in protocol.formulations" ng-show="formulation_isSelected($index + 1)")
-			.mode.inject
-			.quantity
-				.value {{ formulation.totalVolume | number:1 }}
-				mark ml
-			.dilution + {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLiquid™
-			.id Formula {{ formulation.id }}
-			.compounds
-				.compound(ng-repeat="(key, value) in formulation.compounds" )
-					.icon(ng-style="{'background-color': Compounds(key).color}")
-					.density {{ ( formulation.compounds[key] * Compounds(key).density ) / formulation.totalVolume | number:1 }} mg/ml
-					.name {{ Compounds(key).name }}
-			.description Protocols are formulated so doses are within 0.1ml for easy measuring with a standard 3ml syringe. Please measure your dose carefully.
-			.special
-		.list
-			.formulation(ng-repeat="formulation in protocol.formulations" ng-click="formulation_selectTab($index + 1)" ng-class="{ active:formulation_isSelected($index) }")
-				mark ml
-				.quantity {{ formulation.totalVolume | number:1 }}
-				.mode.inject
-				.icon
-					.circle(ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}")
-				.id Formula {{ formulation.id }}
-			
-	.panel.dose_schedule(ng-show="isSelected(3)")
-		.instructions
-			.day
-				.previous(ng-click="select_previous_day()") &lsaquo;
-				.value {{ selected_day }}
-					mark {{ ordinal( selected_day ) }} Day
-				.next(ng-click="select_next_day()") &rsaquo;
-			.doses
-				.dose(ng-repeat="id in protocol.schedule[selected_day]" ng-if="protocol.schedule[selected_day]")
-					mark ml
-					.quantity {{ dose_for_selected_day( id ) | number: 1 }}
-					.mode.injection
-					.icon
-						.circle(ng-repeat="(key, value) in protocol.formulations[ id ].compounds" ng-style="{'background-color': Compounds(key).color}")
-					.id Formula {{ id }}
+  .panel.formulations(ng-show="isSelected(2)")
+    .profile(ng-repeat="formulation in protocol.formulations" ng-show="formulation_isSelected($index + 1)")
+      .mode.inject
+      .quantity
+        .value {{ formulation.totalVolume | number:1 }}
+        mark ml
+      .dilution + {{ formulation.totalVolume - formulation.filler | number:1 }} ml of BioLiquid™
+      .id Formula {{ formulation.id }}
+      .compounds
+        .compound(ng-repeat="(key, value) in formulation.compounds" )
+          .icon(ng-style="{'background-color': Compounds(key).color}")
+          .density {{ ( formulation.compounds[key] * Compounds(key).density ) / formulation.totalVolume | number:1 }} mg/ml
+          .name {{ Compounds(key).name }}
+      .description Protocols are formulated so doses are within 0.1ml for easy measuring with a standard 3ml syringe. Please measure your dose carefully.
+      .special
+    .list
+      .formulation(ng-repeat="formulation in protocol.formulations" ng-click="formulation_selectTab($index + 1)" ng-class="{ active:formulation_isSelected($index) }")
+        mark ml
+        .quantity {{ formulation.totalVolume | number:1 }}
+        .mode.inject
+        .icon
+          .circle(ng-repeat="(key, value) in formulation.compounds" ng-style="{'background-color': Compounds(key).color}")
+        .id Formula {{ formulation.id }}
+      
+  .panel.dose_schedule(ng-show="isSelected(3)")
+    .instructions
+      .day
+        .previous(ng-click="select_previous_day()") &lsaquo;
+        .value {{ selected_day }}
+          mark {{ ordinal( selected_day ) }} Day
+        .next(ng-click="select_next_day()") &rsaquo;
+      .doses
+        .dose(ng-repeat="id in protocol.schedule[selected_day]" ng-if="protocol.schedule[selected_day]")
+          mark ml
+          .quantity {{ dose_for_selected_day( id ) | number: 1 }}
+          .mode.injection
+          .icon
+            .circle(ng-repeat="(key, value) in protocol.formulations[ id ].compounds" ng-style="{'background-color': Compounds(key).color}")
+          .id Formula {{ id }}
+    .calendar
+      .week(ng-repeat="week in calendar")
+        .day(ng-repeat="day in week" ng-class="{ active : day_has_dose( day ) }" ng-click="set_selected_day(day)"){{ day }}
 
-		.calendar
-			.week(ng-repeat="week in calendar")
-				.day(ng-repeat="day in week" ng-class="{ active : day_has_dose( day ) }" ng-click="set_selected_day(day)"){{ day }}
-
-	.panel.pharmacodynamics(ng-show="isSelected(4)")
-		.graph(pharmacodynamics)
-		.key
-			.item
-				.icon.red
-				.label Androgen Receptor Activity
-			.item
-				.icon.blue
-				.label Progesterone Receptor Activity
-			.item
-				.icon.orange
-				.label Estrogen α Receptor Activity
-			.item
-				.icon.yellow
-				.label Estrogen β Receptor Activity
-			.item
-				.icon.green
-				.label Gucocorticoid Receptor Activity
+  .panel.pharmacodynamics(ng-show="isSelected(4)")
+    .graph(pharmacodynamics)
+    .key
+      .item
+        .icon.red
+        .label Androgen Receptor Activity
+      .item
+        .icon.blue
+        .label Progesterone Receptor Activity
+      .item
+        .icon.orange
+        .label Estrogen α Receptor Activity
+      .item
+        .icon.yellow
+        .label Estrogen β Receptor Activity
+      .item
+        .icon.green
+        .label Gucocorticoid Receptor Activity
