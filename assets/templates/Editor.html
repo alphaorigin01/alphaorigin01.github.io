@@ -8,7 +8,7 @@
     </div>
     <div ng-show="choose_compound" class="compound_chooser">
       <header>
-        <div ng-model="compound_search" placeholder="Search" contenteditable="true" class="search"></div>
+        <input ng-model="compound_search" placeholder="Search" type="text" class="search"/>
         <div ng-click="choose_compound = false" class="icon">×</div>
       </header>
       <div ng-click="choose_compound = false" class="list">

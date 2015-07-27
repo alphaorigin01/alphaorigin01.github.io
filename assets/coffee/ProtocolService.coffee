@@ -422,10 +422,14 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               element.hour = index
               levels[ index ] = element
 
-            _.remove levels, (n) -> ( Object.keys(n).length is 1 )
+            levels = _.dropRightWhile levels, (n) -> ( Object.keys(n).length is 1 )
+            #_.remove levels, (n) -> ( Object.keys(n).length is 1 )
 
             that.graph.dataProvider = levels
             that.graph.validateData()
+
+            g.connect = false for g in that.graph.graphs
+            that.graph.drawChart()
 
             $timeout -> do that._update if that.graph.chartData.length is 0
 
@@ -440,6 +444,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               g.type = 'smoothedLine'
               g.lineThickness = 1
               g.fillAlphas = 1
+              g.connect = false
               g.balloonFunction = (graphDataItem, graph) ->
                 day = Math.floor( parseInt(graphDataItem.category) / 24 ) + 1
                 hour = Math.floor( ( parseInt(graphDataItem.category) / 24 - day + 1 ) / ( 1 / 24 ) )
@@ -454,6 +459,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               g.type = 'smoothedLine'
               g.lineThickness = 1
               g.fillAlphas = 1
+              g.connect = false
               g.balloonFunction = (graphDataItem, graph) ->
                 day = Math.floor( parseInt(graphDataItem.category) / 24 ) + 1
                 hour = Math.floor( ( parseInt(graphDataItem.category) / 24 - day + 1 ) / ( 1 / 24 ) )
@@ -468,6 +474,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               g.type = 'smoothedLine'
               g.lineThickness = 1
               g.fillAlphas = 1
+              g.connect = false
               g.balloonFunction = (graphDataItem, graph) ->
                 day = Math.floor( parseInt(graphDataItem.category) / 24 ) + 1
                 hour = Math.floor( ( parseInt(graphDataItem.category) / 24 - day + 1 ) / ( 1 / 24 ) )
@@ -482,6 +489,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               g.type = 'smoothedLine'
               g.lineThickness = 1
               g.fillAlphas = 1
+              g.connect = false
               g.balloonFunction = (graphDataItem, graph) ->
                 day = Math.floor( parseInt(graphDataItem.category) / 24 ) + 1
                 hour = Math.floor( ( parseInt(graphDataItem.category) / 24 - day + 1 ) / ( 1 / 24 ) )
@@ -496,6 +504,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
               g.type = 'smoothedLine'
               g.lineThickness = 1
               g.fillAlphas = 1
+              g.connect = false
               g.balloonFunction = (graphDataItem, graph) ->
                 day = Math.floor( parseInt(graphDataItem.category) / 24 ) + 1
                 hour = Math.floor( ( parseInt(graphDataItem.category) / 24 - day + 1 ) / ( 1 / 24 ) )
@@ -636,7 +645,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
             }
             'zoomOutButtonImage': ''
             'zoomOutText': ''
-            'graphs': []
+            'graphs': [{'connect': false}]
             'valueAxes': [
               {
                 'id': 'ValueAxis-1'

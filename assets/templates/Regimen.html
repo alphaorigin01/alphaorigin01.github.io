@@ -17,7 +17,7 @@
     <div ng-mouseenter="activeTooltip = true" ng-mouseleave="activeTooltip = false" class="active">
       <div class="icon"></div>
       <label>Active Target</label>
-      <div ng-model="regimen.adjustedActiveTarget" contenteditable="true" class="value"></div>
+      <input ng-model="regimen.adjustedActiveTarget" type="number" class="value"/>
       <mark>mg</mark>
       <div ng-show="activeTooltip" class="tooltip top"><strong>Active Target</strong>is the average amount of active compound in blood serum<i>(not the amount injected)</i>. It is adjusted automatically to the ideal level for your FFMI but you're free to adjust it as needed.</div>
     </div>
@@ -35,7 +35,7 @@
     <div ng-mouseenter="densityTooltip = true" ng-mouseleave="densityTooltip = false" class="bioliquid_density">
       <div class="icon"></div>
       <label>BioLiquid Density</label>
-      <div ng-model="regimen.density" contenteditable="true" class="value"></div>
+      <input ng-model="regimen.density" type="number" class="value"/>
       <mark>mg/ml</mark>
       <div ng-show="densityTooltip" class="tooltip top"><strong>Density</strong>is how concentrated the compound is in BioLiquid. Higher concentrations allow for smaller doses but may cause inflamation in some athletes.</div>
     </div>
@@ -53,13 +53,13 @@
     <div ng-mouseenter="startDayTooltip = true" ng-mouseleave="startDayTooltip = false" class="start">
       <div class="icon"></div>
       <label>Start Day</label>
-      <div ng-model="regimen.startDay" contenteditable="true" class="value"></div>
+      <input ng-model="regimen.startDay" type="number" class="value"/>
       <div ng-show="startDayTooltip" class="tooltip top"><strong>Start Day</strong>is the day you will take your first dose of this compound. Usually a loading dose is automatically calculated for the lowest variance.</div>
     </div>
     <div ng-mouseenter="duration_adjust_visible = true" ng-mouseleave="duration_adjust_visible = false" class="duration">
       <div class="icon"></div>
       <label>Duration</label>
-      <div ng-model="regimen.duration" contenteditable="true" class="value"></div>
+      <input ng-model="regimen.duration" type="number" class="value"/>
       <mark>Days</mark>
       <div ng-show="duration_adjust_visible" class="adjust">
         <div ng-click="increase_duration()" class="up"></div>

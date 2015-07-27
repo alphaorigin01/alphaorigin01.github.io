@@ -15,7 +15,7 @@
 		.active(ng-mouseenter="activeTooltip = true" ng-mouseleave="activeTooltip = false")
 			.icon
 			label Active Target
-			.value(ng-model="regimen.adjustedActiveTarget" contenteditable="true")
+			input.value(ng-model="regimen.adjustedActiveTarget" type="number")
 			mark mg
 			.tooltip.top(ng-show="activeTooltip")
 				strong Active Target
@@ -36,7 +36,7 @@
 		.bioliquid_density(ng-mouseenter="densityTooltip = true" ng-mouseleave="densityTooltip = false")
 			.icon
 			label BioLiquid Density
-			.value(ng-model="regimen.density" contenteditable="true")
+			input.value(ng-model="regimen.density" type="number")
 			mark mg/ml
 			.tooltip.top(ng-show="densityTooltip")
 				strong Density
@@ -55,14 +55,14 @@
 		.start(ng-mouseenter="startDayTooltip = true" ng-mouseleave="startDayTooltip = false")
 			.icon
 			label Start Day
-			.value(ng-model="regimen.startDay" contenteditable="true")
+			input.value(ng-model="regimen.startDay" type="number")
 			.tooltip.top(ng-show="startDayTooltip")
 				strong Start Day
 				| is the day you will take your first dose of this compound. Usually a loading dose is automatically calculated for the lowest variance.
 		.duration(ng-mouseenter="duration_adjust_visible = true" ng-mouseleave="duration_adjust_visible = false")
 			.icon
 			label Duration
-			.value(ng-model="regimen.duration" contenteditable="true")
+			input.value(ng-model="regimen.duration" type="number")
 			mark Days
 			.adjust(ng-show="duration_adjust_visible")
 				.up(ng-click="increase_duration()")

@@ -406,7 +406,7 @@
             that.accessoriesPriceUSD += 2;
             that.priceUSD += that.accessoriesPriceUSD * 2;
             return $rootScope.$evalAsync(function() {
-              var a, c, compound, compoundIds, data, g, id, item, l, len1, len2, len3, len4, levels, m, mg, o, p, receptorLevels, ref4, ref5, ref6, regimen;
+              var a, c, compound, compoundIds, data, g, id, item, l, len1, len2, len3, len4, len5, levels, m, mg, o, p, q, receptorLevels, ref4, ref5, ref6, ref7, regimen;
               if (that.graph != null) {
                 that.graph.graphs = [];
                 compoundIds = [];
@@ -448,11 +448,17 @@
                   element.hour = index;
                   return levels[index] = element;
                 });
-                _.remove(levels, function(n) {
+                levels = _.dropRightWhile(levels, function(n) {
                   return Object.keys(n).length === 1;
                 });
                 that.graph.dataProvider = levels;
                 that.graph.validateData();
+                ref7 = that.graph.graphs;
+                for (p = 0, len4 = ref7.length; p < len4; p++) {
+                  g = ref7[p];
+                  g.connect = false;
+                }
+                that.graph.drawChart();
                 $timeout(function() {
                   if (that.graph.chartData.length === 0) {
                     return that._update();
@@ -467,6 +473,7 @@
                   g.type = 'smoothedLine';
                   g.lineThickness = 1;
                   g.fillAlphas = 1;
+                  g.connect = false;
                   g.balloonFunction = function(graphDataItem, graph) {
                     var hour;
                     day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
@@ -481,6 +488,7 @@
                   g.type = 'smoothedLine';
                   g.lineThickness = 1;
                   g.fillAlphas = 1;
+                  g.connect = false;
                   g.balloonFunction = function(graphDataItem, graph) {
                     var hour;
                     day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
@@ -495,6 +503,7 @@
                   g.type = 'smoothedLine';
                   g.lineThickness = 1;
                   g.fillAlphas = 1;
+                  g.connect = false;
                   g.balloonFunction = function(graphDataItem, graph) {
                     var hour;
                     day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
@@ -509,6 +518,7 @@
                   g.type = 'smoothedLine';
                   g.lineThickness = 1;
                   g.fillAlphas = 1;
+                  g.connect = false;
                   g.balloonFunction = function(graphDataItem, graph) {
                     var hour;
                     day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
@@ -523,6 +533,7 @@
                   g.type = 'smoothedLine';
                   g.lineThickness = 1;
                   g.fillAlphas = 1;
+                  g.connect = false;
                   g.balloonFunction = function(graphDataItem, graph) {
                     var hour;
                     day = Math.floor(parseInt(graphDataItem.category) / 24) + 1;
@@ -531,8 +542,8 @@
                   };
                   that.pharmacodynamics.addGraph(g);
                   that.pharmacodynamics.dataProvider = receptorLevels = [];
-                  for (p = 0, len4 = levels.length; p < len4; p++) {
-                    item = levels[p];
+                  for (q = 0, len5 = levels.length; q < len5; q++) {
+                    item = levels[q];
                     a = {
                       hour: item.hour,
                       androgen: 0,
@@ -683,7 +694,11 @@
                 },
                 'zoomOutButtonImage': '',
                 'zoomOutText': '',
-                'graphs': [],
+                'graphs': [
+                  {
+                    'connect': false
+                  }
+                ],
                 'valueAxes': [
                   {
                     'id': 'ValueAxis-1',

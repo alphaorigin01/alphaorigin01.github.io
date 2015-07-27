@@ -8,7 +8,7 @@ section#editor(ng-show="visibleEditor")
 
 		.compound_chooser(ng-show="choose_compound")
 			header
-				.search(ng-model="compound_search" placeholder="Search" contenteditable="true")
+				input.search(ng-model="compound_search" placeholder="Search" type="text")
 				.icon(ng-click="choose_compound = false") ×
 			.list(ng-click="choose_compound = false")
 				.compound(ng-repeat="compound in Compounds('list') | filter : compound_search" ng-click="protocol.addComponent(compound.id)")

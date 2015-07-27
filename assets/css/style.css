@@ -1485,7 +1485,7 @@ header {
   font-weight: 500;
   line-height: 20px;
   text-transform: uppercase;
-  line-height: 10px;
+  line-height: 110px;
   font-size: 30px;
   font-weight: 200;
   text-align: center;
@@ -1561,16 +1561,25 @@ header {
 .regimen .metrics > * .adjust .up,
 .regimen .metrics > * .adjust .down {
   position: absolute;
-  border-left: 0.75px solid transparent;
-  border-right: 0.75px solid transparent;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
   cursor: pointer;
 }
 .regimen .metrics > * .adjust .up {
-  border-bottom: 0.75px solid #e1e1e1;
+  border-bottom: 7.5px solid #e1e1e1;
 }
 .regimen .metrics > * .adjust .down {
   bottom: 0;
-  border-top: 0.75px solid #e1e1e1;
+  border-top: 7.5px solid #e1e1e1;
+}
+.regimen .metrics input {
+  width: 55px;
+  height: 25px;
+  padding: 0;
+  margin: -2px 0 0 0;
+  color: #323234;
+  background: #fff;
+  text-align: left;
 }
 .regimen .metrics .active .icon {
   background: url("../images/icon-plasma.png");
