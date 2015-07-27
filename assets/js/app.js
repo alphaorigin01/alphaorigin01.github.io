@@ -3,10 +3,6 @@
   'use strict';
   var app;
 
-  if (window.location.protocol !== "https:") {
-    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-  }
-
   app = angular.module('lab', ['Login', 'NewMember', 'PubNubService', 'BTCService', 'OrderService', 'Order', 'AthleteService', 'Athlete', 'Messages', 'ProtocolService', 'Protocol', 'StatusBar', 'PrimaryMenu', 'Masthead', 'ShoppingCart', 'Search', 'ProtocolByID', 'Editor']);
 
 
