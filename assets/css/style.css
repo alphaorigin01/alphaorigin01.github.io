@@ -1715,6 +1715,7 @@ header {
 .compound_chooser .list {
   width: 680px;
   height: 350px;
+  display: block;
   overflow-x: hidden;
   overflow-y: auto;
 }

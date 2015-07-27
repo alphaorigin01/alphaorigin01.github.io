@@ -364,7 +364,7 @@ ProtocolService.factory 'Protocol', [ 'Compounds', 'Athlete', 'BTCrate', 'PubNub
         for i of that.formulations
           formulation = that.formulations[i]
           for s in formulation.schedules
-            for day in [ s.startDay..s.duration ] by s.interval
+            for day in [ s.startDay..(s.duration + s.startDay) ] by s.interval
               schedule[day] = [] if not schedule[day]?
               schedule[day].push formulation.id
               schedule[day] = _.uniq schedule[day]

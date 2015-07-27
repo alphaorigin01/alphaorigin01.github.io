@@ -382,7 +382,7 @@
               ref = formulation.schedules;
               for (j = 0, len = ref.length; j < len; j++) {
                 s = ref[j];
-                for (day = k = ref1 = s.startDay, ref2 = s.duration, ref3 = s.interval; ref3 > 0 ? k <= ref2 : k >= ref2; day = k += ref3) {
+                for (day = k = ref1 = s.startDay, ref2 = s.duration + s.startDay, ref3 = s.interval; ref3 > 0 ? k <= ref2 : k >= ref2; day = k += ref3) {
                   if (schedule[day] == null) {
                     schedule[day] = [];
                   }
