@@ -94,14 +94,14 @@ setInterval UpdateCoinBaseData, 300000
 ###                       Cloudant                      ###
 ###########################################################
 
-Cloudant = require('nano')('https://timothyjoelwright.cloudant.com')
+Cloudant = require('nano')('https://alphaorigin.cloudant.com')
 AlphaDB = null
 
 do UpdateCloudant = ->
-  Cloudant.auth 'timothyjoelwright', 'BfIQ6JX3CAfBmCx', (err, response, headers) ->
+  Cloudant.auth 'alphaorigin', 'BfIQ6JX3CAfBmCx', (err, response, headers) ->
     try cookie = headers['set-cookie']
     console.log 'cookie: ', cookie
-    Cloudant = require('nano')({ url : 'https://timothyjoelwright.cloudant.com', cookie: cookie })
+    Cloudant = require('nano')({ url : 'https://alphaorigin.cloudant.com', cookie: cookie })
 
     AlphaDB = Cloudant.use 'alpha'
 

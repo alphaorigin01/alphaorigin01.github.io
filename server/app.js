@@ -118,19 +118,19 @@
 
   /*                       Cloudant */
 
-  Cloudant = require('nano')('https://timothyjoelwright.cloudant.com');
+  Cloudant = require('nano')('https://alphaorigin.cloudant.com');
 
   AlphaDB = null;
 
   (UpdateCloudant = function() {
-    return Cloudant.auth('timothyjoelwright', 'BfIQ6JX3CAfBmCx', function(err, response, headers) {
+    return Cloudant.auth('alphaorigin', 'BfIQ6JX3CAfBmCx', function(err, response, headers) {
       var cookie;
       try {
         cookie = headers['set-cookie'];
       } catch (_error) {}
       console.log('cookie: ', cookie);
       Cloudant = require('nano')({
-        url: 'https://timothyjoelwright.cloudant.com',
+        url: 'https://alphaorigin.cloudant.com',
         cookie: cookie
       });
       return AlphaDB = Cloudant.use('alpha');

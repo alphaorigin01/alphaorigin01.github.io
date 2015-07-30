@@ -9,6 +9,11 @@ app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Ath
   window.NewMember = $scope
   $scope.athlete = Athlete
 
+  $scope.$on 'Waiting for Server', ->
+    $scope.spin = true
+  $scope.$on 'Server Responded', ->
+    $scope.spin = false
+
   $scope.$on 'Server : Online', ->
     $scope.$evalAsync -> $scope.visibleNewMember = true if not Athlete._rev?
 
@@ -72,7 +77,7 @@ app.controller 'NewMemberController', [ '$scope', '$rootScope', '$timeout', 'Ath
       Athlete.invitation = $scope.invitation
       Athlete.password = $scope.password
       PubNub 'AthleteService : New Athlete', Athlete
-
+      $rootScope.$broadcast 'Waiting for Server'
 ]
 
 ###########################################################

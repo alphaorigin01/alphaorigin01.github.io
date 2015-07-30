@@ -65,8 +65,10 @@ PubNubService.factory 'PubNub', [ '$rootScope', ($rootScope) ->
         message = Decrypt message
         console.log 'PubNub Service: ', message.action, ' : ', message.data
         $rootScope.$broadcast message.action, message.data
+        $rootScope.$broadcast 'Server Responded'
       connect  : ->
         $rootScope.$evalAsync -> $rootScope.$broadcast 'PubNubService : Athlete Connected'
+        $rootScope.$broadcast 'Server Responded'
     }
 
     PubNub.subscribe {

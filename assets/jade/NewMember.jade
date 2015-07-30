@@ -22,4 +22,8 @@ section#newMember(ng-show="visibleNewMember")
 		.icon#password(ng-class="{ ok : passwordValid }")
 		input.invitation(ng-model="invitation" type="text" placeholder="INVITATION CODE")
 		.icon#invitation(ng-class="{ ok : invitationValid, fail : invitationInvalid }")
-		.submit.active(ng-click="requestMembership()") {{ buttonStatus() }}
+		.submit.active(ng-click="requestMembership()" ng-class="{ spin : spin }") {{ buttonStatus() }}
+			.spinner
+				.bounce1
+				.bounce2
+				.bounce3

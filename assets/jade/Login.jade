@@ -2,7 +2,11 @@
 	.title Member Login
 	input.username(ng-model="username" type="text" placeholder="USERNAME")
 	input.password(ng-model="password" type="text" placeholder="PASSWORD")
-	.attemptLogin(ng-click="login()") Login
+	.attemptLogin(ng-click="login()" ng-class="{ spin : spin }") Login
+		.spinner
+			.bounce1
+			.bounce2
+			.bounce3
 	.security
 		strong Warning!
 		| Passwords can't be reset or recovered! For your security, your password is never sent to our servers. We have no way to recover your account if you lose your password. Please keep it safe!

@@ -9,12 +9,19 @@ app.controller 'LoginController', [ '$scope', '$rootScope', 'Athlete', ($scope, 
   $scope.$on 'Server : Online', ->
     $scope.$evalAsync -> $scope.visibleLogin = true if not Athlete._rev?
 
+  $scope.$on 'Waiting for Server', ->
+    $scope.spin = true
+
+  $scope.$on 'Server Responded', ->
+    $scope.spin = false
+
   $scope.login = ->
     return if not $scope.username? or $scope.username is '' or not $scope.password? or $scope.password is ''
     $rootScope.$broadcast 'AthleteService : Login', {
       username : $scope.username
       password : $scope.password
     }
+    $rootScope.$broadcast 'Waiting for Server'
 
   $('.password').bind 'keydown',  (e) ->
     if e.keyCode is 13
