@@ -11,7 +11,6 @@ app.controller 'LoginController', [ '$scope', '$rootScope', 'Athlete', ($scope, 
 
   $scope.$on 'Waiting for Server', ->
     $scope.spin = true
-
   $scope.$on 'Server Responded', ->
     $scope.spin = false
 
